@@ -10,10 +10,13 @@
       <item>
         <title>Algorithm 강좌(2) - dynamic programming</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Algorithm 강좌 리스트&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘 기본&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-control-statement&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;a href=&quot;./algorithm-control-statement&quot; style=&quot;color:#92B3B7&quot;&gt; Algorithm 강좌 한눈에 확인하기&lt;/a&gt;&lt;/li&gt;
+
 &lt;/ul&gt;
 &lt;h2 id=&quot;또-안녕&quot;&gt;또 안녕&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;동적 계획법이란 무엇일까?&lt;/strong&gt;&lt;/p&gt;
@@ -31,10 +34,13 @@
       <item>
         <title>Algorithm 강좌(1) - 알고리즘 기본</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Algorithm 강좌 리스트&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘 기본&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-control-statement&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;a href=&quot;./algorithm-control-statement&quot; style=&quot;color:#92B3B7&quot;&gt; Algorithm 강좌 한눈에 확인하기&lt;/a&gt;&lt;/li&gt;
+
 &lt;/ul&gt;
 &lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
 &lt;p&gt;코테 잘하고싶다.&lt;/p&gt;

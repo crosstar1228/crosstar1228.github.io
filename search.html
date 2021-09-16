@@ -11,7 +11,7 @@
 
 
 
-    <title>All Tags</title>
+    <title>Search Result</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -53,19 +53,19 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="IT/인공지능 서랍장" />
     <link rel="shortcut icon" href="https://crosstar1228.github.io/assets/built/images/favicon1.gif" type="image/png" />
-    <link rel="canonical" href="https://crosstar1228.github.io/author_archive" />
+    <link rel="canonical" href="https://crosstar1228.github.io/search" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="Crosstar's Romantic AI" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="All Tags" />
+    <meta property="og:title" content="Search Result" />
     <meta property="og:description" content="IT/인공지능 서랍장" />
-    <meta property="og:url" content="https://crosstar1228.github.io/author_archive" />
+    <meta property="og:url" content="https://crosstar1228.github.io/search" />
     <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/trip1.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="All Tags" />
+    <meta name="twitter:title" content="Search Result" />
     <meta name="twitter:description" content="IT/인공지능 서랍장" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
     <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/trip1.jpg" />
@@ -85,7 +85,7 @@
         "name": "Crosstar's Romantic AI",
         "logo": "https://crosstar1228.github.io/"
     },
-    "url": "https://crosstar1228.github.io/author_archive",
+    "url": "https://crosstar1228.github.io/search",
     "image": {
         "@type": "ImageObject",
         "url": "https://crosstar1228.github.io/assets/built/images/trip1.jpg",
@@ -94,7 +94,7 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://crosstar1228.github.io/author_archive"
+        "@id": "https://crosstar1228.github.io/search"
     },
     "description": "IT/인공지능 서랍장"
 }
@@ -109,7 +109,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="All Tags" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Search Result" href="/feed.xml" />
 
 
 </head>
@@ -174,53 +174,53 @@ into the {body} of the default.hbs template -->
         <article class="post-full  post page no-image">
 
             <header class="post-full-header">
-                <h1 class="post-full-title">All Tags</h1>
+                <h1 class="post-full-title">Search Result</h1>
             </header>
 
             
 
             <section class="post-full-content">
-                <div id="post-index" class="well article">
+                <form action="/search" method="get" hidden="hidden">
+    <label for="search-box"></label>
+    <input type="text" id="search-box" name="query">
+</form>
 
+<ul class="mylist" id="search-results"></ul>
 
-
-<ul class="entry-meta inline-list">
-  
+<script>
+    window.store = {
     
-  	<li><a href="#Getting started" class="tag"><span class="term alltags">Getting started</span> <span class="count alltags">1</span></a></li>
-  
+    "algorithm-dynamic": {
+        "title": "Algorithm 강좌(2) - dynamic programming",
+            "author": "crosstar",
+            "category": "",
+            "content": "코테의 기본! Algorithm 강좌 및 실습    Algorithm 강좌(1) - 알고리즘 기본    Algorithm 강좌(2) - dynamic programming     Algorithm 강좌 한눈에 확인하기또 안녕동적 계획법이란 무엇일까?진짜로.후..for i in range(30):    print(f)",
+        "url": "/algorithm-dynamic"
+    }
+    ,
     
-  	<li><a href="#algorithm" class="tag"><span class="term alltags">algorithm</span> <span class="count alltags">2</span></a></li>
-  
-</ul>
-
-
-
-<article>
-<h2 id="Getting started" class="tag-heading">GETTING STARTED</h2>
-<ul>
-
-<!-- <li class="entry-title"><a href="https://crosstar1228.github.io/welcome" target="_blank" title="Welcome to Ghost">Welcome to Ghost</a></li> -->
-<li class="entry-title"><a href="/welcome" target="_blank" title="Welcome to Ghost">Welcome to Ghost</a></li>
-
-</ul>
-</article><!-- /.hentry -->
-
-
-<article>
-<h2 id="algorithm" class="tag-heading">ALGORITHM</h2>
-<ul>
-
-<!-- <li class="entry-title"><a href="https://crosstar1228.github.io/algorithm-dynamic" target="_blank" title="Algorithm 강좌(2) - dynamic programming">Algorithm 강좌(2) - dynamic programming</a></li> -->
-<li class="entry-title"><a href="/algorithm-dynamic" target="_blank" title="Algorithm 강좌(2) - dynamic programming">Algorithm 강좌(2) - dynamic programming</a></li>
-
-<!-- <li class="entry-title"><a href="https://crosstar1228.github.io/algorithm-basic" target="_blank" title="Algorithm 강좌(1) - 알고리즘 기본">Algorithm 강좌(1) - 알고리즘 기본</a></li> -->
-<li class="entry-title"><a href="/algorithm-basic" target="_blank" title="Algorithm 강좌(1) - 알고리즘 기본">Algorithm 강좌(1) - 알고리즘 기본</a></li>
-
-</ul>
-</article><!-- /.hentry -->
-
-</div>
+    "algorithm-basic": {
+        "title": "Algorithm 강좌(1) - 알고리즘 기본",
+            "author": "crosstar",
+            "category": "",
+            "content": "코테의 기본! Algorithm 강좌 및 실습    Algorithm 강좌(1) - 알고리즘 기본    Algorithm 강좌(2) - dynamic programming     Algorithm 강좌 한눈에 확인하기안녕코테 잘하고싶다.진짜로.후..",
+        "url": "/algorithm-basic"
+    }
+    ,
+    
+    "welcome": {
+        "title": "Welcome to Ghost",
+            "author": "ghost",
+            "category": "",
+            "content": "Hey! Welcome to Ghost, it’s great to have you :)We know that first impressions are important, so we’ve populated your new site with some initial Getting Started posts that will help you get familiar with everything in no time. This is the first one!There are a few things that you should know up-front:  Ghost is designed for ambitious, professional publishers who want to actively build a business around their content. That’s who it works best for. If you’re using Ghost for some other purpose, that’s fine too - but it might not be the best choice for you.  The entire platform can be modified and customized to suit your needs, which is very powerful, but doing so does require some knowledge of code. Ghost is not necessarily a good platform for beginners or people who just want a simple personal blog.  For the best experience we recommend downloading the Ghost Desktop App for your computer, which is the best way to access your Ghost site on a desktop device.Ghost is made by an independent non-profit organisation called the Ghost Foundation. We are 100% self funded by revenue from our Ghost(Pro) service, and every penny we make is re-invested into funding further development of free, open source technology for modern journalism.The main thing you’ll want to read about next is probably: the Ghost editor.Once you’re done reading, you can simply delete the default Ghost user from your team to remove all of these introductory posts!",
+        "url": "/welcome"
+    }
+    
+    
+    };
+</script>
+<script src="assets/js/lunr.js"></script>
+<script src="assets/js/search.js"></script>
 
             </section>
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crosstar1228.github.io/sitemap.xml
