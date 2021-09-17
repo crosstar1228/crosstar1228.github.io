@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-17T15:26:29+00:00</updated>
+  <updated>2021-09-17T15:52:40+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -30,6 +30,41 @@
   
   
 
+  
+    <entry>
+      <title type="html">Welcome to Crosstar’s Drawer of AI</title>
+      <link href="https://crosstar1228.github.io/welcome" rel="alternate" type="text/html" title="Welcome to Crosstar's Drawer of AI" />
+      <published>2021-09-17T10:00:00+00:00</published>
+      <updated>2021-09-17T10:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/welcome</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/welcome">&lt;p&gt;Finally My personal blog has been completed!&lt;br /&gt;
+Glad to share my short knowledge.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="crosstar" />
+      
+
+      
+        <summary type="html">Finally My personal blog has been completed! Glad to share my short knowledge.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Algorithm 강좌(1) - 알고리즘 기본</title>

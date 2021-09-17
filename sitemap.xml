@@ -8,6 +8,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://crosstar1228.github.io/welcome.html</loc>
+        
+        <lastmod>2021-09-17T10:00:00+00:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://crosstar1228.github.io/algorithm-dynamic.html</loc>
         
         <lastmod>2021-09-14T16:40:00+00:00</lastmod>
@@ -27,22 +43,6 @@
         <loc>https://crosstar1228.github.io/algorithm-basic.html</loc>
         
         <lastmod>2021-09-14T16:40:00+00:00</lastmod>
-        
-
-        
-        <changefreq>weekly</changefreq>
-        
-
-        
-        <priority>0.5</priority>
-        
-
-    </url>
-    
-    <url>
-        <loc>https://crosstar1228.github.io/welcome.html</loc>
-        
-        <lastmod>2017-07-27T10:00:00+00:00</lastmod>
         
 
         
