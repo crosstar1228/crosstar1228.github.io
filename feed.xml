@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-16T19:45:54+09:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">Algorithm 강좌(2) - dynamic programming</title><link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="Algorithm 강좌(2) - dynamic programming" /><published>2021-09-15T01:40:00+09:00</published><updated>2021-09-15T01:40:00+09:00</updated><id>https://crosstar1228.github.io/algorithm-dynamic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-17T14:20:46+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">Algorithm 강좌(1) - 알고리즘 기본</title><link href="https://crosstar1228.github.io/algorithm-basic" rel="alternate" type="text/html" title="Algorithm 강좌(1) - 알고리즘 기본" /><published>2021-09-14T16:40:00+00:00</published><updated>2021-09-14T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-basic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-basic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘 기본&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;a href=&quot;./algorithm-control-statement&quot; style=&quot;color:#92B3B7&quot;&gt; Algorithm 강좌 한눈에 확인하기&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;코테 잘하고싶다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;..&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘 기본 Algorithm 강좌(2) - dynamic programming Algorithm 강좌 한눈에 확인하기 안녕 코테 잘하고싶다.</summary></entry><entry><title type="html">Algorithm 강좌(2) - dynamic programming</title><link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="Algorithm 강좌(2) - dynamic programming" /><published>2021-09-14T16:40:00+00:00</published><updated>2021-09-14T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-dynamic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘 기본&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
@@ -12,9 +24,13 @@
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;..&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;noscript&gt;&lt;pre&gt;# Jekyll configuration
@@ -173,19 +189,7 @@ exclude:
   - _posts/iot
   - _posts/r
   - _posts/economy&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/crosstar1228/72405adebf1b45691bf061cd789929b6.js&quot;&gt; &lt;/script&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘 기본 Algorithm 강좌(2) - dynamic programming Algorithm 강좌 한눈에 확인하기 또 안녕 동적 계획법이란 무엇일까?</summary></entry><entry><title type="html">Algorithm 강좌(1) - 알고리즘 기본</title><link href="https://crosstar1228.github.io/algorithm-basic" rel="alternate" type="text/html" title="Algorithm 강좌(1) - 알고리즘 기본" /><published>2021-09-15T01:40:00+09:00</published><updated>2021-09-15T01:40:00+09:00</updated><id>https://crosstar1228.github.io/algorithm-basic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-basic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘 기본&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
-
-    &lt;li&gt;&lt;a href=&quot;./algorithm-control-statement&quot; style=&quot;color:#92B3B7&quot;&gt; Algorithm 강좌 한눈에 확인하기&lt;/a&gt;&lt;/li&gt;
-
-&lt;/ul&gt;
-&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;코테 잘하고싶다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;..&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘 기본 Algorithm 강좌(2) - dynamic programming Algorithm 강좌 한눈에 확인하기 안녕 코테 잘하고싶다.</summary></entry><entry><title type="html">Welcome to Ghost</title><link href="https://crosstar1228.github.io/welcome" rel="alternate" type="text/html" title="Welcome to Ghost" /><published>2017-07-27T19:00:00+09:00</published><updated>2017-07-27T19:00:00+09:00</updated><id>https://crosstar1228.github.io/welcome</id><content type="html" xml:base="https://crosstar1228.github.io/welcome">&lt;p&gt;Hey! Welcome to Ghost, it’s great to have you :)&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/crosstar1228/72405adebf1b45691bf061cd789929b6.js&quot;&gt; &lt;/script&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘 기본 Algorithm 강좌(2) - dynamic programming Algorithm 강좌 한눈에 확인하기 또 안녕 동적 계획법이란 무엇일까?</summary></entry><entry><title type="html">Welcome to Ghost</title><link href="https://crosstar1228.github.io/welcome" rel="alternate" type="text/html" title="Welcome to Ghost" /><published>2017-07-27T10:00:00+00:00</published><updated>2017-07-27T10:00:00+00:00</updated><id>https://crosstar1228.github.io/welcome</id><content type="html" xml:base="https://crosstar1228.github.io/welcome">&lt;p&gt;Hey! Welcome to Ghost, it’s great to have you :)&lt;/p&gt;
 
 &lt;p&gt;We know that first impressions are important, so we’ve populated your new site with some initial &lt;strong&gt;Getting Started&lt;/strong&gt; posts that will help you get familiar with everything in no time. This is the first one!&lt;/p&gt;
 

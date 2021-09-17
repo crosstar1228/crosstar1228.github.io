@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/getting-started/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-16T19:45:54+09:00</updated>
+  <updated>2021-09-17T14:20:46+00:00</updated>
   <id>https://crosstar1228.github.io/tag/getting-started/feed.xml</id>
 
   
@@ -34,8 +34,8 @@
     <entry>
       <title type="html">Welcome to Ghost</title>
       <link href="https://crosstar1228.github.io/welcome" rel="alternate" type="text/html" title="Welcome to Ghost" />
-      <published>2017-07-27T19:00:00+09:00</published>
-      <updated>2017-07-27T19:00:00+09:00</updated>
+      <published>2017-07-27T10:00:00+00:00</published>
+      <updated>2017-07-27T10:00:00+00:00</updated>
       <id>https://crosstar1228.github.io/welcome</id>
       <content type="html" xml:base="https://crosstar1228.github.io/welcome">&lt;p&gt;Hey! Welcome to Ghost, it’s great to have you :)&lt;/p&gt;
 
