@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://crosstar1228.github.io/tag/machinelearning/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://crosstar1228.github.io/tag/cs231n/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
   <updated>2021-09-19T16:31:54+00:00</updated>
-  <id>https://crosstar1228.github.io/tag/machinelearning/feed.xml</id>
+  <id>https://crosstar1228.github.io/tag/cs231n/feed.xml</id>
 
   
   
@@ -32,13 +32,15 @@
 
   
     <entry>
-      <title type="html">Machine learning (1) Generative Model과 GAN</title>
-      <link href="https://crosstar1228.github.io/ML-GAN2" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" />
+      <title type="html">CS231n Lecture 3. Neural Network</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec2" rel="alternate" type="text/html" title="CS231n Lecture 3.  Neural Network" />
       <published>2021-09-15T11:00:00+00:00</published>
       <updated>2021-09-15T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/ML-GAN2</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/ML-GAN2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
+      <id>https://crosstar1228.github.io/cs231n-lec2</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n&lt;/p&gt;
+
+&lt;p&gt;강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content>
@@ -58,11 +60,11 @@
       
 
       
-        <category term="machinelearning" />
+        <category term="cs231n" />
       
 
       
-        <summary type="html">안녕 머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!</summary>
+        <summary type="html">안녕 cs231n</summary>
       
 
       
@@ -70,13 +72,13 @@
     </entry>
   
     <entry>
-      <title type="html">Machine learning (1) Generative Model과 GAN</title>
-      <link href="https://crosstar1228.github.io/ML-GAN" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" />
+      <title type="html">CS231n Lecture 2. Linear Classifier</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec1" rel="alternate" type="text/html" title="CS231n Lecture 2.  Linear Classifier" />
       <published>2021-09-15T11:00:00+00:00</published>
       <updated>2021-09-15T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/ML-GAN</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/ML-GAN">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
+      <id>https://crosstar1228.github.io/cs231n-lec1</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec1">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n 강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content>
@@ -96,11 +98,11 @@
       
 
       
-        <category term="machinelearning" />
+        <category term="cs231n" />
       
 
       
-        <summary type="html">안녕 머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!</summary>
+        <summary type="html">안녕 cs231n 강의 잘하고싶다.~~~~~~~~~~!!!!!!</summary>
       
 
       
