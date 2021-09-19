@@ -1,30 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-19T15:59:48+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-giterrors-1" rel="alternate" type="text/html" title="" /><published>2021-09-19T15:59:48+00:00</published><updated>2021-09-19T15:59:48+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-giterrors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-giterrors-1">&lt;h2 id=&quot;또-안녕&quot;&gt;또 안녕&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;동적 계획법이란 무엇일까?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;….&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author></entry><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-giterrors-2" rel="alternate" type="text/html" title="" /><published>2021-09-19T15:59:48+00:00</published><updated>2021-09-19T15:59:48+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-giterrors-2</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-giterrors-2">&lt;h2 id=&quot;또-안녕&quot;&gt;또 안녕&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;동적 계획법이란 무엇일까?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;….&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author></entry><entry><title type="html">Machine learning (1) Generative Model과 GAN</title><link href="https://crosstar1228.github.io/ML-GAN" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/ML-GAN</id><content type="html" xml:base="https://crosstar1228.github.io/ML-GAN">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-19T16:09:38+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-git_codes-1" rel="alternate" type="text/html" title="" /><published>2021-09-19T16:09:38+00:00</published><updated>2021-09-19T16:09:38+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-git_codes-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-git_codes-1">&lt;p&gt;깃헙!&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-git_codes-2" rel="alternate" type="text/html" title="" /><published>2021-09-19T16:09:38+00:00</published><updated>2021-09-19T16:09:38+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-git_codes-2</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-git_codes-2">&lt;p&gt;깃헙 진짜 어렵다!&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">Machine learning (1) Generative Model과 GAN</title><link href="https://crosstar1228.github.io/ML-GAN" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/ML-GAN</id><content type="html" xml:base="https://crosstar1228.github.io/ML-GAN">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
 &lt;p&gt;머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
