@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-19T14:42:35+00:00</updated>
+  <updated>2021-09-19T14:50:35+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -32,10 +32,48 @@
 
   
     <entry>
+      <title type="html">Machine learning (1) Generative Model과 GAN</title>
+      <link href="https://crosstar1228.github.io/ML-GAN" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" />
+      <published>2021-09-15T11:00:00+00:00</published>
+      <updated>2021-09-15T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/ML-GAN</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/ML-GAN">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ML" />
+      
+
+      
+        <summary type="html">안녕 머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Welcome to Crosstar’s Drawer of AI</title>
       <link href="https://crosstar1228.github.io/welcome" rel="alternate" type="text/html" title="Welcome to Crosstar's Drawer of AI" />
-      <published>2021-09-17T10:00:00+00:00</published>
-      <updated>2021-09-17T10:00:00+00:00</updated>
+      <published>2021-09-15T10:00:00+00:00</published>
+      <updated>2021-09-15T10:00:00+00:00</updated>
       <id>https://crosstar1228.github.io/welcome</id>
       <content type="html" xml:base="https://crosstar1228.github.io/welcome">&lt;p&gt;&lt;img src=&quot;assets/built/images/trip2.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
