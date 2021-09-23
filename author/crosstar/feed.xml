@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-23T13:27:55+00:00</updated>
+  <updated>2021-09-23T13:48:51+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -82,6 +82,45 @@
 
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="cs231n" />
+      
+
+      
+        <summary type="html">안녕 cs231n</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">CS231n Lecture 3. Neural Network</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 3.  Neural Network" />
+      <published>2021-09-15T11:00:00+00:00</published>
+      <updated>2021-09-15T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/cs231n-lec12</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n&lt;/p&gt;
+
+&lt;p&gt;visualization!&lt;/p&gt;
+
+&lt;p&gt;slide 49~85&lt;/p&gt;</content>
 
       
       
