@@ -12,7 +12,7 @@
         
           <description></description>
         
-        <pubDate>Thu, 23 Sep 2021 14:07:00 +0000</pubDate>
+        <pubDate>Thu, 23 Sep 2021 14:11:05 +0000</pubDate>
         <link>
         https://crosstar1228.github.io/2021-09-15-errors-1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
@@ -71,8 +71,11 @@
       <item>
         <title>CS231n Lecture 12. Visualizing and understanding</title>
         
-          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n&lt;/p&gt;
+          <description>&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
 
 </description>
         
