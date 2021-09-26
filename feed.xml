@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-26T10:52:26+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-26T10:52:26+00:00</published><updated>2021-09-26T10:52:26+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-26T11:06:14+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-26T11:06:14+00:00</published><updated>2021-09-26T11:06:14+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -93,17 +93,19 @@
 &lt;p&gt;-&amp;gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;원리
-1) forward 방향으로 activation 계산 (여기까진 일반적 네트워크와 같음)
-2) layer의 &lt;strong&gt;&lt;em&gt;activation 과 같은&lt;/em&gt; gradient를 설정&lt;/strong&gt; 
-3) Backward 방향으로 gradient 계산 (backprop)&lt;/p&gt;
+  &lt;li&gt;원리
+    &lt;ol&gt;
+      &lt;li&gt;forward 방향으로 activation 계산 (여기까진 일반적 네트워크와 같음)&lt;/li&gt;
+      &lt;li&gt;layer의 &lt;strong&gt;&lt;em&gt;activation 과 같은&lt;/em&gt; gradient를 설정&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Backward 방향으로 gradient 계산 (backprop)&lt;/li&gt;
+    &lt;/ol&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;결과를 위해 조정한 사항들&lt;br /&gt;
-1) Jitter : 이미지를 두 픽셀씩 옮김
-2) Normalize ascent to gradient 
-3) Clip pixel values :최대,최솟값으로 제한&lt;/p&gt;
+  &lt;li&gt;결과를 위해 조정한 사항들
+    &lt;ol&gt;
+      &lt;li&gt;Jitter : 이미지를 두 픽셀씩 옮김&lt;/li&gt;
+      &lt;li&gt;Normalize ascent to gradient&lt;/li&gt;
+      &lt;li&gt;Clip pixel values :최대,최솟값으로 제한&lt;/li&gt;
+    &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -129,7 +131,7 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 
 &lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,
+  &lt;li&gt;VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,&lt;br /&gt;
   -&amp;gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -146,7 +148,7 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 
 &lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;원리
+  &lt;li&gt;원리&lt;br /&gt;
 1) image input을 CNN에 넣으면 C&lt;em&gt;H&lt;/em&gt;W tensor가 출력됨&lt;br /&gt;
 2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix&lt;br /&gt;
 3) 마치 correlation을 판단하는 행렬 -&amp;gt; 질감의 유사도를 측정 가능!&lt;/li&gt;
@@ -159,30 +161,30 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)&lt;br /&gt;
 4) 2)~3) 반복&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;이 기법 역시 깊은 Layer로부터 더 많은 feature들이 추출됨을 알 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;-&amp;gt; 이 기법 역시 깊은 Layer로부터 더 많은 feature들이 추출됨을 알 수 있다.&lt;/p&gt;
 
 &lt;h2 id=&quot;style-transfer&quot;&gt;Style Transfer&lt;/h2&gt;
-&lt;p&gt;비슷한 방법으로 두 이미지의 texture 차이를 최소화함으로서 특정 이미지의 분위기 합성이 가능
--&amp;gt; Style transfer&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Gram matrix값 최소화시키면서 생성하는 이미지 기법
-&lt;img src=&quot;../../assets/built/images/img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;
-    &lt;h3 id=&quot;content-image-style-image&quot;&gt;Content image, Style image&lt;/h3&gt;
-    &lt;p&gt;1) content image로부터 feature reconstruction&lt;br /&gt;
+  &lt;li&gt;비슷한 방법으로 두 이미지의 texture 차이를 최소화함으로서 특정 이미지의 분위기 합성이 가능
+-&amp;gt; Style transfer&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gram matrix값 최소화시키면서 생성하는 이미지 기법
+&lt;img src=&quot;../../assets/built/images/img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Content image, Style image&lt;/strong&gt;
+1) content image로부터 feature reconstruction&lt;br /&gt;
 2) style image로부터 gram matrix reconstruction&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;특징&lt;/strong&gt;
+1) Fine control 가능(style image 크기 조정 등)&lt;br /&gt;
+2) 너무 느림.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
-&lt;p&gt;1) Fine control 가능(style image 크기 조정 등)&lt;br /&gt;
-2) 너무 느림.&lt;/p&gt;
 
 &lt;h3 id=&quot;fast-style-transfer&quot;&gt;Fast style Transfer&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
 1) style을 미리 &lt;strong&gt;Feedforward Network \(f_W\) 에 학습&lt;/strong&gt;시킴&lt;br /&gt;
-2) content image만 feed forward -&amp;gt; &lt;strong&gt;속도 향상&lt;/strong&gt;
+2) content image만 feed forward -&amp;gt; &lt;strong&gt;속도 향상&lt;/strong&gt;&lt;br /&gt;
    ** batch normalization보다 instant normalization 에서 더 큰 상승 효과&lt;br /&gt;
 3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling&lt;/p&gt;
 
