@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-26T10:22:04+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-26T10:22:04+00:00</published><updated>2021-09-26T10:22:04+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-26T10:36:41+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-26T10:36:41+00:00</published><updated>2021-09-26T10:36:41+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -171,19 +171,21 @@ Regularization 진행 후 최솟값을 return&lt;/p&gt;
 
 &lt;h3 id=&quot;fast-style-transfer&quot;&gt;Fast style Transfer&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
-1) style을 미리 학습시킴
+1) style을 미리 &lt;strong&gt;Feedforward Network \(f_W\) 에 학습&lt;/strong&gt;시킴
 2) content image만 넣어서 학습
 -&amp;gt; 속도 향상
    ** batch normalization보다 instant normalization 에서 더 큰 상승 효과
 3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling&lt;/p&gt;
 
 &lt;h3 id=&quot;deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진&quot;&gt;Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
+** Feedforward Network :&lt;/p&gt;
 
 &lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;CS231n 12강 Lecture Note : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture12.pdf&lt;/li&gt;
   &lt;li&gt;https://inhovation97.tistory.com/28&lt;/li&gt;
+  &lt;li&gt;style transfer : https://www.popit.kr/neural-style-transfer-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0/&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">GOAL 1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 2) 이미지 Style을 변형시키는 방법에 대해 알아본다.</summary></entry><entry><title type="html">error (2) - git authentication error</title><link href="https://crosstar1228.github.io/errors-2" rel="alternate" type="text/html" title="error (2) - git authentication error" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/errors-2</id><content type="html" xml:base="https://crosstar1228.github.io/errors-2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
 &lt;p&gt;cs231n 은 훼이크!&lt;/p&gt;
 
