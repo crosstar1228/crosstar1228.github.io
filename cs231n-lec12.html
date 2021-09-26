@@ -289,7 +289,7 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <p>-&gt; training 되었던 image들의 feature들이 input image에 함께 뒤섞여 나타남
-<img src="./img_1.png" alt="img_1.png" /></p>
+<img src="../../assets/built/images/img_1.png" alt="img_1.png" /></p>
 
 <h2 id="feature-inversion">feature Inversion</h2>
 
@@ -300,7 +300,7 @@ into the {body} of the default.hbs template -->
 이미지 output return</li>
 </ol>
 
-<p><img src="./img_2.png" alt="img_2.png" /></p>
+<p><img src="../../assets/built/images/img_2.png" alt="img_2.png" /></p>
 
 <ol>
   <li>주어진 feature vector와</li>
@@ -308,7 +308,7 @@ into the {body} of the default.hbs template -->
 Regularization 진행 후 <strong>최솟값을 return</strong></li>
 </ol>
 
-<p><img src="./img_3.png" alt="img_3.png" /></p>
+<p><img src="../../assets/built/images/img_3.png" alt="img_3.png" /></p>
 <ul>
   <li>VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,
   -&gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.</li>
@@ -325,7 +325,7 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
   <li>image의 질감을 표현하는 행렬, 이를 통해 text synthesis 진행</li>
 </ul>
 
-<p><img src="./img_4.png" alt="img_4.png" /></p>
+<p><img src="../../assets/built/images/img_4.png" alt="img_4.png" /></p>
 <ul>
   <li>원리
 1) image input을 CNN에 넣으면 C<em>H</em>W tensor가 출력됨<br />
@@ -334,7 +334,7 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
 </ul>
 
 <h3 id="gram-matrix-이용한-합성과정">Gram matrix 이용한 합성과정</h3>
-<p><img src="./img_5.png" alt="img_5.png" />
+<p><img src="../../assets/built/images/img_5.png" alt="img_5.png" />
 1) 하나는 input으로부터, 하나는 Noise로부터 이미지를 생성<br />
 2) Gram matrix 추출 후 Gram matrix 간에 L2 distance의 가중합, 즉 Loss 계산<br />
 3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)<br />
@@ -349,7 +349,7 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
 -&gt; Style transfer</p>
 <ul>
   <li>Gram matrix값 최소화시키면서 생성하는 이미지 기법
-<img src="./img_6.png" alt="img_6.png" />
+<img src="../../assets/built/images/img_6.png" alt="img_6.png" />
     <h3 id="content-image-style-image">Content image, Style image</h3>
     <p>1) content image로부터 feature reconstruction<br />
 2) style image로부터 gram matrix reconstruction</p>
@@ -361,14 +361,14 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
 2) 너무 느림.</p>
 
 <h3 id="fast-style-transfer">Fast style Transfer</h3>
-<p><img src="./img_8.png" alt="img_8.png" />
+<p><img src="../../assets/built/images/img_8.png" alt="img_8.png" />
 1) style을 미리 <strong>Feedforward Network \(f_W\) 에 학습</strong>시킴<br />
-2) content image만 넣어서 학습 -&gt; <strong>속도 향상</strong>
+2) content image만 feed forward -&gt; <strong>속도 향상</strong>
    ** batch normalization보다 instant normalization 에서 더 큰 상승 효과<br />
 3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling</p>
 
 <h3 id="deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진">Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진</h3>
-<p><img src="./img_7.png" alt="img_7.png" /></p>
+<p><img src="../../assets/built/images/img_7.png" alt="img_7.png" /></p>
 
 <h3 id="reference">Reference</h3>
 <ul>

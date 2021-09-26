@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-26T10:46:52+00:00</updated>
+  <updated>2021-09-26T10:52:26+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -223,7 +223,7 @@
 &lt;/ul&gt;
 
 &lt;p&gt;-&amp;gt; training 되었던 image들의 feature들이 input image에 함께 뒤섞여 나타남
-&lt;img src=&quot;./img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../../assets/built/images/img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;feature-inversion&quot;&gt;feature Inversion&lt;/h2&gt;
 
@@ -234,7 +234,7 @@
 이미지 output return&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;./img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;주어진 feature vector와&lt;/li&gt;
@@ -242,7 +242,7 @@
 Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;./img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,
   -&amp;gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.&lt;/li&gt;
@@ -259,7 +259,7 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
   &lt;li&gt;image의 질감을 표현하는 행렬, 이를 통해 text synthesis 진행&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;./img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;원리
 1) image input을 CNN에 넣으면 C&lt;em&gt;H&lt;/em&gt;W tensor가 출력됨&lt;br /&gt;
@@ -268,7 +268,7 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;gram-matrix-이용한-합성과정&quot;&gt;Gram matrix 이용한 합성과정&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;./img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
 1) 하나는 input으로부터, 하나는 Noise로부터 이미지를 생성&lt;br /&gt;
 2) Gram matrix 추출 후 Gram matrix 간에 L2 distance의 가중합, 즉 Loss 계산&lt;br /&gt;
 3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)&lt;br /&gt;
@@ -283,7 +283,7 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 -&amp;gt; Style transfer&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Gram matrix값 최소화시키면서 생성하는 이미지 기법
-&lt;img src=&quot;./img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;
     &lt;h3 id=&quot;content-image-style-image&quot;&gt;Content image, Style image&lt;/h3&gt;
     &lt;p&gt;1) content image로부터 feature reconstruction&lt;br /&gt;
 2) style image로부터 gram matrix reconstruction&lt;/p&gt;
@@ -295,14 +295,14 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 2) 너무 느림.&lt;/p&gt;
 
 &lt;h3 id=&quot;fast-style-transfer&quot;&gt;Fast style Transfer&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;./img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
 1) style을 미리 &lt;strong&gt;Feedforward Network \(f_W\) 에 학습&lt;/strong&gt;시킴&lt;br /&gt;
-2) content image만 넣어서 학습 -&amp;gt; &lt;strong&gt;속도 향상&lt;/strong&gt;
+2) content image만 feed forward -&amp;gt; &lt;strong&gt;속도 향상&lt;/strong&gt;
    ** batch normalization보다 instant normalization 에서 더 큰 상승 효과&lt;br /&gt;
 3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling&lt;/p&gt;
 
 &lt;h3 id=&quot;deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진&quot;&gt;Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;./img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
 &lt;ul&gt;
