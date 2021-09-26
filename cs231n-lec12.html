@@ -59,7 +59,7 @@
     <meta property="og:site_name" content="건너별의 Romantic AI" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="CS231n Lecture 12. Visualizing and understanding" />
-    <meta property="og:description" content="window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다. 원인 및 해결 계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다. 이럴 때는 아래 명령어로 reset 한다. ﻿$ git config --system --unset credential.helper 이때 아래처럼 에러가 나는 경우가" />
+    <meta property="og:description" content="GOAL 1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 2) 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Deepdream 위키백과 : Deepdream 이미지 사이트 체험 Google 에서 만든 재미용 network의 중간에 특정한 neuron activation을 Amplify(증폭) -&gt; 네트워크가" />
     <meta property="og:url" content="https://crosstar1228.github.io/cs231n-lec12" />
     <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/deeplearning.png" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
@@ -69,7 +69,7 @@
     <meta property="article:tag" content="Cs231n" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CS231n Lecture 12. Visualizing and understanding" />
-    <meta name="twitter:description" content="window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다. 원인 및 해결 계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다. 이럴 때는 아래 명령어로 reset 한다. ﻿$ git config --system --unset credential.helper 이때 아래처럼 에러가 나는 경우가" />
+    <meta name="twitter:description" content="GOAL 1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 2) 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Deepdream 위키백과 : Deepdream 이미지 사이트 체험 Google 에서 만든 재미용 network의 중간에 특정한 neuron activation을 Amplify(증폭) -&gt; 네트워크가" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
     <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/deeplearning.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://crosstar1228.github.io/cs231n-lec12"
     },
-    "description": "window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다. 원인 및 해결 계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다. 이럴 때는 아래 명령어로 reset 한다. ﻿$ git config --system --unset credential.helper 이때 아래처럼 에러가 나는 경우가"
+    "description": "GOAL 1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 2) 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Deepdream 위키백과 : Deepdream 이미지 사이트 체험 Google 에서 만든 재미용 network의 중간에 특정한 neuron activation을 Amplify(증폭) -&gt; 네트워크가"
 }
     </script>
 
@@ -215,34 +215,131 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>window 10 에서 git bash를 통해 repository로 push하던 중</p>
-<h3 id="문제">문제</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fatal: authetication failed for ---
-</code></pre></div></div>
-<p>위와 같은 오류로 명령어 실행이 거부되었다.</p>
+                    <h1 id="goal">GOAL</h1>
+<p>1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.
+2) 이미지 Style을 변형시키는 방법에 대해 알아본다.</p>
 
-<h3 id="원인-및-해결">원인 및 해결</h3>
-<blockquote>
-  <p>계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다.<br />
-이럴 때는 아래 명령어로 reset 한다.</p>
-</blockquote>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+  <li><a href="#example">Deepdream</a></li>
+  <li><a href="#example2">Feature Inversion</a></li>
+  <li><a href="#third-example">Texture Synthesis</a>
+    <ul>
+      <li><a href="#example4">Gram Matrix</a></li>
+    </ul>
+  </li>
+  <li><a href="#fourth-examplehttpwwwfourthexamplecom">Style Transfer</a></li>
+</ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>﻿$ git config --system --unset credential.helper
-</code></pre></div></div>
+<h2 id="deepdream">Deepdream</h2>
+<p><a href="https://en.wikipedia.org/wiki/DeepDream">위키백과 : Deepdream</a>
+<a href="https://deepdreamgenerator.com/">이미지 사이트 체험</a></p>
+<ul>
+  <li>Google 에서 만든 재미용</li>
+  <li>network의 중간에 <strong>특정한 neuron activation을 Amplify(증폭)</strong></li>
+</ul>
 
-<p>이때 아래처럼 에러가 나는 경우가 또 있다.</p>
+<p>-&gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할</p>
 
-<h3 id="문제-1">문제</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>﻿error: could not lock config file C:/Program Files/Git/etc/gitconfig: Permission denied
-</code></pre></div></div>
+<ul>
+  <li>
+    <p>원리
+1) forward 방향으로 activation 계산 (여기까진 일반적 네트워크와 같음)
+2) layer의 <strong><em>activation 과 같은</em> gradient를 설정</strong> 
+3) Backward 방향으로 gradient 계산 (backprop)</p>
+  </li>
+  <li>
+    <p>결과를 위해 조정한 사항들<br />
+1) Jitter : 이미지를 두 픽셀씩 옮김
+2) Normalize ascent to gradient 
+3) Clip pixel values :최대,최솟값으로 제한</p>
+  </li>
+</ul>
 
-<h3 id="원인-및-해결-1">원인 및 해결</h3>
-<p>이럴땐 <strong>git bash를 관리자 권한으로 실행</strong>하여 해당 폴더로 이동 후 명령어를 다시 실행하면 된다.</p>
+<p>-&gt; training 되었던 image들의 feature들이 input image에 함께 뒤섞여 나타남
+<img src="img_1.png" alt="img_1.png" /></p>
 
-<p>++ push 시 뜨는 계정 비밀번호 입력은 <strong>token</strong>으로 하는 걸 잊지 말자!</p>
+<h2 id="feature-inversion">feature Inversion</h2>
 
-<p>끝!</p>
+<p>이미지의 CNN feature Vector 가 주어졌을 때
+  1) 자연스럽고
+  2) 그 feature vector 가장 잘 부합하는
+이미지 output return</p>
 
+<p><img src="img_2.png" alt="img_2.png" /></p>
+
+<p>주어진 feature vector와
+새로운 이미지의 feature와의 L2 distance 측정 
+Regularization 진행 후 최솟값을 return</p>
+
+<p><img src="img_3.png" alt="img_3.png" /></p>
+<ul>
+  <li>VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,
+  -&gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.</li>
+</ul>
+
+<h2 id="texture-synthesis">Texture Synthesis</h2>
+<ul>
+  <li>Sample patch(이미지 일부)로부터 같은 texture의 더 큰 이미지 합성하는 방식</li>
+  <li>nearest neighbor 알고리즘으로 ‘복붙’하면 깨짐 현상이 있음</li>
+</ul>
+
+<h3 id="gram-matrix">Gram matrix</h3>
+<ul>
+  <li>image의 질감을 표현하는 행렬, 이를 통해 text synthesis 진행</li>
+</ul>
+
+<p><img src="img_4.png" alt="img_4.png" /></p>
+<ul>
+  <li>원리
+1) image input을 CNN에 넣으면 C<em>H</em>W tensor가 출력됨
+2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix
+3) 마치 correlation을 판단하는 행렬 -&gt; 질감의 유사도를 측정 가능!</li>
+</ul>
+
+<h3 id="gram-matrix-이용한-합성과정">Gram matrix 이용한 합성과정</h3>
+<p><img src="img_5.png" alt="img_5.png" />
+1) 하나는 input으로부터, 하나는 Noise로부터 이미지를 생성
+2) Gram matrix 추출 후 Gram matrix 간에 L2 distance의 가중합, 즉 Loss 계산
+3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)
+4) 2)~3) 반복</p>
+
+<ul>
+  <li>이 기법 역시 깊은 Layer로부터 더 많은 feature들이 추출됨을 알 수 있다.</li>
+</ul>
+
+<h2 id="style-transfer">Style Transfer</h2>
+<p>비슷한 방법으로 두 이미지의 texture 차이를 최소화함으로서 특정 이미지의 분위기 합성이 가능
+-&gt; Style transfer</p>
+<ul>
+  <li>Gram matrix값 최소화시키면서 생성하는 이미지 기법
+<img src="img_6.png" alt="img_6.png" />
+    <h3 id="content-image-style-image">Content image, Style image</h3>
+    <p>1) content image로부터 feature reconstruction
+2) style image로부터 gram matrix reconstruction</p>
+  </li>
+</ul>
+
+<h3 id="특징">특징</h3>
+<p>1) Fine control 가능(style image 크기 조정 등)
+2) 너무 느림.</p>
+
+<h3 id="fast-style-transfer">Fast style Transfer</h3>
+<p><img src="img_8.png" alt="img_8.png" />
+1) style을 미리 학습시킴
+2) content image만 넣어서 학습
+-&gt; 속도 향상
+   ** batch normalization보다 instant normalization 에서 더 큰 상승 효과
+3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling</p>
+
+<h3 id="deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진">Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진</h3>
+<p><img src="img_7.png" alt="img_7.png" /></p>
+
+<h3 id="reference">Reference</h3>
+<ul>
+  <li>CS231n 12강 Lecture Note : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture12.pdf</li>
+  <li>https://inhovation97.tistory.com/28</li>
+</ul>
 
                 </div>
             </section>
@@ -376,6 +473,10 @@ into the {body} of the default.hbs template -->
                                 
                                   
                                     
+                                  
+                                
+                                  
+                                    
                                         
                                         
                                             <li><a href="/cs231n-lec2">CS231n Lecture 3.  Neural Network</a></li>
@@ -403,7 +504,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/cs231n/">
                                 
-                                    See all 2 posts  →
+                                    See all 3 posts  →
                                 
                             </a>
                         </footer>
@@ -472,12 +573,12 @@ cs231n 은 훼이크!
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/cs231n-lec2">
+            <a class="post-card-image-link" href="/cs231n-lec12">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/deeplearning.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/cs231n-lec2">
+            <a class="post-card-content-link" href="/cs231n-lec12">
                 <header class="post-card-header">
                     
                         
@@ -487,12 +588,15 @@ cs231n 은 훼이크!
                         
                     
 
-                    <h2 class="post-card-title">CS231n Lecture 3.  Neural Network</h2>
+                    <h2 class="post-card-title">CS231n Lecture 12. Visualizing and understanding</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>안녕
-cs231n
+                        <p>window 10 에서 git bash를 통해 repository로 push하던 중
+문제
+fatal: authetication failed for ---
+
+위와 같은 오류로 명령어 실행이 거부되었다.
 
 </p>
                     

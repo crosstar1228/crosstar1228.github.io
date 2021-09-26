@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/cs231n/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-23T14:16:59+00:00</updated>
+  <updated>2021-09-26T10:22:04+00:00</updated>
   <id>https://crosstar1228.github.io/tag/cs231n/feed.xml</id>
 
   
@@ -30,6 +30,164 @@
   
   
 
+  
+    <entry>
+      <title type="html">CS231n Lecture 12. Visualizing and understanding</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" />
+      <published>2021-09-15T11:00:00+00:00</published>
+      <updated>2021-09-15T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/cs231n-lec12</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;p&gt;1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.
+2) 이미지 Style을 변형시키는 방법에 대해 알아본다.&lt;/p&gt;
+
+&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#example&quot;&gt;Deepdream&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#example2&quot;&gt;Feature Inversion&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#third-example&quot;&gt;Texture Synthesis&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#example4&quot;&gt;Gram Matrix&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#fourth-examplehttpwwwfourthexamplecom&quot;&gt;Style Transfer&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;deepdream&quot;&gt;Deepdream&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/DeepDream&quot;&gt;위키백과 : Deepdream&lt;/a&gt;
+&lt;a href=&quot;https://deepdreamgenerator.com/&quot;&gt;이미지 사이트 체험&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google 에서 만든 재미용&lt;/li&gt;
+  &lt;li&gt;network의 중간에 &lt;strong&gt;특정한 neuron activation을 Amplify(증폭)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;-&amp;gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;원리
+1) forward 방향으로 activation 계산 (여기까진 일반적 네트워크와 같음)
+2) layer의 &lt;strong&gt;&lt;em&gt;activation 과 같은&lt;/em&gt; gradient를 설정&lt;/strong&gt; 
+3) Backward 방향으로 gradient 계산 (backprop)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;결과를 위해 조정한 사항들&lt;br /&gt;
+1) Jitter : 이미지를 두 픽셀씩 옮김
+2) Normalize ascent to gradient 
+3) Clip pixel values :최대,최솟값으로 제한&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;-&amp;gt; training 되었던 image들의 feature들이 input image에 함께 뒤섞여 나타남
+&lt;img src=&quot;img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;feature-inversion&quot;&gt;feature Inversion&lt;/h2&gt;
+
+&lt;p&gt;이미지의 CNN feature Vector 가 주어졌을 때
+  1) 자연스럽고
+  2) 그 feature vector 가장 잘 부합하는
+이미지 output return&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;주어진 feature vector와
+새로운 이미지의 feature와의 L2 distance 측정 
+Regularization 진행 후 최솟값을 return&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,
+  -&amp;gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;texture-synthesis&quot;&gt;Texture Synthesis&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sample patch(이미지 일부)로부터 같은 texture의 더 큰 이미지 합성하는 방식&lt;/li&gt;
+  &lt;li&gt;nearest neighbor 알고리즘으로 ‘복붙’하면 깨짐 현상이 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gram-matrix&quot;&gt;Gram matrix&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;image의 질감을 표현하는 행렬, 이를 통해 text synthesis 진행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;원리
+1) image input을 CNN에 넣으면 C&lt;em&gt;H&lt;/em&gt;W tensor가 출력됨
+2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix
+3) 마치 correlation을 판단하는 행렬 -&amp;gt; 질감의 유사도를 측정 가능!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gram-matrix-이용한-합성과정&quot;&gt;Gram matrix 이용한 합성과정&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
+1) 하나는 input으로부터, 하나는 Noise로부터 이미지를 생성
+2) Gram matrix 추출 후 Gram matrix 간에 L2 distance의 가중합, 즉 Loss 계산
+3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)
+4) 2)~3) 반복&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이 기법 역시 깊은 Layer로부터 더 많은 feature들이 추출됨을 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;style-transfer&quot;&gt;Style Transfer&lt;/h2&gt;
+&lt;p&gt;비슷한 방법으로 두 이미지의 texture 차이를 최소화함으로서 특정 이미지의 분위기 합성이 가능
+-&amp;gt; Style transfer&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Gram matrix값 최소화시키면서 생성하는 이미지 기법
+&lt;img src=&quot;img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;
+    &lt;h3 id=&quot;content-image-style-image&quot;&gt;Content image, Style image&lt;/h3&gt;
+    &lt;p&gt;1) content image로부터 feature reconstruction
+2) style image로부터 gram matrix reconstruction&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
+&lt;p&gt;1) Fine control 가능(style image 크기 조정 등)
+2) 너무 느림.&lt;/p&gt;
+
+&lt;h3 id=&quot;fast-style-transfer&quot;&gt;Fast style Transfer&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
+1) style을 미리 학습시킴
+2) content image만 넣어서 학습
+-&amp;gt; 속도 향상
+   ** batch normalization보다 instant normalization 에서 더 큰 상승 효과
+3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling&lt;/p&gt;
+
+&lt;h3 id=&quot;deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진&quot;&gt;Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;CS231n 12강 Lecture Note : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture12.pdf&lt;/li&gt;
+  &lt;li&gt;https://inhovation97.tistory.com/28&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="cs231n" />
+      
+
+      
+        <summary type="html">GOAL 1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 2) 이미지 Style을 변형시키는 방법에 대해 알아본다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">CS231n Lecture 12. Visualizing and understanding</title>

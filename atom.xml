@@ -12,7 +12,7 @@
         
           <description></description>
         
-        <pubDate>Thu, 23 Sep 2021 14:16:59 +0000</pubDate>
+        <pubDate>Sun, 26 Sep 2021 10:22:04 +0000</pubDate>
         <link>
         https://crosstar1228.github.io/2021-09-15-errors-1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
@@ -64,6 +64,23 @@
         <link>
         https://crosstar1228.github.io/errors-2</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/errors-2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>CS231n Lecture 12. Visualizing and understanding</title>
+        
+          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;p&gt;1) 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.
+2) 이미지 Style을 변형시키는 방법에 대해 알아본다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/cs231n-lec12</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec12</guid>
       </item>
       
     
