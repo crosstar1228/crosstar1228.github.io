@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-26T11:14:42+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-26T11:14:42+00:00</published><updated>2021-09-26T11:14:42+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-26T11:21:29+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-23-cs231n-lec12" rel="alternate" type="text/html" title="" /><published>2021-09-26T11:21:29+00:00</published><updated>2021-09-26T11:21:29+00:00</updated><id>https://crosstar1228.github.io/2021-09-23-cs231n-lec12</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-23-cs231n-lec12">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -24,17 +24,7 @@
 
 &lt;p&gt;++ push 시 뜨는 계정 비밀번호 입력은 &lt;strong&gt;token&lt;/strong&gt;으로 하는 걸 잊지 말자!&lt;/p&gt;
 
-&lt;p&gt;끝!&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">CS231n Lecture 2. Linear Classifier</title><link href="https://crosstar1228.github.io/cs231n-lec1" rel="alternate" type="text/html" title="CS231n Lecture 2. Linear Classifier" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec1</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec1">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n 강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">안녕 cs231n 강의 잘하고싶다.~~~~~~~~~~!!!!!!</summary></entry><entry><title type="html">CS231n Lecture 3. Neural Network</title><link href="https://crosstar1228.github.io/cs231n-lec2" rel="alternate" type="text/html" title="CS231n Lecture 3. Neural Network" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec2</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n&lt;/p&gt;
-
-&lt;p&gt;강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">안녕 cs231n</summary></entry><entry><title type="html">CS231n Lecture 12. Visualizing and understanding</title><link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec12</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;p&gt;끝!&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">CS231n Lecture 12. Visualizing and understanding</title><link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" /><published>2021-09-16T11:00:00+00:00</published><updated>2021-09-16T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec12</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
 &lt;ol&gt;
   &lt;li&gt;시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.&lt;/li&gt;
   &lt;li&gt;이미지 Style을 변형시키는 방법에 대해 알아본다.&lt;/li&gt;
@@ -170,39 +160,23 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
   &lt;li&gt;CS231n 12강 Lecture Note : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture12.pdf&lt;/li&gt;
   &lt;li&gt;https://inhovation97.tistory.com/28&lt;/li&gt;
   &lt;li&gt;style transfer : https://www.popit.kr/neural-style-transfer-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다.</summary></entry><entry><title type="html">error (2) - git authentication error</title><link href="https://crosstar1228.github.io/errors-2" rel="alternate" type="text/html" title="error (2) - git authentication error" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/errors-2</id><content type="html" xml:base="https://crosstar1228.github.io/errors-2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다.</summary></entry><entry><title type="html">CS231n Lecture 2. Linear Classifier</title><link href="https://crosstar1228.github.io/cs231n-lec1" rel="alternate" type="text/html" title="CS231n Lecture 2. Linear Classifier" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec1</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec1">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n 강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">안녕 cs231n 강의 잘하고싶다.~~~~~~~~~~!!!!!!</summary></entry><entry><title type="html">CS231n Lecture 3. Neural Network</title><link href="https://crosstar1228.github.io/cs231n-lec2" rel="alternate" type="text/html" title="CS231n Lecture 3. Neural Network" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec2</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n&lt;/p&gt;
+
+&lt;p&gt;강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">안녕 cs231n</summary></entry><entry><title type="html">error (2) - git authentication error</title><link href="https://crosstar1228.github.io/errors-2" rel="alternate" type="text/html" title="error (2) - git authentication error" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/errors-2</id><content type="html" xml:base="https://crosstar1228.github.io/errors-2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
 &lt;p&gt;cs231n 은 훼이크!&lt;/p&gt;
 
 &lt;p&gt;강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="errors" /><summary type="html">안녕 cs231n 은 훼이크!</summary></entry><entry><title type="html">CS231n Lecture 12. Visualizing and understanding</title><link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec12</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
-&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;원인-및-해결&quot;&gt;원인 및 해결&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다.&lt;br /&gt;
-이럴 때는 아래 명령어로 reset 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿$ git config --system --unset credential.helper
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이때 아래처럼 에러가 나는 경우가 또 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;문제-1&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿error: could not lock config file C:/Program Files/Git/etc/gitconfig: Permission denied
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;원인-및-해결-1&quot;&gt;원인 및 해결&lt;/h3&gt;
-&lt;p&gt;이럴땐 &lt;strong&gt;git bash를 관리자 권한으로 실행&lt;/strong&gt;하여 해당 폴더로 이동 후 명령어를 다시 실행하면 된다.&lt;/p&gt;
-
-&lt;p&gt;++ push 시 뜨는 계정 비밀번호 입력은 &lt;strong&gt;token&lt;/strong&gt;으로 하는 걸 잊지 말자!&lt;/p&gt;
-
-&lt;p&gt;끝!&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="errors" /><summary type="html">window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다.</summary></entry><entry><title type="html">Machine learning (1) Generative Model과 GAN</title><link href="https://crosstar1228.github.io/ML-GAN" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/ML-GAN</id><content type="html" xml:base="https://crosstar1228.github.io/ML-GAN">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content><author><name>건너별(crosstar)</name></author><category term="errors" /><summary type="html">안녕 cs231n 은 훼이크!</summary></entry><entry><title type="html">Machine learning (1) Generative Model과 GAN</title><link href="https://crosstar1228.github.io/ML-GAN" rel="alternate" type="text/html" title="Machine learning (1) Generative Model과 GAN" /><published>2021-09-15T11:00:00+00:00</published><updated>2021-09-15T11:00:00+00:00</updated><id>https://crosstar1228.github.io/ML-GAN</id><content type="html" xml:base="https://crosstar1228.github.io/ML-GAN">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
 &lt;p&gt;머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
@@ -236,4 +210,27 @@ Glad to share my short knowledge.&lt;/p&gt;</content><author><name>건너별(cro
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;noscript&gt;&lt;pre&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming 또 안녕 알고리즘이란 무엇일까?</summary></entry></feed>
+&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming 또 안녕 알고리즘이란 무엇일까?</summary></entry><entry><title type="html">Algorithm 강좌(2) - dynamic programming</title><link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="Algorithm 강좌(2) - dynamic programming" /><published>2021-09-14T16:40:00+00:00</published><updated>2021-09-14T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-dynamic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;/ul&gt;
+&lt;h2 id=&quot;또-안녕&quot;&gt;또 안녕&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;동적 계획법이란 무엇일까?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;….&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;noscript&gt;&lt;pre&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;</content><author><name>건너별(crosstar)</name></author><category term="algorithm" /><summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming 또 안녕 동적 계획법이란 무엇일까?</summary></entry></feed>

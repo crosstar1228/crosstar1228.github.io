@@ -12,10 +12,29 @@
         
           <description></description>
         
-        <pubDate>Sun, 26 Sep 2021 11:14:42 +0000</pubDate>
+        <pubDate>Sun, 26 Sep 2021 11:21:29 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/2021-09-15-errors-1</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
+        https://crosstar1228.github.io/2021-09-23-cs231n-lec12</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-23-cs231n-lec12</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>CS231n Lecture 12. Visualizing and understanding</title>
+        
+          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.&lt;/li&gt;
+  &lt;li&gt;이미지 Style을 변형시키는 방법에 대해 알아본다.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        
+        <pubDate>Thu, 16 Sep 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/cs231n-lec12</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec12</guid>
       </item>
       
     
@@ -53,25 +72,6 @@
     
       
       <item>
-        <title>CS231n Lecture 12. Visualizing and understanding</title>
-        
-          <description>&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
-&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
-        <link>
-        https://crosstar1228.github.io/cs231n-lec12</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec12</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>error (2) - git authentication error</title>
         
           <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
@@ -83,25 +83,6 @@
         <link>
         https://crosstar1228.github.io/errors-2</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/errors-2</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>CS231n Lecture 12. Visualizing and understanding</title>
-        
-          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.&lt;/li&gt;
-  &lt;li&gt;이미지 Style을 변형시키는 방법에 대해 알아본다.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-        
-        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
-        <link>
-        https://crosstar1228.github.io/cs231n-lec12</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec12</guid>
       </item>
       
     
