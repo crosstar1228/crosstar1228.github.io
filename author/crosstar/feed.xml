@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-26T11:08:07+00:00</updated>
+  <updated>2021-09-26T11:14:42+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -103,66 +103,6 @@
 
       
         <summary type="html">안녕 cs231n</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">CS231n Lecture 12. Visualizing and understanding</title>
-      <link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" />
-      <published>2021-09-15T11:00:00+00:00</published>
-      <updated>2021-09-15T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/cs231n-lec12</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
-&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;원인-및-해결&quot;&gt;원인 및 해결&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다.&lt;br /&gt;
-이럴 때는 아래 명령어로 reset 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿$ git config --system --unset credential.helper
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이때 아래처럼 에러가 나는 경우가 또 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;문제-1&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿error: could not lock config file C:/Program Files/Git/etc/gitconfig: Permission denied
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;원인-및-해결-1&quot;&gt;원인 및 해결&lt;/h3&gt;
-&lt;p&gt;이럴땐 &lt;strong&gt;git bash를 관리자 권한으로 실행&lt;/strong&gt;하여 해당 폴더로 이동 후 명령어를 다시 실행하면 된다.&lt;/p&gt;
-
-&lt;p&gt;++ push 시 뜨는 계정 비밀번호 입력은 &lt;strong&gt;token&lt;/strong&gt;으로 하는 걸 잊지 말자!&lt;/p&gt;
-
-&lt;p&gt;끝!&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="cs231n" />
-      
-
-      
-        <summary type="html">window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다.</summary>
       
 
       
@@ -373,6 +313,66 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 
       
         <summary type="html">안녕 cs231n 은 훼이크!</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">CS231n Lecture 12. Visualizing and understanding</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" />
+      <published>2021-09-15T11:00:00+00:00</published>
+      <updated>2021-09-15T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/cs231n-lec12</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;원인-및-해결&quot;&gt;원인 및 해결&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다.&lt;br /&gt;
+이럴 때는 아래 명령어로 reset 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿$ git config --system --unset credential.helper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이때 아래처럼 에러가 나는 경우가 또 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-1&quot;&gt;문제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿error: could not lock config file C:/Program Files/Git/etc/gitconfig: Permission denied
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;원인-및-해결-1&quot;&gt;원인 및 해결&lt;/h3&gt;
+&lt;p&gt;이럴땐 &lt;strong&gt;git bash를 관리자 권한으로 실행&lt;/strong&gt;하여 해당 폴더로 이동 후 명령어를 다시 실행하면 된다.&lt;/p&gt;
+
+&lt;p&gt;++ push 시 뜨는 계정 비밀번호 입력은 &lt;strong&gt;token&lt;/strong&gt;으로 하는 걸 잊지 말자!&lt;/p&gt;
+
+&lt;p&gt;끝!&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="errors" />
+      
+
+      
+        <summary type="html">window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다.</summary>
       
 
       
