@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-27T10:34:05+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-27T10:34:05+00:00</published><updated>2021-09-27T10:34:05+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-09-27T10:54:37+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-09-27T10:54:37+00:00</published><updated>2021-09-27T10:54:37+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -113,9 +113,9 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 &lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;원리&lt;br /&gt;
-1) image input을 CNN에 넣으면 C*H&lt;em&gt;W tensor가 출력됨&lt;br /&gt;
-2) 이 tensor 중 2개의 C차원 vector를 외적하면 C&lt;/em&gt;C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix&lt;br /&gt;
-3) 마치 correlation을 판단하는 행렬 -&amp;gt; 질감의 유사도를 측정 가능!&lt;/li&gt;
+1) image input을 CNN에 넣으면 C*H*W tensor가 출력됨&lt;br /&gt;
+2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix&lt;br /&gt;
+3) 마치 covariance을 판단하는 행렬 -&amp;gt; 질감의 유사도를 측정 가능!&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;gram-matrix-이용한-합성과정&quot;&gt;Gram matrix 이용한 합성과정&lt;/h3&gt;

@@ -58,23 +58,23 @@
     
     <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
+ TeX: {
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+ inlineMath: [ ['$', '$'] ],
+ displayMath: [ ['$$', '$$'] ],
+ processEscapes: true,
   }
 });
 MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+   alert("Math Processing Error: "+message[1]);
+ });
 MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+   alert("Math Processing Error: "+message[1]);
+ });
 </script>
 <script type="text/javascript" async
         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -330,9 +330,9 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
 <p><img src="../../assets/built/images/img_4.png" alt="img_4.png" /></p>
 <ul>
   <li>원리<br />
-1) image input을 CNN에 넣으면 C*H<em>W tensor가 출력됨<br />
-2) 이 tensor 중 2개의 C차원 vector를 외적하면 C</em>C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix<br />
-3) 마치 correlation을 판단하는 행렬 -&gt; 질감의 유사도를 측정 가능!</li>
+1) image input을 CNN에 넣으면 C*H*W tensor가 출력됨<br />
+2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix<br />
+3) 마치 covariance을 판단하는 행렬 -&gt; 질감의 유사도를 측정 가능!</li>
 </ul>
 
 <h3 id="gram-matrix-이용한-합성과정">Gram matrix 이용한 합성과정</h3>
