@@ -85,7 +85,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <meta property="og:site_name" content="건너별의 Romantic AI" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="CS231n Lecture 12. Visualizing and understanding" />
-    <meta property="og:description" content="GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Deepdream 위키백과 : Deepdream 이미지 사이트 체험 Google 에서 만든 재미용 network의 중간에 특정한 neuron activation을 Amplify(증폭) -&gt;" />
+    <meta property="og:description" content="GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Layers first layer last layer -&gt; feature nearest t-SNE dimensionality reduction Deepdream - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream) - [이미지" />
     <meta property="og:url" content="https://crosstar1228.github.io/cs231n-lec12" />
     <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/deeplearning.png" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
@@ -95,7 +95,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <meta property="article:tag" content="Cs231n" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CS231n Lecture 12. Visualizing and understanding" />
-    <meta name="twitter:description" content="GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Deepdream 위키백과 : Deepdream 이미지 사이트 체험 Google 에서 만든 재미용 network의 중간에 특정한 neuron activation을 Amplify(증폭) -&gt;" />
+    <meta name="twitter:description" content="GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Layers first layer last layer -&gt; feature nearest t-SNE dimensionality reduction Deepdream - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream) - [이미지" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
     <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/deeplearning.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -127,7 +127,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "@type": "WebPage",
         "@id": "https://crosstar1228.github.io/cs231n-lec12"
     },
-    "description": "GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Deepdream 위키백과 : Deepdream 이미지 사이트 체험 Google 에서 만든 재미용 network의 중간에 특정한 neuron activation을 Amplify(증폭) -&gt;"
+    "description": "GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Layers first layer last layer -&gt; feature nearest t-SNE dimensionality reduction Deepdream - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream) - [이미지"
 }
     </script>
 
@@ -258,18 +258,22 @@ into the {body} of the default.hbs template -->
   </li>
   <li><a href="#style-transfer">Style Transfer</a>
     <ul>
-      <li><a href="#fast-style-transfer">Fast Style Trnasfer</a></li>
+      <li><a href="#fast-style-transfer">Fast Style Trnasfer</a>
+        <h2 id="layers">Layers</h2>
+      </li>
+      <li>first layer</li>
+      <li>last layer -&gt; feature nearest</li>
+      <li>t-SNE dimensionality reduction
+        <h2 id="deepdream">Deepdream</h2>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream)  
+ - [이미지 사이트 체험](https://deepdreamgenerator.com/)
+ - Google 에서 만든 재미용
+ - network의 중간에 **특정한 neuron activation을 Amplify(증폭)**  
+</code></pre></div>        </div>
+      </li>
     </ul>
   </li>
 </ol>
-
-<h2 id="deepdream">Deepdream</h2>
-<ul>
-  <li><a href="https://en.wikipedia.org/wiki/DeepDream">위키백과 : Deepdream</a></li>
-  <li><a href="https://deepdreamgenerator.com/">이미지 사이트 체험</a></li>
-  <li>Google 에서 만든 재미용</li>
-  <li>network의 중간에 <strong>특정한 neuron activation을 Amplify(증폭)</strong></li>
-</ul>
 
 <p>-&gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할</p>
 
@@ -505,6 +509,8 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                                   
                                 
                                   
+                                
+                                  
                                     
                                   
                                 
@@ -536,8 +542,6 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                                 
                                   
                                 
-                                  
-                                
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
@@ -558,7 +562,7 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
     <article class="post-card  no-image">
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/2021-09-15-errors-1">
+            <a class="post-card-content-link" href="/2021-09-30-algorithm-friends4block">
                 <header class="post-card-header">
                     
 

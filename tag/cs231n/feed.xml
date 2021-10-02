@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/cs231n/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-09-27T10:54:37+00:00</updated>
+  <updated>2021-10-02T06:13:01+00:00</updated>
   <id>https://crosstar1228.github.io/tag/cs231n/feed.xml</id>
 
   
@@ -54,18 +54,22 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#style-transfer&quot;&gt;Style Transfer&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#fast-style-transfer&quot;&gt;Fast Style Trnasfer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#fast-style-transfer&quot;&gt;Fast Style Trnasfer&lt;/a&gt;
+        &lt;h2 id=&quot;layers&quot;&gt;Layers&lt;/h2&gt;
+      &lt;/li&gt;
+      &lt;li&gt;first layer&lt;/li&gt;
+      &lt;li&gt;last layer -&amp;gt; feature nearest&lt;/li&gt;
+      &lt;li&gt;t-SNE dimensionality reduction
+        &lt;h2 id=&quot;deepdream&quot;&gt;Deepdream&lt;/h2&gt;
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream)  
+ - [이미지 사이트 체험](https://deepdreamgenerator.com/)
+ - Google 에서 만든 재미용
+ - network의 중간에 **특정한 neuron activation을 Amplify(증폭)**  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;h2 id=&quot;deepdream&quot;&gt;Deepdream&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/DeepDream&quot;&gt;위키백과 : Deepdream&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://deepdreamgenerator.com/&quot;&gt;이미지 사이트 체험&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Google 에서 만든 재미용&lt;/li&gt;
-  &lt;li&gt;network의 중간에 &lt;strong&gt;특정한 neuron activation을 Amplify(증폭)&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;p&gt;-&amp;gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할&lt;/p&gt;
 
