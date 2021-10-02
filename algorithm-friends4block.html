@@ -11,7 +11,7 @@
 
 
 
-    <title>CS231n Lecture 12. Visualizing and understanding</title>
+    <title>Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -52,56 +52,32 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="IT/인공지능 서랍장" />
     <link rel="shortcut icon" href="https://crosstar1228.github.io/assets/built/images/favicon1.gif" type="image/png" />
-    <link rel="canonical" href="https://crosstar1228.github.io/cs231n-lec12" />
+    <link rel="canonical" href="https://crosstar1228.github.io/algorithm-friends4block" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
-    
-    <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
- TeX: {
-   equationNumbers: {
-     autoNumber: "AMS"
-   }
- },
- tex2jax: {
- inlineMath: [ ['$', '$'] ],
- displayMath: [ ['$$', '$$'] ],
- processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-   alert("Math Processing Error: "+message[1]);
- });
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-   alert("Math Processing Error: "+message[1]);
- });
-</script>
-<script type="text/javascript" async
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
     
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="건너별의 Romantic AI" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="CS231n Lecture 12. Visualizing and understanding" />
-    <meta property="og:description" content="GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Layers first layer last layer -&gt; feature nearest t-SNE dimensionality reduction Deepdream - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream) - [이미지" />
-    <meta property="og:url" content="https://crosstar1228.github.io/cs231n-lec12" />
-    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/deeplearning.png" />
+    <meta property="og:title" content="Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설" />
+    <meta property="og:description" content="문제 풀기 풀이 list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작 블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경 0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복 answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return Keypoint set을" />
+    <meta property="og:url" content="https://crosstar1228.github.io/algorithm-friends4block" />
+    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/friends4block.png" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
     <meta property="article:author" content="https://www.facebook.com/wptjd212" />
-    <meta property="article:published_time" content="2021-09-16T11:00:00+00:00" />
-    <meta property="article:modified_time" content="2021-09-16T11:00:00+00:00" />
-    <meta property="article:tag" content="Cs231n" />
+    <meta property="article:published_time" content="2021-10-01T16:40:00+00:00" />
+    <meta property="article:modified_time" content="2021-10-01T16:40:00+00:00" />
+    <meta property="article:tag" content="Algorithm" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CS231n Lecture 12. Visualizing and understanding" />
-    <meta name="twitter:description" content="GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Layers first layer last layer -&gt; feature nearest t-SNE dimensionality reduction Deepdream - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream) - [이미지" />
+    <meta name="twitter:title" content="Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설" />
+    <meta name="twitter:description" content="문제 풀기 풀이 list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작 블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경 0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복 answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return Keypoint set을" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
-    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/deeplearning.png" />
+    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/friends4block.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="건너별의 Romantic AI" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Cs231n" />
+    <meta name="twitter:data2" content="Algorithm" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -116,18 +92,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
         "name": "건너별의 Romantic AI",
         "logo": "https://crosstar1228.github.io/"
     },
-    "url": "https://crosstar1228.github.io/cs231n-lec12",
+    "url": "https://crosstar1228.github.io/algorithm-friends4block",
     "image": {
         "@type": "ImageObject",
-        "url": "https://crosstar1228.github.io/assets/built/images/deeplearning.png",
+        "url": "https://crosstar1228.github.io/assets/built/images/friends4block.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://crosstar1228.github.io/cs231n-lec12"
+        "@id": "https://crosstar1228.github.io/algorithm-friends4block"
     },
-    "description": "GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다. Table of Contents Deepdream Feature Inversion Texture Synthesis Gram Matrix Style Transfer Fast Style Trnasfer Layers first layer last layer -&gt; feature nearest t-SNE dimensionality reduction Deepdream - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream) - [이미지"
+    "description": "문제 풀기 풀이 list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작 블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경 0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복 answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return Keypoint set을"
 }
     </script>
 
@@ -140,7 +116,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="CS231n Lecture 12. Visualizing and understanding" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설" href="/feed.xml" />
 
 
 </head>
@@ -217,176 +193,96 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-cs231n post tag-ML ">
+        <article class="post-full  tag-algorithm post tag-python ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="16 September 2021">16 September 2021</time>
+                    <time class="post-full-meta-date" datetime=" 1 October 2021"> 1 October 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/cs231n/'>CS231N</a>
+                               <a href='/tag/algorithm/'>ALGORITHM</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">CS231n Lecture 12. Visualizing and understanding</h1>
+                <h1 class="post-full-title">Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설</h1>
             </header>
             <!-- 초반에 이미지가 뜨느냐 마느냐!
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/deeplearning.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/friends4block.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="goal">GOAL</h1>
+                    <p><a href="https://programmers.co.kr/learn/courses/30/lessons/17679">문제 풀기</a></p>
+
+<h1 id="풀이">풀이</h1>
 <ol>
-  <li>시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.</li>
-  <li>이미지 Style을 변형시키는 방법에 대해 알아본다.</li>
+  <li>list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작</li>
+  <li>블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경</li>
+  <li>0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복</li>
+  <li>answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return</li>
 </ol>
 
-<h1 id="table-of-contents">Table of Contents</h1>
-<ol>
-  <li><a href="#deepdream">Deepdream</a></li>
-  <li><a href="#feature-inversion">Feature Inversion</a></li>
-  <li><a href="#texture-synthesis">Texture Synthesis</a>
-    <ul>
-      <li><a href="#gram-matrix">Gram Matrix</a></li>
-    </ul>
-  </li>
-  <li><a href="#style-transfer">Style Transfer</a>
-    <ul>
-      <li><a href="#fast-style-transfer">Fast Style Trnasfer</a>
-        <h2 id="layers">Layers</h2>
-      </li>
-      <li>first layer</li>
-      <li>last layer -&gt; feature nearest</li>
-      <li>t-SNE dimensionality reduction
-        <h2 id="deepdream">Deepdream</h2>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream)  
- - [이미지 사이트 체험](https://deepdreamgenerator.com/)
- - Google 에서 만든 재미용
- - network의 중간에 **특정한 neuron activation을 Amplify(증폭)**  
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ol>
+<blockquote>
+  <p>Keypoint</p>
+  <ol>
+    <li>set을 이용해 중복 방지</li>
+    <li>Transpose해서 진행</li>
+    <li>0 개수 count를 위한, ‘_‘로의 치환</li>
+  </ol>
+</blockquote>
 
-<p>-&gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할</p>
+<p>Code</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">##</span> <span class="nx">세팅</span>
 
-<ul>
-  <li>원리
-    <ol>
-      <li>forward 방향으로 activation 계산 (여기까진 일반적 네트워크와 같음)</li>
-      <li>layer의 <strong><em>activation 과 같은</em> gradient를 설정</strong></li>
-      <li>Backward 방향으로 gradient 계산 (backprop)</li>
-    </ol>
-  </li>
-  <li>결과를 위해 조정한 사항들
-    <ol>
-      <li>Jitter : 이미지를 두 픽셀씩 옮김</li>
-      <li>Normalize ascent to gradient</li>
-      <li>Clip pixel values :최대,최솟값으로 제한</li>
-    </ol>
+<span class="nx">m</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nx">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nx">board</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">CCBDE</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">AAADE</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">AAABF</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">CCBBF</span><span class="dl">"</span><span class="p">]</span>
 
-    <p>-&gt; training 되었던 image들의 feature들이 input image에 함께 뒤섞여 나타남
-<img src="../../assets/built/images/img_1.png" alt="img_1.png" /></p>
-  </li>
-</ul>
 
-<h2 id="feature-inversion">feature Inversion</h2>
+<span class="nx">def</span> <span class="nx">del4block</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span><span class="nx">n</span><span class="p">,</span><span class="nx">board</span><span class="p">):</span>
 
-<p>이미지의 CNN feature Vector 가 주어졌을 때</p>
-<ol>
-  <li>자연스럽고</li>
-  <li>그 feature vector 가장 잘 부합하는<br />
-<strong>이미지 output return</strong></li>
-</ol>
+    <span class="nx">now_count</span><span class="o">=</span><span class="mi">0</span>
+    <span class="err">#</span> <span class="nx">중복방지</span> <span class="nx">setlist</span>
+    <span class="nx">pop_set</span><span class="o">=</span><span class="kd">set</span><span class="p">()</span>
+  
+    <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="nx">j</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="o">==</span><span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="o">==</span><span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="nx">and</span> <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="o">!=</span><span class="dl">'</span><span class="s1">_</span><span class="dl">'</span><span class="p">:</span>
+                <span class="nx">pop_set</span> <span class="o">|=</span> <span class="kd">set</span><span class="p">([(</span><span class="nx">i</span><span class="p">,</span><span class="nx">j</span><span class="p">),</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nx">j</span><span class="p">),</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span> <span class="err">#</span> <span class="nx">터질</span> <span class="nx">부분</span> <span class="nx">indexing</span> 
+    <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">pop_set</span><span class="p">)</span>  
 
-<p><img src="../../assets/built/images/img_2.png" alt="img_2.png" /></p>
+    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span><span class="nx">j</span> <span class="k">in</span> <span class="nx">pop_set</span><span class="p">:</span>
+        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="err">#</span> <span class="mi">0</span><span class="nx">으로</span> <span class="nx">만들기</span>
 
-<ol>
-  <li>주어진 feature vector와</li>
-  <li>새로운 이미지의 feature와의 L2 distance 측정 <br />
-Regularization 진행 후 <strong>최솟값을 return</strong></li>
-</ol>
+    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span><span class="nx">row</span> <span class="k">in</span> <span class="nx">enumerate</span><span class="p">(</span><span class="nx">board</span><span class="p">):</span>
+        <span class="nx">cnt</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="err">#</span> <span class="mi">0</span> <span class="nx">개수</span> <span class="nx">세기</span>
+      <span class="nx">now_count</span><span class="o">+=</span><span class="nx">cnt</span><span class="err">#</span> <span class="nx">now_count에</span> <span class="nx">더하기</span>
+        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="nx">cnt</span><span class="o">*</span><span class="p">[</span><span class="dl">'</span><span class="s1">_</span><span class="dl">'</span><span class="p">]</span><span class="o">+</span> <span class="p">[</span><span class="nx">b</span> <span class="k">for</span> <span class="nx">b</span> <span class="k">in</span> <span class="nx">row</span> <span class="k">if</span> <span class="nx">b</span><span class="o">!=</span><span class="mi">0</span><span class="p">]</span> <span class="err">#</span> <span class="nx">앞으로</span> <span class="nx">당기기</span> <span class="nx">및</span> <span class="nx">_</span> <span class="nx">로</span> <span class="nx">치환하기</span><span class="p">(</span><span class="nx">개수세기</span> <span class="nx">위함</span><span class="p">)</span>
+    <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">board</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">board</span><span class="p">,</span><span class="nx">now_count</span>
 
-<p><img src="../../assets/built/images/img_3.png" alt="img_3.png" /></p>
-<ul>
-  <li>VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,<br />
-  -&gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.</li>
-</ul>
+<span class="nx">def</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">board</span><span class="p">):</span>
+    <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nx">board</span> <span class="o">=</span> <span class="p">[</span><span class="nx">list</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="k">for</span> <span class="nx">row</span> <span class="k">in</span> <span class="nx">board</span><span class="p">]</span> <span class="err">#</span> <span class="nx">알파벳</span> <span class="nx">분리</span>
+    <span class="nx">board</span> <span class="o">=</span> <span class="nx">list</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="nx">zip</span><span class="p">(</span><span class="o">*</span><span class="nx">board</span><span class="p">)))</span> <span class="err">#</span> <span class="nx">전치</span>
+    <span class="k">while</span> <span class="nx">True</span><span class="p">:</span>
+        <span class="nx">boardnow_count</span><span class="o">=</span><span class="nx">del4block</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span><span class="nx">n</span><span class="p">,</span><span class="nx">board</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">now_count</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="err">#</span> <span class="nx">더이상</span> <span class="nx">터질</span> <span class="nx">게</span> <span class="nx">없다면</span>
+            <span class="k">return</span> <span class="nx">answer</span> 
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nx">answer</span><span class="o">+=</span><span class="nx">now_count</span> <span class="err">#</span> <span class="nx">answer에</span> <span class="nx">loop마다</span> <span class="nx">now_count</span> <span class="nx">더하기</span>
+</code></pre></div></div>
 
-<h2 id="texture-synthesis">Texture Synthesis</h2>
-<ul>
-  <li>Sample patch(이미지 일부)로부터 같은 texture의 더 큰 이미지 합성하는 방식</li>
-  <li>nearest neighbor 알고리즘으로 ‘복붙’하면 깨짐 현상이 있음</li>
-</ul>
-
-<h3 id="gram-matrix">Gram matrix</h3>
-<ul>
-  <li>image의 질감의 유사도를 표현하는 행렬, 이를 통해 texture synthesis 진행</li>
-</ul>
-
-<p><img src="../../assets/built/images/img_4.png" alt="img_4.png" /></p>
-<ul>
-  <li>원리<br />
-1) image input을 CNN에 넣으면 C*H*W tensor가 출력됨<br />
-2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix<br />
-3) 마치 covariance을 판단하는 행렬 -&gt; 질감의 유사도를 측정 가능!</li>
-</ul>
-
-<h3 id="gram-matrix-이용한-합성과정">Gram matrix 이용한 합성과정</h3>
-<p><img src="../../assets/built/images/img_5.png" alt="img_5.png" />
-1) 하나는 input으로부터, 하나는 Noise로부터 이미지를 생성<br />
-2) Gram matrix 추출 후 Gram matrix 간에 L2 distance의 가중합, 즉 Loss 계산<br />
-3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)<br />
-4) 2)~3) 반복
-<img src="../../assets/built/images/img9.png" alt="img9.png" />
--&gt; 이 기법 역시 깊은 Layer로부터 더 많은 feature들이 추출됨을 알 수 있다.</p>
-
-<h2 id="style-transfer">Style Transfer</h2>
-<ul>
-  <li>비슷한 방법으로 두 이미지의 texture 차이를 최소화함으로서 특정 이미지의 분위기 합성이 가능
--&gt; Style transfer</li>
-  <li>
-    <p>Gram matrix값 최소화시키면서 생성하는 이미지 기법
-<img src="../../assets/built/images/img_6.png" alt="img_6.png" /></p>
-  </li>
-  <li>
-    <p><strong>Content image, Style image</strong>
-1) content image로부터 feature reconstruction<br />
-2) style image로부터 gram matrix reconstruction</p>
-  </li>
-  <li>
-    <p><strong>특징</strong>
-1) Fine control 가능(style image 크기 조정 등)<br />
-2) forward/backward prop 과정이 너무 많아서 느림.</p>
-
-    <p>-&gt; style transfer를 진행하는 또 하나의 Neural Network를 구현하자!</p>
-  </li>
-</ul>
-
-<h3 id="fast-style-transfer">Fast style Transfer</h3>
-<p><img src="../../assets/built/images/img_8.png" alt="img_8.png" />
-1) style을 미리 <strong>Feedforward Network \(f_W\) 에 학습</strong>시킴<br />
-2) content image만 feed forward -&gt; <strong>속도 향상</strong><br />
-   ** batch normalization보다 instant normalization 에서 더 큰 상승 효과<br />
-    <img src="../../assets/built/images/img9.png" alt="img.png" />
-3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling</p>
-
-<h3 id="deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진">Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진</h3>
-<p><img src="../../assets/built/images/img_7.png" alt="img_7.png" /></p>
-
-<h3 id="reference">Reference</h3>
-<ul>
-  <li>CS231n 12강 Lecture Note : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture12.pdf</li>
-  <li>https://inhovation97.tistory.com/28</li>
-  <li>style transfer : https://www.popit.kr/neural-style-transfer-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0/</li>
-</ul>
+<h1 id="실행-결과">실행 결과</h1>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">solution</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span><span class="nx">n</span><span class="p">,</span><span class="nx">board</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">14</span>
+</code></pre></div></div>
+<h2 id="14개의-블록이-터진다-펑">14개의 블록이 터진다 펑!</h2>
 
                 </div>
             </section>
@@ -452,9 +348,9 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://crosstar1228.github.io/cs231n-lec12';
-                            var this_page_identifier = '/cs231n-lec12';
-                            var this_page_title = 'CS231n Lecture 12. Visualizing and understanding';
+                            var this_page_url = 'https://crosstar1228.github.io/algorithm-friends4block';
+                            var this_page_identifier = '/algorithm-friends4block';
+                            var this_page_title = 'Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -497,7 +393,7 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; 건너별의 Romantic AI &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/cs231n/">Cs231n</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/algorithm/">Algorithm</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -509,8 +405,6 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                                   
                                 
                                   
-                                
-                                  
                                     
                                   
                                 
@@ -521,10 +415,18 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                                   
                                 
                                   
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
                                     
                                         
                                         
-                                            <li><a href="/cs231n-lec2">CS231n Lecture 3.  Neural Network</a></li>
+                                            <li><a href="/algorithm-dynamic">Algorithm 강좌(2) - dynamic programming</a></li>
                                         
                                     
                                   
@@ -533,21 +435,15 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                                     
                                         
                                         
-                                            <li><a href="/cs231n-lec1">CS231n Lecture 2.  Linear Classifier</a></li>
+                                            <li><a href="/algorithm-basic">Algorithm 강좌(1) - basic programming</a></li>
                                         
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/cs231n/">
+                            <a href="/tag/algorithm/">
                                 
                                     See all 2 posts  →
                                 
@@ -561,42 +457,23 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
             
                 
 
-    <article class="post-card post-template">
-        
-            <a class="post-card-image-link" href="/algorithm-friends4block">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/friends4block.png)"></div>
-            </a>
+    <article class="post-card  no-image">
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/algorithm-friends4block">
+            <a class="post-card-content-link" href="/2021-09-15-errors-1">
                 <header class="post-card-header">
                     
-                        
-                            
-                                <span class="post-card-tags">Algorithm</span>
-                            
-                        
-                    
 
-                    <h2 class="post-card-title">Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설</h2>
+                    <h2 class="post-card-title"></h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>문제 풀기
-
-</p>
+                        <p></p>
                     
                 </section>
             </a>
             <footer class="post-card-meta">
                 
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/logo.jpg" alt="건너별(crosstar)" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/crosstar/">건너별(crosstar)</a>
-                        </span>
                     
                 
                 <span class="reading-time">
@@ -617,27 +494,30 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/ML-GAN2">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/audio.png)"></div>
+            <a class="post-card-image-link" href="/cs231n-lec12">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/deeplearning.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/ML-GAN2">
+            <a class="post-card-content-link" href="/cs231n-lec12">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Machinelearning</span>
+                                <span class="post-card-tags">Cs231n</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Machine learning (1) Generative Model과 GAN</h2>
+                    <h2 class="post-card-title">CS231n Lecture 12. Visualizing and understanding</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>안녕
-머신러닝 잘하고싶다.~~~~~~~~~~!!!!!!
+                        <p>GOAL
+
+  시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.
+  이미지 Style을 변형시키는 방법에 대해 알아본다.
+
 
 </p>
                     
@@ -657,7 +537,7 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
@@ -681,18 +561,18 @@ Regularization 진행 후 <strong>최솟값을 return</strong></li>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">CS231n Lecture 12. Visualizing and understanding</div>
+    <div class="floating-header-title">Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=CS231n+Lecture+12.+Visualizing+and+understanding&amp;url=https://crosstar1228.github.io/cs231n-lec12"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Lv2+-+2018+%EC%B9%B4%EC%B9%B4%EC%98%A4+%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8+%27%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D%27+%EB%AC%B8%EC%A0%9C+%ED%95%B4%EC%84%A4&amp;url=https://crosstar1228.github.io/algorithm-friends4block"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://crosstar1228.github.io/cs231n-lec12"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://crosstar1228.github.io/algorithm-friends4block"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
