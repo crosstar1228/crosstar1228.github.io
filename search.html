@@ -219,7 +219,7 @@ into the {body} of the default.hbs template -->
         "title": "",
             "author": "",
             "category": "",
-            "content": "문제 풀기풀이  list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작  블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경  0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복  answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return  Keypoint      set을 이용해 중복 방지    Transpose해서 진행    0 개수 count를 위한, ‘_‘로의 치환  ## 세팅m = 4n = 5board = [\"CCBDE\", \"AAADE\", \"AAABF\", \"CCBBF\"]def del4block(m,n,board):    now_count=0    # 중복방지 setlist    pop_set=set()      for i in range(n-1):        for j in range(m-1):            if board[i][j]==board[i+1][j]==board[i][j+1]==board[i+1][j+1] and board[i][j]!='_':                pop_set |= set([(i,j), (i+1,j), (i,j+1), (i+1,j+1)]) # 터질 부분 indexing     # print(pop_set)      for i,j in pop_set:        board[i][j] = 0 # 0으로 만들기    for i,row in enumerate(board):        cnt = row.count(0) # 0 개수 세기      now_count+=cnt# now_count에 더하기        board[i]=cnt*['_']+ [b for b in row if b!=0] # 앞으로 당기기 및 _ 로 치환하기(개수세기 위함)    # print(board)    return board,now_countdef solution(m, n, board):    answer = 0    board = [list(row) for row in board] # 알파벳 분리    board = list(map(list,zip(*board))) # 전치    while True:        boardnow_count=del4block(m,n,board)        if now_count==0: # 더이상 터질 게 없다면            return answer             break;        answer+=now_count # answer에 loop마다 now_count 더하기실행 결과solution(m,n,board)&gt;&gt;&gt; 1414개의 블록이 터진다 펑!print(&quot;hello world!&quot;)",
+            "content": "문제 풀기풀이  list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작  블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경  0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복  answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return  Keypoint      set을 이용해 중복 방지    Transpose해서 진행    0 개수 count를 위한, ‘_‘로의 치환  ## 세팅m = 4n = 5board = [\"CCBDE\", \"AAADE\", \"AAABF\", \"CCBBF\"]def del4block(m,n,board):    now_count=0    # 중복방지 setlist    pop_set=set()      for i in range(n-1):        for j in range(m-1):            if board[i][j]==board[i+1][j]==board[i][j+1]==board[i+1][j+1] and board[i][j]!='_':                pop_set |= set([(i,j), (i+1,j), (i,j+1), (i+1,j+1)]) # 터질 부분 indexing     # print(pop_set)      for i,j in pop_set:        board[i][j] = 0 # 0으로 만들기    for i,row in enumerate(board):        cnt = row.count(0) # 0 개수 세기      now_count+=cnt# now_count에 더하기        board[i]=cnt*['_']+ [b for b in row if b!=0] # 앞으로 당기기 및 _ 로 치환하기(개수세기 위함)    # print(board)    return board,now_countdef solution(m, n, board):    answer = 0    board = [list(row) for row in board] # 알파벳 분리    board = list(map(list,zip(*board))) # 전치    while True:        boardnow_count=del4block(m,n,board)        if now_count==0: # 더이상 터질 게 없다면            return answer             break;        answer+=now_count # answer에 loop마다 now_count 더하기실행 결과solution(m,n,board)&gt;&gt;&gt; 1414개의 블록이 터진다 펑!",
         "url": "/2021-09-30-algorithm-friends4block"
     }
     ,
@@ -293,6 +293,15 @@ into the {body} of the default.hbs template -->
             "category": "",
             "content": "코테의 기본! Algorithm 강좌 및 실습    Algorithm 강좌(1) - 알고리즘이란    Algorithm 강좌(2) - dynamic programming또 안녕동적 계획법이란 무엇일까?진짜로.후….  이것만 기억해. 가장 중요한건 눈에 보이지 않아.for i in range(30):    print(i)print(&quot;hello world!&quot;)",
         "url": "/algorithm-dynamic"
+    }
+    ,
+    
+    "algorithm-basic": {
+        "title": "Algorithm 강좌(1) - basic programming",
+            "author": "crosstar",
+            "category": "",
+            "content": "코테의 기본! Algorithm 강좌 및 실습    Algorithm 강좌(1) - 알고리즘이란    Algorithm 강좌(2) - dynamic programming또 안녕동적 계획법이란 무엇일까?진짜로.후….  이것만 기억해. 가장 중요한건 눈에 보이지 않아….for i in range(30):    print(i)print(&quot;hello world!&quot;)",
+        "url": "/algorithm-basic"
     }
     
     

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-02T06:18:31+00:00</updated>
+  <updated>2021-10-02T13:56:55+00:00</updated>
   <id>https://crosstar1228.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -52,6 +52,63 @@
 
 &lt;blockquote&gt;
   &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;noscript&gt;&lt;pre&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming 또 안녕 동적 계획법이란 무엇일까?</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Algorithm 강좌(1) - basic programming</title>
+      <link href="https://crosstar1228.github.io/algorithm-basic" rel="alternate" type="text/html" title="Algorithm 강좌(1) - basic programming" />
+      <published>2021-09-14T16:40:00+00:00</published>
+      <updated>2021-09-14T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/algorithm-basic</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/algorithm-basic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;/ul&gt;
+&lt;h2 id=&quot;또-안녕&quot;&gt;또 안녕&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;동적 계획법이란 무엇일까?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;….&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아….&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
