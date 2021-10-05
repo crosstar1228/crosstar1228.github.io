@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-04T16:00:45+00:00</updated>
+  <updated>2021-10-05T07:37:23+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -30,6 +30,72 @@
   
   
 
+  
+    <entry>
+      <title type="html">프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)</title>
+      <link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="프로그래머스 코딩테스트 -  'N으로 표현' 문제 해설 (dynamic programming)" />
+      <published>2021-10-04T16:40:00+00:00</published>
+      <updated>2021-10-04T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/algorithm-dynamic</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.welcomekakao.com/learn/courses/30/lessons/42895#&quot;&gt;문제 풀기&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;dynamic programming을 활용하는 문제입니다!~&lt;/p&gt;
+  &lt;h2 id=&quot;keypoint&quot;&gt;🧐keypoint&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;사용횟수가 1 일때, 사용횟수가 2 일 때 경우의 수들을 정리해 보는것이 &lt;strong&gt;첫번째 아이디어&lt;/strong&gt;이다.&lt;/li&gt;
+    &lt;li&gt;사용횟수가 2 인 집합은 사용횟수 1,사용횟수 1 인 집합을 합쳐 만들어낼 수 있다. 횟수 2,3,4 모두 마찬가지다.&lt;/li&gt;
+    &lt;li&gt;N을 9번 이상 쓰지 않으니 경우의 수가 그리 많지는 않다.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;n--3이라고-가정할-경우&quot;&gt;N = 3이라고 가정할 경우&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1회 조합으로 만들어 낼 수 있는 수 : 3&lt;/li&gt;
+  &lt;li&gt;2회 조합으로 만들어 낼 수 있는 수 : 6(3+3), 1(3/3), 9(3*3), 33(연속)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;noscript&gt;&lt;pre&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://www.hamadevelop.me/algorithm-n-expression/&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Lv2 - 2018 카카오 코딩테스트 ‘프렌즈4블록’ 문제 해설</title>

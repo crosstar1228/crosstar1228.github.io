@@ -12,10 +12,31 @@
         
           <description></description>
         
-        <pubDate>Mon, 04 Oct 2021 16:00:45 +0000</pubDate>
+        <pubDate>Tue, 05 Oct 2021 07:37:23 +0000</pubDate>
         <link>
         https://crosstar1228.github.io/2021-09-15-errors-1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>프로그래머스 코딩테스트 -  'N으로 표현' 문제 해설 (dynamic programming)</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 04 Oct 2021 16:40:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/algorithm-dynamic</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/algorithm-dynamic</guid>
       </item>
       
     
