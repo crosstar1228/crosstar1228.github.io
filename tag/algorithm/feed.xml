@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-05T08:38:09+00:00</updated>
+  <updated>2021-10-05T15:04:47+00:00</updated>
   <id>https://crosstar1228.github.io/tag/algorithm/feed.xml</id>
 
   
@@ -63,11 +63,45 @@
   &lt;li&gt;2회 조합으로 만들어 낼 수 있는 수 : 6(3+3), 1(3/3), 9(3*3), 33(연속)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;noscript&gt;&lt;pre&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;
+&lt;h2 id=&quot;코드&quot;&gt;코드!&lt;/h2&gt;
+&lt;noscript&gt;&lt;pre&gt;def solution(N,number):
+    possible_set = [0, [N]]
+    if N == number : #
+        return 1
+    for i in range(2,9):                            #2~8까지가 조합(9번이상 쓰지 않음)
+        case_set = []                               # Possible set에 append할 caseset
+        basic_num = int(str(N)*i)                   # N의 i개 연속한 숫자 추가 ex) 33, 333 , ...
+        case_set.append(basic_num)
+        for i_half in range(1,i//2+1):              #숫자를 절반까지만 사용(좌우대칭으로 같은 결과가 나옴)
+            for x in possible_set[i_half]:
+                for y in possible_set[i-i_half]:    # x + y = i_half 이며 반으로나눠진
+                    print(possible_set)
+                                                    # 사칙연산을 수행후 case_set에 넣음
+                    case_set.append(x+y)
+                    case_set.append(x-y)
+                    case_set.append(y-x)
+                    case_set.append(x*y)
+                    if y != 0:
+                        case_set.append(x / y)
+                    if x != 0:
+                        case_set.append(y / x)
+            if number in case_set:                   # case set에 원하는 숫자가 있다면 반환
+                return i
+            possible_set.append(case_set)
+    return -1
 
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+
+print(solution(3,21))
+
+
+&amp;gt;&amp;gt; 4&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/crosstar1228/9924df7b8871e34629a5271389d40ab3.js&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;회고&quot;&gt;회고&lt;/h2&gt;
 &lt;ul&gt;
+  &lt;li&gt;코드의 x+y =i_half 부분과 반으로 나누는 이유에 대해서 복습 시 코드 면밀 검토
+    &lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+  &lt;/li&gt;
   &lt;li&gt;https://www.hamadevelop.me/algorithm-n-expression/&lt;/li&gt;
 &lt;/ul&gt;</content>
 
