@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-05T07:37:23+00:00</updated>
+  <updated>2021-10-05T08:38:09+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -48,7 +48,7 @@
 &lt;p&gt;&lt;a href=&quot;https://www.welcomekakao.com/learn/courses/30/lessons/42895#&quot;&gt;문제 풀기&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;dynamic programming을 활용하는 문제입니다!~&lt;/p&gt;
+  &lt;p&gt;dynamic programming을 활용하는 문제입니다~!&lt;/p&gt;
   &lt;h2 id=&quot;keypoint&quot;&gt;🧐keypoint&lt;/h2&gt;
   &lt;ul&gt;
     &lt;li&gt;사용횟수가 1 일때, 사용횟수가 2 일 때 경우의 수들을 정리해 보는것이 &lt;strong&gt;첫번째 아이디어&lt;/strong&gt;이다.&lt;/li&gt;
