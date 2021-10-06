@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-05T15:04:47+00:00</updated>
+  <updated>2021-10-06T08:29:55+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -53,7 +53,7 @@
   &lt;ul&gt;
     &lt;li&gt;사용횟수가 1 일때, 사용횟수가 2 일 때 경우의 수들을 정리해 보는것이 &lt;strong&gt;첫번째 아이디어&lt;/strong&gt;이다.&lt;/li&gt;
     &lt;li&gt;사용횟수가 2 인 집합은 사용횟수 1,사용횟수 1 인 집합을 합쳐 만들어낼 수 있다. 횟수 2,3,4 모두 마찬가지다.&lt;/li&gt;
-    &lt;li&gt;N을 9번 이상 쓰지 않으니 경우의 수가 그리 많지는 않다.&lt;/li&gt;
+    &lt;li&gt;N을 9번 이상 쓰지 않으니 경우의 수가 그리 많지는 않다..!(초반에 구상과정에서 너무 많을 것 같다는 생각이 사고 전개를 가로막았다)&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
