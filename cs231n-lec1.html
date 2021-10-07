@@ -243,19 +243,20 @@ into the {body} of the default.hbs template -->
 </ol>
 
 <h2 id="image-classification">Image Classification</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 'Semantic Gap(의미론적 차이)'라고 표현하며, 아래 그림을 보며이해해 보겠습니다.      ![cs2_img.png](../../assets/built/images/cs2_img.png)    컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.  
--&gt; 이런 숫자로부터 우리는 **'이 사진이 고양이다'라는 의미를 추출해 내고 싶은 게 목적**입니다.    하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.    그래서 고안된 방법이 Data에 기반한 접근법입니다.
-</code></pre></div></div>
+<p>Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 ‘Semantic Gap(의미론적 차이)’라고 표현하며, 아래 그림을 보며이해해 보겠습니다.<br />
+<img src="../../assets/built/images/cs2_img.png" alt="cs2_img.png" />
+컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.<br />
+ -&gt; 이런 숫자로부터 우리는 <strong>‘이 사진이 고양이다’라는 의미를 추출해 내고 싶은 게 목적</strong>입니다.
+하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.
+그래서 고안된 방법이 Data에 기반한 접근법입니다.</p>
 
 <h2 id="data-driven-approach">Data-Driven Approach</h2>
 <p>간단한 순서는 다음과 같습니다.</p>
 
-<ol>
-  <li>이미지와 label(이미지의 정답)정보가 포함된 dataset을 모으고</li>
-  <li>머신러닝으로 training 시키고</li>
-  <li>새로운 이미지에 대한 classifier(분류기)를 평가해 보는 것
-<img src="../../assets/built/images/cs2_img_1.png" alt="cs2_img_1.png" /></li>
-</ol>
+<p>1) 이미지와 label(이미지의 정답)정보가 포함된 dataset을 모으고<br />
+2) 머신러닝으로 training 시키고<br />
+3) 새로운 이미지에 대한 classifier(분류기)를 평가해 보는 것<br />
+<img src="../../assets/built/images/cs2_img_1.png" alt="cs2_img_1.png" /></p>
 
 <p>-&gt; training set을 label과 함께 학습하면, 그 이후의 새로운 이미지에 대하여 분류를 통해 의미를 추출해 낼 수 있는 것이죠.
 그렇다면 어떻게 기존 학습된 데이터와 새로운 이미지를 비교할 것이냐? 하는 의문이 제기되는데,
@@ -264,6 +265,8 @@ into the {body} of the default.hbs template -->
 아래 그림은 nearest neighbor에 대해 10개의 class에 따라 각각 예측이 되는 과정을 보여줍니다.</p>
 
 <p><img src="../../assets/built/images/cs2_img_2.png" alt="cs2_img_2.png" /></p>
+
+<hr />
 
 <h2 id="distance-metric">Distance Metric</h2>
 <p>가깝고 먼 거리(Distance)를 측정하려면 기준이 필요합니다. 강의에서는 아래 두 가지 기준을 설명해주고 있습니다.</p>
@@ -280,25 +283,23 @@ L2 distance : 각 pixel값의 차이를 제곱한 후 root를 씌운 후 결괏�
 
 <p>L1 distance 방법을 통하여 거리를 계산한 아래 예시를 보며 이해해 봅시다.</p>
 
-<p><img src="../../assets/built/images/cs2_img_3.png" alt="cs2_img_3.png" /></p>
+<h2><img src="../../assets/built/images/cs2_img_3.png" alt="cs2_img_3.png" /></h2>
 
 <h3 id="k-nearest-neighbor">K-Nearest Neighbor</h3>
 <p>한마디로 가장 가까운 K개를 비교해 보자! 입니다. k=5라면, 가장 거리가 가까운 5개중에서 다수결로 예측을 진행하는 것이에요!
 아래 코드를 살펴보며 이해해 볼까요?
 {gist}</p>
 
-<p>하지만 이는 단점이 있습니다.</p>
-<ol>
-  <li>전체 학습된 데이터셋과 비교하기 때문에 너무 느리고,</li>
-  <li>outlier에 강건하지 못합니다.<br />
+<p>하지만 이는 단점이 있습니다. 
+1) 전체 학습된 데이터셋과 비교하기 때문에 너무 느리고,<br />
+2) outlier에 강건하지 못합니다.  <br />
 아래 그림을 보시죠!
 <img src="../../assets/built/images/cs2_img_5.png" alt="cs2_img_5.png" />
 점들은 각각의 data를 의미하고, 색깔은 KNN에 의해 분류된 결과를 의미합니다.
 예를 들어, 초록색이 고양이를 의미하고 노란색이 강아지를 의미한다면, 초록색 영역 안에 포함된 data들이 고양이로 분류된 것이죠.
 하지만 조금 이상한 점은, 중간에 섬처럼 떨어져 있는 노란색 지점입니다. 초록색으로 분류되는 것이 자연스러움에도 불구하고, distance가 더 가깝다는 이유만으로 강아지로 분류된 것입니다. 실제로 data를 확인해 봤을 때, 이것은 고양이일 확률이 높고, KNN 알고리즘이 잘못 예측하였을 확률이 높습니다.
 (다시 말해, 강아지라고 학습된 데이터와 거리가 가깝다는 이유만으로, 실제로 고양이로 분류되는 것이 더 적절함에도 강아지로 분류된 것입니다.)
-이러한 단점 때문에 KNN은 거의 사용되지 않습니다. 이는 또한 <strong>차원의 저주</strong> 개념과도 연관되어 있는데, 이는 나중에 다루도록 하겠습니다.</li>
-</ol>
+이러한 단점 때문에 KNN은 거의 사용되지 않습니다. 이는 또한 <strong>차원의 저주</strong> 개념과도 연관되어 있는데, 이는 나중에 다루도록 하겠습니다.</p>
 
 <p>추가로, K의 수에 따라 분류 성능 및 결과도 달라지게 되는데, <a href="http://vision.stanford.edu/teaching/cs231n-demos/knn/">링크</a>에서 실험해보면서 이해해 보시기 바랍니다!</p>
 
@@ -328,6 +329,8 @@ Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test
 
 <p>이와 달리 trainset을 여러 Fold(subset)으로 나누어 검증(validation)하는 방법도 있습니다. 각 Fold별로 결과를 평균내어 산출합니다. 검증을 여러 번 시도할 수 있는 장점이 있겠네요!</p>
 
+<hr />
+
 <h2 id="linear-classifier">Linear Classifier</h2>
 
 <p>우리는 어떻게 이미지 간 유사도를 측정하고, 이미지에서 의미를 뽑아내어 분류하는지 그 방법에 대하여 배웠습니다. 그것에 기반하여 실제 분류를 하는 작업을 살펴봅시다.<br />
@@ -355,6 +358,7 @@ Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test
 
 <p>이러한 의문을 갖고 다음 강의에서 어떻게 모델을 최적화(optimize)하는지 배워보겠습니다.</p>
 
+<hr />
 <blockquote>
   <h2 id="회고">회고😎</h2>
   <ul>
@@ -364,6 +368,7 @@ Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test
   </ul>
 </blockquote>
 
+<hr />
 <h3 id="생각해-볼-문제">생각해 볼 문제!</h3>
 <ul>
   <li>hyperparameter를 처음에 값을 정하는 근거가 필요해요. 처음에 어떻게 정할까요?</li>
