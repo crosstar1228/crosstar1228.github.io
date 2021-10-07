@@ -243,12 +243,9 @@ into the {body} of the default.hbs template -->
 </ol>
 
 <h2 id="image-classification">Image Classification</h2>
-<p>Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 ‘Semantic Gap(의미론적 차이)’라고 표현하며, 아래 그림을 보며이해해 보겠습니다.<br />
-<img src="../../assets/built/images/cs2_img.png" alt="cs2_img.png" />
-컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.<br />
- -&gt; 이런 숫자로부터 우리는 <strong>‘이 사진이 고양이다’라는 의미를 추출해 내고 싶은 게 목적</strong>입니다.
-하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.
-그래서 고안된 방법이 Data에 기반한 접근법입니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 'Semantic Gap(의미론적 차이)'라고 표현하며, 아래 그림을 보며이해해 보겠습니다.      ![cs2_img.png](../../assets/built/images/cs2_img.png)    컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.  
+-&gt; 이런 숫자로부터 우리는 **'이 사진이 고양이다'라는 의미를 추출해 내고 싶은 게 목적**입니다.    하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.    그래서 고안된 방법이 Data에 기반한 접근법입니다.
+</code></pre></div></div>
 
 <h2 id="data-driven-approach">Data-Driven Approach</h2>
 <p>간단한 순서는 다음과 같습니다.</p>
@@ -359,7 +356,7 @@ Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test
 <p>이러한 의문을 갖고 다음 강의에서 어떻게 모델을 최적화(optimize)하는지 배워보겠습니다.</p>
 
 <blockquote>
-  <p>##회고😎</p>
+  <h2 id="회고">회고😎</h2>
   <ul>
     <li>이미지의 의미론적인 정보를 추출하기 위해 data-driven approach가 고안되었고, 이는 training set을 머신러닝 기법으로 학습하는 것이다.</li>
     <li>KNN으로 K개의 가장 distance가 작은 image와의 비교를 통해 새로운 이미지를 분류 가능하지만, 잘 쓰이지는 않는다.</li>

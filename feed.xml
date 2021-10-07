@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-07T03:44:14+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-07T03:44:14+00:00</published><updated>2021-10-07T03:44:14+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-07T04:41:55+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-07T04:41:55+00:00</published><updated>2021-10-07T04:41:55+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -326,12 +326,9 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;image-classification&quot;&gt;Image Classification&lt;/h2&gt;
-&lt;p&gt;Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 ‘Semantic Gap(의미론적 차이)’라고 표현하며, 아래 그림을 보며이해해 보겠습니다.&lt;br /&gt;
-&lt;img src=&quot;../../assets/built/images/cs2_img.png&quot; alt=&quot;cs2_img.png&quot; /&gt;
-컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.&lt;br /&gt;
- -&amp;gt; 이런 숫자로부터 우리는 &lt;strong&gt;‘이 사진이 고양이다’라는 의미를 추출해 내고 싶은 게 목적&lt;/strong&gt;입니다.
-하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.
-그래서 고안된 방법이 Data에 기반한 접근법입니다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 'Semantic Gap(의미론적 차이)'라고 표현하며, 아래 그림을 보며이해해 보겠습니다.      ![cs2_img.png](../../assets/built/images/cs2_img.png)    컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.  
+-&amp;gt; 이런 숫자로부터 우리는 **'이 사진이 고양이다'라는 의미를 추출해 내고 싶은 게 목적**입니다.    하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.    그래서 고안된 방법이 Data에 기반한 접근법입니다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;data-driven-approach&quot;&gt;Data-Driven Approach&lt;/h2&gt;
 &lt;p&gt;간단한 순서는 다음과 같습니다.&lt;/p&gt;
@@ -442,7 +439,7 @@ Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test
 &lt;p&gt;이러한 의문을 갖고 다음 강의에서 어떻게 모델을 최적화(optimize)하는지 배워보겠습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;##회고😎&lt;/p&gt;
+  &lt;h2 id=&quot;회고&quot;&gt;회고😎&lt;/h2&gt;
   &lt;ul&gt;
     &lt;li&gt;이미지의 의미론적인 정보를 추출하기 위해 data-driven approach가 고안되었고, 이는 training set을 머신러닝 기법으로 학습하는 것이다.&lt;/li&gt;
     &lt;li&gt;KNN으로 K개의 가장 distance가 작은 image와의 비교를 통해 새로운 이미지를 분류 가능하지만, 잘 쓰이지는 않는다.&lt;/li&gt;
