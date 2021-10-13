@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-13T13:20:13+00:00</updated>
+  <updated>2021-10-13T13:49:51+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -291,16 +291,16 @@ def solution(participant, completion):
 &lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/crosstar1228/86ab2d292ea7dce38da70b41b506d781.js&quot;&gt; &lt;/script&gt;
 
-&lt;h2 id=&quot;잘못된-풀이&quot;&gt;잘못된 풀이&lt;/h2&gt;
+&lt;h3 id=&quot;잘못된-풀이&quot;&gt;잘못된 풀이&lt;/h3&gt;
 &lt;p&gt;단순히 completion 리스트를 확인하고 participation에 없는 element를 반환할 경우, 동명이인 발생 시 문제를 처리하지 못한다.(오답)&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이-1-sorting-and-zip&quot;&gt;풀이 1. sorting and zip()&lt;/h2&gt;
+&lt;h3 id=&quot;풀이-1-sorting-and-zip&quot;&gt;풀이 1. sorting and zip()&lt;/h3&gt;
 &lt;p&gt;sorted로 정렬 후  zip함수를 이용하여 짝이 안맞는 남은 경우를 return&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이-2hash-이용&quot;&gt;풀이 2.hash() 이용&lt;/h2&gt;
+&lt;h3 id=&quot;풀이-2hash-이용&quot;&gt;풀이 2.hash() 이용&lt;/h3&gt;
 &lt;p&gt;hash() 함수로 특정 주소를 hashing 한 후 남은 값에 mapping된 원소를 리턴.(주소 충돌이 있을 경우 문제가 될 소지가 있는 풀이.)&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이-3-collectionscounter-로-차이-연산&quot;&gt;풀이 3. collections.Counter 로 차이 연산&lt;/h2&gt;</content>
+&lt;h3 id=&quot;풀이-3-collectionscounter-로-차이-연산&quot;&gt;풀이 3. collections.Counter 로 차이 연산&lt;/h3&gt;</content>
 
       
       
