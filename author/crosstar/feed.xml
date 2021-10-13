@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-07T04:48:22+00:00</updated>
+  <updated>2021-10-13T13:20:13+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -224,6 +224,104 @@ print(solution(3,21))
 
       
         <summary type="html">문제 풀기</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Lv1 - 프로그래머스 코딩테스트 ‘완주하지 못한 선수’ 문제 해설 (hashing)</title>
+      <link href="https://crosstar1228.github.io/algorithm-one_participant" rel="alternate" type="text/html" title="Lv1 - 프로그래머스 코딩테스트 '완주하지 못한 선수' 문제 해설 (hashing)" />
+      <published>2021-10-01T16:40:00+00:00</published>
+      <updated>2021-10-01T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/algorithm-one_participant</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/algorithm-one_participant">&lt;p&gt;&lt;a href=&quot;https://www.welcomekakao.com/learn/courses/30/lessons/42576&quot;&gt;문제 링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;두 list로부터 hashing을 이용하여 완주하지 못한 1명의 선수를 return하는 문제.&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;code&lt;/h2&gt;
+
+&lt;noscript&gt;&lt;pre&gt;
+# 오답
+
+def solution(participant, completion):
+    answer=&amp;#39;&amp;#39;
+
+    for par in participant:
+        if par not in completion:
+            idx=completion.index(par)
+            completion.pop(idx)
+        else :
+            answer = par
+    return answer
+
+# zip함수
+l1 = [&amp;quot;leo&amp;quot;, &amp;quot;kiki&amp;quot;, &amp;quot;eden&amp;quot;]
+l2 = [&amp;quot;eden&amp;quot;, &amp;quot;kiki&amp;quot;]
+
+# 풀이 1
+l1, l2 = sorted(l1),sorted(l2)
+for par,com in zip(l1,l2):
+    if par !=com:
+        print(par)
+print(l1[-1])
+
+## 풀이 2
+temp = 0
+dic = {}
+#랜덤으로 hashing
+for part in l1:
+    dic[hash(part)] = part
+    temp+=int(hash(part))
+    print(temp)
+for com in l2:
+    temp -= hash(com)
+answer = dic[temp]
+print(answer)
+
+# 풀이 3
+import collections
+
+
+def solution(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)
+    return list(answer.keys())[0]
+
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/crosstar1228/86ab2d292ea7dce38da70b41b506d781.js&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;잘못된-풀이&quot;&gt;잘못된 풀이&lt;/h2&gt;
+&lt;p&gt;단순히 completion 리스트를 확인하고 participation에 없는 element를 반환할 경우, 동명이인 발생 시 문제를 처리하지 못한다.(오답)&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-1-sorting-and-zip&quot;&gt;풀이 1. sorting and zip()&lt;/h2&gt;
+&lt;p&gt;sorted로 정렬 후  zip함수를 이용하여 짝이 안맞는 남은 경우를 return&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-2hash-이용&quot;&gt;풀이 2.hash() 이용&lt;/h2&gt;
+&lt;p&gt;hash() 함수로 특정 주소를 hashing 한 후 남은 값에 mapping된 원소를 리턴.(주소 충돌이 있을 경우 문제가 될 소지가 있는 풀이.)&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이-3-collectionscounter-로-차이-연산&quot;&gt;풀이 3. collections.Counter 로 차이 연산&lt;/h2&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">문제 링크</summary>
       
 
       
@@ -793,63 +891,6 @@ Glad to share my short knowledge.&lt;/p&gt;</content>
 
       
         <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Algorithm 강좌(1) - basic programming</title>
-      <link href="https://crosstar1228.github.io/algorithm-basic" rel="alternate" type="text/html" title="Algorithm 강좌(1) - basic programming" />
-      <published>2021-09-14T16:40:00+00:00</published>
-      <updated>2021-09-14T16:40:00+00:00</updated>
-      <id>https://crosstar1228.github.io/algorithm-basic</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/algorithm-basic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
-
-
-&lt;/ul&gt;
-&lt;h2 id=&quot;또-안녕&quot;&gt;또 안녕&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;동적 계획법이란 무엇일까?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;….&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이것만 기억해. 가장 중요한건 눈에 보이지 않아….&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;noscript&gt;&lt;pre&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js&quot;&gt; &lt;/script&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="algorithm" />
-      
-
-      
-        <summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming 또 안녕 동적 계획법이란 무엇일까?</summary>
       
 
       
