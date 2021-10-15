@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T06:38:42+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-15T06:38:42+00:00</published><updated>2021-10-15T06:38:42+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T07:29:38+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-15T07:29:38+00:00</published><updated>2021-10-15T07:29:38+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -79,16 +79,88 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
 
-&lt;p&gt;$L_i = \underset{j\not=y_i} \sum$
-\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
-\end{cases}\)&lt;/p&gt;
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum&lt;/p&gt;
+
+&lt;p&gt;\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\s_j - s_{y_i} + 1\quad : if\quad otherwise
+\end{cases}
+$&lt;/p&gt;
 
 &lt;p&gt;다시 쓰자면,&lt;/p&gt;
 
 &lt;p&gt;$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$&lt;/p&gt;
+
+&lt;p&gt;$s_j$ : j번째 class score
+$s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
+
+&lt;p&gt;어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;0과 &lt;strong&gt;특정한 값&lt;/strong&gt;중에서 최대를 골라요. 그 특정한 값이라는 것은&lt;/li&gt;
+  &lt;li&gt;(j번째 class score) - (정답에 해당하는 class score) 를 구하고 그것에 1을 더한 값입니다.&lt;/li&gt;
+  &lt;li&gt;1은 safety margin이라고 해서, &lt;strong&gt;오답의 score가 정답의 score보다 1 이상 차이나는 정도&lt;/strong&gt;에 한해 Loss로 반영하겠다는 의미입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;아래 예시를 통해 이해해 봅시다!
+&lt;img src=&quot;img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
+정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
+이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
+&lt;img src=&quot;img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;hinge-loss-관련-질문&quot;&gt;Hinge loss 관련 질문&lt;/h3&gt;
+&lt;p&gt;아래의 질문에 대한 답변을 확인해면서 수식을 이해해 보시기 바랍니다!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q1. What happens to the loss if car scores change a bit?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ NO CHANGE&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q2.Min/Max of loss&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ min = 0, Max = infinity&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q3. At initialization, W is small so all s~0. What is the loss?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ n-1 because (n-1) * 1&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q4. What if the sum was over all classes including syi?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;→ Loss increases by 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q5. What if we used mean instead of sum ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ Doesn’t Change. We don’t care the true values of the score&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q6. What if we used max()^2?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ Squared hinge loss. does not used normally&lt;/p&gt;
+
+&lt;p&gt;SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
+&lt;img src=&quot;img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
+&lt;p&gt;Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
+Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
+그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
+&lt;img src=&quot;img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
+강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
+이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
+다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.&lt;/p&gt;
+
+&lt;p&gt;여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
+본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
+페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 Loss 값을 더 크게 만들고, 더 좋지 않은 모델로 평가하는 것으로 이해하면 돼요.&lt;/p&gt;
+
+&lt;p&gt;Regularization에는 L1, L2 regularization 말고도 &lt;strong&gt;Dropout, Batch Normaization&lt;/strong&gt; 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;오늘 내용이 조금 어렵다면 괜찮습니다. 다음에 또 다시 보면서 Regularization에 대한 직관을 얻고,
+오늘은 &lt;strong&gt;Overfitting을 막기 위한 과정&lt;/strong&gt;는 사실만 우선적으로 기억하고 넘어갑시다!&lt;/p&gt;
 
 &lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
+&lt;p&gt;score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
+이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
+위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
 &lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary></entry><entry><title type="html">프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)</title><link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)" /><published>2021-10-04T16:40:00+00:00</published><updated>2021-10-04T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-dynamic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;

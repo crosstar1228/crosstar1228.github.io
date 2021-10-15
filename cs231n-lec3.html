@@ -296,16 +296,88 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!</p>
 
-<p>$L_i = \underset{j\not=y_i} \sum$
-\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
-\end{cases}\)</p>
+<p>$L_i = \underset{j\not=y_i} \sum</p>
+
+<p>\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\s_j - s_{y_i} + 1\quad : if\quad otherwise
+\end{cases}
+$</p>
 
 <p>다시 쓰자면,</p>
 
 <p>$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$</p>
+
+<p>$s_j$ : j번째 class score
+$s_{y_i}$ : 정답(label)에 해당하는 score</p>
+
+<p>어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.</p>
+<ol>
+  <li>0과 <strong>특정한 값</strong>중에서 최대를 골라요. 그 특정한 값이라는 것은</li>
+  <li>(j번째 class score) - (정답에 해당하는 class score) 를 구하고 그것에 1을 더한 값입니다.</li>
+  <li>1은 safety margin이라고 해서, <strong>오답의 score가 정답의 score보다 1 이상 차이나는 정도</strong>에 한해 Loss로 반영하겠다는 의미입니다.</li>
+</ol>
+
+<p>아래 예시를 통해 이해해 봅시다!
+<img src="img_5.png" alt="img_5.png" />
+정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
+이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
+<img src="img_6.png" alt="img_6.png" /></p>
+
+<p>이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.</p>
+
+<h3 id="hinge-loss-관련-질문">Hinge loss 관련 질문</h3>
+<p>아래의 질문에 대한 답변을 확인해면서 수식을 이해해 보시기 바랍니다!</p>
+
+<p><strong>Q1. What happens to the loss if car scores change a bit?</strong></p>
+
+<p>→ NO CHANGE</p>
+
+<p><strong>Q2.Min/Max of loss</strong></p>
+
+<p>→ min = 0, Max = infinity</p>
+
+<p><strong>Q3. At initialization, W is small so all s~0. What is the loss?</strong></p>
+
+<p>→ n-1 because (n-1) * 1</p>
+
+<p><strong>Q4. What if the sum was over all classes including syi?</strong></p>
+
+<p><strong>→ Loss increases by 1</strong></p>
+
+<p><strong>Q5. What if we used mean instead of sum ?</strong></p>
+
+<p>→ Doesn’t Change. We don’t care the true values of the score</p>
+
+<p><strong>Q6. What if we used max()^2?</strong></p>
+
+<p>→ Squared hinge loss. does not used normally</p>
+
+<p>SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
+<img src="img_4.png" alt="img_4.png" /></p>
+
 <h3 id="regularization">Regularization</h3>
+<p>Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
+Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
+그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
+<img src="img_7.png" alt="img_7.png" />
+강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
+이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
+다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.</p>
+
+<p>여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
+본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
+페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 Loss 값을 더 크게 만들고, 더 좋지 않은 모델로 평가하는 것으로 이해하면 돼요.</p>
+
+<p>Regularization에는 L1, L2 regularization 말고도 <strong>Dropout, Batch Normaization</strong> 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.</p>
+
+<p>오늘 내용이 조금 어렵다면 괜찮습니다. 다음에 또 다시 보면서 Regularization에 대한 직관을 얻고,
+오늘은 <strong>Overfitting을 막기 위한 과정</strong>는 사실만 우선적으로 기억하고 넘어갑시다!</p>
 
 <h3 id="softmax-function">Softmax function</h3>
+<p>score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
+이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.</p>
+
+<p><img src="img_8.png" alt="img_8.png" />
+위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.</p>
 
 <h2 id="optimization">Optimization</h2>
 <h3 id="stochastic-gradient-descent">Stochastic Gradient Descent</h3>
