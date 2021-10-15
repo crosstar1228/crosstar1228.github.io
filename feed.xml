@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T06:00:51+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-10-15-cs231n-lec3" rel="alternate" type="text/html" title="" /><published>2021-10-15T06:00:51+00:00</published><updated>2021-10-15T06:00:51+00:00</updated><id>https://crosstar1228.github.io/2021-10-15-cs231n-lec3</id><content type="html" xml:base="https://crosstar1228.github.io/2021-10-15-cs231n-lec3">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T06:03:50+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-15T06:03:50+00:00</published><updated>2021-10-15T06:03:50+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;원인-및-해결&quot;&gt;원인 및 해결&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다.&lt;br /&gt;
+이럴 때는 아래 명령어로 reset 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config --system --unset credential.helper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이때 아래처럼 에러가 나는 경우가 또 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-1&quot;&gt;문제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;error: could not lock config file C:/Program Files/Git/etc/gitconfig: Permission denied
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;원인-및-해결-1&quot;&gt;원인 및 해결&lt;/h3&gt;
+&lt;p&gt;이럴땐 &lt;strong&gt;git bash를 관리자 권한으로 실행&lt;/strong&gt;하여 해당 폴더로 이동 후 명령어를 다시 실행하면 된다.&lt;/p&gt;
+
+&lt;p&gt;++ push 시 뜨는 계정 비밀번호 입력은 &lt;strong&gt;token&lt;/strong&gt;으로 하는 걸 잊지 말자!&lt;/p&gt;
+
+&lt;p&gt;끝!&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">내용 핵심요약! CS231n Lecture 3. Loss function and Optimization</title><link href="https://crosstar1228.github.io/cs231n-lec3" rel="alternate" type="text/html" title="내용 핵심요약! CS231n Lecture 3. Loss function and Optimization" /><published>2021-10-14T11:00:00+00:00</published><updated>2021-10-14T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec3</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec3">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
   &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
@@ -40,7 +66,7 @@ Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각�
 그것이 Loss function으로 표현되는 것입니다.
 &lt;img src=&quot;img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
 &lt;img src=&quot;img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
-f(x_i, W) : input과 parameter에 의한 예측된 score를 의미합니다.
+\(f(x_i, W)\) : input과 parameter에 의한 예측된 score를 의미합니다.
 y_i : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
 
 &lt;p&gt;두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 L(W)로 정의하는 것입니다. 
@@ -59,33 +85,7 @@ W, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라
 &lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
 &lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;
 
-&lt;h2 id=&quot;data-driven-approach&quot;&gt;Data-Driven Approach&lt;/h2&gt;</content><author><name></name></author></entry><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-15T06:00:51+00:00</published><updated>2021-10-15T06:00:51+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
-&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;원인-및-해결&quot;&gt;원인 및 해결&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;계정 정보가 수정된 것이 local 환경에 반영이 안된 것이다.&lt;br /&gt;
-이럴 때는 아래 명령어로 reset 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config --system --unset credential.helper
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이때 아래처럼 에러가 나는 경우가 또 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;문제-1&quot;&gt;문제&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;error: could not lock config file C:/Program Files/Git/etc/gitconfig: Permission denied
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;원인-및-해결-1&quot;&gt;원인 및 해결&lt;/h3&gt;
-&lt;p&gt;이럴땐 &lt;strong&gt;git bash를 관리자 권한으로 실행&lt;/strong&gt;하여 해당 폴더로 이동 후 명령어를 다시 실행하면 된다.&lt;/p&gt;
-
-&lt;p&gt;++ push 시 뜨는 계정 비밀번호 입력은 &lt;strong&gt;token&lt;/strong&gt;으로 하는 걸 잊지 말자!&lt;/p&gt;
-
-&lt;p&gt;끝!&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)</title><link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)" /><published>2021-10-04T16:40:00+00:00</published><updated>2021-10-04T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-dynamic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;data-driven-approach&quot;&gt;Data-Driven Approach&lt;/h2&gt;</content><author><name>건너별(crosstar)</name></author><category term="cs231n" /><summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary></entry><entry><title type="html">프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)</title><link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)" /><published>2021-10-04T16:40:00+00:00</published><updated>2021-10-04T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-dynamic</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;

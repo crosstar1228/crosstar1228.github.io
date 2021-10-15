@@ -12,7 +12,7 @@
         
           <description></description>
         
-        <pubDate>Fri, 15 Oct 2021 06:00:51 +0000</pubDate>
+        <pubDate>Fri, 15 Oct 2021 06:03:50 +0000</pubDate>
         <link>
         https://crosstar1228.github.io/2021-09-15-errors-1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
@@ -21,14 +21,20 @@
     
       
       <item>
-        <title></title>
+        <title>내용 핵심요약! CS231n Lecture 3.  Loss function and Optimization</title>
         
-          <description></description>
+          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
         
-        <pubDate>Fri, 15 Oct 2021 06:00:51 +0000</pubDate>
+        <pubDate>Thu, 14 Oct 2021 11:00:00 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/2021-10-15-cs231n-lec3</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2021-10-15-cs231n-lec3</guid>
+        https://crosstar1228.github.io/cs231n-lec3</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec3</guid>
       </item>
       
     
