@@ -283,7 +283,7 @@ Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각�
 그것이 Loss function으로 표현되는 것입니다.
 <img src="img_3.png" alt="img_3.png" />
 <img src="img_1.png" alt="img_1.png" />
-$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.
+$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.<br />
 $y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.</p>
 
 <p>두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 $L(W)$로 정의하는 것입니다. 
@@ -296,18 +296,18 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!</p>
 
-<p>$L_i = \underset{j\not=y_i} \sum</p>
-
-<p>\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\s_j - s_{y_i} + 1\quad : if\quad otherwise
-\end{cases}
-$</p>
+<p>$L_i = \underset{j\not=y_i} \sum$
+\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
+\end{cases}\)</p>
 
 <p>다시 쓰자면,</p>
 
 <p>$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$</p>
 
-<p>$s_j$ : j번째 class score
+<p>$s_j$ : j번째 class score<br />
 $s_{y_i}$ : 정답(label)에 해당하는 score</p>
+
+<hr />
 
 <p>어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.</p>
 <ol>
@@ -339,7 +339,7 @@ $s_{y_i}$ : 정답(label)에 해당하는 score</p>
 
 <p>→ n-1 because (n-1) * 1</p>
 
-<p><strong>Q4. What if the sum was over all classes including syi?</strong></p>
+<p><strong>Q4. What if the sum was over all classes including $s_{y_i}$?</strong></p>
 
 <p><strong>→ Loss increases by 1</strong></p>
 
@@ -347,7 +347,7 @@ $s_{y_i}$ : 정답(label)에 해당하는 score</p>
 
 <p>→ Doesn’t Change. We don’t care the true values of the score</p>
 
-<p><strong>Q6. What if we used max()^2?</strong></p>
+<p><strong>Q6. What if we used $max()^2$?</strong></p>
 
 <p>→ Squared hinge loss. does not used normally</p>
 
@@ -365,7 +365,8 @@ Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때
 
 <p>여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
 본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
-페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 Loss 값을 더 크게 만들고, 더 좋지 않은 모델로 평가하는 것으로 이해하면 돼요.</p>
+페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 모델의 복잡도를 낮추는 방향으로 update하도록 하는 역할을 수행하는 거에요.<br />
+<a href="https://www.notion.so/Lecture-3-Loss-functions-and-Optimization-3c46c15413324bc7856387118e6cfff1#f4708d3b84444fb7be5d93b71805083b">L1, L2 Regularization</a></p>
 
 <p>Regularization에는 L1, L2 regularization 말고도 <strong>Dropout, Batch Normaization</strong> 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.</p>
 
@@ -382,6 +383,11 @@ Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때
 <h2 id="optimization">Optimization</h2>
 <h3 id="stochastic-gradient-descent">Stochastic Gradient Descent</h3>
 
+<h2 id="질문">질문</h2>
+<ul>
+  <li>softmax function에서 log를 쓰는 이유는 무엇일까요?</li>
+  <li>multiclass SVM Loss 는 왜 SVM Loss라는 이름이 붙었을까요?</li>
+</ul>
 
                 </div>
             </section>
