@@ -284,17 +284,22 @@ Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각�
 <img src="img_3.png" alt="img_3.png" />
 <img src="img_1.png" alt="img_1.png" />
 $f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.
-y_i : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.</p>
+$y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.</p>
 
-<p>두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 L(W)로 정의하는 것입니다. 
-W, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라 Loss function의 결괏값도 달라지지라는 것을 직관적으로 이해할 수 있습니다.</p>
+<p>두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 $L(W)$로 정의하는 것입니다. 
+$W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라 Loss function의 결괏값도 달라지지라는 것을 직관적으로 이해할 수 있습니다.</p>
 
 <p>이러한 Loss function의 예시인 Multiclass SVM Loss 를 살펴보며 이해도를 높여 보겠습니다.</p>
 
 <h3 id="multiclass-svm-loss">Multiclass SVM Loss</h3>
 <p><img src="img_2.png" alt="img_2.png" />
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
-그리고 L_i는 다음과 같이 정의돼요!</p>
+그리고 $L_i$는 다음과 같이 정의돼요!</p>
+
+<p>\(L_i = \under{j!=y_i}\sum
+\begin{cases}0 \quad\qquad if\quad s_{y_i}&gt;= s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
+\end{cases}\)
+\(=\)</p>
 <h3 id="regularization">Regularization</h3>
 
 <h3 id="softmax-function">Softmax function</h3>
