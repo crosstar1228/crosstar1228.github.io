@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-15T06:35:20+00:00</updated>
+  <updated>2021-10-15T06:38:42+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -92,12 +92,13 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
 
-&lt;p&gt;\(L_i = \underset{j\not=y_i} \sum\)
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum$
 \(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
 \end{cases}\)&lt;/p&gt;
 
-&lt;p&gt;다시 쓰자면,
-\(L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )\)&lt;/p&gt;
+&lt;p&gt;다시 쓰자면,&lt;/p&gt;
+
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$&lt;/p&gt;
 &lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
 
 &lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
