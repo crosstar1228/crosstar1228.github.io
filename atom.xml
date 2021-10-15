@@ -12,10 +12,23 @@
         
           <description></description>
         
-        <pubDate>Wed, 13 Oct 2021 15:07:14 +0000</pubDate>
+        <pubDate>Fri, 15 Oct 2021 06:00:51 +0000</pubDate>
         <link>
         https://crosstar1228.github.io/2021-09-15-errors-1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title></title>
+        
+          <description></description>
+        
+        <pubDate>Fri, 15 Oct 2021 06:00:51 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/2021-10-15-cs231n-lec3</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/2021-10-15-cs231n-lec3</guid>
       </item>
       
     
@@ -163,28 +176,24 @@
         
         <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/cs231n-lec2</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec2</guid>
+        https://crosstar1228.github.io/cs231n-lec3</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec3</guid>
       </item>
       
     
       
       <item>
-        <title>CS231n Lecture 2.  Linear Classifier</title>
+        <title>CS231n Lecture 3.  Neural Network</title>
         
-          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다.&lt;/li&gt;
-  &lt;li&gt;이미지를 어떻게 비교 및 분류하는지 알아보고, &lt;strong&gt;KNN(K-Nearest Neighbor)&lt;/strong&gt;에 관하여 이해합니다.&lt;/li&gt;
-  &lt;li&gt;이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.&lt;/li&gt;
-&lt;/ul&gt;
+          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n&lt;/p&gt;
 
 </description>
         
         <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/cs231n-lec1</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec1</guid>
+        https://crosstar1228.github.io/cs231n-lec2</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec2</guid>
       </item>
       
     
