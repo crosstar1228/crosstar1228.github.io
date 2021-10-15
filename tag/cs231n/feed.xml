@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/cs231n/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-15T06:03:50+00:00</updated>
+  <updated>2021-10-15T06:12:05+00:00</updated>
   <id>https://crosstar1228.github.io/tag/cs231n/feed.xml</id>
 
   
@@ -79,7 +79,7 @@ Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각�
 그것이 Loss function으로 표현되는 것입니다.
 &lt;img src=&quot;img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
 &lt;img src=&quot;img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
-\(f(x_i, W)\) : input과 parameter에 의한 예측된 score를 의미합니다.
+$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.
 y_i : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
 
 &lt;p&gt;두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 L(W)로 정의하는 것입니다. 
@@ -96,9 +96,7 @@ W, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라
 &lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
 
 &lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
-&lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;
-
-&lt;h2 id=&quot;data-driven-approach&quot;&gt;Data-Driven Approach&lt;/h2&gt;</content>
+&lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;</content>
 
       
       
