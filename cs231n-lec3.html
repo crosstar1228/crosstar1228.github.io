@@ -296,11 +296,12 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!</p>
 
-\[$L_i = \underset{j\not=y_i}\sum$
-\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
-\end{cases}\]
+<p>\(L_i = \underset{j\not=y_i} \sum\)
+\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
+\end{cases}\)</p>
 
-<p>\($= \underset{j\not=y_i}\sum max(0,s_j - s_{y_i} + 1 )$\)</p>
+<p>다시 쓰자면,
+\(L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )\)</p>
 <h3 id="regularization">Regularization</h3>
 
 <h3 id="softmax-function">Softmax function</h3>
