@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T06:26:31+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-15T06:26:31+00:00</published><updated>2021-10-15T06:26:31+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T06:31:46+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2021-09-15-errors-1" rel="alternate" type="text/html" title="" /><published>2021-10-15T06:31:46+00:00</published><updated>2021-10-15T06:31:46+00:00</updated><id>https://crosstar1228.github.io/2021-09-15-errors-1</id><content type="html" xml:base="https://crosstar1228.github.io/2021-09-15-errors-1">&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
 &lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -79,10 +79,11 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
 
-&lt;p&gt;\(L_i = \underset{j\not=y_i}\sum
-\begin{cases}0 \qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
-\end{cases}\)
-\(= \underset{j\not=y_i}\sum max(0,s_j - s_{y_i} + 1 )\)&lt;/p&gt;
+\[$L_i = \underset{j\not=y_i}\sum$
+\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
+\end{cases}\]
+
+&lt;p&gt;\($= \underset{j\not=y_i}\sum max(0,s_j - s_{y_i} + 1 )$\)&lt;/p&gt;
 &lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
 
 &lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
