@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/cs231n/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-10-15T08:34:01+00:00</updated>
+  <updated>2022-07-18T13:13:00+00:00</updated>
   <id>https://crosstar1228.github.io/tag/cs231n/feed.xml</id>
 
   
@@ -30,6 +30,186 @@
   
   
 
+  
+    <entry>
+      <title type="html">내용 핵심요약! CS231n Lecture 4. Backpropagation</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec4" rel="alternate" type="text/html" title="내용 핵심요약! CS231n Lecture 4.  Backpropagation" />
+      <published>2021-10-14T11:00:00+00:00</published>
+      <updated>2021-10-14T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/cs231n-lec4</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec4">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#loss-function&quot;&gt;Loss function&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#regularization&quot;&gt;Regularization&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#Softmax-function&quot;&gt;Softmax function&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#optimization&quot;&gt;Optimization&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;loss-function&quot;&gt;Loss function&lt;/h2&gt;
+&lt;p&gt;지난 시간에 우리는 Parameter를 update, 즉 최적의 가중치를 찾아내는 방법에 대한 필요성을 느꼈습니다.
+한 마디로 이번 강의에서 설명할 최적화(Optimization)에 대한 이야기입니다. 그리고 그를 위한 핵심 개념인 손실 함수(Loss function)에 대하여 우선적으로 알아보겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-loss-function&quot;&gt;What is loss function?&lt;/h3&gt;
+&lt;p&gt;Loss function(손실 함수, 이하 한글 용어 생략)은 다른 말로 Cost function이라고 합니다.
+Loss 또는 cost를 계산하는 함수다! 이렇게 예상이 되네요.
+그리고 그러한 손실(또는 비용)이 줄어드는 것이 더 바람직한 방향이라는 감까지 오셨다면
+Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각되네요. 조금더 자세히 들어다 볼까요?
+&lt;img src=&quot;../../assets/built/images/lec3_img.png&quot; alt=&quot;img.png&quot; /&gt;
+우리는 위와 같은 이미지 분류 문제에서 진짜 class(label 또는 정답)에 해당하는 score가 가장 높은 점수가 나오도록 모델을 만들고 싶어요.
+그래야만 새로운 이미지도 올바른 정답으로 판단할 확률이 높을 테니까요. 우리는 이것은 정확도(accuracy) 등의 지표로 판단하게 됩니다.
+하지만 그림을 보면 고양이의 정답을 가진 사진은 deer(사슴)에 해당하는 가장 높은 점수를 갖고 있고, 개구리는 truck(트럭)에 해당하는 점수를 가장 높게 갖고 있네요.&lt;/p&gt;
+
+&lt;p&gt;수치로 표현된 이러한 점수(score)들이 얼마나 바람직한지, &lt;strong&gt;정량적으로&lt;/strong&gt; 어긋난 정도를 판단할 필요성을 느낍니다.
+그 벗어난 정도를 알아야 알맞게 가중치를 갱신할 수 있기 때문입니다.
+정량적인 수치로 표현해야 하니, 특정한 입력값마다 변하는 하나의 함수가 정의되는 것이고,
+그것이 Loss function으로 표현되는 것입니다.
+&lt;img src=&quot;../../assets/built/images/lec3_img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
+$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.&lt;br /&gt;
+$y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 $L(W)$로 정의하는 것입니다. 
+$W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라 Loss function의 결괏값도 달라지지라는 것을 직관적으로 이해할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이러한 Loss function의 예시인 Multiclass SVM Loss 를 살펴보며 이해도를 높여 보겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;
+ 이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
+그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
+
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum$
+\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
+\end{cases}\)&lt;/p&gt;
+
+&lt;p&gt;다시 쓰자면,&lt;/p&gt;
+
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$&lt;/p&gt;
+
+&lt;p&gt;$s_j$ : j번째 class score&lt;br /&gt;
+$s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;0과 &lt;strong&gt;특정한 값&lt;/strong&gt;중에서 최대를 골라요. 그 특정한 값이라는 것은&lt;/li&gt;
+  &lt;li&gt;(j번째 class score) - (정답에 해당하는 class score) 를 구하고 그것에 1을 더한 값입니다.&lt;/li&gt;
+  &lt;li&gt;1은 safety margin이라고 해서, &lt;strong&gt;오답의 score가 정답의 score보다 1 이상 차이나는 정도&lt;/strong&gt;에 한해 Loss로 반영하겠다는 의미입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;아래 예시를 통해 이해해 봅시다!
+&lt;img src=&quot;../../assets/built/images/lec3_img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
+정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
+이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
+&lt;img src=&quot;../../assets/built/images/lec3_img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;hinge-loss-관련-질문&quot;&gt;Hinge loss 관련 질문&lt;/h3&gt;
+&lt;p&gt;아래의 질문에 대한 답변을 확인해면서 수식을 이해해 보시기 바랍니다!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q1. What happens to the loss if car scores change a bit?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ NO CHANGE&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q2.Min/Max of loss&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ min = 0, Max = infinity&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q3. At initialization, W is small so all s~0. What is the loss?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ n-1 because (n-1) * 1&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q4. What if the sum was over all classes including $s_{y_i}$?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;→ Loss increases by 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q5. What if we used mean instead of sum ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ Doesn’t Change. We don’t care the true values of the score&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q6. What if we used $max()^2$?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ Squared hinge loss. does not used normally&lt;/p&gt;
+
+&lt;p&gt;SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
+&lt;img src=&quot;../../assets/built/images/lec3_img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
+&lt;p&gt;Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
+Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
+그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
+&lt;img src=&quot;../../assets/built/images/lec3_img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
+강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
+이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
+다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.&lt;/p&gt;
+
+&lt;p&gt;여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
+본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
+페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 모델의 복잡도를 낮추는 방향으로 update하도록 하는 역할을 수행하는 거에요.&lt;br /&gt;
+&lt;a href=&quot;https://www.notion.so/Lecture-3-Loss-functions-and-Optimization-3c46c15413324bc7856387118e6cfff1#f4708d3b84444fb7be5d93b71805083b&quot;&gt;L1, L2 Regularization&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Regularization에는 L1, L2 regularization 말고도 &lt;strong&gt;Dropout, Batch Normaization&lt;/strong&gt; 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;오늘 내용이 조금 어렵다면 괜찮습니다. 다음에 또 다시 보면서 Regularization에 대한 직관을 얻고,
+오늘은 &lt;strong&gt;Overfitting을 막기 위한 과정&lt;/strong&gt;는 사실만 우선적으로 기억하고 넘어갑시다!&lt;/p&gt;
+
+&lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
+&lt;p&gt;score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
+이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
+위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
+&lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;
+
+&lt;h2 id=&quot;질문&quot;&gt;질문&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;softmax function에서 log를 쓰는 이유는 무엇일까요?&lt;/li&gt;
+  &lt;li&gt;multiclass SVM Loss 는 왜 SVM Loss라는 이름이 붙었을까요?&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="cs231n" />
+      
+
+      
+        <summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">내용 핵심요약! CS231n Lecture 3. Loss function and Optimization</title>
@@ -68,7 +248,7 @@
 Loss 또는 cost를 계산하는 함수다! 이렇게 예상이 되네요.
 그리고 그러한 손실(또는 비용)이 줄어드는 것이 더 바람직한 방향이라는 감까지 오셨다면
 Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각되네요. 조금더 자세히 들어다 볼까요?
-&lt;img src=&quot;img.png&quot; alt=&quot;img.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img.png&quot; alt=&quot;img.png&quot; /&gt;
 우리는 위와 같은 이미지 분류 문제에서 진짜 class(label 또는 정답)에 해당하는 score가 가장 높은 점수가 나오도록 모델을 만들고 싶어요.
 그래야만 새로운 이미지도 올바른 정답으로 판단할 확률이 높을 테니까요. 우리는 이것은 정확도(accuracy) 등의 지표로 판단하게 됩니다.
 하지만 그림을 보면 고양이의 정답을 가진 사진은 deer(사슴)에 해당하는 가장 높은 점수를 갖고 있고, 개구리는 truck(트럭)에 해당하는 점수를 가장 높게 갖고 있네요.&lt;/p&gt;
@@ -77,8 +257,8 @@ Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각�
 그 벗어난 정도를 알아야 알맞게 가중치를 갱신할 수 있기 때문입니다.
 정량적인 수치로 표현해야 하니, 특정한 입력값마다 변하는 하나의 함수가 정의되는 것이고,
 그것이 Loss function으로 표현되는 것입니다.
-&lt;img src=&quot;img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
-&lt;img src=&quot;img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
 $f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.&lt;br /&gt;
 $y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
 
@@ -88,7 +268,7 @@ $W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따�
 &lt;p&gt;이러한 Loss function의 예시인 Multiclass SVM Loss 를 살펴보며 이해도를 높여 보겠습니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;
  이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
 그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
 
@@ -113,10 +293,10 @@ $s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;아래 예시를 통해 이해해 봅시다!
-&lt;img src=&quot;img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
 정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
 이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
-&lt;img src=&quot;img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.&lt;/p&gt;
 
@@ -148,13 +328,13 @@ $s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
 &lt;p&gt;→ Squared hinge loss. does not used normally&lt;/p&gt;
 
 &lt;p&gt;SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
-&lt;img src=&quot;img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
 &lt;p&gt;Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
 Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
 그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
-&lt;img src=&quot;img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
 강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
 이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
 다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.&lt;/p&gt;
@@ -173,7 +353,7 @@ Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때
 &lt;p&gt;score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
 이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
 위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
@@ -205,6 +385,203 @@ Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때
 
       
         <summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">CS231n Lecture 2. Image Classification</title>
+      <link href="https://crosstar1228.github.io/cs231n-lec2" rel="alternate" type="text/html" title="CS231n Lecture 2.  Image Classification" />
+      <published>2021-10-11T11:00:00+00:00</published>
+      <updated>2021-10-11T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/cs231n-lec2</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec2">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;이미지를 어떻게 비교 및 분류하는지 알아보고, &lt;strong&gt;KNN(K-Nearest Neighbor)&lt;/strong&gt;에 관하여 이해합니다.&lt;/li&gt;
+  &lt;li&gt;이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#image-classification&quot;&gt;Image Classifciation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#data-driven-approach&quot;&gt;Data-Driven Approach&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#distance-metric&quot;&gt;Distance Metric&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#L1,-L2-distance&quot;&gt;L1, L2 Distance&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#k-nearest-neighbor&quot;&gt;K-Nearest Neighbor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hyperparameter&quot;&gt;Hyperparameter&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#linear-classifier&quot;&gt;Linear Classifier&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#limitations&quot;&gt;Limitations&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;image-classification&quot;&gt;Image Classification&lt;/h2&gt;
+&lt;p&gt;Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 ‘Semantic Gap(의미론적 차이)’라고 표현하며, 아래 그림을 보며이해해 보겠습니다.&lt;br /&gt;
+&lt;img src=&quot;../../assets/built/images/cs2_img.png&quot; alt=&quot;cs2_img.png&quot; /&gt;
+컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.&lt;br /&gt;
+-&amp;gt; 이런 숫자로부터 우리는 &lt;strong&gt;‘이 사진이 고양이다’라는 의미를 추출해 내고 싶은 게 목적&lt;/strong&gt;입니다.
+하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.
+그래서 고안된 방법이 Data에 기반한 접근법입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-driven-approach&quot;&gt;Data-Driven Approach&lt;/h2&gt;
+&lt;p&gt;간단한 순서는 다음과 같습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;이미지와 label(이미지의 정답)정보가 포함된 dataset을 모으고&lt;/li&gt;
+  &lt;li&gt;머신러닝으로 training 시키고&lt;/li&gt;
+  &lt;li&gt;새로운 이미지에 대한 classifier(분류기)를 평가해 보는 것
+&lt;img src=&quot;../../assets/built/images/cs2_img_1.png&quot; alt=&quot;cs2_img_1.png&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;-&amp;gt; training set을 label과 함께 학습하면, 그 이후의 새로운 이미지에 대하여 분류를 통해 의미를 추출해 낼 수 있는 것이죠.
+그렇다면 어떻게 기존 학습된 데이터와 새로운 이미지를 비교할 것이냐? 하는 의문이 제기되는데,
+기본적으로 새로운 이미지와 기존 학습된 이미지 간의 거리를 재어 가장 거리가 가까운 이미지를 고르게 됩니다.
+이것을 nearest neighbor(가장 가까이 있는 이웃)방법이라고 합니다.&lt;br /&gt;
+아래 그림은 nearest neighbor에 대해 10개의 class에 따라 각각 예측이 되는 과정을 보여줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_2.png&quot; alt=&quot;cs2_img_2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;distance-metric&quot;&gt;Distance Metric&lt;/h2&gt;
+&lt;p&gt;가깝고 먼 거리(Distance)를 측정하려면 기준이 필요합니다. 강의에서는 아래 두 가지 기준을 설명해주고 있습니다.&lt;/p&gt;
+&lt;h3 id=&quot;l1-l2-distance&quot;&gt;L1, L2 Distance&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_4.png&quot; alt=&quot;cs2_img_4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;L1 distance : 각 pixel값의 차이를 구한 후 결괏값을 합산하는 방법&lt;br /&gt;
+L2 distance : 각 pixel값의 차이를 제곱한 후 root를 씌운 후 결괏값을 합산하는 방법&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;L2 distance는 root를 씌우지 않는 것으로 정의되기도 합니다.&lt;/li&gt;
+  &lt;li&gt;L1과 L2 distance와 관련한 추가적인 이해는 &lt;a href=&quot;https://junklee.tistory.com/29&quot;&gt;링크&lt;/a&gt;를 참고해 주세요.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;L1 distance 방법을 통하여 거리를 계산한 아래 예시를 보며 이해해 봅시다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_3.png&quot; alt=&quot;cs2_img_3.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;k-nearest-neighbor&quot;&gt;K-Nearest Neighbor&lt;/h3&gt;
+&lt;p&gt;한마디로 가장 가까운 K개를 비교해 보자! 입니다. k=5라면, 가장 거리가 가까운 5개중에서 다수결로 예측을 진행하는 것이에요!
+아래 코드를 살펴보며 이해해 볼까요?
+{gist}&lt;/p&gt;
+
+&lt;p&gt;하지만 이는 단점이 있습니다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;전체 학습된 데이터셋과 비교하기 때문에 너무 느리고,&lt;/li&gt;
+  &lt;li&gt;outlier에 강건하지 못합니다.&lt;br /&gt;
+아래 그림을 보시죠!
+&lt;img src=&quot;../../assets/built/images/cs2_img_5.png&quot; alt=&quot;cs2_img_5.png&quot; /&gt;
+점들은 각각의 data를 의미하고, 색깔은 KNN에 의해 분류된 결과를 의미합니다.
+예를 들어, 초록색이 고양이를 의미하고 노란색이 강아지를 의미한다면, 초록색 영역 안에 포함된 data들이 고양이로 분류된 것이죠.
+하지만 조금 이상한 점은, 중간에 섬처럼 떨어져 있는 노란색 지점입니다. 초록색으로 분류되는 것이 자연스러움에도 불구하고, distance가 더 가깝다는 이유만으로 강아지로 분류된 것입니다. 실제로 data를 확인해 봤을 때, 이것은 고양이일 확률이 높고, KNN 알고리즘이 잘못 예측하였을 확률이 높습니다.
+(다시 말해, 강아지라고 학습된 데이터와 거리가 가깝다는 이유만으로, 실제로 고양이로 분류되는 것이 더 적절함에도 강아지로 분류된 것입니다.)
+이러한 단점 때문에 KNN은 거의 사용되지 않습니다. 이는 또한 &lt;strong&gt;차원의 저주&lt;/strong&gt; 개념과도 연관되어 있는데, 이는 나중에 다루도록 하겠습니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;추가로, K의 수에 따라 분류 성능 및 결과도 달라지게 되는데, &lt;a href=&quot;http://vision.stanford.edu/teaching/cs231n-demos/knn/&quot;&gt;링크&lt;/a&gt;에서 실험해보면서 이해해 보시기 바랍니다!&lt;/p&gt;
+
+&lt;h3 id=&quot;hyperparameter&quot;&gt;Hyperparameter&lt;/h3&gt;
+&lt;p&gt;그렇다면 최적의 K값은 어떻게 설정할 수 있을까요? 또, 어떠한 기준으로 거리(distance)를 측정하는 것이 보다 나은 성능을 안겨줄까요?
+그것은 우리가 모델을 직접 돌려가면서 가장 좋은 성능이 나올 수 있게 조정을 해주어야 합니다(problem-dependent).&lt;br /&gt;
+알고리즘 및 모델에 따라 이러한 기본적인 setting에 필요한 값을 우리는 &lt;strong&gt;hyperparameter&lt;/strong&gt;라고 부릅니다!&lt;/p&gt;
+
+&lt;p&gt;이것은 모델이 자체적으로 학습하고 update하는 parameter와 대비됩니다. 이것에 대한 설명은 많이 할 수 있는 기회가 있을 것입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_6.png&quot; alt=&quot;cs2_img_6.png&quot; /&gt;
+Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test set 이렇게 세 가지로 나누어 학습을 진행하면서 조정됩니다.&lt;br /&gt;
+&lt;strong&gt;분류 모델링 시 기본이 되는 구조&lt;/strong&gt;이니 잘 기억해 두시면 좋습니다!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;tip&quot;&gt;Tip🥳&lt;/h3&gt;
+  &lt;p&gt;위 슬라이드를&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;trainset = 시험공부 범위&lt;/li&gt;
+    &lt;li&gt;validation set = 모의고사&lt;/li&gt;
+    &lt;li&gt;test set = 수능 시험
+      &lt;blockquote&gt;
+        &lt;p&gt;이라고 생각하고 한 번 이해해 보시기 바랍니다!
+  &lt;img src=&quot;../../assets/built/images/cs2_img_7.png&quot; alt=&quot;cs2_img_7.png&quot; /&gt;&lt;/p&gt;
+      &lt;/blockquote&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이와 달리 trainset을 여러 Fold(subset)으로 나누어 검증(validation)하는 방법도 있습니다. 각 Fold별로 결과를 평균내어 산출합니다. 검증을 여러 번 시도할 수 있는 장점이 있겠네요!&lt;/p&gt;
+
+&lt;h2 id=&quot;linear-classifier&quot;&gt;Linear Classifier&lt;/h2&gt;
+
+&lt;p&gt;우리는 어떻게 이미지 간 유사도를 측정하고, 이미지에서 의미를 뽑아내어 분류하는지 그 방법에 대하여 배웠습니다. 그것에 기반하여 실제 분류를 하는 작업을 살펴봅시다.&lt;br /&gt;
+10개의 class로 분류하는 작업이며, 50,000개의 trainset과 10,000개의 testset으로 이루어져 있는 &lt;a href=&quot;https://www.cs.toronto.edu/~kriz/cifar.html&quot;&gt;CIFAR10&lt;/a&gt; datset입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_8.png&quot; alt=&quot;cs2_img_8.png&quot; /&gt;
+고양이 image를 input(x)으로 넣으면, 우리가 설정한 모델(f(x,W))의 연산에 의해 10개의 class 에 대한 각각의 score(점수)를 output으로 확인하게 됩니다.
+이 점수가 가장 높은 class로 모델은 예측을 하게 되는 것이죠!&lt;br /&gt;
+여기서 W는 Weight 또는 Parameter라고 하며, input으로부터 output을 반환해 주는 가중치의 역할을 하는 매우 중요한 개념입니다.&lt;br /&gt;
+여기서 b는 결괏값을 우리가 원하는 모델로 근사하도록 조정해주는 값입니다. 이는 Lecture 3 에서 자세히 다뤄보겠습니다.&lt;br /&gt;
+아래 슬라이드를 보며 제가 설명한 내용을 이해해 보시면 좋을 것 같습니다!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_9.png&quot; alt=&quot;cs2_img_9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;결과적으로, linear한 모델로부터 아래 그림과 같이 분류 작업이 이루어지게 됩니다.
+&lt;img src=&quot;../../assets/built/images/cs2_img_10.png&quot; alt=&quot;cs2_img_10.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;limitations&quot;&gt;Limitations&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;비선형 모델링이 어렵습니다. 아래 그림과 같이, 비선형한 함수로부터 만들어진 class로 분류작업을 진행할 수 없죠.
+&lt;img src=&quot;../../assets/built/images/cs2_img_11.png&quot; alt=&quot;cs2_img_11.png&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;parameter를 스스로 update하지 못합니다.&lt;/strong&gt; 우리는 이것이 좋은 모델인지 아닌지 그저 결과만 보고 판단하는 수밖에 없으니, 일일이 모델의 parameter W를 수정해 주어야 하는 것이죠.
+&lt;img src=&quot;../../assets/built/images/cs2_img_12.png&quot; alt=&quot;cs2_img_12.png&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이러한 의문을 갖고 다음 강의에서 어떻게 모델을 최적화(optimize)하는지 배워보겠습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;##회고😎&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;이미지의 의미론적인 정보를 추출하기 위해 data-driven approach가 고안되었고, 이는 training set을 머신러닝 기법으로 학습하는 것이다.&lt;/li&gt;
+    &lt;li&gt;KNN으로 K개의 가장 distance가 작은 image와의 비교를 통해 새로운 이미지를 분류 가능하지만, 잘 쓰이지는 않는다.&lt;/li&gt;
+    &lt;li&gt;linear한 classification은 모델 최적화에 어려움이 있다.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;생각해-볼-문제&quot;&gt;생각해 볼 문제!&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;hyperparameter를 처음에 값을 정하는 근거가 필요해요. 처음에 어떻게 정할까요?&lt;/li&gt;
+  &lt;li&gt;k-fold validation은 왜 작은 dataset에만 유용할까요?&lt;/li&gt;
+  &lt;li&gt;linear classification에서 linear의 의미는 무엇일까요?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;CS231n Lecture 2 : https://youtu.be/OoUX-nOEjG0&lt;/li&gt;
+  &lt;li&gt;CS231n Lecture slide : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture2.pdf&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="cs231n" />
+      
+
+      
+        <summary type="html">GOAL Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다. 이미지를 어떻게 비교 및 분류하는지 알아보고, KNN(K-Nearest Neighbor)에 관하여 이해합니다. 이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.</summary>
       
 
       
@@ -384,86 +761,6 @@ Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/l
 
       
         <summary type="html">GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">CS231n Lecture 3. Neural Network</title>
-      <link href="https://crosstar1228.github.io/cs231n-lec3" rel="alternate" type="text/html" title="CS231n Lecture 3.  Neural Network" />
-      <published>2021-09-15T11:00:00+00:00</published>
-      <updated>2021-09-15T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/cs231n-lec3</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec3">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n&lt;/p&gt;
-
-&lt;p&gt;강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="cs231n" />
-      
-
-      
-        <summary type="html">안녕 cs231n</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">CS231n Lecture 3. Neural Network</title>
-      <link href="https://crosstar1228.github.io/cs231n-lec2" rel="alternate" type="text/html" title="CS231n Lecture 3.  Neural Network" />
-      <published>2021-09-15T11:00:00+00:00</published>
-      <updated>2021-09-15T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/cs231n-lec2</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec2">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n&lt;/p&gt;
-
-&lt;p&gt;강의 잘하고싶다.~~~~~~~~~~!!!!!!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;진짜로.&lt;/strong&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;후&lt;/code&gt;…&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="cs231n" />
-      
-
-      
-        <summary type="html">안녕 cs231n</summary>
       
 
       

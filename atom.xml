@@ -8,14 +8,58 @@
     
       
       <item>
-        <title></title>
+        <title>AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</title>
         
-          <description></description>
+          <description>&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
         
-        <pubDate>Fri, 15 Oct 2021 08:34:01 +0000</pubDate>
+        <pubDate>Sun, 17 Oct 2021 16:40:00 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/2021-09-15-errors-1</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2021-09-15-errors-1</guid>
+        https://crosstar1228.github.io/MLOps-week1</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/MLOps-week1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>내용 핵심요약! CS231n Lecture 4.  Backpropagation</title>
+        
+          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Thu, 14 Oct 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/cs231n-lec4</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec4</guid>
       </item>
       
     
@@ -35,6 +79,26 @@
         <link>
         https://crosstar1228.github.io/cs231n-lec3</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec3</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>CS231n Lecture 2.  Image Classification</title>
+        
+          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;이미지를 어떻게 비교 및 분류하는지 알아보고, &lt;strong&gt;KNN(K-Nearest Neighbor)&lt;/strong&gt;에 관하여 이해합니다.&lt;/li&gt;
+  &lt;li&gt;이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 11 Oct 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/cs231n-lec2</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec2</guid>
       </item>
       
     
@@ -106,6 +170,25 @@
     
       
       <item>
+        <title>error - fatal authentication failed for</title>
+        
+          <description>&lt;p&gt;window 10 에서 git bash를 통해 repository로 push하던 중&lt;/p&gt;
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: authetication failed for ---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 오류로 명령어 실행이 거부되었다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 01 Oct 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/errors-1</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/errors-1</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>CS231n Lecture 12. Visualizing and understanding</title>
         
           <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
@@ -120,6 +203,22 @@
         <link>
         https://crosstar1228.github.io/cs231n-lec12</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec12</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>error (2) - git authentication error</title>
+        
+          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;p&gt;cs231n 은 훼이크!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/errors-2</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/errors-2</guid>
       </item>
       
     
@@ -152,54 +251,6 @@
         <link>
         https://crosstar1228.github.io/ML-GAN</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/ML-GAN</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>error (2) - git authentication error</title>
-        
-          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n 은 훼이크!&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
-        <link>
-        https://crosstar1228.github.io/errors-2</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/errors-2</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>CS231n Lecture 3.  Neural Network</title>
-        
-          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
-        <link>
-        https://crosstar1228.github.io/cs231n-lec3</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec3</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>CS231n Lecture 3.  Neural Network</title>
-        
-          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;cs231n&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Wed, 15 Sep 2021 11:00:00 +0000</pubDate>
-        <link>
-        https://crosstar1228.github.io/cs231n-lec2</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/cs231n-lec2</guid>
       </item>
       
     

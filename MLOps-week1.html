@@ -11,7 +11,7 @@
 
 
 
-    <title>Algorithm 강좌(1) - basic programming</title>
+    <title>AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -52,7 +52,7 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="IT/인공지능 서랍장" />
     <link rel="shortcut icon" href="https://crosstar1228.github.io/assets/built/images/favicon1.gif" type="image/png" />
-    <link rel="canonical" href="https://crosstar1228.github.io/algorithm-basic" />
+    <link rel="canonical" href="https://crosstar1228.github.io/MLOps-week1" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     
@@ -60,74 +60,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="건너별의 Romantic AI" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Algorithm 강좌(1) - basic programming" />
-    <meta property="og:description" content="코테의 기본! Algorithm 강좌 및 실습
-
-    Algorithm 강좌(1) - 알고리즘이란
-    Algorithm 강좌(2) - dynamic programming
-
-
-
-또 안녕
-동적 계획법이란 무엇일까?
-
-진짜로.
-후….
-
-
-  이것만 기억해. 가장 중요한건 눈에 보이지 않아….
-
-
-
-for i in range(30):
-    print(i)
-
-
-print(&quot;hello world!&quot;)
-
-
-" />
-    <meta property="og:url" content="https://crosstar1228.github.io/algorithm-basic" />
-    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/algorithm.png" />
+    <meta property="og:title" content="AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가" />
+    <meta property="og:description" content="Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS 용어정리 Server(서버) : 컴퓨터 프로그램 또는 장치. 네트워크를 통해 클라이언트로부터의 정보를 받아 처리 및 응답하는 서비스를 제공하는 컴퓨터 시스템 Storage(스토리지) : 쉽게" />
+    <meta property="og:url" content="https://crosstar1228.github.io/MLOps-week1" />
+    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/infra_week1_img.png" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
     <meta property="article:author" content="https://www.facebook.com/wptjd212" />
-    <meta property="article:published_time" content="2021-09-14T16:40:00+00:00" />
-    <meta property="article:modified_time" content="2021-09-14T16:40:00+00:00" />
-    <meta property="article:tag" content="Backend" />
+    <meta property="article:published_time" content="2021-10-17T16:40:00+00:00" />
+    <meta property="article:modified_time" content="2021-10-17T16:40:00+00:00" />
+    <meta property="article:tag" content="Mlops" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Algorithm 강좌(1) - basic programming" />
-    <meta name="twitter:description" content="코테의 기본! Algorithm 강좌 및 실습
-
-    Algorithm 강좌(1) - 알고리즘이란
-    Algorithm 강좌(2) - dynamic programming
-
-
-
-또 안녕
-동적 계획법이란 무엇일까?
-
-진짜로.
-후….
-
-
-  이것만 기억해. 가장 중요한건 눈에 보이지 않아….
-
-
-
-for i in range(30):
-    print(i)
-
-
-print(&quot;hello world!&quot;)
-
-
-" />
+    <meta name="twitter:title" content="AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가" />
+    <meta name="twitter:description" content="Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS 용어정리 Server(서버) : 컴퓨터 프로그램 또는 장치. 네트워크를 통해 클라이언트로부터의 정보를 받아 처리 및 응답하는 서비스를 제공하는 컴퓨터 시스템 Storage(스토리지) : 쉽게" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
-    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/algorithm.png" />
+    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/infra_week1_img.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="건너별의 Romantic AI" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Backend" />
+    <meta name="twitter:data2" content="Mlops" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -142,43 +92,18 @@ print(&quot;hello world!&quot;)
         "name": "건너별의 Romantic AI",
         "logo": "https://crosstar1228.github.io/"
     },
-    "url": "https://crosstar1228.github.io/algorithm-basic",
+    "url": "https://crosstar1228.github.io/MLOps-week1",
     "image": {
         "@type": "ImageObject",
-        "url": "https://crosstar1228.github.io/assets/built/images/algorithm.png",
+        "url": "https://crosstar1228.github.io/assets/built/images/infra_week1_img.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://crosstar1228.github.io/algorithm-basic"
+        "@id": "https://crosstar1228.github.io/MLOps-week1"
     },
-    "description": "코테의 기본! Algorithm 강좌 및 실습
-
-    Algorithm 강좌(1) - 알고리즘이란
-    Algorithm 강좌(2) - dynamic programming
-
-
-
-또 안녕
-동적 계획법이란 무엇일까?
-
-진짜로.
-후….
-
-
-  이것만 기억해. 가장 중요한건 눈에 보이지 않아….
-
-
-
-for i in range(30):
-    print(i)
-
-
-print(&quot;hello world!&quot;)
-
-
-"
+    "description": "Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS 용어정리 Server(서버) : 컴퓨터 프로그램 또는 장치. 네트워크를 통해 클라이언트로부터의 정보를 받아 처리 및 응답하는 서비스를 제공하는 컴퓨터 시스템 Storage(스토리지) : 쉽게"
 }
     </script>
 
@@ -191,7 +116,7 @@ print(&quot;hello world!&quot;)
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Algorithm 강좌(1) - basic programming" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가" href="/feed.xml" />
 
 
 </head>
@@ -269,54 +194,149 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-backend post tag-python ">
+        <article class="post-full  tag-mlops post tag-python ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="14 September 2021">14 September 2021</time>
+                    <time class="post-full-meta-date" datetime="17 October 2021">17 October 2021</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/backend/'>BACKEND</a>
+                               <a href='/tag/mlops/'>MLOPS</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">Algorithm 강좌(1) - basic programming</h1>
+                <h1 class="post-full-title">AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</h1>
             </header>
             <!-- 초반에 이미지가 뜨느냐 마느냐!
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/infra_week1_img.png)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><span class="table-of-contents-list">코테의 기본! Algorithm 강좌 및 실습</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./algorithm-basic">Algorithm 강좌(1) - 알고리즘이란</a></li>
-    <li><a href="./algorithm-dynamic">Algorithm 강좌(2) - dynamic programming</a></li>
+                    <h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+  <li><a href="#iaas-paas-saas">IaaS, PaaS, SaaS</a>
+    <ul>
+      <li><a href="#iaas">IaaS</a></li>
+      <li><a href="#paas">PaaS</a></li>
+      <li><a href="#saas">SaaS</a></li>
+    </ul>
+  </li>
+  <li><a href="#public-cloud-private-cloud-hybrid-cloud">Public Cloud, Private Cloud, Hybrid Cloud</a>
+    <ul>
+      <li><a href="#public-cloud">public cloud</a></li>
+      <li><a href="#private-cloud">private cloud</a></li>
+      <li><a href="#hybrid-cloud">Hybrid Cloud</a></li>
+    </ul>
+  </li>
+  <li><a href="#das-san-nas-storage">DAS, SAN, NAS (Storage)</a>
+    <ul>
+      <li><a href="#das">DAS</a></li>
+      <li><a href="#san">SAN</a></li>
+      <li><a href="#nas">NAS</a></li>
+    </ul>
+  </li>
+</ol>
 
+<h2 id="용어정리">용어정리</h2>
+<p>Server(서버) : 컴퓨터 프로그램 또는 장치.  네트워크를 통해 클라이언트로부터의 정보를 받아 처리 및 응답하는 서비스를 제공하는 컴퓨터 시스템
+Storage(스토리지) : 쉽게 말해 저장소를 의미
+Network(네트뭐크) : 연결을 통해 컴퓨터 자원 공유하는 것, 또는 그런 체계
+Web(웹) : 인터넷의 한 종류로서, 인터넷에 연결된 사용자들이 서로의 정보를 공유할 수 있는 공간.
+third-party(서드파티) : 클라우드 서비스를 제공하는 제 3사를 의미합니다.
+middleware(미들웨어) : 양 쪽을 연결하여 데이터를 주고받을 수 있도록 중간에서 매개 역할을 하는 소프트웨어 ex) 웹브라우저로부터 데이터를 저장할 수 있게 해주는 DB시스템
+hosting(호스팅) : 제공자등의 사업자가 개인용 홈페이지의 서버 기능을 대행하는 것. 또 기업의 대용량 메모리 공간을 이용하여 사용자의 홈피나 웹 서버 기능을 대행하는 서비스.
+TCO(Total Cost of Ownership) : 서버 도입 및 유지/보수에 들어가는 컴퓨팅 시스템의 총비용.</p>
 
+<h2 id="iaas-paas-saas">IaaS, PaaS, SaaS</h2>
+<p>aaS : as-a-Service 를 의미하며, 클라우드 기반 서비스를 지칭할 때 쓰이는 말입니다.</p>
+
+<h3 id="iaas">IaaS</h3>
+<p><strong>infrastructure</strong>-as-a-Service 를 의미하며, 서드파티 업체가 제공하는 고도로 자동화되고 확장 가능한 인프라를 의미합니다.
+이 인프라에서는 스토리지, 호스팅, 컴퓨팅, 네트워킹 등이 포함되어 있고, 비용은 사용한 만큼만 지급하게 됩니다.
+따라서 기업은 IaaS 를 통하여 IT자산(소프트웨어 서버, 라이센스)등을 직접 소유하는 대신
+필요에 따라 리소스를 유연하게 대여할 수 있습니다.
+<strong>AWS</strong> 가 이 시장을 40% 점유하고 있다는 점이 주목할 만합니다.</p>
+<h3 id="paas">PaaS</h3>
+<p><strong>Platform</strong>-as-a-service 를 의미하며, <strong>IaaS + 개발툴과 기능, 앱배포 등의 플랫폼 전반적인 영역</strong>을 제공하기에 가장 까다로운 영역입니다.
+반대로 서비스를 이용하는 개발자의 입장에서는, 기반 infrastructure를 provisioning 할  필요가 없어집니다.
+주로 대형 IT기업에서 볼 수 있고, 구글 앱엔진, 오라클의 클라우드 플랫폼 등이 있습니다.</p>
+
+<h3 id="saas">SaaS</h3>
+<p><strong>Software</strong>-as-a-service 를 의미하며, Third party가 <strong>hosting 방식</strong>으로 소프트웨어를 제공하는 것을 지칭합니다. <strong>웹을 통해 로그인하면 사용</strong>할 수 있고, <strong>구독 형식</strong>으로 과금되는 것이 일반적입니다.
+특장점은 머신 혹은 서버를 기준으로 소프트웨어 라이센스를 구매하기 때문에, 설치할 필요 없이 웹에서 사용이 가능합니다.
+필요할 때 비용만 내면 얼마든지 사용이 가능하며, 사용자가 일일이 패치, 업그레이드 할 필요가 없다는 것도 장점입니다.
+ex) 이메일, CRM software, 구글 독스</p>
+
+<h3 id="정리">정리</h3>
+<ul>
+  <li>SaaS -&gt; IaaS -&gt; PaaS 로 서비스 자원 제공 범위가 확장되는 개념</li>
+  <li>최초 Cloud 서비스는 지메일, 드롭박스, 네이버 클라우드 처럼 Software 를 App에서 쓸 수 있는 SaaS 가 대부분이었음</li>
+  <li>이후 서버와 스토리지, 네트워크 같은 인프라 장비를 빌려주는 IaaS, 그리고 플랫폼을 빌려주는 PaaS로 발전</li>
 </ul>
-<h2 id="또-안녕">또 안녕</h2>
-<p><strong>동적 계획법이란 무엇일까?</strong></p>
 
-<p><strong>진짜로.</strong>
-<code class="language-plaintext highlighter-rouge">후</code>….</p>
+<h2 id="public-cloud-private-cloud-hybrid-cloud">Public Cloud, Private Cloud, Hybrid Cloud</h2>
+<p><img src="../../assets/built/images/infra_week1_img.png" alt="img.png" />
+출처 : https://www.bmc.com/blogs/public-private-hybrid-cloud/#</p>
+<h3 id="public-cloud">Public Cloud</h3>
+<p>장점</p>
+<ul>
+  <li><strong>인터넷을 통해 전달되고 조직 간에 공유가 가능한 저장소</strong></li>
+  <li>유지비용 없음</li>
+  <li>복잡하지 않고 flexible함
+단점</li>
+  <li>보안의 문제가 있음</li>
+  <li>customizing이 어려움
+    <h3 id="private-cloud">Private Cloud</h3>
+  </li>
+  <li>말 그대로 <strong>개인 저장소</strong>
+장점</li>
+  <li>customizing가능</li>
+  <li>효율적이고 보안에 강함</li>
+  <li>
+    <h3 id="hybrid-cloud">Hybrid Cloud</h3>
+  </li>
+  <li>public 과 private 을 둘 다 쓰는 환경</li>
+  <li>각각의 장단점이 보완된 형태</li>
+</ul>
 
-<blockquote>
-  <p>이것만 기억해. 가장 중요한건 눈에 보이지 않아….</p>
-</blockquote>
+<h2 id="das-san-nas-storage">DAS, SAN, NAS (Storage)</h2>
+<p><strong>Storage system</strong> 이란?</p>
+<ul>
+  <li>단일 디스크로 처리할 수 없는 용량을 저장하기 위해 디스크를 묶어서 논리적으로 사용하는 기슬</li>
+  <li>데이터 범람으로 인해 효율적인 저장과 관리에 대한 수요가 급증하였고, 정보 자원을 저장하는 방법론은 하나의 기술로서 자리 잡게 되었음
+<img src="../../assets/built/images/infra_week1_img_1.png" alt="img_1.png" />
+    <h3 id="das">DAS</h3>
+  </li>
+  <li><strong>Direct Attached Storage</strong>의 약자로, 시스템에 직접 붙이는 외장 storage를 의미(외장하드 등)</li>
+  <li>전용 연결장치가 있으므로 NAS 보다는 Access 속도가 빠르지만 시스템에 1대1로밖에 적용이 안되는 단점
+    <h3 id="san">SAN</h3>
+  </li>
+  <li><strong>Storage Area Network</strong> 의 약자로, 서로 다른 종류의 저장장치를 관련 데이터 서버와 함께 연결해 별도의 랜(근거리통신망)이나 네트워크를 구성해 저장공간 관리</li>
+  <li>서로 다른 저장장치가 함께 연결되어 있어서 모든 사용자들이 공유 가능</li>
+  <li>백업, 복원, 영구보관 및 검색이 가능하고 한 저장장치에서 다른 저장장치로 데이터를 이동시킬 수 있다는 장점이 있다</li>
+  <li>별도의 네트워크 서버를 구축해야 한다는 단점이 있음
+    <h3 id="nas">NAS</h3>
+  </li>
+  <li><strong>Network Attached Storage</strong>의 약자로, 파일서버의 한계를 극복한 파일공유를 위한 전통적 솔루션</li>
+  <li>네트워크에 붙어있기 때문에 셋팅이 쉬움</li>
+  <li>파일 공유에 큰 장점 - 파일시스템 공유 가능</li>
+  <li>LAN과 채널 속도에 성능이 좌우된다는 단점이 있음</li>
+</ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
-    <span class="nx">print</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-</code></pre></div></div>
+<h3 id="정리-1">정리</h3>
+<ul>
+  <li>DAS-NAS-SAN 순으로 점진적으로 확장되는 개념</li>
+</ul>
 
-<noscript><pre>print(&quot;hello world!&quot;)</pre></noscript>
-<script src="https://gist.github.com/crosstar1228/e42e3d241997ab6b3c85dc6a3ae242c6.js"> </script>
+<h2 id="reference">Reference</h2>
+<p>1) aaS : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=futuremain&amp;logNo=221360648846
+2) DAS, SAN, NAS : https://blog.naver.com/gojump0713/140111144418</p>
 
 
                 </div>
@@ -383,9 +403,9 @@ into the {body} of the default.hbs template -->
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://crosstar1228.github.io/algorithm-basic';
-                            var this_page_identifier = '/algorithm-basic';
-                            var this_page_title = 'Algorithm 강좌(1) - basic programming';
+                            var this_page_url = 'https://crosstar1228.github.io/MLOps-week1';
+                            var this_page_identifier = '/MLOps-week1';
+                            var this_page_title = 'AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -420,120 +440,41 @@ into the {body} of the default.hbs template -->
                 
                 
                 
-                    <article class="read-next-card"
-                        
-                            style="background-image: url(/assets/built/images/pastel-background.jpg)"
-                        
-                    >
-                        <header class="read-next-card-header">
-                            <small class="read-next-card-header-sitetitle">&mdash; 건너별의 Romantic AI &mdash;</small>
-                            
-                                <h3 class="read-next-card-header-title"><a href="/tag/backend/">Backend</a></h3>
-                            
-                        </header>
-                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
-</div>
-                        <div class="read-next-card-content">
-                            <ul>
-                                
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/algorithm-dynamic">프로그래머스 코딩테스트 -  'N으로 표현' 문제 해설 (dynamic programming)</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/algorithm-one_participant">Lv1 - 프로그래머스 코딩테스트 '완주하지 못한 선수' 문제 해설 (hashing)</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/algorithm-mocktest">Lv1 - 프로그래머스 코딩테스트 '모의고사' 문제 해설 (stack,queue)</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                  
-                                
-                            </ul>
-                        </div>
-                        <footer class="read-next-card-footer">
-                            <a href="/tag/backend/">
-                                
-                                    See all 4 posts  →
-                                
-                            </a>
-                        </footer>
-                    </article>
-                
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
                 
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/welcome">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/logo1.JPG)"></div>
+            <a class="post-card-image-link" href="/cs231n-lec4">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/deeplearning.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/welcome">
+            <a class="post-card-content-link" href="/cs231n-lec4">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Crosstar</span>
+                                <span class="post-card-tags">Cs231n</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Welcome to Crosstar's Drawer of AI</h2>
+                    <h2 class="post-card-title">내용 핵심요약! CS231n Lecture 4.  Backpropagation</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>
+                        <p>GOAL
+
+  parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다.
+  Gradient descent 과정을 개괄적으로 이해합니다.
+
 
 </p>
                     
@@ -553,16 +494,13 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      3 min read
                     
                 </span>
             </footer>
         </div>
     </article>
 
-            
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
             
 
         </div>
@@ -580,18 +518,18 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Algorithm 강좌(1) - basic programming</div>
+    <div class="floating-header-title">AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Algorithm+%EA%B0%95%EC%A2%8C%281%29+-+basic+programming&amp;url=https://crosstar1228.github.io/algorithm-basic"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=AWS%EC%99%80+%EC%9D%B8%ED%94%84%EB%9D%BC+1%EC%A3%BC%EC%B0%A8+aaS%2C+Cloud%2C+Storage+%EB%9E%80+%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80&amp;url=https://crosstar1228.github.io/MLOps-week1"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://crosstar1228.github.io/algorithm-basic"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://crosstar1228.github.io/MLOps-week1"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
