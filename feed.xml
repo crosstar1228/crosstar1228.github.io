@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-07-19T15:12:43+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2022-07-18-NLP-music_and_ai" rel="alternate" type="text/html" title="" /><published>2022-07-19T15:12:43+00:00</published><updated>2022-07-19T15:12:43+00:00</updated><id>https://crosstar1228.github.io/2022-07-18-NLP-music_and_ai</id><content type="html" xml:base="https://crosstar1228.github.io/2022-07-18-NLP-music_and_ai">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
-&lt;p&gt;music &amp;amp; ai 역사
-https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&lt;/p&gt;
-
-&lt;p&gt;https://openai.com/blog/jukebox/&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-07-19T15:19:12+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">Music Generation and AI, present and future</title><link href="https://crosstar1228.github.io/NLP-music_and_ai" rel="alternate" type="text/html" title="Music Generation and AI, present and future" /><published>2022-07-18T11:00:00+00:00</published><updated>2022-07-18T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_and_ai</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_and_ai">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&quot;&gt;music &amp;amp; ai 역사&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://openai.com/blog/jukebox/&quot;&gt;OpenAI - JukeBox&lt;/a&gt; [&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
 &lt;ul&gt;
@@ -31,9 +33,10 @@ https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEE
   &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;https://soundraw.io/
+&lt;p&gt;https://soundraw.io/ -&amp;gt; ai는 아님
 https://magenta.tensorflow.org/
-https://www.aiva.ai/&lt;/p&gt;
+https://www.aiva.ai/
+-&amp;gt; 음악 작곡&lt;/p&gt;
 
 &lt;p&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
 https://topten.ai/music-generators-review/&lt;/p&gt;
@@ -46,7 +49,7 @@ https://paperswithcode.com/task/music-generation&lt;/p&gt;
 MuseGAN
 Melnet
 MidiNet&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author></entry><entry><title type="html">AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</title><link href="https://crosstar1228.github.io/MLOps-week1" rel="alternate" type="text/html" title="AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가" /><published>2021-10-17T16:40:00+00:00</published><updated>2021-10-17T16:40:00+00:00</updated><id>https://crosstar1228.github.io/MLOps-week1</id><content type="html" xml:base="https://crosstar1228.github.io/MLOps-week1">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>건너별(crosstar)</name></author><category term="nlp" /><summary type="html">안녕 music &amp;amp; ai 역사</summary></entry><entry><title type="html">AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</title><link href="https://crosstar1228.github.io/MLOps-week1" rel="alternate" type="text/html" title="AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가" /><published>2021-10-17T16:40:00+00:00</published><updated>2021-10-17T16:40:00+00:00</updated><id>https://crosstar1228.github.io/MLOps-week1</id><content type="html" xml:base="https://crosstar1228.github.io/MLOps-week1">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
     &lt;ul&gt;

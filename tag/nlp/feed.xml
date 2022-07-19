@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/nlp/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-07-19T15:12:43+00:00</updated>
+  <updated>2022-07-19T15:19:12+00:00</updated>
   <id>https://crosstar1228.github.io/tag/nlp/feed.xml</id>
 
   
@@ -30,6 +30,91 @@
   
   
 
+  
+    <entry>
+      <title type="html">Music Generation and AI, present and future</title>
+      <link href="https://crosstar1228.github.io/NLP-music_and_ai" rel="alternate" type="text/html" title="Music Generation and AI, present and future" />
+      <published>2022-07-18T11:00:00+00:00</published>
+      <updated>2022-07-18T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/NLP-music_and_ai</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/NLP-music_and_ai">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&quot;&gt;music &amp;amp; ai 역사&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://openai.com/blog/jukebox/&quot;&gt;OpenAI - JukeBox&lt;/a&gt; [&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;해결법 1 : autoencoder로 저차원 space로 mapping
+    &lt;ul&gt;
+      &lt;li&gt;불필요한 정보를 버리게 됨&lt;/li&gt;
+      &lt;li&gt;이후 upsampling&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;MuseNet : midi data 기반 많은 양의 데이터 학습&lt;/li&gt;
+  &lt;li&gt;Transfomer 계열 모델로 학습
+    &lt;h2 id=&quot;문제-2--diversityvariation&quot;&gt;문제 2 : Diversity(variation)&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;jukeboxpaper&quot;&gt;JukeBox[&lt;a href=&quot;https://arxiv.org/abs/2005.00341&quot;&gt;Paper&lt;/a&gt;]&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;long context 를 autoregressiveTransformer 이용한 multi-sclae VQ-VAE로 해결&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;lyric-conditioning&quot;&gt;Lyric Conditioning&lt;/h2&gt;
+  &lt;/li&gt;
+  &lt;li&gt;노래의 duration에 linear 하게 가사의 문자들을 align하는 방법&lt;/li&gt;
+  &lt;li&gt;가사를 위한 encoder를 더하고, &lt;strong&gt;music decoder로부터 의 query&lt;/strong&gt;로부터 &lt;strong&gt;가사 encoder로부터의 key, value 쌍&lt;/strong&gt; 으로의 attetion layer를 적용함.&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;https://soundraw.io/ -&amp;gt; ai는 아님
+https://magenta.tensorflow.org/
+https://www.aiva.ai/
+-&amp;gt; 음악 작곡&lt;/p&gt;
+
+&lt;p&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
+https://topten.ai/music-generators-review/&lt;/p&gt;
+
+&lt;p&gt;Datasets
+https://paperswithcode.com/task/music-generation&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sota models
+MuseGAN
+Melnet
+MidiNet&lt;/li&gt;
+&lt;/ol&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="nlp" />
+      
+
+      
+        <summary type="html">안녕 music &amp;amp; ai 역사</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Machine learning (1) Generative Model과 GAN</title>
