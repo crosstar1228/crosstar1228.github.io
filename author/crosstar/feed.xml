@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-07-18T13:51:02+00:00</updated>
+  <updated>2022-07-19T15:12:43+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -370,6 +370,186 @@ Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때
       <updated>2021-10-14T11:00:00+00:00</updated>
       <id>https://crosstar1228.github.io/cs231n-lec4</id>
       <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec4">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#loss-function&quot;&gt;Loss function&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#regularization&quot;&gt;Regularization&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#Softmax-function&quot;&gt;Softmax function&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#optimization&quot;&gt;Optimization&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;loss-function&quot;&gt;Loss function&lt;/h2&gt;
+&lt;p&gt;지난 시간에 우리는 Parameter를 update, 즉 최적의 가중치를 찾아내는 방법에 대한 필요성을 느꼈습니다.
+한 마디로 이번 강의에서 설명할 최적화(Optimization)에 대한 이야기입니다. 그리고 그를 위한 핵심 개념인 손실 함수(Loss function)에 대하여 우선적으로 알아보겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-loss-function&quot;&gt;What is loss function?&lt;/h3&gt;
+&lt;p&gt;Loss function(손실 함수, 이하 한글 용어 생략)은 다른 말로 Cost function이라고 합니다.
+Loss 또는 cost를 계산하는 함수다! 이렇게 예상이 되네요.
+그리고 그러한 손실(또는 비용)이 줄어드는 것이 더 바람직한 방향이라는 감까지 오셨다면
+Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각되네요. 조금더 자세히 들어다 볼까요?
+&lt;img src=&quot;../../assets/built/images/lec3_img.png&quot; alt=&quot;img.png&quot; /&gt;
+우리는 위와 같은 이미지 분류 문제에서 진짜 class(label 또는 정답)에 해당하는 score가 가장 높은 점수가 나오도록 모델을 만들고 싶어요.
+그래야만 새로운 이미지도 올바른 정답으로 판단할 확률이 높을 테니까요. 우리는 이것은 정확도(accuracy) 등의 지표로 판단하게 됩니다.
+하지만 그림을 보면 고양이의 정답을 가진 사진은 deer(사슴)에 해당하는 가장 높은 점수를 갖고 있고, 개구리는 truck(트럭)에 해당하는 점수를 가장 높게 갖고 있네요.&lt;/p&gt;
+
+&lt;p&gt;수치로 표현된 이러한 점수(score)들이 얼마나 바람직한지, &lt;strong&gt;정량적으로&lt;/strong&gt; 어긋난 정도를 판단할 필요성을 느낍니다.
+그 벗어난 정도를 알아야 알맞게 가중치를 갱신할 수 있기 때문입니다.
+정량적인 수치로 표현해야 하니, 특정한 입력값마다 변하는 하나의 함수가 정의되는 것이고,
+그것이 Loss function으로 표현되는 것입니다.
+&lt;img src=&quot;../../assets/built/images/lec3_img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
+&lt;img src=&quot;../../assets/built/images/lec3_img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
+$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.&lt;br /&gt;
+$y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 $L(W)$로 정의하는 것입니다. 
+$W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라 Loss function의 결괏값도 달라지지라는 것을 직관적으로 이해할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이러한 Loss function의 예시인 Multiclass SVM Loss 를 살펴보며 이해도를 높여 보겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;
+ 이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
+그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
+
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum$
+\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
+\end{cases}\)&lt;/p&gt;
+
+&lt;p&gt;다시 쓰자면,&lt;/p&gt;
+
+&lt;p&gt;$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$&lt;/p&gt;
+
+&lt;p&gt;$s_j$ : j번째 class score&lt;br /&gt;
+$s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;0과 &lt;strong&gt;특정한 값&lt;/strong&gt;중에서 최대를 골라요. 그 특정한 값이라는 것은&lt;/li&gt;
+  &lt;li&gt;(j번째 class score) - (정답에 해당하는 class score) 를 구하고 그것에 1을 더한 값입니다.&lt;/li&gt;
+  &lt;li&gt;1은 safety margin이라고 해서, &lt;strong&gt;오답의 score가 정답의 score보다 1 이상 차이나는 정도&lt;/strong&gt;에 한해 Loss로 반영하겠다는 의미입니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;아래 예시를 통해 이해해 봅시다!
+&lt;img src=&quot;../../assets/built/images/lec3_img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
+정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
+이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
+&lt;img src=&quot;../../assets/built/images/lec3_img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;hinge-loss-관련-질문&quot;&gt;Hinge loss 관련 질문&lt;/h3&gt;
+&lt;p&gt;아래의 질문에 대한 답변을 확인해면서 수식을 이해해 보시기 바랍니다!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q1. What happens to the loss if car scores change a bit?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ NO CHANGE&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q2.Min/Max of loss&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ min = 0, Max = infinity&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q3. At initialization, W is small so all s~0. What is the loss?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ n-1 because (n-1) * 1&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q4. What if the sum was over all classes including $s_{y_i}$?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;→ Loss increases by 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q5. What if we used mean instead of sum ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ Doesn’t Change. We don’t care the true values of the score&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Q6. What if we used $max()^2$?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;→ Squared hinge loss. does not used normally&lt;/p&gt;
+
+&lt;p&gt;SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
+&lt;img src=&quot;../../assets/built/images/lec3_img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
+&lt;p&gt;Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
+Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
+그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
+&lt;img src=&quot;../../assets/built/images/lec3_img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
+강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
+이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
+다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.&lt;/p&gt;
+
+&lt;p&gt;여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
+본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
+페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 모델의 복잡도를 낮추는 방향으로 update하도록 하는 역할을 수행하는 거에요.&lt;br /&gt;
+&lt;a href=&quot;https://www.notion.so/Lecture-3-Loss-functions-and-Optimization-3c46c15413324bc7856387118e6cfff1#f4708d3b84444fb7be5d93b71805083b&quot;&gt;L1, L2 Regularization&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Regularization에는 L1, L2 regularization 말고도 &lt;strong&gt;Dropout, Batch Normaization&lt;/strong&gt; 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;오늘 내용이 조금 어렵다면 괜찮습니다. 다음에 또 다시 보면서 Regularization에 대한 직관을 얻고,
+오늘은 &lt;strong&gt;Overfitting을 막기 위한 과정&lt;/strong&gt;는 사실만 우선적으로 기억하고 넘어갑시다!&lt;/p&gt;
+
+&lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
+&lt;p&gt;score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
+이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
+위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
+&lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;
+
+&lt;h2 id=&quot;질문&quot;&gt;질문&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;softmax function에서 log를 쓰는 이유는 무엇일까요?&lt;/li&gt;
+  &lt;li&gt;multiclass SVM Loss 는 왜 SVM Loss라는 이름이 붙었을까요?&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ML" />
+      
+
+      
+        <summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">내용 핵심요약! CS231n Lecture 4. Backpropagation</title>
+      <link href="https://crosstar1228.github.io/ML-marcov_chain" rel="alternate" type="text/html" title="내용 핵심요약! CS231n Lecture 4.  Backpropagation" />
+      <published>2021-10-14T11:00:00+00:00</published>
+      <updated>2021-10-14T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/ML-marcov_chain</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/ML-marcov_chain">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
   &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
@@ -1189,185 +1369,6 @@ def solution(participant, completion):
 
       
         <summary type="html">window 10 에서 git bash를 통해 repository로 push하던 중 문제 fatal: authetication failed for --- 위와 같은 오류로 명령어 실행이 거부되었다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">CS231n Lecture 12. Visualizing and understanding</title>
-      <link href="https://crosstar1228.github.io/cs231n-lec12" rel="alternate" type="text/html" title="CS231n Lecture 12. Visualizing and understanding" />
-      <published>2021-09-16T11:00:00+00:00</published>
-      <updated>2021-09-16T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/cs231n-lec12</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec12">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다.&lt;/li&gt;
-  &lt;li&gt;이미지 Style을 변형시키는 방법에 대해 알아본다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#deepdream&quot;&gt;Deepdream&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#feature-inversion&quot;&gt;Feature Inversion&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#texture-synthesis&quot;&gt;Texture Synthesis&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#gram-matrix&quot;&gt;Gram Matrix&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#style-transfer&quot;&gt;Style Transfer&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#fast-style-transfer&quot;&gt;Fast Style Trnasfer&lt;/a&gt;
-        &lt;h2 id=&quot;layers&quot;&gt;Layers&lt;/h2&gt;
-      &lt;/li&gt;
-      &lt;li&gt;first layer&lt;/li&gt;
-      &lt;li&gt;last layer -&amp;gt; feature nearest&lt;/li&gt;
-      &lt;li&gt;t-SNE dimensionality reduction
-        &lt;h2 id=&quot;deepdream&quot;&gt;Deepdream&lt;/h2&gt;
-        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; - [위키백과 : Deepdream](https://en.wikipedia.org/wiki/DeepDream)  
- - [이미지 사이트 체험](https://deepdreamgenerator.com/)
- - Google 에서 만든 재미용
- - network의 중간에 **특정한 neuron activation을 Amplify(증폭)**  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;-&amp;gt; 네트워크가 이미 뽑아낸 특징들을 더욱 증폭시키는 역할&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;원리
-    &lt;ol&gt;
-      &lt;li&gt;forward 방향으로 activation 계산 (여기까진 일반적 네트워크와 같음)&lt;/li&gt;
-      &lt;li&gt;layer의 &lt;strong&gt;&lt;em&gt;activation 과 같은&lt;/em&gt; gradient를 설정&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;Backward 방향으로 gradient 계산 (backprop)&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;결과를 위해 조정한 사항들
-    &lt;ol&gt;
-      &lt;li&gt;Jitter : 이미지를 두 픽셀씩 옮김&lt;/li&gt;
-      &lt;li&gt;Normalize ascent to gradient&lt;/li&gt;
-      &lt;li&gt;Clip pixel values :최대,최솟값으로 제한&lt;/li&gt;
-    &lt;/ol&gt;
-
-    &lt;p&gt;-&amp;gt; training 되었던 image들의 feature들이 input image에 함께 뒤섞여 나타남
-&lt;img src=&quot;../../assets/built/images/img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;feature-inversion&quot;&gt;feature Inversion&lt;/h2&gt;
-
-&lt;p&gt;이미지의 CNN feature Vector 가 주어졌을 때&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;자연스럽고&lt;/li&gt;
-  &lt;li&gt;그 feature vector 가장 잘 부합하는&lt;br /&gt;
-&lt;strong&gt;이미지 output return&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;주어진 feature vector와&lt;/li&gt;
-  &lt;li&gt;새로운 이미지의 feature와의 L2 distance 측정 &lt;br /&gt;
-Regularization 진행 후 &lt;strong&gt;최솟값을 return&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;VGG16의 각기 다른 layer로부터 feature inversion 진행 결과,&lt;br /&gt;
-  -&amp;gt; 얕은 layer보다는 깊은 layer에서 더 새로운 output이 탄생함을 알 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;texture-synthesis&quot;&gt;Texture Synthesis&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sample patch(이미지 일부)로부터 같은 texture의 더 큰 이미지 합성하는 방식&lt;/li&gt;
-  &lt;li&gt;nearest neighbor 알고리즘으로 ‘복붙’하면 깨짐 현상이 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;gram-matrix&quot;&gt;Gram matrix&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;image의 질감의 유사도를 표현하는 행렬, 이를 통해 texture synthesis 진행&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;원리&lt;br /&gt;
-1) image input을 CNN에 넣으면 C*H*W tensor가 출력됨&lt;br /&gt;
-2) 이 tensor 중 2개의 C차원 vector를 외적하면 C*C의 co-occurence를 표현하는 matrix가 나오는데 이것이 바로 Gram matrix&lt;br /&gt;
-3) 마치 covariance을 판단하는 행렬 -&amp;gt; 질감의 유사도를 측정 가능!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;gram-matrix-이용한-합성과정&quot;&gt;Gram matrix 이용한 합성과정&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
-1) 하나는 input으로부터, 하나는 Noise로부터 이미지를 생성&lt;br /&gt;
-2) Gram matrix 추출 후 Gram matrix 간에 L2 distance의 가중합, 즉 Loss 계산&lt;br /&gt;
-3) Gradient 계산을 위한 Backprop 및 parameter update(make gradient step)&lt;br /&gt;
-4) 2)~3) 반복
-&lt;img src=&quot;../../assets/built/images/img9.png&quot; alt=&quot;img9.png&quot; /&gt;
--&amp;gt; 이 기법 역시 깊은 Layer로부터 더 많은 feature들이 추출됨을 알 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;style-transfer&quot;&gt;Style Transfer&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;비슷한 방법으로 두 이미지의 texture 차이를 최소화함으로서 특정 이미지의 분위기 합성이 가능
--&amp;gt; Style transfer&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Gram matrix값 최소화시키면서 생성하는 이미지 기법
-&lt;img src=&quot;../../assets/built/images/img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Content image, Style image&lt;/strong&gt;
-1) content image로부터 feature reconstruction&lt;br /&gt;
-2) style image로부터 gram matrix reconstruction&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;특징&lt;/strong&gt;
-1) Fine control 가능(style image 크기 조정 등)&lt;br /&gt;
-2) forward/backward prop 과정이 너무 많아서 느림.&lt;/p&gt;
-
-    &lt;p&gt;-&amp;gt; style transfer를 진행하는 또 하나의 Neural Network를 구현하자!&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;fast-style-transfer&quot;&gt;Fast style Transfer&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
-1) style을 미리 &lt;strong&gt;Feedforward Network \(f_W\) 에 학습&lt;/strong&gt;시킴&lt;br /&gt;
-2) content image만 feed forward -&amp;gt; &lt;strong&gt;속도 향상&lt;/strong&gt;&lt;br /&gt;
-   ** batch normalization보다 instant normalization 에서 더 큰 상승 효과&lt;br /&gt;
-    &lt;img src=&quot;../../assets/built/images/img9.png&quot; alt=&quot;img.png&quot; /&gt;
-3) segmentation network는 여러 층으로 transposed convolution 이용해서 down,upsampling&lt;/p&gt;
-
-&lt;h3 id=&quot;deepdream-website에서-style-transfer-통해-쇠라풍-그림으로-교체한-사진&quot;&gt;Deepdream website에서 Style transfer 통해 쇠라풍 그림으로 교체한 사진&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;CS231n 12강 Lecture Note : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture12.pdf&lt;/li&gt;
-  &lt;li&gt;https://inhovation97.tistory.com/28&lt;/li&gt;
-  &lt;li&gt;style transfer : https://www.popit.kr/neural-style-transfer-%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0/&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ML" />
-      
-
-      
-        <summary type="html">GOAL 시각화를 통해 CNN의 feature를 이해하는 방법론들을 activation과 gradient의 관점에서 알아본다. 이미지 Style을 변형시키는 방법에 대해 알아본다.</summary>
       
 
       

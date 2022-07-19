@@ -1,0 +1,50 @@
+<h1 id="안녕">안녕</h1>
+<p>music &amp; ai 역사
+https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW</p>
+
+<p>https://openai.com/blog/jukebox/</p>
+
+<p><a href="https://github.com/openai/jukebox/">Github</a></p>
+
+<h2 id="music-generation의-고질적인-문제-1--long-term-dependency">Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY</h2>
+<ul>
+  <li>해결법 1 : autoencoder로 저차원 space로 mapping
+    <ul>
+      <li>불필요한 정보를 버리게 됨</li>
+      <li>이후 upsampling</li>
+    </ul>
+  </li>
+  <li>MuseNet : midi data 기반 많은 양의 데이터 학습</li>
+  <li>Transfomer 계열 모델로 학습
+    <h2 id="문제-2--diversityvariation">문제 2 : Diversity(variation)</h2>
+  </li>
+</ul>
+
+<h3 id="jukeboxpaper">JukeBox[<a href="https://arxiv.org/abs/2005.00341">Paper</a>]</h3>
+<ul>
+  <li>long context 를 autoregressiveTransformer 이용한 multi-sclae VQ-VAE로 해결</li>
+  <li>
+    <h2 id="lyric-conditioning">Lyric Conditioning</h2>
+  </li>
+  <li>노래의 duration에 linear 하게 가사의 문자들을 align하는 방법</li>
+  <li>가사를 위한 encoder를 더하고, <strong>music decoder로부터 의 query</strong>로부터 <strong>가사 encoder로부터의 key, value 쌍</strong> 으로의 attetion layer를 적용함.</li>
+  <li></li>
+</ul>
+
+<p>https://soundraw.io/
+https://magenta.tensorflow.org/
+https://www.aiva.ai/</p>
+
+<p>https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
+https://topten.ai/music-generators-review/</p>
+
+<p>Datasets
+https://paperswithcode.com/task/music-generation</p>
+
+<ol>
+  <li>Sota models
+MuseGAN
+Melnet
+MidiNet</li>
+</ol>
+

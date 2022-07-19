@@ -8,6 +8,19 @@
     
       
       <item>
+        <title></title>
+        
+          <description></description>
+        
+        <pubDate>Tue, 19 Jul 2022 15:12:43 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/2022-07-18-NLP-music_and_ai</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/2022-07-18-NLP-music_and_ai</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</title>
         
           <description>&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
@@ -41,6 +54,25 @@
         <link>
         https://crosstar1228.github.io/MLOps-week1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/MLOps-week1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>내용 핵심요약! CS231n Lecture 4.  Backpropagation</title>
+        
+          <description>&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
+  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Thu, 14 Oct 2021 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/ML-marcov_chain</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/ML-marcov_chain</guid>
       </item>
       
     
