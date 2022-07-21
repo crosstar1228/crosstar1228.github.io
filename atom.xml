@@ -10,9 +10,11 @@
       <item>
         <title>Music Generation and AI, present and future</title>
         
-          <description>&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+          <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&quot;&gt;music &amp;amp; ai 역사&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://openai.com/blog/jukebox/&quot;&gt;OpenAI - JukeBox&lt;/a&gt; [&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Datasets&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

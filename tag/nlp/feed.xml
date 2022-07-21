@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/nlp/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-07-19T15:19:12+00:00</updated>
+  <updated>2022-07-21T15:32:21+00:00</updated>
   <id>https://crosstar1228.github.io/tag/nlp/feed.xml</id>
 
   
@@ -37,14 +37,11 @@
       <published>2022-07-18T11:00:00+00:00</published>
       <updated>2022-07-18T11:00:00+00:00</updated>
       <id>https://crosstar1228.github.io/NLP-music_and_ai</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/NLP-music_and_ai">&lt;h1 id=&quot;안녕&quot;&gt;안녕&lt;/h1&gt;
+      <content type="html" xml:base="https://crosstar1228.github.io/NLP-music_and_ai">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&quot;&gt;music &amp;amp; ai 역사&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://openai.com/blog/jukebox/&quot;&gt;OpenAI - JukeBox&lt;/a&gt; [&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;]&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&quot;&gt;music &amp;amp; ai 역사&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://openai.com/blog/jukebox/&quot;&gt;OpenAI - JukeBox&lt;/a&gt; [&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Datasets&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
@@ -72,7 +69,7 @@
   &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;https://soundraw.io/ -&amp;gt; ai는 아님
+&lt;p&gt;https://soundraw.io/ 
 https://magenta.tensorflow.org/
 https://www.aiva.ai/
 -&amp;gt; 음악 작곡&lt;/p&gt;
@@ -109,7 +106,7 @@ MidiNet&lt;/li&gt;
       
 
       
-        <summary type="html">안녕 music &amp;amp; ai 역사</summary>
+        <summary type="html">목차 music &amp;amp; ai 역사 OpenAI - JukeBox [Github] Datasets</summary>
       
 
       
