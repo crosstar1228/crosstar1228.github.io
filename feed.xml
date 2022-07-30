@@ -1,8 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-07-21T15:32:21+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">Music Generation and AI, present and future</title><link href="https://crosstar1228.github.io/NLP-music_and_ai" rel="alternate" type="text/html" title="Music Generation and AI, present and future" /><published>2022-07-18T11:00:00+00:00</published><updated>2022-07-18T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_and_ai</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_and_ai">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-07-30T12:35:19+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">Generative Model의 신흥강자, Diffusion Model!</title><link href="https://crosstar1228.github.io/ML-Diffusion_Model" rel="alternate" type="text/html" title="Generative Model의 신흥강자, Diffusion Model!" /><published>2022-07-29T11:00:00+00:00</published><updated>2022-07-29T11:00:00+00:00</updated><id>https://crosstar1228.github.io/ML-Diffusion_Model</id><content type="html" xml:base="https://crosstar1228.github.io/ML-Diffusion_Model">&lt;h3 id=&quot;diffusion-model&quot;&gt;Diffusion Model&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Markov Chain 을 사용한 Latent variable model&lt;/li&gt;
+  &lt;li&gt;prior로부터 posterior를 얻기 위하여 x1,x2, xT 의 각 time point 별 latent varible에 noise를 더해가는 구조&lt;/li&gt;
+  &lt;li&gt;결과적으로 Gaussian noise를 띠게 됨&lt;/li&gt;
+  &lt;li&gt;이의 역변환 과정으로 새로운 data를 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;benefits&quot;&gt;Benefits&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;scalability&lt;/li&gt;
+  &lt;li&gt;parallelizabliity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;process&quot;&gt;process&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;forward process&lt;/li&gt;
+  &lt;li&gt;reverse process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;objective-function&quot;&gt;objective function&lt;/h3&gt;
+&lt;p&gt;log likelihood를 사용하며, 초기 이미지의 확률분포와 복원된 이미지의 확률분포 간 KL Divergence&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://www.assemblyai.com/blog/diffusion-models-for-machine-learning-introduction/&lt;/li&gt;
+  &lt;li&gt;https://arxiv.org/pdf/2006.11239.pdf&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="ML" /><summary type="html">Diffusion Model Markov Chain 을 사용한 Latent variable model prior로부터 posterior를 얻기 위하여 x1,x2, xT 의 각 time point 별 latent varible에 noise를 더해가는 구조 결과적으로 Gaussian noise를 띠게 됨 이의 역변환 과정으로 새로운 data를 생성</summary></entry><entry><title type="html">Music Generation and AI, present and future</title><link href="https://crosstar1228.github.io/NLP-music_and_ai" rel="alternate" type="text/html" title="Music Generation and AI, present and future" /><published>2022-07-18T11:00:00+00:00</published><updated>2022-07-18T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_and_ai</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_and_ai">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://velog.io/@tobigsvoice1516/5%EC%A3%BC%EC%B0%A8-MUSIC-COMPOSITION-WITH-DEEP-LEARNING-A-REVIEW&quot;&gt;music &amp;amp; ai 역사&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://openai.com/blog/jukebox/&quot;&gt;OpenAI - JukeBox&lt;/a&gt; [&lt;a href=&quot;https://github.com/openai/jukebox/&quot;&gt;Github&lt;/a&gt;]&lt;/li&gt;
   &lt;li&gt;Datasets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ai-music-genration의-시초&quot;&gt;AI Music Genration의 시초&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;90년대 David Bowie 의 Verbasizer (앱)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단어를 임의로 재배치하여 음악 가사에 사용될 수 있도록 재조합하는 앱이었음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2016년 Sony의 App Flow Machine
+    &lt;ul&gt;
+      &lt;li&gt;비틀즈 스타일 멜로디를 창조해 냄
+        &lt;h3 id=&quot;music-generation-도-크게-다르지-않아&quot;&gt;Music Generation 도 크게 다르지 않아&lt;/h3&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.&lt;/li&gt;
+  &lt;li&gt;Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등이됩니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;symbolic-approach-non-symbolic-approach&quot;&gt;Symbolic approach, Non-symbolic approach&lt;/h3&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
@@ -14,10 +61,13 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;MuseNet : midi data 기반 많은 양의 데이터 학습&lt;/li&gt;
-  &lt;li&gt;Transfomer 계열 모델로 학습
-    &lt;h2 id=&quot;문제-2--diversityvariation&quot;&gt;문제 2 : Diversity(variation)&lt;/h2&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Transfomer 계열 모델로 학습&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;아이디어-&quot;&gt;아이디어 :&lt;/h3&gt;
+&lt;p&gt;o learn a lower-dimensional encoding of the audio with the goal of losing the less important
+information but retaining most of the musical information&lt;/p&gt;
+&lt;h2 id=&quot;문제-2--diversityvariation&quot;&gt;문제 2 : Diversity(variation)&lt;/h2&gt;
 
 &lt;h3 id=&quot;jukeboxpaper&quot;&gt;JukeBox[&lt;a href=&quot;https://arxiv.org/abs/2005.00341&quot;&gt;Paper&lt;/a&gt;]&lt;/h3&gt;
 &lt;ul&gt;
@@ -27,13 +77,38 @@
   &lt;/li&gt;
   &lt;li&gt;노래의 duration에 linear 하게 가사의 문자들을 align하는 방법&lt;/li&gt;
   &lt;li&gt;가사를 위한 encoder를 더하고, &lt;strong&gt;music decoder로부터 의 query&lt;/strong&gt;로부터 &lt;strong&gt;가사 encoder로부터의 key, value 쌍&lt;/strong&gt; 으로의 attetion layer를 적용함.&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;https://soundraw.io/ 
+&lt;h3 id=&quot;vq-vae-codebook-collapse&quot;&gt;VQ-VAE codebook collapse&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;codebook에 mapping된 embedding vector들이 많이 쓰이지 않는 현상&lt;/li&gt;
+  &lt;li&gt;Random Restart:codebook vector 사용량이 평균이하로 떨어지면 , encoder output 중 하나로 다시 reset&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;https://magenta.tensorflow.org/perceiver-ar&lt;/p&gt;
+
+&lt;h3 id=&quot;sparse-transformer&quot;&gt;Sparse Transformer&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;sparsifies the attention pattern by
+reshaping the input sequence into a &lt;strong&gt;2-D sequence&lt;/strong&gt; of
+shape&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;google-deepmind-202206&quot;&gt;Google Deepmind (2022.06)&lt;/h2&gt;
+&lt;p&gt;[&lt;a href=&quot;https://arxiv.org/abs/2202.07765&quot;&gt;Paper&lt;/a&gt;]&lt;/p&gt;
+&lt;h3 id=&quot;perceiver-ar&quot;&gt;Perceiver AR&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;modality 에 대하여 agnostic(인지불능)인 구조
+    &lt;ul&gt;
+      &lt;li&gt;cross attention : long-range input -&amp;gt; small latent&lt;/li&gt;
+      &lt;li&gt;maintaining end-to-end causal masking
+https://soundraw.io/ 
 https://magenta.tensorflow.org/
 https://www.aiva.ai/
--&amp;gt; 음악 작곡&lt;/p&gt;
+-&amp;gt; 음악 작곡&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
 https://topten.ai/music-generators-review/&lt;/p&gt;
@@ -897,70 +972,6 @@ print(solution(3,21))
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h2 id=&quot;14개의-블록이-터진다-펑&quot;&gt;14개의 블록이 터진다 펑!&lt;/h2&gt;</content><author><name>건너별(crosstar)</name></author><category term="backend" /><summary type="html">문제 풀기</summary></entry><entry><title type="html">Lv1 - 프로그래머스 코딩테스트 ‘모의고사’ 문제 해설 (stack,queue)</title><link href="https://crosstar1228.github.io/algorithm-mocktest" rel="alternate" type="text/html" title="Lv1 - 프로그래머스 코딩테스트 ‘모의고사’ 문제 해설 (stack,queue)" /><published>2021-10-01T16:40:00+00:00</published><updated>2021-10-01T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-mocktest</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-mocktest">&lt;p&gt;&lt;a href=&quot;https://www.welcomekakao.com/learn/courses/30/lessons/42840&quot;&gt;문제 링크&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;두 list로부터 hashing을 이용하여 완주하지 못한 1명의 선수를 return하는 문제.&lt;/p&gt;
-
-&lt;h2 id=&quot;code&quot;&gt;code&lt;/h2&gt;
-
-&lt;noscript&gt;&lt;pre&gt;
-# 오답
-
-def solution(participant, completion):
-    answer=&amp;#39;&amp;#39;
-
-    for par in participant:
-        if par not in completion:
-            idx=completion.index(par)
-            completion.pop(idx)
-        else :
-            answer = par
-    return answer
-
-# zip함수
-l1 = [&amp;quot;leo&amp;quot;, &amp;quot;kiki&amp;quot;, &amp;quot;eden&amp;quot;]
-l2 = [&amp;quot;eden&amp;quot;, &amp;quot;kiki&amp;quot;]
-
-# 풀이 1
-l1, l2 = sorted(l1),sorted(l2)
-for par,com in zip(l1,l2):
-    if par !=com:
-        print(par)
-print(l1[-1])
-
-## 풀이 2
-temp = 0
-dic = {}
-#랜덤으로 hashing
-for part in l1:
-    dic[hash(part)] = part
-    temp+=int(hash(part))
-    print(temp)
-for com in l2:
-    temp -= hash(com)
-answer = dic[temp]
-print(answer)
-
-# 풀이 3
-import collections
-
-
-def solution(participant, completion):
-    answer = collections.Counter(participant) - collections.Counter(completion)
-    return list(answer.keys())[0]
-
-&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/crosstar1228/86ab2d292ea7dce38da70b41b506d781.js&quot;&gt; &lt;/script&gt;
-
-&lt;h3 id=&quot;잘못된-풀이&quot;&gt;잘못된 풀이&lt;/h3&gt;
-&lt;p&gt;단순히 completion 리스트를 확인하고 participation에 없는 element를 반환할 경우, 동명이인 발생 시 문제를 처리하지 못한다.(오답)&lt;/p&gt;
-
-&lt;h3 id=&quot;풀이-1-sorting-and-zip&quot;&gt;풀이 1. sorting and zip()&lt;/h3&gt;
-&lt;p&gt;sorted로 정렬 후  zip함수를 이용하여 짝이 안맞는 남은 경우를 return&lt;/p&gt;
-
-&lt;h3 id=&quot;풀이-2hash-이용&quot;&gt;풀이 2.hash() 이용&lt;/h3&gt;
-&lt;p&gt;hash() 함수로 특정 주소를 hashing 한 후 남은 값에 mapping된 원소를 리턴.(주소 충돌이 있을 경우 문제가 될 소지가 있는 풀이.)&lt;/p&gt;
-
-&lt;h3 id=&quot;풀이-3-collectionscounter-로-차이-연산&quot;&gt;풀이 3. collections.Counter 로 차이 연산&lt;/h3&gt;</content><author><name>건너별(crosstar)</name></author><category term="backend" /><summary type="html">문제 링크</summary></entry><entry><title type="html">Lv1 - 프로그래머스 코딩테스트 ‘완주하지 못한 선수’ 문제 해설 (hashing)</title><link href="https://crosstar1228.github.io/algorithm-one_participant" rel="alternate" type="text/html" title="Lv1 - 프로그래머스 코딩테스트 ‘완주하지 못한 선수’ 문제 해설 (hashing)" /><published>2021-10-01T16:40:00+00:00</published><updated>2021-10-01T16:40:00+00:00</updated><id>https://crosstar1228.github.io/algorithm-one_participant</id><content type="html" xml:base="https://crosstar1228.github.io/algorithm-one_participant">&lt;p&gt;&lt;a href=&quot;https://www.welcomekakao.com/learn/courses/30/lessons/42576&quot;&gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;두 list로부터 hashing을 이용하여 완주하지 못한 1명의 선수를 return하는 문제.&lt;/p&gt;
 

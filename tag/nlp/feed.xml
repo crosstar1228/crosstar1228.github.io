@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/nlp/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-07-21T15:32:21+00:00</updated>
+  <updated>2022-07-30T12:35:19+00:00</updated>
   <id>https://crosstar1228.github.io/tag/nlp/feed.xml</id>
 
   
@@ -44,6 +44,26 @@
   &lt;li&gt;Datasets&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&quot;ai-music-genration의-시초&quot;&gt;AI Music Genration의 시초&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;90년대 David Bowie 의 Verbasizer (앱)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단어를 임의로 재배치하여 음악 가사에 사용될 수 있도록 재조합하는 앱이었음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2016년 Sony의 App Flow Machine
+    &lt;ul&gt;
+      &lt;li&gt;비틀즈 스타일 멜로디를 창조해 냄
+        &lt;h3 id=&quot;music-generation-도-크게-다르지-않아&quot;&gt;Music Generation 도 크게 다르지 않아&lt;/h3&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.&lt;/li&gt;
+  &lt;li&gt;Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등이됩니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;symbolic-approach-non-symbolic-approach&quot;&gt;Symbolic approach, Non-symbolic approach&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;해결법 1 : autoencoder로 저차원 space로 mapping
@@ -53,10 +73,13 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;MuseNet : midi data 기반 많은 양의 데이터 학습&lt;/li&gt;
-  &lt;li&gt;Transfomer 계열 모델로 학습
-    &lt;h2 id=&quot;문제-2--diversityvariation&quot;&gt;문제 2 : Diversity(variation)&lt;/h2&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Transfomer 계열 모델로 학습&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;아이디어-&quot;&gt;아이디어 :&lt;/h3&gt;
+&lt;p&gt;o learn a lower-dimensional encoding of the audio with the goal of losing the less important
+information but retaining most of the musical information&lt;/p&gt;
+&lt;h2 id=&quot;문제-2--diversityvariation&quot;&gt;문제 2 : Diversity(variation)&lt;/h2&gt;
 
 &lt;h3 id=&quot;jukeboxpaper&quot;&gt;JukeBox[&lt;a href=&quot;https://arxiv.org/abs/2005.00341&quot;&gt;Paper&lt;/a&gt;]&lt;/h3&gt;
 &lt;ul&gt;
@@ -66,13 +89,38 @@
   &lt;/li&gt;
   &lt;li&gt;노래의 duration에 linear 하게 가사의 문자들을 align하는 방법&lt;/li&gt;
   &lt;li&gt;가사를 위한 encoder를 더하고, &lt;strong&gt;music decoder로부터 의 query&lt;/strong&gt;로부터 &lt;strong&gt;가사 encoder로부터의 key, value 쌍&lt;/strong&gt; 으로의 attetion layer를 적용함.&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;https://soundraw.io/ 
+&lt;h3 id=&quot;vq-vae-codebook-collapse&quot;&gt;VQ-VAE codebook collapse&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;codebook에 mapping된 embedding vector들이 많이 쓰이지 않는 현상&lt;/li&gt;
+  &lt;li&gt;Random Restart:codebook vector 사용량이 평균이하로 떨어지면 , encoder output 중 하나로 다시 reset&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;https://magenta.tensorflow.org/perceiver-ar&lt;/p&gt;
+
+&lt;h3 id=&quot;sparse-transformer&quot;&gt;Sparse Transformer&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;sparsifies the attention pattern by
+reshaping the input sequence into a &lt;strong&gt;2-D sequence&lt;/strong&gt; of
+shape&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;google-deepmind-202206&quot;&gt;Google Deepmind (2022.06)&lt;/h2&gt;
+&lt;p&gt;[&lt;a href=&quot;https://arxiv.org/abs/2202.07765&quot;&gt;Paper&lt;/a&gt;]&lt;/p&gt;
+&lt;h3 id=&quot;perceiver-ar&quot;&gt;Perceiver AR&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;modality 에 대하여 agnostic(인지불능)인 구조
+    &lt;ul&gt;
+      &lt;li&gt;cross attention : long-range input -&amp;gt; small latent&lt;/li&gt;
+      &lt;li&gt;maintaining end-to-end causal masking
+https://soundraw.io/ 
 https://magenta.tensorflow.org/
 https://www.aiva.ai/
--&amp;gt; 음악 작곡&lt;/p&gt;
+-&amp;gt; 음악 작곡&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
 https://topten.ai/music-generators-review/&lt;/p&gt;

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/ml/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-07-21T15:32:21+00:00</updated>
+  <updated>2022-07-30T12:35:19+00:00</updated>
   <id>https://crosstar1228.github.io/tag/ml/feed.xml</id>
 
   
@@ -30,6 +30,67 @@
   
   
 
+  
+    <entry>
+      <title type="html">Generative Model의 신흥강자, Diffusion Model!</title>
+      <link href="https://crosstar1228.github.io/ML-Diffusion_Model" rel="alternate" type="text/html" title="Generative Model의 신흥강자, Diffusion Model!" />
+      <published>2022-07-29T11:00:00+00:00</published>
+      <updated>2022-07-29T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/ML-Diffusion_Model</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/ML-Diffusion_Model">&lt;h3 id=&quot;diffusion-model&quot;&gt;Diffusion Model&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Markov Chain 을 사용한 Latent variable model&lt;/li&gt;
+  &lt;li&gt;prior로부터 posterior를 얻기 위하여 x1,x2, xT 의 각 time point 별 latent varible에 noise를 더해가는 구조&lt;/li&gt;
+  &lt;li&gt;결과적으로 Gaussian noise를 띠게 됨&lt;/li&gt;
+  &lt;li&gt;이의 역변환 과정으로 새로운 data를 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;benefits&quot;&gt;Benefits&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;scalability&lt;/li&gt;
+  &lt;li&gt;parallelizabliity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;process&quot;&gt;process&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;forward process&lt;/li&gt;
+  &lt;li&gt;reverse process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;objective-function&quot;&gt;objective function&lt;/h3&gt;
+&lt;p&gt;log likelihood를 사용하며, 초기 이미지의 확률분포와 복원된 이미지의 확률분포 간 KL Divergence&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://www.assemblyai.com/blog/diffusion-models-for-machine-learning-introduction/&lt;/li&gt;
+  &lt;li&gt;https://arxiv.org/pdf/2006.11239.pdf&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ML" />
+      
+
+      
+        <summary type="html">Diffusion Model Markov Chain 을 사용한 Latent variable model prior로부터 posterior를 얻기 위하여 x1,x2, xT 의 각 time point 별 latent varible에 noise를 더해가는 구조 결과적으로 Gaussian noise를 띠게 됨 이의 역변환 과정으로 새로운 data를 생성</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">내용 핵심요약! CS231n Lecture 4. Backpropagation</title>

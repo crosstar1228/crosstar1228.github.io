@@ -8,6 +8,27 @@
     
       
       <item>
+        <title>Generative Model의 신흥강자, Diffusion Model!</title>
+        
+          <description>&lt;h3 id=&quot;diffusion-model&quot;&gt;Diffusion Model&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Markov Chain 을 사용한 Latent variable model&lt;/li&gt;
+  &lt;li&gt;prior로부터 posterior를 얻기 위하여 x1,x2, xT 의 각 time point 별 latent varible에 noise를 더해가는 구조&lt;/li&gt;
+  &lt;li&gt;결과적으로 Gaussian noise를 띠게 됨&lt;/li&gt;
+  &lt;li&gt;이의 역변환 과정으로 새로운 data를 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Jul 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/ML-Diffusion_Model</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/ML-Diffusion_Model</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Music Generation and AI, present and future</title>
         
           <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
