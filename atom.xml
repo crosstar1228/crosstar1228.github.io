@@ -8,14 +8,18 @@
     
       
       <item>
-        <title></title>
+        <title>Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization</title>
         
-          <description></description>
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Saddle Point, SFN(Saddle-Free Newton Method) SGD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
         
-        <pubDate>Fri, 12 Aug 2022 08:30:19 +0000</pubDate>
+        <pubDate>Thu, 11 Aug 2022 11:00:00 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/2022-08-12-local_minima_saddle_point</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2022-08-12-local_minima_saddle_point</guid>
+        https://crosstar1228.github.io/local_minima_saddle_point</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/local_minima_saddle_point</guid>
       </item>
       
     
