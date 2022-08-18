@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-18T14:37:25+00:00</updated>
+  <updated>2022-08-18T15:03:12+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -159,13 +159,16 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
       &lt;li&gt;역과정도 Gaussian noise를 가정하므로, 정규분포의 평균과 분산이 parameter로 정의됨
 \(p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))\)
         &lt;ul&gt;
-          &lt;li&gt;허나 DDPM저자는 variance를 고정시키고, 조건부 확률 분포의 &lt;strong&gt;평균&lt;/strong&gt;만 학습하게 함. (이후 더 발전된 형태에서는 variance만 학습)&lt;/li&gt;
+          &lt;li&gt;허나 DDPM저자는 variance를 고정시키고, 조건부 확률 분포의 &lt;strong&gt;평균&lt;/strong&gt;만 학습하게 함. 비슷한 결과를 보이기 때문. (이후 더 발전된 형태에서는 variance만 학습)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;denoising 과정이 학습이 되어있음&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;반복-과정&quot;&gt;반복 과정!&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/6681b933-1134-44f6-abcd-3602ddde8ba1/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;benefits&quot;&gt;Benefits&lt;/h3&gt;
 &lt;ul&gt;
@@ -177,7 +180,9 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
 &lt;p&gt;negative log likelihood를 사용하며, 초기 이미지(ground truth)의 확률분포와 복원된 이미지의 확률분포 간 KL Divergence&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;둘다 Gaussian distribution
-각 time step의 Loss 를 모두 합한 것이 최종 loss가 됨
+각 time step의 Loss 를 모두 합한 것이 최종 loss가 됨&lt;/li&gt;
+  &lt;li&gt;각 step별로 noise와 neural network로 생성한 noise간의 rmse score
+\(|| \epsilon - \epsilon_\theta(x_t, t) ||^2\)
     &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
   &lt;/li&gt;
   &lt;li&gt;https://www.assemblyai.com/blog/diffusion-models-for-machine-learning-introduction/&lt;/li&gt;
