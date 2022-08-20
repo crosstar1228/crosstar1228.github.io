@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/ml/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-20T08:15:16+00:00</updated>
+  <updated>2022-08-20T08:24:51+00:00</updated>
   <id>https://crosstar1228.github.io/tag/ml/feed.xml</id>
 
   
@@ -127,30 +127,30 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
   &lt;li&gt;forward process
     &lt;ul&gt;
       &lt;li&gt;점진적으로 noise를 더해가는 과정 $q$&lt;/li&gt;
-      &lt;li&gt;real data의 distribution을 $q(x_0)$라고 한다면, sampling을 할 수 있음. (\(x_0 ~ q(x_0)\))
+      &lt;li&gt;real data의 distribution을 $q(x_0)$라고 한다면, sampling을 할 수 있음. ($x_0 ~ q(x_0)$)
         &lt;ul&gt;
           &lt;li&gt;time step 별로 gaussian noise를 추가하는 과정은 아래와 같다. 
 \(q(x_t|x_t-1) = N(x_t ; \root{1-\beta_t}x_{t-1}, \beta_t *I\)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;여기서 \(\beta\) 는 variance schedule이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
-      &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 \(\epsilon(x_t, t)\)
+      &lt;li&gt;여기서 $\beta$ 는 variance schedule이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
+      &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 $\epsilon(x_t, t)$
         &lt;ul&gt;
-          &lt;li&gt;true noise 와 predicted noise의이차이**&lt;/li&gt;
+          &lt;li&gt;true noise 와 predicted noise의이차이&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;reverse process
     &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;학습된&lt;/strong&gt; denoising process \(p_\theta\)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;학습된&lt;/strong&gt; denoising process $p_\theta$&lt;/li&gt;
       &lt;li&gt;
         &lt;table&gt;
           &lt;tbody&gt;
             &lt;tr&gt;
-              &lt;td&gt;원래 $$p(x_{t-1}&lt;/td&gt;
-              &lt;td&gt;x_t)\(의 conditional distribution에 가까운,\)p_\theta(x_{t-1}&lt;/td&gt;
-              &lt;td&gt;x_t)$$를 학습하는 것!&lt;/td&gt;
+              &lt;td&gt;원래 $p(x_{t-1}&lt;/td&gt;
+              &lt;td&gt;x_t)$의 conditional distribution에 가까운, $p_\theta(x_{t-1}&lt;/td&gt;
+              &lt;td&gt;x_t)$를 학습하는 것!&lt;/td&gt;
             &lt;/tr&gt;
           &lt;/tbody&gt;
         &lt;/table&gt;
@@ -159,7 +159,7 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;역과정도 Gaussian noise를 가정하므로, 정규분포의 평균과 분산이 parameter로 정의됨
-\(p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))\)
+$p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))$
         &lt;ul&gt;
           &lt;li&gt;허나 DDPM저자는 variance를 고정시키고, 조건부 확률 분포의 &lt;strong&gt;평균&lt;/strong&gt;만 학습하게 함. 비슷한 결과를 보이기 때문. (이후 더 발전된 형태에서는 variance만 학습)&lt;/li&gt;
         &lt;/ul&gt;
@@ -183,8 +183,10 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
 &lt;ul&gt;
   &lt;li&gt;둘다 Gaussian distribution
 각 time step의 Loss 를 모두 합한 것이 최종 loss가 됨&lt;/li&gt;
-  &lt;li&gt;각 step별로 noise와 neural network로 생성한 noise간의 rmse score
-\(|| \epsilon - \epsilon_\theta(x_t, t) ||^2\)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;각 step별로 noise와 neural network로 생성한 noise간의 rmse score
+\(|| \epsilon - \epsilon_\theta(x_t, t) ||^2\)&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
   &lt;/li&gt;
