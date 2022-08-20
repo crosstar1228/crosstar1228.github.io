@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-18T15:03:12+00:00</updated>
+  <updated>2022-08-20T08:15:16+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -101,9 +101,11 @@
 &lt;h3 id=&quot;그게-어떻게-좋은데&quot;&gt;그게 어떻게 좋은데?&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;2021 NeurIPS 학회에서 Autoregressive 계열 생성모델보다 likelihood 성능이 좋고, GAN Based model보다 quality가 높은 sample 을 생성하는 것으로 발표되었답니다!&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://paperswithcode.com/paper/diffusion-models-beat-gans-on-image-synthesis&quot;&gt;Diffusion Models Beat GANs on Image Synthesis&lt;/a&gt;
-    &lt;h3 id=&quot;diffusion-model&quot;&gt;Diffusion Model&lt;/h3&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://paperswithcode.com/paper/diffusion-models-beat-gans-on-image-synthesis&quot;&gt;Diffusion Models Beat GANs on Image Synthesis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;diffusion-model&quot;&gt;Diffusion Model&lt;/h3&gt;
+&lt;ul&gt;
   &lt;li&gt;점진적인 noise 추가의 역과정을 학습하는 것이 개념의 핵심&lt;/li&gt;
   &lt;li&gt;주어진 데이터 x 로부터 noise를 추가하고, noise data로부터 x로 돌아오는 과정을 학습함&lt;/li&gt;
   &lt;li&gt;VAE와 컨셉은 유사하지만, data 분포를 학습하는 것이 아니라 Markov Chain 안에서 noise 분포를 모델링하는 Latent variable model
@@ -124,14 +126,14 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
 &lt;ul&gt;
   &lt;li&gt;forward process
     &lt;ul&gt;
-      &lt;li&gt;점진적으로 noise를 더해가는 과정 \(q\)&lt;/li&gt;
-      &lt;li&gt;real data의 distribution을 \(q(x_0)\)라고 한다면, sampling을 할 수 있음. (\(x_0 ~ q(x_0)\))
+      &lt;li&gt;점진적으로 noise를 더해가는 과정 $q$&lt;/li&gt;
+      &lt;li&gt;real data의 distribution을 $q(x_0)$라고 한다면, sampling을 할 수 있음. (\(x_0 ~ q(x_0)\))
         &lt;ul&gt;
-          &lt;li&gt;time step 별로 gaussian noise를 추가하는 과정은 아래와 같다.
+          &lt;li&gt;time step 별로 gaussian noise를 추가하는 과정은 아래와 같다. 
 \(q(x_t|x_t-1) = N(x_t ; \root{1-\beta_t}x_{t-1}, \beta_t *I\)&lt;/li&gt;
-          &lt;li&gt;여기서 \(\beta\) 는 variance schedule이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
+      &lt;li&gt;여기서 \(\beta\) 는 variance schedule이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
       &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 \(\epsilon(x_t, t)\)
         &lt;ul&gt;
           &lt;li&gt;true noise 와 predicted noise의이차이**&lt;/li&gt;
@@ -182,7 +184,8 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
   &lt;li&gt;둘다 Gaussian distribution
 각 time step의 Loss 를 모두 합한 것이 최종 loss가 됨&lt;/li&gt;
   &lt;li&gt;각 step별로 noise와 neural network로 생성한 noise간의 rmse score
-\(|| \epsilon - \epsilon_\theta(x_t, t) ||^2\)
+\(|| \epsilon - \epsilon_\theta(x_t, t) ||^2\)&lt;/li&gt;
+  &lt;li&gt;
     &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
   &lt;/li&gt;
   &lt;li&gt;https://www.assemblyai.com/blog/diffusion-models-for-machine-learning-introduction/&lt;/li&gt;
