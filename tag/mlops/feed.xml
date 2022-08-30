@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/mlops/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-21T01:07:24+00:00</updated>
+  <updated>2022-08-30T15:37:50+00:00</updated>
   <id>https://crosstar1228.github.io/tag/mlops/feed.xml</id>
 
   
@@ -30,6 +30,174 @@
   
   
 
+  
+    <entry>
+      <title type="html">모델 서빙과 MLOps</title>
+      <link href="https://crosstar1228.github.io/MLOps-week3" rel="alternate" type="text/html" title="모델 서빙과 MLOps" />
+      <published>2021-10-17T16:40:00+00:00</published>
+      <updated>2021-10-17T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/MLOps-week3</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/MLOps-week3">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;모델-서빙이란&quot;&gt;모델 서빙이란?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝 모델의 예측값을 실제로 사용자에게 전달하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;mlops의-필요성&quot;&gt;MLOps의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 성능은 test data의 추이에 따라 끊임없이 변함&lt;/li&gt;
+  &lt;li&gt;새롭게 개발한 모델이 더 성능이 안좋을 수도 있음(애매하거나)&lt;/li&gt;
+  &lt;li&gt;그럼 이전 모델을 다시 써야야할지, 새 모델을 써볼지 모델의 &lt;strong&gt;형상관리&lt;/strong&gt;가 되어야 함&lt;/li&gt;
+  &lt;li&gt;그래서 버전 업데이트로 인해 사용자 경험이 끊기지 않아야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;형상-관리&quot;&gt;형상 관리?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 변경이력과 성능에 대한 정보를 관리하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="MLOps" />
+      
+
+      
+        <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">모델 서빙과 MLOps</title>
+      <link href="https://crosstar1228.github.io/MLOps-week2" rel="alternate" type="text/html" title="모델 서빙과 MLOps" />
+      <published>2021-10-17T16:40:00+00:00</published>
+      <updated>2021-10-17T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/MLOps-week2</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/MLOps-week2">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;모델-서빙이란&quot;&gt;모델 서빙이란?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝 모델의 예측값을 실제로 사용자에게 전달하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;mlops의-필요성&quot;&gt;MLOps의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 성능은 test data의 추이에 따라 끊임없이 변함&lt;/li&gt;
+  &lt;li&gt;새롭게 개발한 모델이 더 성능이 안좋을 수도 있음(애매하거나)&lt;/li&gt;
+  &lt;li&gt;그럼 이전 모델을 다시 써야야할지, 새 모델을 써볼지 모델의 &lt;strong&gt;형상관리&lt;/strong&gt;가 되어야 함&lt;/li&gt;
+  &lt;li&gt;그래서 버전 업데이트로 인해 사용자 경험이 끊기지 않아야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;형상-관리&quot;&gt;형상 관리?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 변경이력과 성능에 대한 정보를 관리하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;wandb의-필요성&quot;&gt;wandb의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;하이퍼 파라미터 몇일 때 최고성능이었나?&lt;/li&gt;
+  &lt;li&gt;열심히 돌렸는데 성과가 안나오네.. 인사이트라도 공유해야지&lt;/li&gt;
+  &lt;li&gt;어떤 하이퍼파라미터가 제일 중요해?&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="MLOps" />
+      
+
+      
+        <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</title>

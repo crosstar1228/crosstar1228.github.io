@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/nlp/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-21T01:07:24+00:00</updated>
+  <updated>2022-08-30T15:37:50+00:00</updated>
   <id>https://crosstar1228.github.io/tag/nlp/feed.xml</id>
 
   
@@ -52,17 +52,18 @@
   &lt;/li&gt;
   &lt;li&gt;2016년 Sony의 App Flow Machine
     &lt;ul&gt;
-      &lt;li&gt;비틀즈 스타일 멜로디를 창조해 냄
-        &lt;h3 id=&quot;music-generation-도-크게-다르지-않아&quot;&gt;Music Generation 도 크게 다르지 않아&lt;/h3&gt;
-      &lt;/li&gt;
+      &lt;li&gt;비틀즈 스타일 멜로디를 창조해 냄&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.&lt;/li&gt;
-  &lt;li&gt;Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등이됩니다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;symbolic-approach-non-symbolic-approach&quot;&gt;Symbolic approach, Non-symbolic approach&lt;/h3&gt;
-  &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;music-generation-도-크게-다르지-않아&quot;&gt;Music Generation 도 크게 다르지 않아&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.&lt;/li&gt;
+  &lt;li&gt;Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등 이됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;symbolic-approach-non-symbolic-approach&quot;&gt;Symbolic approach, Non-symbolic approach&lt;/h3&gt;
 
 &lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
 &lt;ul&gt;
@@ -84,9 +85,10 @@ information but retaining most of the musical information&lt;/p&gt;
 &lt;h3 id=&quot;jukeboxpaper&quot;&gt;JukeBox[&lt;a href=&quot;https://arxiv.org/abs/2005.00341&quot;&gt;Paper&lt;/a&gt;]&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;long context 를 autoregressiveTransformer 이용한 multi-sclae VQ-VAE로 해결&lt;/li&gt;
-  &lt;li&gt;
-    &lt;h2 id=&quot;lyric-conditioning&quot;&gt;Lyric Conditioning&lt;/h2&gt;
-  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lyric-conditioning&quot;&gt;Lyric Conditioning&lt;/h3&gt;
+&lt;ul&gt;
   &lt;li&gt;노래의 duration에 linear 하게 가사의 문자들을 align하는 방법&lt;/li&gt;
   &lt;li&gt;가사를 위한 encoder를 더하고, &lt;strong&gt;music decoder로부터 의 query&lt;/strong&gt;로부터 &lt;strong&gt;가사 encoder로부터의 key, value 쌍&lt;/strong&gt; 으로의 attetion layer를 적용함.&lt;/li&gt;
 &lt;/ul&gt;
@@ -122,18 +124,33 @@ https://www.aiva.ai/
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
-https://topten.ai/music-generators-review/&lt;/p&gt;
+&lt;p&gt;Datasets&lt;/p&gt;
 
-&lt;p&gt;Datasets
-https://paperswithcode.com/task/music-generation&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://paperswithcode.com/task/music-generation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;music-generation-and-deep-learning&quot;&gt;Music Generation and Deep learning&lt;/h2&gt;
+&lt;p&gt;1) 딥러닝 베이스 음악 생성의 컨셉
+2) 음악 생성의 다양한 방법과 원리
+3) 다양한 음악 생성의 개념적 분류 체계
+4) 트렌드&lt;/p&gt;
+
+&lt;p&gt;abstract model이 generation을 위해 사용됨&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Sota models
 MuseGAN
 Melnet
 MidiNet&lt;/li&gt;
-&lt;/ol&gt;</content>
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
+  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
+  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       

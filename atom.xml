@@ -8,6 +8,19 @@
     
       
       <item>
+        <title></title>
+        
+          <description></description>
+        
+        <pubDate>Tue, 30 Aug 2022 15:37:50 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization</title>
         
           <description>&lt;blockquote&gt;
@@ -58,6 +71,82 @@
         <link>
         https://crosstar1228.github.io/NLP-music_and_ai</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/NLP-music_and_ai</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>모델 서빙과 MLOps</title>
+        
+          <description>&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        
+        <pubDate>Sun, 17 Oct 2021 16:40:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/MLOps-week3</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/MLOps-week3</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>모델 서빙과 MLOps</title>
+        
+          <description>&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        
+        <pubDate>Sun, 17 Oct 2021 16:40:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/MLOps-week2</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/MLOps-week2</guid>
       </item>
       
     

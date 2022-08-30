@@ -233,17 +233,18 @@ into the {body} of the default.hbs template -->
   </li>
   <li>2016년 Sony의 App Flow Machine
     <ul>
-      <li>비틀즈 스타일 멜로디를 창조해 냄
-        <h3 id="music-generation-도-크게-다르지-않아">Music Generation 도 크게 다르지 않아</h3>
-      </li>
+      <li>비틀즈 스타일 멜로디를 창조해 냄</li>
     </ul>
   </li>
-  <li>머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.</li>
-  <li>Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등이됩니다.</li>
-  <li>
-    <h3 id="symbolic-approach-non-symbolic-approach">Symbolic approach, Non-symbolic approach</h3>
-  </li>
 </ul>
+
+<h3 id="music-generation-도-크게-다르지-않아">Music Generation 도 크게 다르지 않아</h3>
+<ul>
+  <li>머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.</li>
+  <li>Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등 이됩니다.</li>
+</ul>
+
+<h3 id="symbolic-approach-non-symbolic-approach">Symbolic approach, Non-symbolic approach</h3>
 
 <h2 id="music-generation의-고질적인-문제-1--long-term-dependency">Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY</h2>
 <ul>
@@ -265,9 +266,10 @@ information but retaining most of the musical information</p>
 <h3 id="jukeboxpaper">JukeBox[<a href="https://arxiv.org/abs/2005.00341">Paper</a>]</h3>
 <ul>
   <li>long context 를 autoregressiveTransformer 이용한 multi-sclae VQ-VAE로 해결</li>
-  <li>
-    <h2 id="lyric-conditioning">Lyric Conditioning</h2>
-  </li>
+</ul>
+
+<h3 id="lyric-conditioning">Lyric Conditioning</h3>
+<ul>
   <li>노래의 duration에 linear 하게 가사의 문자들을 align하는 방법</li>
   <li>가사를 위한 encoder를 더하고, <strong>music decoder로부터 의 query</strong>로부터 <strong>가사 encoder로부터의 key, value 쌍</strong> 으로의 attetion layer를 적용함.</li>
 </ul>
@@ -303,11 +305,19 @@ https://www.aiva.ai/
   </li>
 </ul>
 
-<p>https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
-https://topten.ai/music-generators-review/</p>
+<p>Datasets</p>
 
-<p>Datasets
-https://paperswithcode.com/task/music-generation</p>
+<ul>
+  <li>https://paperswithcode.com/task/music-generation</li>
+</ul>
+
+<h2 id="music-generation-and-deep-learning">Music Generation and Deep learning</h2>
+<p>1) 딥러닝 베이스 음악 생성의 컨셉
+2) 음악 생성의 다양한 방법과 원리
+3) 다양한 음악 생성의 개념적 분류 체계
+4) 트렌드</p>
+
+<p>abstract model이 generation을 위해 사용됨</p>
 
 <ol>
   <li>Sota models
@@ -316,6 +326,12 @@ Melnet
 MidiNet</li>
 </ol>
 
+<h2 id="reference">Reference</h2>
+<ul>
+  <li>From artificial neural networks to deep learning for music generation: history, concepts and trends</li>
+  <li>https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806</li>
+  <li>https://topten.ai/music-generators-review/</li>
+</ul>
 
                 </div>
             </section>
@@ -440,7 +456,13 @@ MidiNet</li>
                                   
                                 
                                   
+                                
+                                  
                                     
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
@@ -560,12 +582,12 @@ MidiNet</li>
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/MLOps-week1">
+            <a class="post-card-image-link" href="/MLOps-week3">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/infra_week1_img.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/MLOps-week1">
+            <a class="post-card-content-link" href="/MLOps-week3">
                 <header class="post-card-header">
                     
                         
@@ -575,7 +597,7 @@ MidiNet</li>
                         
                     
 
-                    <h2 class="post-card-title">AWS와 인프라 1주차 aaS, Cloud, Storage 란 무엇인가</h2>
+                    <h2 class="post-card-title">모델 서빙과 MLOps</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -622,7 +644,7 @@ MidiNet</li>
                 <span class="reading-time">
                     
                     
-                      2 min read
+                      1 min read
                     
                 </span>
             </footer>

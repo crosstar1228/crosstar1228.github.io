@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-21T01:07:24+00:00</updated>
+  <updated>2022-08-30T15:37:50+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -47,8 +47,9 @@
 2) 고차원의 non-convex function에서는 대체로 local minima 문제는 통계적/경험적으로 매우 드문 경우이다
 3) 이에 따라 일반화된 trust region 방법이 개발됨
    1) 도함수가 아닌 신뢰 지역(trust region)의 모양을 감지
-   2) 곡률 정보를 알 수 있음
-4) Saddle-Free Method : Hessian 값의 역으로 절댓값의 gradient value를 재조정
+   2) 곡률 정보를 알 수 있음&lt;/p&gt;
+&lt;h3 id=&quot;saddle-point-에서-벗어나기&quot;&gt;Saddle point 에서 벗어나기&lt;/h3&gt;
+&lt;p&gt;4) Saddle-Free Method : Hessian 값의 역으로 절댓값의 gradient value를 재조정
     - 이 방법으로 Gradient Descent와 Newton Method를 적절이 섞어 사용함으로서 빠르게 saddle point에서 벗어날 수 있음&lt;/p&gt;
 
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
@@ -93,12 +94,12 @@
  이름이 왜 Diffusion Model인지, 모델 구조와 최적화 Metric을 유념하면서 AI 생성모델 분야에 어떠한 영향력을 미치고 있는지 한번 알아보도록 해요!&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;잠깐-generative-model이-뭐야&quot;&gt;잠깐, Generative Model이 뭐야?&lt;/h2&gt;
+&lt;h2 id=&quot;generative-model&quot;&gt;Generative Model?&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;주어진 관측 데이터 x 로부터 추출된 분포(distribution)을 평가하는 모델! Autoregressive Model부터 VAE, GAN, Flow - Based Model 등 다양!&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;그게-어떻게-좋은데&quot;&gt;그게 어떻게 좋은데?&lt;/h3&gt;
+&lt;h3 id=&quot;diffusion-model이어야-하는-이유&quot;&gt;Diffusion model이어야 하는 이유?&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;2021 NeurIPS 학회에서 Autoregressive 계열 생성모델보다 likelihood 성능이 좋고, GAN Based model보다 quality가 높은 sample 을 생성하는 것으로 발표되었답니다!&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://paperswithcode.com/paper/diffusion-models-beat-gans-on-image-synthesis&quot;&gt;Diffusion Models Beat GANs on Image Synthesis&lt;/a&gt;&lt;/li&gt;
@@ -132,52 +133,35 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
           &lt;li&gt;time step 별로 gaussian noise를 추가하는 과정은 아래와 같다.&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;$
-q(x_t|x_{t-1}) = N(x_t ; \sqrt{1-\beta_t}x_{t-1}, \beta_tI
-$&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여기서 $\beta$ 는 variance schedule(&lt;strong&gt;학습되기도 하고(parameter), 고정되기도 함(hyperparameter)&lt;/strong&gt;)이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
-  &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 $\epsilon(x_t, t)$
-    &lt;ul&gt;
-      &lt;li&gt;true noise 와 predicted noise의이차이&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;reverse process&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;학습된&lt;/strong&gt; denoising process $p_\theta$&lt;/p&gt;
-      &lt;/li&gt;
       &lt;li&gt;
         &lt;table&gt;
           &lt;tbody&gt;
             &lt;tr&gt;
-              &lt;td&gt;원래 $p(x_{t-1}&lt;/td&gt;
-              &lt;td&gt;x_t)$ 의 conditional distribution에 가까운 $p_\theta(x_{t-1}&lt;/td&gt;
-              &lt;td&gt;x_t)$ 를 학습하는 것!&lt;/td&gt;
+              &lt;td&gt;$q(x_t&lt;/td&gt;
+              &lt;td&gt;x_{t-1}) = N(x_t ; \sqrt{1-\beta_t}x_{t-1}, \beta_tI)$&lt;/td&gt;
             &lt;/tr&gt;
           &lt;/tbody&gt;
         &lt;/table&gt;
+      &lt;/li&gt;
+      &lt;li&gt;여기서 $\beta$ 는 variance schedule(&lt;strong&gt;학습되기도 하고(parameter), 고정되기도 함(hyperparameter)&lt;/strong&gt;)이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
+      &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 $\epsilon(x_t, t)$
+        &lt;ul&gt;
+          &lt;li&gt;true noise 와 predicted noise의 차이&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;reverse process&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;학습된&lt;/strong&gt; denoising process $p_\theta$&lt;/li&gt;
+      &lt;li&gt;원래 $p(x_{t-1}|x_t)$ 의 conditional distribution에 가까운 $p_\theta(x_{t-1}|x_t)$ 를 학습하는 것!
         &lt;ul&gt;
           &lt;li&gt;신경망이 위에 해당하는 parameter를 학습하고 loss 파악하고 gradient descent 로 update하는 과정!&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;역과정도 Gaussian noise를 가정하므로, 정규분포의 평균과 분산이 parameter로 정의됨
         &lt;ul&gt;
-          &lt;li&gt;
-            &lt;table&gt;
-              &lt;tbody&gt;
-                &lt;tr&gt;
-                  &lt;td&gt;$p_\theta(x_{t-1}&lt;/td&gt;
-                  &lt;td&gt;x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))$&lt;/td&gt;
-                &lt;/tr&gt;
-              &lt;/tbody&gt;
-            &lt;/table&gt;
-          &lt;/li&gt;
+          &lt;li&gt;$p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))$&lt;/li&gt;
           &lt;li&gt;허나 DDPM저자는 variance를 고정시키고, 조건부 확률 분포의 &lt;strong&gt;평균&lt;/strong&gt;만 학습하게 함. 비슷한 결과를 보이기 때문. (이후 더 발전된 형태에서는 variance만 학습)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
@@ -202,6 +186,7 @@ $&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;각 time step의 Loss 를 모두 합한 것이 최종 loss가 됨&lt;/p&gt;
+
 &lt;h3 id=&quot;variance-schedule이-학습-가능한-경우&quot;&gt;variance schedule이 학습 가능한 경우&lt;/h3&gt;
 &lt;p&gt;각 time step의 loss 는 아래와 같이 정의되고,
 &lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/dd20c074-9cd6-44d6-8134-9e32e6743f0f/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -219,17 +204,7 @@ $&lt;/p&gt;
   &lt;li&gt;L_{t-1}&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;$&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;\epsilon - \epsilon_\theta(x_t, t)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;^2$&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;$|| \epsilon - \epsilon_\theta(x_t, t) ||^2$&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;h3 id=&quot;정리-및-마무리&quot;&gt;정리 및 마무리&lt;/h3&gt;
@@ -296,17 +271,18 @@ $&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;2016년 Sony의 App Flow Machine
     &lt;ul&gt;
-      &lt;li&gt;비틀즈 스타일 멜로디를 창조해 냄
-        &lt;h3 id=&quot;music-generation-도-크게-다르지-않아&quot;&gt;Music Generation 도 크게 다르지 않아&lt;/h3&gt;
-      &lt;/li&gt;
+      &lt;li&gt;비틀즈 스타일 멜로디를 창조해 냄&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.&lt;/li&gt;
-  &lt;li&gt;Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등이됩니다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;symbolic-approach-non-symbolic-approach&quot;&gt;Symbolic approach, Non-symbolic approach&lt;/h3&gt;
-  &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;music-generation-도-크게-다르지-않아&quot;&gt;Music Generation 도 크게 다르지 않아&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝에서 모델은 다량의 데이터를 학습하고 그 안에서 ‘패턴’을 찾아냅니다.&lt;/li&gt;
+  &lt;li&gt;Music Generation에서는 그 패턴이 Chord, Tempo, lengths, note 간 관계성 등 이됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;symbolic-approach-non-symbolic-approach&quot;&gt;Symbolic approach, Non-symbolic approach&lt;/h3&gt;
 
 &lt;h2 id=&quot;music-generation의-고질적인-문제-1--long-term-dependency&quot;&gt;Music Generation의 고질적인 문제 1 : LONG TERM DEPENDENCY&lt;/h2&gt;
 &lt;ul&gt;
@@ -328,9 +304,10 @@ information but retaining most of the musical information&lt;/p&gt;
 &lt;h3 id=&quot;jukeboxpaper&quot;&gt;JukeBox[&lt;a href=&quot;https://arxiv.org/abs/2005.00341&quot;&gt;Paper&lt;/a&gt;]&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;long context 를 autoregressiveTransformer 이용한 multi-sclae VQ-VAE로 해결&lt;/li&gt;
-  &lt;li&gt;
-    &lt;h2 id=&quot;lyric-conditioning&quot;&gt;Lyric Conditioning&lt;/h2&gt;
-  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lyric-conditioning&quot;&gt;Lyric Conditioning&lt;/h3&gt;
+&lt;ul&gt;
   &lt;li&gt;노래의 duration에 linear 하게 가사의 문자들을 align하는 방법&lt;/li&gt;
   &lt;li&gt;가사를 위한 encoder를 더하고, &lt;strong&gt;music decoder로부터 의 query&lt;/strong&gt;로부터 &lt;strong&gt;가사 encoder로부터의 key, value 쌍&lt;/strong&gt; 으로의 attetion layer를 적용함.&lt;/li&gt;
 &lt;/ul&gt;
@@ -366,18 +343,33 @@ https://www.aiva.ai/
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806
-https://topten.ai/music-generators-review/&lt;/p&gt;
+&lt;p&gt;Datasets&lt;/p&gt;
 
-&lt;p&gt;Datasets
-https://paperswithcode.com/task/music-generation&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://paperswithcode.com/task/music-generation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;music-generation-and-deep-learning&quot;&gt;Music Generation and Deep learning&lt;/h2&gt;
+&lt;p&gt;1) 딥러닝 베이스 음악 생성의 컨셉
+2) 음악 생성의 다양한 방법과 원리
+3) 다양한 음악 생성의 개념적 분류 체계
+4) 트렌드&lt;/p&gt;
+
+&lt;p&gt;abstract model이 generation을 위해 사용됨&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Sota models
 MuseGAN
 Melnet
 MidiNet&lt;/li&gt;
-&lt;/ol&gt;</content>
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
+  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
+  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -530,6 +522,174 @@ ex) 이메일, CRM software, 구글 독스&lt;/p&gt;
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 &lt;p&gt;1) aaS : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;amp;blogId=futuremain&amp;amp;logNo=221360648846
 2) DAS, SAN, NAS : https://blog.naver.com/gojump0713/140111144418&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="MLOps" />
+      
+
+      
+        <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">모델 서빙과 MLOps</title>
+      <link href="https://crosstar1228.github.io/MLOps-week2" rel="alternate" type="text/html" title="모델 서빙과 MLOps" />
+      <published>2021-10-17T16:40:00+00:00</published>
+      <updated>2021-10-17T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/MLOps-week2</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/MLOps-week2">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;모델-서빙이란&quot;&gt;모델 서빙이란?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝 모델의 예측값을 실제로 사용자에게 전달하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;mlops의-필요성&quot;&gt;MLOps의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 성능은 test data의 추이에 따라 끊임없이 변함&lt;/li&gt;
+  &lt;li&gt;새롭게 개발한 모델이 더 성능이 안좋을 수도 있음(애매하거나)&lt;/li&gt;
+  &lt;li&gt;그럼 이전 모델을 다시 써야야할지, 새 모델을 써볼지 모델의 &lt;strong&gt;형상관리&lt;/strong&gt;가 되어야 함&lt;/li&gt;
+  &lt;li&gt;그래서 버전 업데이트로 인해 사용자 경험이 끊기지 않아야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;형상-관리&quot;&gt;형상 관리?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 변경이력과 성능에 대한 정보를 관리하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;wandb의-필요성&quot;&gt;wandb의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;하이퍼 파라미터 몇일 때 최고성능이었나?&lt;/li&gt;
+  &lt;li&gt;열심히 돌렸는데 성과가 안나오네.. 인사이트라도 공유해야지&lt;/li&gt;
+  &lt;li&gt;어떤 하이퍼파라미터가 제일 중요해?&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="MLOps" />
+      
+
+      
+        <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">모델 서빙과 MLOps</title>
+      <link href="https://crosstar1228.github.io/MLOps-week3" rel="alternate" type="text/html" title="모델 서빙과 MLOps" />
+      <published>2021-10-17T16:40:00+00:00</published>
+      <updated>2021-10-17T16:40:00+00:00</updated>
+      <id>https://crosstar1228.github.io/MLOps-week3</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/MLOps-week3">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;모델-서빙이란&quot;&gt;모델 서빙이란?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝 모델의 예측값을 실제로 사용자에게 전달하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;mlops의-필요성&quot;&gt;MLOps의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 성능은 test data의 추이에 따라 끊임없이 변함&lt;/li&gt;
+  &lt;li&gt;새롭게 개발한 모델이 더 성능이 안좋을 수도 있음(애매하거나)&lt;/li&gt;
+  &lt;li&gt;그럼 이전 모델을 다시 써야야할지, 새 모델을 써볼지 모델의 &lt;strong&gt;형상관리&lt;/strong&gt;가 되어야 함&lt;/li&gt;
+  &lt;li&gt;그래서 버전 업데이트로 인해 사용자 경험이 끊기지 않아야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;형상-관리&quot;&gt;형상 관리?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;모델의 변경이력과 성능에 대한 정보를 관리하는 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -1288,205 +1448,6 @@ Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test
 
       
         <summary type="html">GOAL Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다. 이미지를 어떻게 비교 및 분류하는지 알아보고, KNN(K-Nearest Neighbor)에 관하여 이해합니다. 이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)</title>
-      <link href="https://crosstar1228.github.io/algorithm-dynamic" rel="alternate" type="text/html" title="프로그래머스 코딩테스트 -  'N으로 표현' 문제 해설 (dynamic programming)" />
-      <published>2021-10-04T16:40:00+00:00</published>
-      <updated>2021-10-04T16:40:00+00:00</updated>
-      <id>https://crosstar1228.github.io/algorithm-dynamic</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/algorithm-dynamic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;코테의 기본! Algorithm 강좌 및 실습&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-basic&quot;&gt;Algorithm 강좌(1) - 알고리즘이란&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algorithm-dynamic&quot;&gt;Algorithm 강좌(2) - dynamic programming&lt;/a&gt;&lt;/li&gt;
-
-
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.welcomekakao.com/learn/courses/30/lessons/42895#&quot;&gt;문제 풀기&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;dynamic programming을 활용하는 문제입니다~!&lt;/p&gt;
-  &lt;h2 id=&quot;keypoint&quot;&gt;🧐keypoint&lt;/h2&gt;
-  &lt;ul&gt;
-    &lt;li&gt;사용횟수가 1 일때, 사용횟수가 2 일 때 경우의 수들을 정리해 보는것이 &lt;strong&gt;첫번째 아이디어&lt;/strong&gt;이다.&lt;/li&gt;
-    &lt;li&gt;사용횟수가 2 인 집합은 사용횟수 1,사용횟수 1 인 집합을 합쳐 만들어낼 수 있다. 횟수 2,3,4 모두 마찬가지다.&lt;/li&gt;
-    &lt;li&gt;N을 9번 이상 쓰지 않으니 경우의 수가 그리 많지는 않다..!(초반에 구상과정에서 너무 많을 것 같다는 생각이 사고 전개를 가로막았다)&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;n--3이라고-가정할-경우&quot;&gt;N = 3이라고 가정할 경우&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;1회 조합으로 만들어 낼 수 있는 수 : 3&lt;/li&gt;
-  &lt;li&gt;2회 조합으로 만들어 낼 수 있는 수 : 6(3+3), 1(3/3), 9(3*3), 33(연속)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;코드&quot;&gt;코드!&lt;/h2&gt;
-&lt;noscript&gt;&lt;pre&gt;def solution(N,number):
-    possible_set = [0, [N]]
-    if N == number : #
-        return 1
-    for i in range(2,9):                            #2~8까지가 조합(9번이상 쓰지 않음)
-        case_set = []                               # Possible set에 append할 caseset
-        basic_num = int(str(N)*i)                   # N의 i개 연속한 숫자 추가 ex) 33, 333 , ...
-        case_set.append(basic_num)
-        for i_half in range(1,i//2+1):              #숫자를 절반까지만 사용(좌우대칭으로 같은 결과가 나옴)
-            for x in possible_set[i_half]:
-                for y in possible_set[i-i_half]:    # x + y = i_half 이며 반으로나눠진
-                    print(possible_set)
-                                                    # 사칙연산을 수행후 case_set에 넣음
-                    case_set.append(x+y)
-                    case_set.append(x-y)
-                    case_set.append(y-x)
-                    case_set.append(x*y)
-                    if y != 0:
-                        case_set.append(x / y)
-                    if x != 0:
-                        case_set.append(y / x)
-            if number in case_set:                   # case set에 원하는 숫자가 있다면 반환
-                return i
-            possible_set.append(case_set)
-    return -1
-
-
-print(solution(3,21))
-
-
-&amp;gt;&amp;gt; 4&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/crosstar1228/9924df7b8871e34629a5271389d40ab3.js&quot;&gt; &lt;/script&gt;
-
-&lt;h2 id=&quot;회고&quot;&gt;회고&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;코드의 x+y =i_half 부분과 반으로 나누는 이유에 대해서 복습 시 코드 면밀 검토
-    &lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;https://www.hamadevelop.me/algorithm-n-expression/&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="backend" />
-      
-
-      
-        <summary type="html">코테의 기본! Algorithm 강좌 및 실습 Algorithm 강좌(1) - 알고리즘이란 Algorithm 강좌(2) - dynamic programming</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Lv2 - 2018 카카오 코딩테스트 ‘프렌즈4블록’ 문제 해설</title>
-      <link href="https://crosstar1228.github.io/algorithm-friends4block" rel="alternate" type="text/html" title="Lv2 - 2018 카카오 코딩테스트 '프렌즈4블록' 문제 해설" />
-      <published>2021-10-01T16:40:00+00:00</published>
-      <updated>2021-10-01T16:40:00+00:00</updated>
-      <id>https://crosstar1228.github.io/algorithm-friends4block</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/algorithm-friends4block">&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17679&quot;&gt;문제 풀기&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;풀이&quot;&gt;풀이&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;list element의 용이한 삭제를 위해, 행과 열을 전치한 후 시작&lt;/li&gt;
-  &lt;li&gt;블록이 터져야 할 부분은 index를 set에 저장(중복 방지) 후 0으로 변경&lt;/li&gt;
-  &lt;li&gt;0 개수를 count한 후, 앞(위쪽)으로 재배치. ‘_‘로 변경 후 2번 과정 반복&lt;/li&gt;
-  &lt;li&gt;answer에 loop: now_count개수를 더해주다가,loop 안에서 0 개수를 count한 결과가 0개일 경우, return&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Keypoint&lt;/p&gt;
-  &lt;ol&gt;
-    &lt;li&gt;set을 이용해 중복 방지&lt;/li&gt;
-    &lt;li&gt;Transpose해서 진행&lt;/li&gt;
-    &lt;li&gt;0 개수 count를 위한, ‘_‘로의 치환&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Code&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;##&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;세팅&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;CCBDE&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;AAADE&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;AAABF&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;CCBBF&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-
-&lt;span class=&quot;nx&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;del4block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;now_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;중복방지&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setlist&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;pop_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-  
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;pop_set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;터질&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;부분&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;indexing&lt;/span&gt; 
-    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
-
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pop_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;으로&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;만들기&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;개수&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;세기&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;now_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;now_count에&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;더하기&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;앞으로&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;당기기&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;및&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;로&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;치환하기&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;개수세기&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;위함&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now_count&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;알파벳&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;분리&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;전치&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;boardnow_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;del4block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;now_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;더이상&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;터질&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;게&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;없다면&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt; 
-            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now_count&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer에&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loop마다&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;now_count&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;더하기&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;실행-결과&quot;&gt;실행 결과&lt;/h1&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;14개의-블록이-터진다-펑&quot;&gt;14개의 블록이 터진다 펑!&lt;/h2&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="backend" />
-      
-
-      
-        <summary type="html">문제 풀기</summary>
       
 
       
