@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-08-30T15:37:50+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1" rel="alternate" type="text/html" title="" /><published>2022-08-30T15:37:50+00:00</published><updated>2022-08-30T15:37:50+00:00</updated><id>https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1</id><content type="html" xml:base="https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T15:44:23+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1" rel="alternate" type="text/html" title="" /><published>2022-08-31T15:44:23+00:00</published><updated>2022-08-31T15:44:23+00:00</updated><id>https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1</id><content type="html" xml:base="https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문
     &lt;ul&gt;
@@ -50,6 +50,41 @@
       &lt;li&gt;Markov chain 활용(Stochastic Model)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Coconet&lt;/strong&gt;
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/5b0df87e-0c0b-48b7-892a-b8958dd41752/image.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/e5825a0d-c3fd-450f-91f1-d034fe4c5c91/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;4마디 단위로 잘라서 멜로디에 alto,tenor,bass에 대응하는 멜로디 추가&lt;/li&gt;
+      &lt;li&gt;piano roll type의 input을 one-hot vector로 encoding&lt;/li&gt;
+      &lt;li&gt;16분음표로 quantization&lt;/li&gt;
+      &lt;li&gt;전형적인 딥러닝의 multiclassification task&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Todd’s &lt;strong&gt;Time-Windowed&lt;/strong&gt; and conditioned recurrent architectures
+    &lt;ol&gt;
+      &lt;li&gt;인공신경망을 어떻게 음악생성에 활용할 수 있을지를 첫번쨰로 보여준 사례
+        &lt;ol&gt;
+          &lt;li&gt;input : context와 plan으로 나뉨
+            &lt;ul&gt;
+              &lt;li&gt;context :memory
+      - bos + 각 note에 부합하는 unit으로 구성&lt;/li&gt;
+              &lt;li&gt;plan : network가 학습한 특정 melody&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;학습방법
+ &lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/78d3fb95-60f1-4f67-9b53-088ade4f5879/image.png&quot; alt=&quot;&quot; /&gt;
+ 1) plan에서 melody 와
+ 2) 초기화된 context의 첫번쨰 시점으로부터
+ 3) 첫번쨰 output을 냄 (비교 및 weight update)
+ 4) output은 다음 time step의 memory로 들어감
+ -&amp;gt; iterative하게 output을 기억하여 생성!&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lewis Creation by refinement&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;traditional-music-generation&quot;&gt;Traditional Music Generation&lt;/h3&gt;
@@ -205,14 +240,7 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;$q(x_t&lt;/td&gt;
-              &lt;td&gt;x_{t-1}) = N(x_t ; \sqrt{1-\beta_t}x_{t-1}, \beta_tI)$&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
+        &lt;p&gt;$q(x_t|x_{t-1}) = N(x_t ; \sqrt{1-\beta_t}x_{t-1}, \beta_tI)$&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;여기서 $\beta$ 는 variance schedule(&lt;strong&gt;학습되기도 하고(parameter), 고정되기도 함(hyperparameter)&lt;/strong&gt;)이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
       &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 $\epsilon(x_t, t)$
@@ -232,7 +260,7 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
       &lt;/li&gt;
       &lt;li&gt;역과정도 Gaussian noise를 가정하므로, 정규분포의 평균과 분산이 parameter로 정의됨
         &lt;ul&gt;
-          &lt;li&gt;$p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))$&lt;/li&gt;
+          &lt;li&gt;$p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t))$&lt;/li&gt;
           &lt;li&gt;허나 DDPM저자는 variance를 고정시키고, 조건부 확률 분포의 &lt;strong&gt;평균&lt;/strong&gt;만 학습하게 함. 비슷한 결과를 보이기 때문. (이후 더 발전된 형태에서는 variance만 학습)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
@@ -272,10 +300,8 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
 &lt;ul&gt;
   &lt;li&gt;schedule을 고정시켜도 성능이 충분히 좋다&lt;/li&gt;
   &lt;li&gt;선형 나열보다는 기하학적 나열이 더 성능이 좋음&lt;/li&gt;
-  &lt;li&gt;L_{t-1}&lt;/li&gt;
+  &lt;li&gt;$L_{t-1}$ = $|| \epsilon - \epsilon_\theta(x_t, t) ||^2$&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;$|| \epsilon - \epsilon_\theta(x_t, t) ||^2$&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;h3 id=&quot;정리-및-마무리&quot;&gt;정리 및 마무리&lt;/h3&gt;

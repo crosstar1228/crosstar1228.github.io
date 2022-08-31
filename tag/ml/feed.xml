@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/ml/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-08-30T15:37:50+00:00</updated>
+  <updated>2022-08-31T15:44:23+00:00</updated>
   <id>https://crosstar1228.github.io/tag/ml/feed.xml</id>
 
   
@@ -134,14 +134,7 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;$q(x_t&lt;/td&gt;
-              &lt;td&gt;x_{t-1}) = N(x_t ; \sqrt{1-\beta_t}x_{t-1}, \beta_tI)$&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
+        &lt;p&gt;$q(x_t|x_{t-1}) = N(x_t ; \sqrt{1-\beta_t}x_{t-1}, \beta_tI)$&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;여기서 $\beta$ 는 variance schedule(&lt;strong&gt;학습되기도 하고(parameter), 고정되기도 함(hyperparameter)&lt;/strong&gt;)이라고 해서, 직관적으로는 time step별로 추가될  noise의 분산에 해당하는 값이다.&lt;/li&gt;
       &lt;li&gt;diffusion model을 하나의 함수라고 한다면, model은 noisy component를 $\epsilon(x_t, t)$
@@ -161,7 +154,7 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
       &lt;/li&gt;
       &lt;li&gt;역과정도 Gaussian noise를 가정하므로, 정규분포의 평균과 분산이 parameter로 정의됨
         &lt;ul&gt;
-          &lt;li&gt;$p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t)))$&lt;/li&gt;
+          &lt;li&gt;$p_\theta(x_{t-1}|x_t) = N(x_{t_1}; \mu_\theta(x_t, t), \sigma_\theta(x_t, t))$&lt;/li&gt;
           &lt;li&gt;허나 DDPM저자는 variance를 고정시키고, 조건부 확률 분포의 &lt;strong&gt;평균&lt;/strong&gt;만 학습하게 함. 비슷한 결과를 보이기 때문. (이후 더 발전된 형태에서는 variance만 학습)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
@@ -201,10 +194,8 @@ noise를 추가하는 과정을 diffusion(확산 또는 전파)라고 이해할 
 &lt;ul&gt;
   &lt;li&gt;schedule을 고정시켜도 성능이 충분히 좋다&lt;/li&gt;
   &lt;li&gt;선형 나열보다는 기하학적 나열이 더 성능이 좋음&lt;/li&gt;
-  &lt;li&gt;L_{t-1}&lt;/li&gt;
+  &lt;li&gt;$L_{t-1}$ = $|| \epsilon - \epsilon_\theta(x_t, t) ||^2$&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;$|| \epsilon - \epsilon_\theta(x_t, t) ||^2$&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;h3 id=&quot;정리-및-마무리&quot;&gt;정리 및 마무리&lt;/h3&gt;
