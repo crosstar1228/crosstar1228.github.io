@@ -12,7 +12,7 @@
         
           <description></description>
         
-        <pubDate>Tue, 13 Sep 2022 14:41:08 +0000</pubDate>
+        <pubDate>Sun, 25 Sep 2022 04:19:46 +0000</pubDate>
         <link>
         https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output</guid>
@@ -21,14 +21,26 @@
     
       
       <item>
-        <title></title>
+        <title>A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions</title>
         
-          <description></description>
+          <description>&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문
+    &lt;ul&gt;
+      &lt;li&gt;DATASETS&lt;/li&gt;
+      &lt;li&gt;MUSIC REPRESENTATION&lt;/li&gt;
+      &lt;li&gt;EVALUATION METHOD&lt;/li&gt;
+      &lt;li&gt;challenges &amp;amp; future directions&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
         
-        <pubDate>Tue, 13 Sep 2022 14:41:08 +0000</pubDate>
+        <pubDate>Sat, 27 Aug 2022 11:00:00 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2022-08-28-NLP-music_generation_paper_review_1</guid>
+        https://crosstar1228.github.io/NLP-music_generation_paper_review_1</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/NLP-music_generation_paper_review_1</guid>
       </item>
       
     

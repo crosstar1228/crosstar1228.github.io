@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-09-13T14:41:08+00:00</updated>
+  <updated>2022-09-25T04:19:46+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -30,6 +30,218 @@
   
   
 
+  
+    <entry>
+      <title type="html">A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions</title>
+      <link href="https://crosstar1228.github.io/NLP-music_generation_paper_review_1" rel="alternate" type="text/html" title="A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions" />
+      <published>2022-08-27T11:00:00+00:00</published>
+      <updated>2022-08-27T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/NLP-music_generation_paper_review_1</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_paper_review_1">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문
+    &lt;ul&gt;
+      &lt;li&gt;DATASETS&lt;/li&gt;
+      &lt;li&gt;MUSIC REPRESENTATION&lt;/li&gt;
+      &lt;li&gt;EVALUATION METHOD&lt;/li&gt;
+      &lt;li&gt;challenges &amp;amp; future directions&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;intro&quot;&gt;Intro&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;음악은 언어와 같다.&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;악보 : 음악  == 글 : 말&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Music Generation의 대분류 3개
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/33ed8e71-a0d8-4853-9c90-c9f1940900dc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;score generation&lt;/li&gt;
+      &lt;li&gt;performance generation add performance characteristics to scores
+        &lt;ul&gt;
+          &lt;li&gt;RENDERING performance&lt;/li&gt;
+          &lt;li&gt;composing performance&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;audio generation : convert score with performance characteristics into audio
+        &lt;ul&gt;
+          &lt;li&gt;assign timbre&lt;/li&gt;
+          &lt;li&gt;directry generate music in audio&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;그 중에서도 SCORE GENERATION이 가장 핫함&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;style transfer 적용
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/3a730a16-e14a-4174-8d27-05807196346f/image.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Iliac Suite : computer 로 만들어진 최초의 score
+    &lt;ul&gt;
+      &lt;li&gt;Markov chain 활용(Stochastic Model)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Coconet&lt;/strong&gt;
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/5b0df87e-0c0b-48b7-892a-b8958dd41752/image.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/e5825a0d-c3fd-450f-91f1-d034fe4c5c91/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;4마디 단위로 잘라서 멜로디에 alto,tenor,bass에 대응하는 멜로디 추가&lt;/li&gt;
+      &lt;li&gt;piano roll type의 input을 one-hot vector로 encoding&lt;/li&gt;
+      &lt;li&gt;16분음표로 quantization&lt;/li&gt;
+      &lt;li&gt;전형적인 딥러닝의 multiclassification task&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Todd’s &lt;strong&gt;Time-Windowed&lt;/strong&gt; and conditioned recurrent architectures
+    &lt;ol&gt;
+      &lt;li&gt;인공신경망을 어떻게 음악생성에 활용할 수 있을지를 첫번쨰로 보여준 사례
+        &lt;ol&gt;
+          &lt;li&gt;input : context와 plan으로 나뉨
+            &lt;ul&gt;
+              &lt;li&gt;context :memory
+      - bos + 각 note에 부합하는 unit으로 구성&lt;/li&gt;
+              &lt;li&gt;plan : network가 학습한 특정 melody&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;학습방법
+ &lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/78d3fb95-60f1-4f67-9b53-088ade4f5879/image.png&quot; alt=&quot;&quot; /&gt;
+ 1) plan에서 melody 와
+ 2) 초기화된 context의 첫번쨰 시점으로부터
+ 3) 첫번쨰 output을 냄 (비교 및 weight update)
+ 4) output은 다음 time step의 memory로 들어감
+ -&amp;gt; iterative하게 output을 기억하여 생성!&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lewis Creation by refinement&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;traditional-music-generation&quot;&gt;Traditional Music Generation&lt;/h3&gt;
+&lt;p&gt;1) rule-based
+    - linguistic &amp;amp; grammar 활용
+    - 음악마다 다른 rule 이 만들어져야 하는 단점
+    - 
+2) Probability model&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;semi-automatic 한 알고리즘에 Markov chain이나 이외의 기술을 태움&lt;/li&gt;
+  &lt;li&gt;원래의 data로부터 subsequence를 생성하지만, memory가 없어서 input에 따라 조건부 확률이 변동이 심함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3) Neural Network(RNN)
+    - RNN으로 feature를 학습하여 단선율의 pitch와 duration을 학습
+    - Gradient Vanishing으로 long-term dependency 학습 못하는 단점&lt;/p&gt;
+
+&lt;h3 id=&quot;evloutionary&quot;&gt;evloutionary&lt;/h3&gt;
+&lt;p&gt;1) GenJam
+2) Director Musices
+3) Probablistic&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;hierarchical HMM&lt;/li&gt;
+  &lt;li&gt;dynamic Bayesian networks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sound-modelling&quot;&gt;sound modelling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;physical modeling&lt;/li&gt;
+  &lt;li&gt;acoustic modeling : signal generator 이용
+    &lt;ul&gt;
+      &lt;li&gt;oscillator, modulator, filters와 같이 waveform 조작을 위한 processors&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lyrics&quot;&gt;lyrics&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;가사 포함 여부에 따라 music audio를 audio와 singing voice로 나눔.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;deep-music-generation&quot;&gt;Deep Music Generation&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google Magenta : &lt;a href=&quot;https://magenta.tensorflow.org/2016/07/15/lookback-rnn-attention-rnn&quot;&gt;Melody RNN model&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Anticipation-RNN : 사용자가 정의한 positional한 제약을 강요함.&lt;/li&gt;
+  &lt;li&gt;TP-LSTM-NADE and BALSTM : 병렬 RNN으로부터 다선율의 데이터셋에서 translation-invariance를 유지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;score-generation-vae-gan-transformer-&quot;&gt;Score Generation: VAE, GAN, Transformer, …&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;MusicVAE : longterm dependency, interpolation &amp;amp; reconstruction 퍼포먼스 굳
+    &lt;ul&gt;
+      &lt;li&gt;coupled latent variable model&lt;/li&gt;
+      &lt;li&gt;binary regularizer&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;GAN
+    &lt;ul&gt;
+      &lt;li&gt;sequential data에는 학습에 어려움이 있음&lt;/li&gt;
+      &lt;li&gt;CNN based GAN으로 개발&lt;/li&gt;
+      &lt;li&gt;GAN-based MidiNet : Chord 에 condition되어 마디를 생성하는 알고리즘&lt;/li&gt;
+      &lt;li&gt;MuseGAN : multi-track 다선율 음악을 생성하는 최초의 모델
+        &lt;ul&gt;
+          &lt;li&gt;강화학습을 접목하여 RNN-based GAN 적용&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Transformer
+    &lt;ul&gt;
+      &lt;li&gt;REMI&lt;/li&gt;
+      &lt;li&gt;Transformer XL&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;performance-generation--대부분-rnn&quot;&gt;Performance Generation : 대부분 RNN&lt;/h2&gt;
+
+&lt;h2 id=&quot;representation&quot;&gt;Representation&lt;/h2&gt;
+&lt;p&gt;1) symbol domain&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;discrete variable
+2) audio domain&lt;/li&gt;
+  &lt;li&gt;continuous variable&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
+  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
+  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="nlp" />
+      
+
+      
+        <summary type="html">Abstract 딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문 DATASETS MUSIC REPRESENTATION EVALUATION METHOD challenges &amp;amp; future directions</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization</title>
@@ -1242,203 +1454,6 @@ Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때
 
       
         <summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">CS231n Lecture 2. Image Classification</title>
-      <link href="https://crosstar1228.github.io/cs231n-lec2" rel="alternate" type="text/html" title="CS231n Lecture 2.  Image Classification" />
-      <published>2021-10-11T11:00:00+00:00</published>
-      <updated>2021-10-11T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/cs231n-lec2</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec2">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다.&lt;/li&gt;
-  &lt;li&gt;이미지를 어떻게 비교 및 분류하는지 알아보고, &lt;strong&gt;KNN(K-Nearest Neighbor)&lt;/strong&gt;에 관하여 이해합니다.&lt;/li&gt;
-  &lt;li&gt;이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#image-classification&quot;&gt;Image Classifciation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#data-driven-approach&quot;&gt;Data-Driven Approach&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#distance-metric&quot;&gt;Distance Metric&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#L1,-L2-distance&quot;&gt;L1, L2 Distance&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#k-nearest-neighbor&quot;&gt;K-Nearest Neighbor&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#hyperparameter&quot;&gt;Hyperparameter&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#linear-classifier&quot;&gt;Linear Classifier&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#limitations&quot;&gt;Limitations&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;image-classification&quot;&gt;Image Classification&lt;/h2&gt;
-&lt;p&gt;Computer Vision에서 Image Classification은 매우 핵심적이고 근본적인 작업입니다. 하지만 우리가 직관적으로 인식하는 것이랑, 컴퓨터가 인식하는 것이랑은 차이가 있죠. 컴퓨터는 모든 것을 숫자로 받아들이기 때문입니다. 우리는 이것을 ‘Semantic Gap(의미론적 차이)’라고 표현하며, 아래 그림을 보며이해해 보겠습니다.&lt;br /&gt;
-&lt;img src=&quot;../../assets/built/images/cs2_img.png&quot; alt=&quot;cs2_img.png&quot; /&gt;
-컴퓨터에서 이미지는 기본적으로 0~255사이의 pixel로 표현되며, 3개의 channel의 matrix형태로 표현됩니다.&lt;br /&gt;
--&amp;gt; 이런 숫자로부터 우리는 &lt;strong&gt;‘이 사진이 고양이다’라는 의미를 추출해 내고 싶은 게 목적&lt;/strong&gt;입니다.
-하지만 빛, 변형, 보호색, 개체의 변형 등 많은 Hurdle이 존재하기에, 명백한 방법이 없었죠. 가장자리 모서리를 따라 outline을 만들어내며 추출하는 시도들이 있었지만 쉽지 않았습니다.
-그래서 고안된 방법이 Data에 기반한 접근법입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;data-driven-approach&quot;&gt;Data-Driven Approach&lt;/h2&gt;
-&lt;p&gt;간단한 순서는 다음과 같습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;이미지와 label(이미지의 정답)정보가 포함된 dataset을 모으고&lt;/li&gt;
-  &lt;li&gt;머신러닝으로 training 시키고&lt;/li&gt;
-  &lt;li&gt;새로운 이미지에 대한 classifier(분류기)를 평가해 보는 것
-&lt;img src=&quot;../../assets/built/images/cs2_img_1.png&quot; alt=&quot;cs2_img_1.png&quot; /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;-&amp;gt; training set을 label과 함께 학습하면, 그 이후의 새로운 이미지에 대하여 분류를 통해 의미를 추출해 낼 수 있는 것이죠.
-그렇다면 어떻게 기존 학습된 데이터와 새로운 이미지를 비교할 것이냐? 하는 의문이 제기되는데,
-기본적으로 새로운 이미지와 기존 학습된 이미지 간의 거리를 재어 가장 거리가 가까운 이미지를 고르게 됩니다.
-이것을 nearest neighbor(가장 가까이 있는 이웃)방법이라고 합니다.&lt;br /&gt;
-아래 그림은 nearest neighbor에 대해 10개의 class에 따라 각각 예측이 되는 과정을 보여줍니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_2.png&quot; alt=&quot;cs2_img_2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;distance-metric&quot;&gt;Distance Metric&lt;/h2&gt;
-&lt;p&gt;가깝고 먼 거리(Distance)를 측정하려면 기준이 필요합니다. 강의에서는 아래 두 가지 기준을 설명해주고 있습니다.&lt;/p&gt;
-&lt;h3 id=&quot;l1-l2-distance&quot;&gt;L1, L2 Distance&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_4.png&quot; alt=&quot;cs2_img_4.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;L1 distance : 각 pixel값의 차이를 구한 후 결괏값을 합산하는 방법&lt;br /&gt;
-L2 distance : 각 pixel값의 차이를 제곱한 후 root를 씌운 후 결괏값을 합산하는 방법&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;L2 distance는 root를 씌우지 않는 것으로 정의되기도 합니다.&lt;/li&gt;
-  &lt;li&gt;L1과 L2 distance와 관련한 추가적인 이해는 &lt;a href=&quot;https://junklee.tistory.com/29&quot;&gt;링크&lt;/a&gt;를 참고해 주세요.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;L1 distance 방법을 통하여 거리를 계산한 아래 예시를 보며 이해해 봅시다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_3.png&quot; alt=&quot;cs2_img_3.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;k-nearest-neighbor&quot;&gt;K-Nearest Neighbor&lt;/h3&gt;
-&lt;p&gt;한마디로 가장 가까운 K개를 비교해 보자! 입니다. k=5라면, 가장 거리가 가까운 5개중에서 다수결로 예측을 진행하는 것이에요!
-아래 코드를 살펴보며 이해해 볼까요?
-{gist}&lt;/p&gt;
-
-&lt;p&gt;하지만 이는 단점이 있습니다.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;전체 학습된 데이터셋과 비교하기 때문에 너무 느리고,&lt;/li&gt;
-  &lt;li&gt;outlier에 강건하지 못합니다.&lt;br /&gt;
-아래 그림을 보시죠!
-&lt;img src=&quot;../../assets/built/images/cs2_img_5.png&quot; alt=&quot;cs2_img_5.png&quot; /&gt;
-점들은 각각의 data를 의미하고, 색깔은 KNN에 의해 분류된 결과를 의미합니다.
-예를 들어, 초록색이 고양이를 의미하고 노란색이 강아지를 의미한다면, 초록색 영역 안에 포함된 data들이 고양이로 분류된 것이죠.
-하지만 조금 이상한 점은, 중간에 섬처럼 떨어져 있는 노란색 지점입니다. 초록색으로 분류되는 것이 자연스러움에도 불구하고, distance가 더 가깝다는 이유만으로 강아지로 분류된 것입니다. 실제로 data를 확인해 봤을 때, 이것은 고양이일 확률이 높고, KNN 알고리즘이 잘못 예측하였을 확률이 높습니다.
-(다시 말해, 강아지라고 학습된 데이터와 거리가 가깝다는 이유만으로, 실제로 고양이로 분류되는 것이 더 적절함에도 강아지로 분류된 것입니다.)
-이러한 단점 때문에 KNN은 거의 사용되지 않습니다. 이는 또한 &lt;strong&gt;차원의 저주&lt;/strong&gt; 개념과도 연관되어 있는데, 이는 나중에 다루도록 하겠습니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;추가로, K의 수에 따라 분류 성능 및 결과도 달라지게 되는데, &lt;a href=&quot;http://vision.stanford.edu/teaching/cs231n-demos/knn/&quot;&gt;링크&lt;/a&gt;에서 실험해보면서 이해해 보시기 바랍니다!&lt;/p&gt;
-
-&lt;h3 id=&quot;hyperparameter&quot;&gt;Hyperparameter&lt;/h3&gt;
-&lt;p&gt;그렇다면 최적의 K값은 어떻게 설정할 수 있을까요? 또, 어떠한 기준으로 거리(distance)를 측정하는 것이 보다 나은 성능을 안겨줄까요?
-그것은 우리가 모델을 직접 돌려가면서 가장 좋은 성능이 나올 수 있게 조정을 해주어야 합니다(problem-dependent).&lt;br /&gt;
-알고리즘 및 모델에 따라 이러한 기본적인 setting에 필요한 값을 우리는 &lt;strong&gt;hyperparameter&lt;/strong&gt;라고 부릅니다!&lt;/p&gt;
-
-&lt;p&gt;이것은 모델이 자체적으로 학습하고 update하는 parameter와 대비됩니다. 이것에 대한 설명은 많이 할 수 있는 기회가 있을 것입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_6.png&quot; alt=&quot;cs2_img_6.png&quot; /&gt;
-Hyperparameter는 총 dataset을 training, validation(생략되기도 함), test set 이렇게 세 가지로 나누어 학습을 진행하면서 조정됩니다.&lt;br /&gt;
-&lt;strong&gt;분류 모델링 시 기본이 되는 구조&lt;/strong&gt;이니 잘 기억해 두시면 좋습니다!&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;tip&quot;&gt;Tip🥳&lt;/h3&gt;
-  &lt;p&gt;위 슬라이드를&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;trainset = 시험공부 범위&lt;/li&gt;
-    &lt;li&gt;validation set = 모의고사&lt;/li&gt;
-    &lt;li&gt;test set = 수능 시험
-      &lt;blockquote&gt;
-        &lt;p&gt;이라고 생각하고 한 번 이해해 보시기 바랍니다!
-  &lt;img src=&quot;../../assets/built/images/cs2_img_7.png&quot; alt=&quot;cs2_img_7.png&quot; /&gt;&lt;/p&gt;
-      &lt;/blockquote&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이와 달리 trainset을 여러 Fold(subset)으로 나누어 검증(validation)하는 방법도 있습니다. 각 Fold별로 결과를 평균내어 산출합니다. 검증을 여러 번 시도할 수 있는 장점이 있겠네요!&lt;/p&gt;
-
-&lt;h2 id=&quot;linear-classifier&quot;&gt;Linear Classifier&lt;/h2&gt;
-
-&lt;p&gt;우리는 어떻게 이미지 간 유사도를 측정하고, 이미지에서 의미를 뽑아내어 분류하는지 그 방법에 대하여 배웠습니다. 그것에 기반하여 실제 분류를 하는 작업을 살펴봅시다.&lt;br /&gt;
-10개의 class로 분류하는 작업이며, 50,000개의 trainset과 10,000개의 testset으로 이루어져 있는 &lt;a href=&quot;https://www.cs.toronto.edu/~kriz/cifar.html&quot;&gt;CIFAR10&lt;/a&gt; datset입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_8.png&quot; alt=&quot;cs2_img_8.png&quot; /&gt;
-고양이 image를 input(x)으로 넣으면, 우리가 설정한 모델(f(x,W))의 연산에 의해 10개의 class 에 대한 각각의 score(점수)를 output으로 확인하게 됩니다.
-이 점수가 가장 높은 class로 모델은 예측을 하게 되는 것이죠!&lt;br /&gt;
-여기서 W는 Weight 또는 Parameter라고 하며, input으로부터 output을 반환해 주는 가중치의 역할을 하는 매우 중요한 개념입니다.&lt;br /&gt;
-여기서 b는 결괏값을 우리가 원하는 모델로 근사하도록 조정해주는 값입니다. 이는 Lecture 3 에서 자세히 다뤄보겠습니다.&lt;br /&gt;
-아래 슬라이드를 보며 제가 설명한 내용을 이해해 보시면 좋을 것 같습니다!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/cs2_img_9.png&quot; alt=&quot;cs2_img_9.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;결과적으로, linear한 모델로부터 아래 그림과 같이 분류 작업이 이루어지게 됩니다.
-&lt;img src=&quot;../../assets/built/images/cs2_img_10.png&quot; alt=&quot;cs2_img_10.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;limitations&quot;&gt;Limitations&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;비선형 모델링이 어렵습니다. 아래 그림과 같이, 비선형한 함수로부터 만들어진 class로 분류작업을 진행할 수 없죠.
-&lt;img src=&quot;../../assets/built/images/cs2_img_11.png&quot; alt=&quot;cs2_img_11.png&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;parameter를 스스로 update하지 못합니다.&lt;/strong&gt; 우리는 이것이 좋은 모델인지 아닌지 그저 결과만 보고 판단하는 수밖에 없으니, 일일이 모델의 parameter W를 수정해 주어야 하는 것이죠.
-&lt;img src=&quot;../../assets/built/images/cs2_img_12.png&quot; alt=&quot;cs2_img_12.png&quot; /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이러한 의문을 갖고 다음 강의에서 어떻게 모델을 최적화(optimize)하는지 배워보겠습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;##회고😎&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;이미지의 의미론적인 정보를 추출하기 위해 data-driven approach가 고안되었고, 이는 training set을 머신러닝 기법으로 학습하는 것이다.&lt;/li&gt;
-    &lt;li&gt;KNN으로 K개의 가장 distance가 작은 image와의 비교를 통해 새로운 이미지를 분류 가능하지만, 잘 쓰이지는 않는다.&lt;/li&gt;
-    &lt;li&gt;linear한 classification은 모델 최적화에 어려움이 있다.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;생각해-볼-문제&quot;&gt;생각해 볼 문제!&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;hyperparameter를 처음에 값을 정하는 근거가 필요해요. 처음에 어떻게 정할까요?&lt;/li&gt;
-  &lt;li&gt;k-fold validation은 왜 작은 dataset에만 유용할까요?&lt;/li&gt;
-  &lt;li&gt;linear classification에서 linear의 의미는 무엇일까요?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;CS231n Lecture 2 : https://youtu.be/OoUX-nOEjG0&lt;/li&gt;
-  &lt;li&gt;CS231n Lecture slide : http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture2.pdf&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ML" />
-      
-
-      
-        <summary type="html">GOAL Data-Driven Approach로 image classification을 진행하게 된 배경을 이해합니다. 이미지를 어떻게 비교 및 분류하는지 알아보고, KNN(K-Nearest Neighbor)에 관하여 이해합니다. 이미지를 분류하는 Linear 한 모델에 관하여 가볍게 이해해 봅니다.</summary>
       
 
       

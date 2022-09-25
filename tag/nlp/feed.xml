@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/nlp/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-09-13T14:41:08+00:00</updated>
+  <updated>2022-09-25T04:19:46+00:00</updated>
   <id>https://crosstar1228.github.io/tag/nlp/feed.xml</id>
 
   
@@ -30,6 +30,218 @@
   
   
 
+  
+    <entry>
+      <title type="html">A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions</title>
+      <link href="https://crosstar1228.github.io/NLP-music_generation_paper_review_1" rel="alternate" type="text/html" title="A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions" />
+      <published>2022-08-27T11:00:00+00:00</published>
+      <updated>2022-08-27T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/NLP-music_generation_paper_review_1</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_paper_review_1">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문
+    &lt;ul&gt;
+      &lt;li&gt;DATASETS&lt;/li&gt;
+      &lt;li&gt;MUSIC REPRESENTATION&lt;/li&gt;
+      &lt;li&gt;EVALUATION METHOD&lt;/li&gt;
+      &lt;li&gt;challenges &amp;amp; future directions&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;intro&quot;&gt;Intro&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;음악은 언어와 같다.&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;악보 : 음악  == 글 : 말&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Music Generation의 대분류 3개
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/33ed8e71-a0d8-4853-9c90-c9f1940900dc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;score generation&lt;/li&gt;
+      &lt;li&gt;performance generation add performance characteristics to scores
+        &lt;ul&gt;
+          &lt;li&gt;RENDERING performance&lt;/li&gt;
+          &lt;li&gt;composing performance&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;audio generation : convert score with performance characteristics into audio
+        &lt;ul&gt;
+          &lt;li&gt;assign timbre&lt;/li&gt;
+          &lt;li&gt;directry generate music in audio&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;그 중에서도 SCORE GENERATION이 가장 핫함&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;style transfer 적용
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/3a730a16-e14a-4174-8d27-05807196346f/image.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Iliac Suite : computer 로 만들어진 최초의 score
+    &lt;ul&gt;
+      &lt;li&gt;Markov chain 활용(Stochastic Model)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Coconet&lt;/strong&gt;
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/5b0df87e-0c0b-48b7-892a-b8958dd41752/image.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/e5825a0d-c3fd-450f-91f1-d034fe4c5c91/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;4마디 단위로 잘라서 멜로디에 alto,tenor,bass에 대응하는 멜로디 추가&lt;/li&gt;
+      &lt;li&gt;piano roll type의 input을 one-hot vector로 encoding&lt;/li&gt;
+      &lt;li&gt;16분음표로 quantization&lt;/li&gt;
+      &lt;li&gt;전형적인 딥러닝의 multiclassification task&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Todd’s &lt;strong&gt;Time-Windowed&lt;/strong&gt; and conditioned recurrent architectures
+    &lt;ol&gt;
+      &lt;li&gt;인공신경망을 어떻게 음악생성에 활용할 수 있을지를 첫번쨰로 보여준 사례
+        &lt;ol&gt;
+          &lt;li&gt;input : context와 plan으로 나뉨
+            &lt;ul&gt;
+              &lt;li&gt;context :memory
+      - bos + 각 note에 부합하는 unit으로 구성&lt;/li&gt;
+              &lt;li&gt;plan : network가 학습한 특정 melody&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;학습방법
+ &lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/78d3fb95-60f1-4f67-9b53-088ade4f5879/image.png&quot; alt=&quot;&quot; /&gt;
+ 1) plan에서 melody 와
+ 2) 초기화된 context의 첫번쨰 시점으로부터
+ 3) 첫번쨰 output을 냄 (비교 및 weight update)
+ 4) output은 다음 time step의 memory로 들어감
+ -&amp;gt; iterative하게 output을 기억하여 생성!&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lewis Creation by refinement&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;traditional-music-generation&quot;&gt;Traditional Music Generation&lt;/h3&gt;
+&lt;p&gt;1) rule-based
+    - linguistic &amp;amp; grammar 활용
+    - 음악마다 다른 rule 이 만들어져야 하는 단점
+    - 
+2) Probability model&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;semi-automatic 한 알고리즘에 Markov chain이나 이외의 기술을 태움&lt;/li&gt;
+  &lt;li&gt;원래의 data로부터 subsequence를 생성하지만, memory가 없어서 input에 따라 조건부 확률이 변동이 심함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3) Neural Network(RNN)
+    - RNN으로 feature를 학습하여 단선율의 pitch와 duration을 학습
+    - Gradient Vanishing으로 long-term dependency 학습 못하는 단점&lt;/p&gt;
+
+&lt;h3 id=&quot;evloutionary&quot;&gt;evloutionary&lt;/h3&gt;
+&lt;p&gt;1) GenJam
+2) Director Musices
+3) Probablistic&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;hierarchical HMM&lt;/li&gt;
+  &lt;li&gt;dynamic Bayesian networks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sound-modelling&quot;&gt;sound modelling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;physical modeling&lt;/li&gt;
+  &lt;li&gt;acoustic modeling : signal generator 이용
+    &lt;ul&gt;
+      &lt;li&gt;oscillator, modulator, filters와 같이 waveform 조작을 위한 processors&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lyrics&quot;&gt;lyrics&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;가사 포함 여부에 따라 music audio를 audio와 singing voice로 나눔.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;deep-music-generation&quot;&gt;Deep Music Generation&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google Magenta : &lt;a href=&quot;https://magenta.tensorflow.org/2016/07/15/lookback-rnn-attention-rnn&quot;&gt;Melody RNN model&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Anticipation-RNN : 사용자가 정의한 positional한 제약을 강요함.&lt;/li&gt;
+  &lt;li&gt;TP-LSTM-NADE and BALSTM : 병렬 RNN으로부터 다선율의 데이터셋에서 translation-invariance를 유지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;score-generation-vae-gan-transformer-&quot;&gt;Score Generation: VAE, GAN, Transformer, …&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;MusicVAE : longterm dependency, interpolation &amp;amp; reconstruction 퍼포먼스 굳
+    &lt;ul&gt;
+      &lt;li&gt;coupled latent variable model&lt;/li&gt;
+      &lt;li&gt;binary regularizer&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;GAN
+    &lt;ul&gt;
+      &lt;li&gt;sequential data에는 학습에 어려움이 있음&lt;/li&gt;
+      &lt;li&gt;CNN based GAN으로 개발&lt;/li&gt;
+      &lt;li&gt;GAN-based MidiNet : Chord 에 condition되어 마디를 생성하는 알고리즘&lt;/li&gt;
+      &lt;li&gt;MuseGAN : multi-track 다선율 음악을 생성하는 최초의 모델
+        &lt;ul&gt;
+          &lt;li&gt;강화학습을 접목하여 RNN-based GAN 적용&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Transformer
+    &lt;ul&gt;
+      &lt;li&gt;REMI&lt;/li&gt;
+      &lt;li&gt;Transformer XL&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;performance-generation--대부분-rnn&quot;&gt;Performance Generation : 대부분 RNN&lt;/h2&gt;
+
+&lt;h2 id=&quot;representation&quot;&gt;Representation&lt;/h2&gt;
+&lt;p&gt;1) symbol domain&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;discrete variable
+2) audio domain&lt;/li&gt;
+  &lt;li&gt;continuous variable&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
+  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
+  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="nlp" />
+      
+
+      
+        <summary type="html">Abstract 딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문 DATASETS MUSIC REPRESENTATION EVALUATION METHOD challenges &amp;amp; future directions</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Music Generation and AI, present and future</title>
