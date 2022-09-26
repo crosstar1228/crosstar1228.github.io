@@ -1,0 +1,222 @@
+<h2 id="논문-간단-소개">논문 간단 소개</h2>
+<ul>
+  <li>image captioning task에서 transformer 모델을 활용한 모델 중 가장
+    <h2 id="abstract">Abstract</h2>
+  </li>
+  <li>image encoding
+    <ul>
+      <li>학습된 사전 지식(caption)을 기반으로 image region간의 multi-level representation을 학습</li>
+    </ul>
+  </li>
+  <li>language generation
+    <ul>
+      <li>low-level과 high-level feature를 모두 활용하는 mesh-like connectivity 활용</li>
+    </ul>
+  </li>
+  <li>$M^2$ Transformer
+    <ul>
+      <li>다른 fully-attentive model과 비교해서 성능을 비교하고,</li>
+      <li>COCO image-text set에서 sota 기록</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction">Introduction</h3>
+
+<ul>
+  <li>RNN + attention, Transformer, Bert 등 다양하게 이용되어 왔음</li>
+  <li>multimodal task는 기존 unimodal task와 다른 구조를 띠어야 함</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/b1a321d2-0d39-49d6-881d-9eb273f3e5b6/image.png" alt="" /></p>
+
+<h3 id="encoding">encoding</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MemoryAugmentedEncoding</code>
+    <ol>
+      <li>이미지 구역 및 그 사이 관계가 multi-level(low-level, high-level) 로 인코딩됨</li>
+      <li>memory vector를 사용하여 사전지식을 encoding 및  관계를 모델링함</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="decoding">decoding</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MeshedDecoding</code>
+    <ol>
+      <li>학습된 gated mechanism으로 달성되는데, 각 단계별로 multi-level 의 기여도를 weight화함</li>
+    </ol>
+
+    <p>→ encoder 와 decoder 간에 meshed connectivity 로 구조화됨</p>
+  </li>
+</ul>
+
+<h1 id="structure">Structure</h1>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png" alt="" /></p>
+
+<h2 id="encoding-1">Encoding</h2>
+
+<ul>
+  <li>
+    <p>input image로부터 추출된 image region X (집합)</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  - 현재 image detection dataset을 활용하지만, 마디별 note 및 chord 범위로 설정 예정
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/49a747fe-4d6f-4383-ac83-2e9d820d7cd5/image.png" alt="" /></p>
+
+<ul>
+  <li>learnable weights W(q,k,v 에 대응되는)</li>
+  <li>S(X) = X의 weighted sum of values</li>
+  <li>image feature(region) 간의 pairwise similarity
+    <ul>
+      <li>하지만 이러한 방식의 self-attention은 사전 지식( a priori knowlendge)를 반영하지 못함</li>
+    </ul>
+
+    <p>ex) 사람과 농구공이 있으면 player나 game과 같은 정보를 추론해내기 어려움</p>
+  </li>
+</ul>
+
+<h3 id="1-memory-augmented-attention">1. Memory-Augmented Attention</h3>
+
+<blockquote>
+  <p>memory로 data augmentation이 진행되었다.</p>
+
+  <ul>
+    <li>key 또는 value가 slot의 형태로 확장되고, 이는 사전지식을 encoding할 수 있음
+      <ul>
+        <li>이러한 slot은 learnable vector로서 SGD로 업데이트 가능(parameter)</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/fa37f3f2-0f75-46c7-9d13-ef4b2b917352/image.png" alt="" /></p>
+<ul>
+  <li>$M_k, M_v$ 는 $n_m$ 개의 row수를 가진 학습가능한 matrix</li>
+  <li>, 는 concatenation을 의미</li>
+  <li>위 learnable parameter에 의해 X에 embedded 되지 않은 정보를 학습 가능</li>
+</ul>
+
+<h3 id="2-encoding-layer">2. Encoding layer</h3>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/61222ccd-f0c5-41d8-84e3-11eb53d56b78/image.png" alt="" /></p>
+
+<ul>
+  <li>이후 Memory augmented attention이 Position-Wise FFL 에 적용
+    <ul>
+      <li>2개의 affine transformation으로 이루어짐(non-linearity는 한곳에만 적용)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-residual-connection--layer-norm">3. Residual Connection + layer norm</h3>
+
+<p>각각의 sub-component(Memory-augmented attention 과 Encoding Layer)가 위 방식으로 감싸짐</p>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/34fe79cd-e000-41d1-acb7-40edc9bc5d97/image.png" alt="" /></p>
+
+<p>AddNorm은 Residual Connection + Layer Normalization</p>
+
+<h3 id="4-full-encoder">4. Full encoder</h3>
+
+<ul>
+  <li>여러 layer, 이전 레이어 아웃풋이 다음 레이어 인풋으로 들어감</li>
+  <li>더 높은 encoding layer는 이전에 이미 인식된 관계 정보를 사용할 수 있음</li>
+  <li>다양한 수준의 output을 생성</li>
+</ul>
+
+<h2 id="decoding-1">Decoding</h2>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png" alt="" /></p>
+
+<h3 id="32-meshed-decoder">3.2 Meshed Decoder</h3>
+
+<ul>
+  <li>이전 step의 생성된 word와 region encoding</li>
+  <li>multi-layer structure</li>
+</ul>
+
+<h3 id="meshed-cross-attention">meshed Cross attention</h3>
+
+<ul>
+  <li>transformer의 cross-attention과 달리, 모든 encoding layer를 활용하여 생성 가능</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/44e2c41e-8cde-4d63-9bd3-874033402a97/image.png" alt="" />
+$C$ : encoder-decoder cross attention</p>
+
+<ul>
+  <li>decoder 로부터의 query와, encoder로부터의 key-value 쌍의 cross attention</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/cc5cd9d8-34e0-4e3b-bf96-1e2c382cbcaf/image.png" alt="" /></p>
+
+<p>$\alpha_i$ : cross-attention 결과와 같은 크기의 weight matrix</p>
+
+<ul>
+  <li>각 encoding layer의 기여도 및 상대적인 중요도를 조절해주는 값</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/5cbb125d-5ded-454a-b644-3878ff311e37/image.png" alt="" /></p>
+
+<ul>
+  <li>input query와 Cross Attention output간의 관련성 측정한 결과값</li>
+  <li>$W_i$ 는 2d*d matrix</li>
+</ul>
+
+<h3 id="masked-self-attention">Masked Self attention</h3>
+
+<p>$S_mask$</p>
+
+<ul>
+  <li>input sequence Y의 t번째 element로부터의 query</li>
+  <li>왼쪽의 subsequence로부터 얻은 key와 value</li>
+</ul>
+
+<h3 id="ffw--addnorm">FFW + AddNorm</h3>
+
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/b237802b-2b01-49fa-802d-2bc333b54d38/image.png" alt="" /></p>
+
+<ul>
+  <li>여러 layer로 stack</li>
+  <li>결과적으로 t 번째 element에 기반하여 t+1 번째 시점이 예측됨</li>
+</ul>
+
+<h2 id="training">Training</h2>
+
+<ul>
+  <li>XE(word-level Crossentropy loss)로 pre-training
+    <ul>
+      <li>
+        <h2 id="ground-truth-word를-기반으로-다음-token을-예측">Ground-truth word를 기반으로 다음 token을 예측</h2>
+      </li>
+    </ul>
+  </li>
+  <li>Reinforcement learning 활용한 예측
+    <ul>
+      <li><strong>self-critical sequence training approach</strong></li>
+      <li>topk</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="dataset--coco">Dataset : COCO</h2>
+
+<ul>
+  <li>120,000 image with 5 captions each</li>
+  <li>nocap : 15,100 images annotated with 11 human-generated captions</li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+<ul>
+  <li>From artificial neural networks to deep learning for music generation: history, concepts and trends</li>
+  <li>https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806</li>
+  <li>https://topten.ai/music-generators-review/</li>
+</ul>
+

@@ -12,10 +12,28 @@
         
           <description></description>
         
-        <pubDate>Sun, 25 Sep 2022 04:19:46 +0000</pubDate>
+        <pubDate>Mon, 26 Sep 2022 14:06:37 +0000</pubDate>
         <link>
-        https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output</guid>
+        https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Symbolic Music Representation - 1D, 2D Future Directions</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Music representation은 크게 Symbol domain 과 audio domain으로 나뉩니다. 그 중 midi 파일의 표현 방식이자, discrete한 representation을 가지는
+&lt;strong&gt;Symbolic music generation&lt;/strong&gt;에 대해 알아봅시다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 Sep 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/NLP-music_generation_input_output</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/NLP-music_generation_input_output</guid>
       </item>
       
     

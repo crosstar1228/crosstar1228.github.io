@@ -1,4 +1,224 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-09-25T04:19:46+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output" rel="alternate" type="text/html" title="" /><published>2022-09-25T04:19:46+00:00</published><updated>2022-09-25T04:19:46+00:00</updated><id>https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output</id><content type="html" xml:base="https://crosstar1228.github.io/2022-09-13-NLP-music_generation_input_output">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-09-26T14:06:37+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer" rel="alternate" type="text/html" title="" /><published>2022-09-26T14:06:37+00:00</published><updated>2022-09-26T14:06:37+00:00</updated><id>https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer</id><content type="html" xml:base="https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer">&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;image captioning task에서 transformer 모델을 활용한 모델 중 가장
+    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+  &lt;/li&gt;
+  &lt;li&gt;image encoding
+    &lt;ul&gt;
+      &lt;li&gt;학습된 사전 지식(caption)을 기반으로 image region간의 multi-level representation을 학습&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;language generation
+    &lt;ul&gt;
+      &lt;li&gt;low-level과 high-level feature를 모두 활용하는 mesh-like connectivity 활용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;$M^2$ Transformer
+    &lt;ul&gt;
+      &lt;li&gt;다른 fully-attentive model과 비교해서 성능을 비교하고,&lt;/li&gt;
+      &lt;li&gt;COCO image-text set에서 sota 기록&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RNN + attention, Transformer, Bert 등 다양하게 이용되어 왔음&lt;/li&gt;
+  &lt;li&gt;multimodal task는 기존 unimodal task와 다른 구조를 띠어야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/b1a321d2-0d39-49d6-881d-9eb273f3e5b6/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;encoding&quot;&gt;encoding&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MemoryAugmentedEncoding&lt;/code&gt;
+    &lt;ol&gt;
+      &lt;li&gt;이미지 구역 및 그 사이 관계가 multi-level(low-level, high-level) 로 인코딩됨&lt;/li&gt;
+      &lt;li&gt;memory vector를 사용하여 사전지식을 encoding 및  관계를 모델링함&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;decoding&quot;&gt;decoding&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MeshedDecoding&lt;/code&gt;
+    &lt;ol&gt;
+      &lt;li&gt;학습된 gated mechanism으로 달성되는데, 각 단계별로 multi-level 의 기여도를 weight화함&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;→ encoder 와 decoder 간에 meshed connectivity 로 구조화됨&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;structure&quot;&gt;Structure&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;encoding-1&quot;&gt;Encoding&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;input image로부터 추출된 image region X (집합)&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - 현재 image detection dataset을 활용하지만, 마디별 note 및 chord 범위로 설정 예정
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/49a747fe-4d6f-4383-ac83-2e9d820d7cd5/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;learnable weights W(q,k,v 에 대응되는)&lt;/li&gt;
+  &lt;li&gt;S(X) = X의 weighted sum of values&lt;/li&gt;
+  &lt;li&gt;image feature(region) 간의 pairwise similarity
+    &lt;ul&gt;
+      &lt;li&gt;하지만 이러한 방식의 self-attention은 사전 지식( a priori knowlendge)를 반영하지 못함&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;ex) 사람과 농구공이 있으면 player나 game과 같은 정보를 추론해내기 어려움&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-memory-augmented-attention&quot;&gt;1. Memory-Augmented Attention&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;memory로 data augmentation이 진행되었다.&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;key 또는 value가 slot의 형태로 확장되고, 이는 사전지식을 encoding할 수 있음
+      &lt;ul&gt;
+        &lt;li&gt;이러한 slot은 learnable vector로서 SGD로 업데이트 가능(parameter)&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/fa37f3f2-0f75-46c7-9d13-ef4b2b917352/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;$M_k, M_v$ 는 $n_m$ 개의 row수를 가진 학습가능한 matrix&lt;/li&gt;
+  &lt;li&gt;, 는 concatenation을 의미&lt;/li&gt;
+  &lt;li&gt;위 learnable parameter에 의해 X에 embedded 되지 않은 정보를 학습 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-encoding-layer&quot;&gt;2. Encoding layer&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/61222ccd-f0c5-41d8-84e3-11eb53d56b78/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이후 Memory augmented attention이 Position-Wise FFL 에 적용
+    &lt;ul&gt;
+      &lt;li&gt;2개의 affine transformation으로 이루어짐(non-linearity는 한곳에만 적용)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-residual-connection--layer-norm&quot;&gt;3. Residual Connection + layer norm&lt;/h3&gt;
+
+&lt;p&gt;각각의 sub-component(Memory-augmented attention 과 Encoding Layer)가 위 방식으로 감싸짐&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/34fe79cd-e000-41d1-acb7-40edc9bc5d97/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;AddNorm은 Residual Connection + Layer Normalization&lt;/p&gt;
+
+&lt;h3 id=&quot;4-full-encoder&quot;&gt;4. Full encoder&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 layer, 이전 레이어 아웃풋이 다음 레이어 인풋으로 들어감&lt;/li&gt;
+  &lt;li&gt;더 높은 encoding layer는 이전에 이미 인식된 관계 정보를 사용할 수 있음&lt;/li&gt;
+  &lt;li&gt;다양한 수준의 output을 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;decoding-1&quot;&gt;Decoding&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;32-meshed-decoder&quot;&gt;3.2 Meshed Decoder&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이전 step의 생성된 word와 region encoding&lt;/li&gt;
+  &lt;li&gt;multi-layer structure&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;meshed-cross-attention&quot;&gt;meshed Cross attention&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;transformer의 cross-attention과 달리, 모든 encoding layer를 활용하여 생성 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/44e2c41e-8cde-4d63-9bd3-874033402a97/image.png&quot; alt=&quot;&quot; /&gt;
+$C$ : encoder-decoder cross attention&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;decoder 로부터의 query와, encoder로부터의 key-value 쌍의 cross attention&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/cc5cd9d8-34e0-4e3b-bf96-1e2c382cbcaf/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;$\alpha_i$ : cross-attention 결과와 같은 크기의 weight matrix&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 encoding layer의 기여도 및 상대적인 중요도를 조절해주는 값&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/5cbb125d-5ded-454a-b644-3878ff311e37/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;input query와 Cross Attention output간의 관련성 측정한 결과값&lt;/li&gt;
+  &lt;li&gt;$W_i$ 는 2d*d matrix&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;masked-self-attention&quot;&gt;Masked Self attention&lt;/h3&gt;
+
+&lt;p&gt;$S_mask$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;input sequence Y의 t번째 element로부터의 query&lt;/li&gt;
+  &lt;li&gt;왼쪽의 subsequence로부터 얻은 key와 value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ffw--addnorm&quot;&gt;FFW + AddNorm&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/b237802b-2b01-49fa-802d-2bc333b54d38/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 layer로 stack&lt;/li&gt;
+  &lt;li&gt;결과적으로 t 번째 element에 기반하여 t+1 번째 시점이 예측됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;training&quot;&gt;Training&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;XE(word-level Crossentropy loss)로 pre-training
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;h2 id=&quot;ground-truth-word를-기반으로-다음-token을-예측&quot;&gt;Ground-truth word를 기반으로 다음 token을 예측&lt;/h2&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reinforcement learning 활용한 예측
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;self-critical sequence training approach&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;topk&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dataset--coco&quot;&gt;Dataset : COCO&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;120,000 image with 5 captions each&lt;/li&gt;
+  &lt;li&gt;nocap : 15,100 images annotated with 11 human-generated captions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
+  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
+  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author></entry><entry><title type="html">Symbolic Music Representation - 1D, 2D Future Directions</title><link href="https://crosstar1228.github.io/NLP-music_generation_input_output" rel="alternate" type="text/html" title="Symbolic Music Representation - 1D, 2D Future Directions" /><published>2022-09-13T11:00:00+00:00</published><updated>2022-09-13T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_generation_input_output</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_input_output">&lt;blockquote&gt;
   &lt;p&gt;Music representation은 크게 Symbol domain 과 audio domain으로 나뉩니다. 그 중 midi 파일의 표현 방식이자, discrete한 representation을 가지는
 &lt;strong&gt;Symbolic music generation&lt;/strong&gt;에 대해 알아봅시다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -66,7 +286,7 @@
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;A Comprehensive Survey on Deep Music Generation(2020)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author></entry><entry><title type="html">A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions</title><link href="https://crosstar1228.github.io/NLP-music_generation_paper_review_1" rel="alternate" type="text/html" title="A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions" /><published>2022-08-27T11:00:00+00:00</published><updated>2022-08-27T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_generation_paper_review_1</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_paper_review_1">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="nlp" /><summary type="html">Music representation은 크게 Symbol domain 과 audio domain으로 나뉩니다. 그 중 midi 파일의 표현 방식이자, discrete한 representation을 가지는 Symbolic music generation에 대해 알아봅시다.</summary></entry><entry><title type="html">A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions</title><link href="https://crosstar1228.github.io/NLP-music_generation_paper_review_1" rel="alternate" type="text/html" title="A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions" /><published>2022-08-27T11:00:00+00:00</published><updated>2022-08-27T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_generation_paper_review_1</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_paper_review_1">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문
     &lt;ul&gt;
@@ -718,152 +938,6 @@ ex) 이메일, CRM software, 구글 독스&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="MLOps" /><summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary></entry><entry><title type="html">내용 핵심요약! CS231n Lecture 3. Loss function and Optimization</title><link href="https://crosstar1228.github.io/cs231n-lec3" rel="alternate" type="text/html" title="내용 핵심요약! CS231n Lecture 3. Loss function and Optimization" /><published>2021-10-14T11:00:00+00:00</published><updated>2021-10-14T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec3</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec3">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
-  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#loss-function&quot;&gt;Loss function&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#regularization&quot;&gt;Regularization&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#Softmax-function&quot;&gt;Softmax function&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#optimization&quot;&gt;Optimization&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;loss-function&quot;&gt;Loss function&lt;/h2&gt;
-&lt;p&gt;지난 시간에 우리는 Parameter를 update, 즉 최적의 가중치를 찾아내는 방법에 대한 필요성을 느꼈습니다.
-한 마디로 이번 강의에서 설명할 최적화(Optimization)에 대한 이야기입니다. 그리고 그를 위한 핵심 개념인 손실 함수(Loss function)에 대하여 우선적으로 알아보겠습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-loss-function&quot;&gt;What is loss function?&lt;/h3&gt;
-&lt;p&gt;Loss function(손실 함수, 이하 한글 용어 생략)은 다른 말로 Cost function이라고 합니다.
-Loss 또는 cost를 계산하는 함수다! 이렇게 예상이 되네요.
-그리고 그러한 손실(또는 비용)이 줄어드는 것이 더 바람직한 방향이라는 감까지 오셨다면
-Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각되네요. 조금더 자세히 들어다 볼까요?
-&lt;img src=&quot;../../assets/built/images/lec3_img.png&quot; alt=&quot;img.png&quot; /&gt;
-우리는 위와 같은 이미지 분류 문제에서 진짜 class(label 또는 정답)에 해당하는 score가 가장 높은 점수가 나오도록 모델을 만들고 싶어요.
-그래야만 새로운 이미지도 올바른 정답으로 판단할 확률이 높을 테니까요. 우리는 이것은 정확도(accuracy) 등의 지표로 판단하게 됩니다.
-하지만 그림을 보면 고양이의 정답을 가진 사진은 deer(사슴)에 해당하는 가장 높은 점수를 갖고 있고, 개구리는 truck(트럭)에 해당하는 점수를 가장 높게 갖고 있네요.&lt;/p&gt;
-
-&lt;p&gt;수치로 표현된 이러한 점수(score)들이 얼마나 바람직한지, &lt;strong&gt;정량적으로&lt;/strong&gt; 어긋난 정도를 판단할 필요성을 느낍니다.
-그 벗어난 정도를 알아야 알맞게 가중치를 갱신할 수 있기 때문입니다.
-정량적인 수치로 표현해야 하니, 특정한 입력값마다 변하는 하나의 함수가 정의되는 것이고,
-그것이 Loss function으로 표현되는 것입니다.
-&lt;img src=&quot;../../assets/built/images/lec3_img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
-&lt;img src=&quot;../../assets/built/images/lec3_img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
-$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.&lt;br /&gt;
-$y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
-
-&lt;p&gt;두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 $L(W)$로 정의하는 것입니다. 
-$W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라 Loss function의 결괏값도 달라지지라는 것을 직관적으로 이해할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;이러한 Loss function의 예시인 Multiclass SVM Loss 를 살펴보며 이해도를 높여 보겠습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;
- 이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
-그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
-
-&lt;p&gt;$L_i = \underset{j\not=y_i} \sum$
-\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
-\end{cases}\)&lt;/p&gt;
-
-&lt;p&gt;다시 쓰자면,&lt;/p&gt;
-
-&lt;p&gt;$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$&lt;/p&gt;
-
-&lt;p&gt;$s_j$ : j번째 class score&lt;br /&gt;
-$s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;0과 &lt;strong&gt;특정한 값&lt;/strong&gt;중에서 최대를 골라요. 그 특정한 값이라는 것은&lt;/li&gt;
-  &lt;li&gt;(j번째 class score) - (정답에 해당하는 class score) 를 구하고 그것에 1을 더한 값입니다.&lt;/li&gt;
-  &lt;li&gt;1은 safety margin이라고 해서, &lt;strong&gt;오답의 score가 정답의 score보다 1 이상 차이나는 정도&lt;/strong&gt;에 한해 Loss로 반영하겠다는 의미입니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;아래 예시를 통해 이해해 봅시다!
-&lt;img src=&quot;../../assets/built/images/lec3_img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
-정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
-이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
-&lt;img src=&quot;../../assets/built/images/lec3_img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;hinge-loss-관련-질문&quot;&gt;Hinge loss 관련 질문&lt;/h3&gt;
-&lt;p&gt;아래의 질문에 대한 답변을 확인해면서 수식을 이해해 보시기 바랍니다!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q1. What happens to the loss if car scores change a bit?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ NO CHANGE&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q2.Min/Max of loss&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ min = 0, Max = infinity&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q3. At initialization, W is small so all s~0. What is the loss?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ n-1 because (n-1) * 1&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q4. What if the sum was over all classes including $s_{y_i}$?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;→ Loss increases by 1&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q5. What if we used mean instead of sum ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ Doesn’t Change. We don’t care the true values of the score&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q6. What if we used $max()^2$?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ Squared hinge loss. does not used normally&lt;/p&gt;
-
-&lt;p&gt;SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
-&lt;img src=&quot;../../assets/built/images/lec3_img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
-&lt;p&gt;Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
-Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
-그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
-&lt;img src=&quot;../../assets/built/images/lec3_img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
-강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
-이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
-다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.&lt;/p&gt;
-
-&lt;p&gt;여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
-본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
-페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 모델의 복잡도를 낮추는 방향으로 update하도록 하는 역할을 수행하는 거에요.&lt;br /&gt;
-&lt;a href=&quot;https://www.notion.so/Lecture-3-Loss-functions-and-Optimization-3c46c15413324bc7856387118e6cfff1#f4708d3b84444fb7be5d93b71805083b&quot;&gt;L1, L2 Regularization&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Regularization에는 L1, L2 regularization 말고도 &lt;strong&gt;Dropout, Batch Normaization&lt;/strong&gt; 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;오늘 내용이 조금 어렵다면 괜찮습니다. 다음에 또 다시 보면서 Regularization에 대한 직관을 얻고,
-오늘은 &lt;strong&gt;Overfitting을 막기 위한 과정&lt;/strong&gt;는 사실만 우선적으로 기억하고 넘어갑시다!&lt;/p&gt;
-
-&lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
-&lt;p&gt;score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
-이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
-위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
-&lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;
-
-&lt;h2 id=&quot;질문&quot;&gt;질문&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;softmax function에서 log를 쓰는 이유는 무엇일까요?&lt;/li&gt;
-  &lt;li&gt;multiclass SVM Loss 는 왜 SVM Loss라는 이름이 붙었을까요?&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="ML" /><summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary></entry><entry><title type="html">내용 핵심요약! CS231n Lecture 4. Backpropagation</title><link href="https://crosstar1228.github.io/cs231n-lec4" rel="alternate" type="text/html" title="내용 핵심요약! CS231n Lecture 4. Backpropagation" /><published>2021-10-14T11:00:00+00:00</published><updated>2021-10-14T11:00:00+00:00</updated><id>https://crosstar1228.github.io/cs231n-lec4</id><content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec4">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
   &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
