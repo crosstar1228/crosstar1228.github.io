@@ -1,224 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-09-26T14:06:37+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html"></title><link href="https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer" rel="alternate" type="text/html" title="" /><published>2022-09-26T14:06:37+00:00</published><updated>2022-09-26T14:06:37+00:00</updated><id>https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer</id><content type="html" xml:base="https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer">&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;image captioning task에서 transformer 모델을 활용한 모델 중 가장
-    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-  &lt;/li&gt;
-  &lt;li&gt;image encoding
-    &lt;ul&gt;
-      &lt;li&gt;학습된 사전 지식(caption)을 기반으로 image region간의 multi-level representation을 학습&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;language generation
-    &lt;ul&gt;
-      &lt;li&gt;low-level과 high-level feature를 모두 활용하는 mesh-like connectivity 활용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;$M^2$ Transformer
-    &lt;ul&gt;
-      &lt;li&gt;다른 fully-attentive model과 비교해서 성능을 비교하고,&lt;/li&gt;
-      &lt;li&gt;COCO image-text set에서 sota 기록&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;RNN + attention, Transformer, Bert 등 다양하게 이용되어 왔음&lt;/li&gt;
-  &lt;li&gt;multimodal task는 기존 unimodal task와 다른 구조를 띠어야 함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/b1a321d2-0d39-49d6-881d-9eb273f3e5b6/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;encoding&quot;&gt;encoding&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MemoryAugmentedEncoding&lt;/code&gt;
-    &lt;ol&gt;
-      &lt;li&gt;이미지 구역 및 그 사이 관계가 multi-level(low-level, high-level) 로 인코딩됨&lt;/li&gt;
-      &lt;li&gt;memory vector를 사용하여 사전지식을 encoding 및  관계를 모델링함&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;decoding&quot;&gt;decoding&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MeshedDecoding&lt;/code&gt;
-    &lt;ol&gt;
-      &lt;li&gt;학습된 gated mechanism으로 달성되는데, 각 단계별로 multi-level 의 기여도를 weight화함&lt;/li&gt;
-    &lt;/ol&gt;
-
-    &lt;p&gt;→ encoder 와 decoder 간에 meshed connectivity 로 구조화됨&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;structure&quot;&gt;Structure&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;encoding-1&quot;&gt;Encoding&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;input image로부터 추출된 image region X (집합)&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - 현재 image detection dataset을 활용하지만, 마디별 note 및 chord 범위로 설정 예정
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/49a747fe-4d6f-4383-ac83-2e9d820d7cd5/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;learnable weights W(q,k,v 에 대응되는)&lt;/li&gt;
-  &lt;li&gt;S(X) = X의 weighted sum of values&lt;/li&gt;
-  &lt;li&gt;image feature(region) 간의 pairwise similarity
-    &lt;ul&gt;
-      &lt;li&gt;하지만 이러한 방식의 self-attention은 사전 지식( a priori knowlendge)를 반영하지 못함&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;ex) 사람과 농구공이 있으면 player나 game과 같은 정보를 추론해내기 어려움&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;1-memory-augmented-attention&quot;&gt;1. Memory-Augmented Attention&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;memory로 data augmentation이 진행되었다.&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;key 또는 value가 slot의 형태로 확장되고, 이는 사전지식을 encoding할 수 있음
-      &lt;ul&gt;
-        &lt;li&gt;이러한 slot은 learnable vector로서 SGD로 업데이트 가능(parameter)&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/fa37f3f2-0f75-46c7-9d13-ef4b2b917352/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;$M_k, M_v$ 는 $n_m$ 개의 row수를 가진 학습가능한 matrix&lt;/li&gt;
-  &lt;li&gt;, 는 concatenation을 의미&lt;/li&gt;
-  &lt;li&gt;위 learnable parameter에 의해 X에 embedded 되지 않은 정보를 학습 가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-encoding-layer&quot;&gt;2. Encoding layer&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/61222ccd-f0c5-41d8-84e3-11eb53d56b78/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이후 Memory augmented attention이 Position-Wise FFL 에 적용
-    &lt;ul&gt;
-      &lt;li&gt;2개의 affine transformation으로 이루어짐(non-linearity는 한곳에만 적용)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;3-residual-connection--layer-norm&quot;&gt;3. Residual Connection + layer norm&lt;/h3&gt;
-
-&lt;p&gt;각각의 sub-component(Memory-augmented attention 과 Encoding Layer)가 위 방식으로 감싸짐&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/34fe79cd-e000-41d1-acb7-40edc9bc5d97/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;AddNorm은 Residual Connection + Layer Normalization&lt;/p&gt;
-
-&lt;h3 id=&quot;4-full-encoder&quot;&gt;4. Full encoder&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여러 layer, 이전 레이어 아웃풋이 다음 레이어 인풋으로 들어감&lt;/li&gt;
-  &lt;li&gt;더 높은 encoding layer는 이전에 이미 인식된 관계 정보를 사용할 수 있음&lt;/li&gt;
-  &lt;li&gt;다양한 수준의 output을 생성&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;decoding-1&quot;&gt;Decoding&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;32-meshed-decoder&quot;&gt;3.2 Meshed Decoder&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이전 step의 생성된 word와 region encoding&lt;/li&gt;
-  &lt;li&gt;multi-layer structure&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;meshed-cross-attention&quot;&gt;meshed Cross attention&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;transformer의 cross-attention과 달리, 모든 encoding layer를 활용하여 생성 가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/44e2c41e-8cde-4d63-9bd3-874033402a97/image.png&quot; alt=&quot;&quot; /&gt;
-$C$ : encoder-decoder cross attention&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;decoder 로부터의 query와, encoder로부터의 key-value 쌍의 cross attention&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/cc5cd9d8-34e0-4e3b-bf96-1e2c382cbcaf/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;$\alpha_i$ : cross-attention 결과와 같은 크기의 weight matrix&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;각 encoding layer의 기여도 및 상대적인 중요도를 조절해주는 값&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/5cbb125d-5ded-454a-b644-3878ff311e37/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;input query와 Cross Attention output간의 관련성 측정한 결과값&lt;/li&gt;
-  &lt;li&gt;$W_i$ 는 2d*d matrix&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;masked-self-attention&quot;&gt;Masked Self attention&lt;/h3&gt;
-
-&lt;p&gt;$S_mask$&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;input sequence Y의 t번째 element로부터의 query&lt;/li&gt;
-  &lt;li&gt;왼쪽의 subsequence로부터 얻은 key와 value&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ffw--addnorm&quot;&gt;FFW + AddNorm&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/b237802b-2b01-49fa-802d-2bc333b54d38/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여러 layer로 stack&lt;/li&gt;
-  &lt;li&gt;결과적으로 t 번째 element에 기반하여 t+1 번째 시점이 예측됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;training&quot;&gt;Training&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;XE(word-level Crossentropy loss)로 pre-training
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;h2 id=&quot;ground-truth-word를-기반으로-다음-token을-예측&quot;&gt;Ground-truth word를 기반으로 다음 token을 예측&lt;/h2&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Reinforcement learning 활용한 예측
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;self-critical sequence training approach&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;topk&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;dataset--coco&quot;&gt;Dataset : COCO&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;120,000 image with 5 captions each&lt;/li&gt;
-  &lt;li&gt;nocap : 15,100 images annotated with 11 human-generated captions&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
-  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
-  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author></entry><entry><title type="html">Symbolic Music Representation - 1D, 2D Future Directions</title><link href="https://crosstar1228.github.io/NLP-music_generation_input_output" rel="alternate" type="text/html" title="Symbolic Music Representation - 1D, 2D Future Directions" /><published>2022-09-13T11:00:00+00:00</published><updated>2022-09-13T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_generation_input_output</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_input_output">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-09-30T01:18:03+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">Symbolic Music Representation - 1D, 2D Future Directions</title><link href="https://crosstar1228.github.io/NLP-music_generation_input_output" rel="alternate" type="text/html" title="Symbolic Music Representation - 1D, 2D Future Directions" /><published>2022-09-13T11:00:00+00:00</published><updated>2022-09-13T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-music_generation_input_output</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-music_generation_input_output">&lt;blockquote&gt;
   &lt;p&gt;Music representation은 크게 Symbol domain 과 audio domain으로 나뉩니다. 그 중 midi 파일의 표현 방식이자, discrete한 representation을 가지는
 &lt;strong&gt;Symbolic music generation&lt;/strong&gt;에 대해 알아봅시다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -464,7 +244,227 @@ $C$ : encoder-decoder cross attention&lt;/p&gt;
   &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
   &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
   &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="nlp" /><summary type="html">Abstract 딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문 DATASETS MUSIC REPRESENTATION EVALUATION METHOD challenges &amp;amp; future directions</summary></entry><entry><title type="html">Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization</title><link href="https://crosstar1228.github.io/local_minima_saddle_point" rel="alternate" type="text/html" title="Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization" /><published>2022-08-11T11:00:00+00:00</published><updated>2022-08-11T11:00:00+00:00</updated><id>https://crosstar1228.github.io/local_minima_saddle_point</id><content type="html" xml:base="https://crosstar1228.github.io/local_minima_saddle_point">&lt;blockquote&gt;
+&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="nlp" /><summary type="html">Abstract 딥러닝을 활용한 최근의 다양한 음악 작곡 TASK를 소개한 논문 DATASETS MUSIC REPRESENTATION EVALUATION METHOD challenges &amp;amp; future directions</summary></entry><entry><title type="html">\[Paper Review\] Meshed-memory transformer for image captioning</title><link href="https://crosstar1228.github.io/NLP-meshed_memory_transformer" rel="alternate" type="text/html" title="\[Paper Review\] Meshed-memory transformer for image captioning" /><published>2022-08-27T11:00:00+00:00</published><updated>2022-08-27T11:00:00+00:00</updated><id>https://crosstar1228.github.io/NLP-meshed_memory_transformer</id><content type="html" xml:base="https://crosstar1228.github.io/NLP-meshed_memory_transformer">&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;image captioning task에서 transformer 모델을 활용한 모델 중 가장
+    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+  &lt;/li&gt;
+  &lt;li&gt;image encoding
+    &lt;ul&gt;
+      &lt;li&gt;학습된 사전 지식(caption)을 기반으로 image region간의 multi-level representation을 학습&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;language generation
+    &lt;ul&gt;
+      &lt;li&gt;low-level과 high-level feature를 모두 활용하는 mesh-like connectivity 활용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;$M^2$ Transformer
+    &lt;ul&gt;
+      &lt;li&gt;다른 fully-attentive model과 비교해서 성능을 비교하고,&lt;/li&gt;
+      &lt;li&gt;COCO image-text set에서 sota 기록&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RNN + attention, Transformer, Bert 등 다양하게 이용되어 왔음&lt;/li&gt;
+  &lt;li&gt;multimodal task는 기존 unimodal task와 다른 구조를 띠어야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/b1a321d2-0d39-49d6-881d-9eb273f3e5b6/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;encoding&quot;&gt;encoding&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MemoryAugmentedEncoding&lt;/code&gt;
+    &lt;ol&gt;
+      &lt;li&gt;이미지 구역 및 그 사이 관계가 multi-level(low-level, high-level) 로 인코딩됨&lt;/li&gt;
+      &lt;li&gt;memory vector를 사용하여 사전지식을 encoding 및  관계를 모델링함&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;decoding&quot;&gt;decoding&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MeshedDecoding&lt;/code&gt;
+    &lt;ol&gt;
+      &lt;li&gt;학습된 gated mechanism으로 달성되는데, 각 단계별로 multi-level 의 기여도를 weight화함&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;→ encoder 와 decoder 간에 meshed connectivity 로 구조화됨&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;structure&quot;&gt;Structure&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;encoding-1&quot;&gt;Encoding&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;input image로부터 추출된 image region X (집합)&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - 현재 image detection dataset을 활용하지만, 마디별 note 및 chord 범위로 설정 예정
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/49a747fe-4d6f-4383-ac83-2e9d820d7cd5/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;learnable weights W(q,k,v 에 대응되는)&lt;/li&gt;
+  &lt;li&gt;S(X) = X의 weighted sum of values&lt;/li&gt;
+  &lt;li&gt;image feature(region) 간의 pairwise similarity
+    &lt;ul&gt;
+      &lt;li&gt;하지만 이러한 방식의 self-attention은 사전 지식( a priori knowlendge)를 반영하지 못함&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;ex) 사람과 농구공이 있으면 player나 game과 같은 정보를 추론해내기 어려움&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-memory-augmented-attention&quot;&gt;1. Memory-Augmented Attention&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;memory로 data augmentation이 진행되었다.&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;key 또는 value가 slot의 형태로 확장되고, 이는 사전지식을 encoding할 수 있음
+      &lt;ul&gt;
+        &lt;li&gt;이러한 slot은 learnable vector로서 SGD로 업데이트 가능(parameter)&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/fa37f3f2-0f75-46c7-9d13-ef4b2b917352/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;$M_k, M_v$ 는 $n_m$ 개의 row수를 가진 학습가능한 matrix&lt;/li&gt;
+  &lt;li&gt;, 는 concatenation을 의미&lt;/li&gt;
+  &lt;li&gt;위 learnable parameter에 의해 X에 embedded 되지 않은 정보를 학습 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-encoding-layer&quot;&gt;2. Encoding layer&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/61222ccd-f0c5-41d8-84e3-11eb53d56b78/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이후 Memory augmented attention이 Position-Wise FFL 에 적용
+    &lt;ul&gt;
+      &lt;li&gt;2개의 affine transformation으로 이루어짐(non-linearity는 한곳에만 적용)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-residual-connection--layer-norm&quot;&gt;3. Residual Connection + layer norm&lt;/h3&gt;
+
+&lt;p&gt;각각의 sub-component(Memory-augmented attention 과 Encoding Layer)가 위 방식으로 감싸짐&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/34fe79cd-e000-41d1-acb7-40edc9bc5d97/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;AddNorm은 Residual Connection + Layer Normalization&lt;/p&gt;
+
+&lt;h3 id=&quot;4-full-encoder&quot;&gt;4. Full encoder&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 layer, 이전 레이어 아웃풋이 다음 레이어 인풋으로 들어감&lt;/li&gt;
+  &lt;li&gt;더 높은 encoding layer는 이전에 이미 인식된 관계 정보를 사용할 수 있음&lt;/li&gt;
+  &lt;li&gt;다양한 수준의 output을 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;decoding-1&quot;&gt;Decoding&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/4f30ef85-a228-47d9-bac3-9a23b8781ddc/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;32-meshed-decoder&quot;&gt;3.2 Meshed Decoder&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이전 step의 생성된 word와 region encoding&lt;/li&gt;
+  &lt;li&gt;multi-layer structure&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;meshed-cross-attention&quot;&gt;meshed Cross attention&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;transformer의 cross-attention과 달리, 모든 encoding layer를 활용하여 생성 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/44e2c41e-8cde-4d63-9bd3-874033402a97/image.png&quot; alt=&quot;&quot; /&gt;
+$C$ : encoder-decoder cross attention&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;decoder 로부터의 query와, encoder로부터의 key-value 쌍의 cross attention&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/cc5cd9d8-34e0-4e3b-bf96-1e2c382cbcaf/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;$\alpha_i$ : cross-attention 결과와 같은 크기의 weight matrix&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 encoding layer의 기여도 및 상대적인 중요도를 조절해주는 값&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/5cbb125d-5ded-454a-b644-3878ff311e37/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;input query와 Cross Attention output간의 관련성 측정한 결과값&lt;/li&gt;
+  &lt;li&gt;$W_i$ 는 2d*d matrix&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;masked-self-attention&quot;&gt;Masked Self attention&lt;/h3&gt;
+
+&lt;p&gt;$S_mask$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;input sequence Y의 t번째 element로부터의 query&lt;/li&gt;
+  &lt;li&gt;왼쪽의 subsequence로부터 얻은 key와 value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ffw--addnorm&quot;&gt;FFW + AddNorm&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/b237802b-2b01-49fa-802d-2bc333b54d38/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 layer로 stack&lt;/li&gt;
+  &lt;li&gt;결과적으로 t 번째 element에 기반하여 t+1 번째 시점이 예측됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;training&quot;&gt;Training&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;XE(word-level Crossentropy loss)로 pre-training
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;h2 id=&quot;ground-truth-word를-기반으로-다음-token을-예측&quot;&gt;Ground-truth word를 기반으로 다음 token을 예측&lt;/h2&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reinforcement learning 활용한 예측
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;self-critical sequence training approach&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;topk&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dataset--coco&quot;&gt;Dataset : COCO&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;120,000 image with 5 captions each&lt;/li&gt;
+  &lt;li&gt;nocap : 15,100 images annotated with 11 human-generated captions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;From artificial neural networks to deep learning for music generation: history, concepts and trends&lt;/li&gt;
+  &lt;li&gt;https://towardsdatascience.com/generating-music-with-artificial-intelligence-9ce3c9eef806&lt;/li&gt;
+  &lt;li&gt;https://topten.ai/music-generators-review/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>건너별(crosstar)</name></author><category term="nlp" /><summary type="html">논문 간단 소개 image captioning task에서 transformer 모델을 활용한 모델 중 가장 Abstract</summary></entry><entry><title type="html">Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization</title><link href="https://crosstar1228.github.io/local_minima_saddle_point" rel="alternate" type="text/html" title="Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization" /><published>2022-08-11T11:00:00+00:00</published><updated>2022-08-11T11:00:00+00:00</updated><id>https://crosstar1228.github.io/local_minima_saddle_point</id><content type="html" xml:base="https://crosstar1228.github.io/local_minima_saddle_point">&lt;blockquote&gt;
   &lt;p&gt;Keyword : Saddle Point, SFN(Saddle-Free Newton Method) SGD&lt;/p&gt;
 &lt;/blockquote&gt;
 

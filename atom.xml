@@ -8,19 +8,6 @@
     
       
       <item>
-        <title></title>
-        
-          <description></description>
-        
-        <pubDate>Mon, 26 Sep 2022 14:06:37 +0000</pubDate>
-        <link>
-        https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer</link>
-        <guid isPermaLink="true">https://crosstar1228.github.io/2022-09-24-NLP-meshed_memory_transformer</guid>
-      </item>
-      
-    
-      
-      <item>
         <title>Symbolic Music Representation - 1D, 2D Future Directions</title>
         
           <description>&lt;blockquote&gt;
@@ -34,6 +21,26 @@
         <link>
         https://crosstar1228.github.io/NLP-music_generation_input_output</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/NLP-music_generation_input_output</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>\[Paper Review\] Meshed-memory transformer for image captioning</title>
+        
+          <description>&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;image captioning task에서 transformer 모델을 활용한 모델 중 가장
+    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sat, 27 Aug 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/NLP-meshed_memory_transformer</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/NLP-meshed_memory_transformer</guid>
       </item>
       
     
