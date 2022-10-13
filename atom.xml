@@ -8,6 +8,57 @@
     
       
       <item>
+        <title>(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Keyword : operator, itemmgetter, attrgetter, methodcaller&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Thu, 13 Oct 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/python_operator</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/python_operator</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>python and database 1 - ORM and ODBC</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Transfer learning, Zero-shot learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Mon, 10 Oct 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/db1</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/db1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>What is zero-shot learning?</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Transfer learning, Zero-shot learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Fri, 30 Sep 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/zero_shot_learning</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/zero_shot_learning</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Symbolic Music Representation - 1D, 2D Future Directions</title>
         
           <description>&lt;blockquote&gt;

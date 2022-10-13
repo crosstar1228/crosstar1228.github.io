@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/backend/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-09-30T01:18:03+00:00</updated>
+  <updated>2022-10-13T15:23:08+00:00</updated>
   <id>https://crosstar1228.github.io/tag/backend/feed.xml</id>
 
   
@@ -30,6 +30,101 @@
   
   
 
+  
+    <entry>
+      <title type="html">python and database 1 - ORM and ODBC</title>
+      <link href="https://crosstar1228.github.io/db1" rel="alternate" type="text/html" title="python and database 1 - ORM and ODBC" />
+      <published>2022-10-10T11:00:00+00:00</published>
+      <updated>2022-10-10T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/db1</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/db1">&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Transfer learning, Zero-shot learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/db_image.png&quot; alt=&quot;img.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;orm-vs-odbc&quot;&gt;ORM VS ODBC&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;ORM(Object Relational Mapping) : Python class를 이용하여 dB와 상호작용 가능&lt;/li&gt;
+  &lt;li&gt;ODBC(Open Database Connectivity)
+    &lt;ul&gt;
+      &lt;li&gt;개발자가 원시 또는 기본 SQL 쿼리를 작성하여 DB와 직접 상호작용 가능&lt;/li&gt;
+      &lt;li&gt;DB system(oracle, Mysql, …)에 관계없이 접근 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;별도의-서버가-필요할까&quot;&gt;별도의 서버가 필요할까?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;메모리 이슈가 있는 것 같긴 한데 같은 서버에서 운용하는 것 자체가 쿤 문제는 아닌 것 같음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pyodbc&quot;&gt;&lt;a href=&quot;https://mkleehammer.github.io/pyodbc/&quot;&gt;pyodbc&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;ODBC db를 간단하게 접근할 수 있는 open source python module&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-pyodbc-설치&quot;&gt;1. pyodbc 설치&lt;/h2&gt;
+
+&lt;h2 id=&quot;orm-vs-odbc-1&quot;&gt;ORM VS ODBC&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ORM(Object Relational Mapping) : Python class를 이용하여 dB와 상호작용 가능&lt;/li&gt;
+  &lt;li&gt;ODBC(Open Database Connectivity)
+    &lt;ul&gt;
+      &lt;li&gt;개발자가 원시 또는 기본 SQL 쿼리를 작성하여 DB와 직접 상호작용 가능&lt;/li&gt;
+      &lt;li&gt;DB system(oracle, Mysql, …)에 관계없이 접근 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;odbc-실습&quot;&gt;ODBC 실습&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://learn.microsoft.com/ko-kr/sql/connect/python/pyodbc/python-sql-driver-pyodbc?view=sql-server-ver16&quot;&gt;Microsoft 공식 문서&lt;/a&gt;를 참고하였습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;2-설치-과정&quot;&gt;2. 설치 과정&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Microsoft ODBC 드라이버 설치&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pyodbc 설치&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pyodbc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://mindsdb.com/blog/self-service-machine-learning-with-intelligent-databases&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="backend" />
+      
+
+      
+        <summary type="html">Keyword : Transfer learning, Zero-shot learning</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">프로그래머스 코딩테스트 - ‘N으로 표현’ 문제 해설 (dynamic programming)</title>

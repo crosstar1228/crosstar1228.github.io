@@ -207,6 +207,33 @@ into the {body} of the default.hbs template -->
 <script>
     window.store = {
     
+    "python-operator": {
+        "title": "(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial",
+            "author": "crosstar",
+            "category": "",
+            "content": "  Keyword : operator, itemmgetter, attrgetter, methodcallerOperator  python operator 모듈 안에는 다양한 함수들이 있음  활용해서 가독성 있는 코딩이 가능함itemgetter  index가 정해져있는 함수를 반환함```arr = [‘a’, ‘b’, ‘c’]func = itemgetter(2)func(arr)            ‘b’```      attrgetter  class의 attribute이름을 특정하면 그 attribute를 반환f = attrgetter('name')f(b)&gt;&gt; b.name  여러개의 attribute나 중첩된 attribute 형태도 가능함methodcaller  class의 method 특정해서 그 결과값을 반환  *args, **kwargs 등을 입력해서 해당 method input을 바로 입력하는 것도 가능! f = methodcaller('name', 'foo', bar=1)f(b) &gt;&gt;&gt; b.name('foo', bar=1)functools.partial  하나 이상의 인수가 채워진 또 하나의 함수를 만드는 데 사용  불필요한 반복작업 줄임# 첫 인자에 따라 더하기도 하고, 곱하기도 하는 함수def add_mul(choice, *args):    if choice == \"add\":        result = 0        for i in args:            result = result + i    elif choice == \"mul\":        result = 1        for i in args:            result = result * i    return result# 더하는 함수를 만드는 일반적인 풀이 def add(*args):    return add_mul('add', *args)    # partial 사용할 경우 간결해진다! add = partial(add_mul, 'add')회고  코드 가독성을 높이는 데 좋을 듯 하다.  다른 여러 사칙.논리 연산 등에도 유용해 보인다(공식문서 참고).  partial은 활용도가 높아 보인다.Reference  https://docs.python.org/3/library/operator.html  https://wikidocs.net/109304",
+        "url": "/python_operator"
+    }
+    ,
+    
+    "db1": {
+        "title": "python and database 1 - ORM and ODBC",
+            "author": "crosstar",
+            "category": "",
+            "content": "  Keyword : Transfer learning, Zero-shot learningORM VS ODBC  ORM(Object Relational Mapping) : Python class를 이용하여 dB와 상호작용 가능  ODBC(Open Database Connectivity)          개발자가 원시 또는 기본 SQL 쿼리를 작성하여 DB와 직접 상호작용 가능      DB system(oracle, Mysql, …)에 관계없이 접근 가능      별도의 서버가 필요할까?  메모리 이슈가 있는 것 같긴 한데 같은 서버에서 운용하는 것 자체가 쿤 문제는 아닌 것 같음pyodbc  ODBC db를 간단하게 접근할 수 있는 open source python module1. pyodbc 설치ORM VS ODBC  ORM(Object Relational Mapping) : Python class를 이용하여 dB와 상호작용 가능  ODBC(Open Database Connectivity)          개발자가 원시 또는 기본 SQL 쿼리를 작성하여 DB와 직접 상호작용 가능      DB system(oracle, Mysql, …)에 관계없이 접근 가능      ODBC 실습  Microsoft 공식 문서를 참고하였습니다.2. 설치 과정  Microsoft ODBC 드라이버 설치      pyodbc 설치     sudo -H pip install pyodbc      Reference  https://mindsdb.com/blog/self-service-machine-learning-with-intelligent-databases",
+        "url": "/db1"
+    }
+    ,
+    
+    "zero-shot-learning": {
+        "title": "What is zero-shot learning?",
+            "author": "crosstar",
+            "category": "",
+            "content": "  Keyword : Transfer learning, Zero-shot learningTransfer learning이란  머신러닝 모델이 특정 도메인에서 얻은 지식 및 정보를 다른 도메인(분야)에서 문제를 해결하는데 사용하는 방식  A라는 문제의 해답이 a면, 다른 도메인의 B라는 문제를 해결할 때 공통점을 분석해서 b라는 답을 풀어낼 수 있음Zero-shot learning이란  Transfer-learning의 한 종류라고 할 수 있음  Training 과정에서 관측된 여러 데이터 class 외에, 새로은 class에 속하는 데이터를 스스로 학습하는 모델  한번도 본적 없기에 zero-shot이 됨  예를 들어, 말 데이터를 학습한 모델이 얼룩말 데이터에 대해 ‘얼룩말’이라고 답을 맞힐수 있는 기술원리  이미지로부터 semantic feature, visual feature를 모두 추출하여 mapping function에 대응됨  이 mapping function은 관측된 class와 멀어진 정도를 측정하여, error값이 최소가 되는 값을 unseen class로 측정Reference  https://en.wikipedia.org/wiki/Zero-shot_learning  https://medium.com/analytics-vidhya/zero-shot-action-recognition-in-videos-a-survey-793cdfafbf1b",
+        "url": "/zero_shot_learning"
+    }
+    ,
+    
     "nlp-music-generation-input-output": {
         "title": "Symbolic Music Representation - 1D, 2D Future Directions",
             "author": "crosstar",

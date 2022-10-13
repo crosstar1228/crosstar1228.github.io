@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-09-30T01:18:03+00:00</updated>
+  <updated>2022-10-13T15:23:08+00:00</updated>
   <id>https://crosstar1228.github.io/tag/python/feed.xml</id>
 
   
@@ -30,6 +30,130 @@
   
   
 
+  
+    <entry>
+      <title type="html">(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title>
+      <link href="https://crosstar1228.github.io/python_operator" rel="alternate" type="text/html" title="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" />
+      <published>2022-10-13T11:00:00+00:00</published>
+      <updated>2022-10-13T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/python_operator</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/python_operator">&lt;blockquote&gt;
+  &lt;p&gt;Keyword : operator, itemmgetter, attrgetter, methodcaller&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;operator&quot;&gt;Operator&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;python operator 모듈 안에는 다양한 함수들이 있음&lt;/li&gt;
+  &lt;li&gt;활용해서 가독성 있는 코딩이 가능함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;itemgetter&quot;&gt;itemgetter&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;index가 정해져있는 함수를 반환함
+```
+arr = [‘a’, ‘b’, ‘c’]
+func = itemgetter(2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;func(arr)&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;‘b’
+```&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;attrgetter&quot;&gt;attrgetter&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;class의 attribute이름을 특정하면 그 attribute를 반환&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-angular2html&quot;&gt;f = attrgetter('name')
+f(b)
+&amp;gt;&amp;gt; b.name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러개의 attribute나 중첩된 attribute 형태도 가능함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;methodcaller&quot;&gt;methodcaller&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;class의 method 특정해서 그 결과값을 반환&lt;/li&gt;
+  &lt;li&gt;*args, **kwargs 등을 입력해서 해당 method input을 바로 입력하는 것도 가능!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-angular2html&quot;&gt; f = methodcaller('name', 'foo', bar=1)
+f(b) 
+&amp;gt;&amp;gt;&amp;gt; b.name('foo', bar=1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;functoolspartial&quot;&gt;functools.partial&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;하나 이상의 인수가 채워진 또 하나의 함수를 만드는 데 사용&lt;/li&gt;
+  &lt;li&gt;불필요한 반복작업 줄임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 첫 인자에 따라 더하기도 하고, 곱하기도 하는 함수
+def add_mul(choice, *args):
+    if choice == &quot;add&quot;:
+        result = 0
+        for i in args:
+            result = result + i
+    elif choice == &quot;mul&quot;:
+        result = 1
+        for i in args:
+            result = result * i
+    return result
+
+
+# 더하는 함수를 만드는 일반적인 풀이 
+def add(*args):
+    return add_mul('add', *args)
+    
+# partial 사용할 경우 간결해진다! 
+add = partial(add_mul, 'add')
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;회고&quot;&gt;회고&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;코드 가독성을 높이는 데 좋을 듯 하다.&lt;/li&gt;
+  &lt;li&gt;다른 여러 사칙.논리 연산 등에도 유용해 보인다(공식문서 참고).&lt;/li&gt;
+  &lt;li&gt;partial은 활용도가 높아 보인다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://docs.python.org/3/library/operator.html&lt;/li&gt;
+  &lt;li&gt;https://wikidocs.net/109304&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="python" />
+      
+
+      
+        <summary type="html">Keyword : operator, itemmgetter, attrgetter, methodcaller</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">error - fatal authentication failed for</title>

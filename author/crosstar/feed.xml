@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-09-30T01:18:03+00:00</updated>
+  <updated>2022-10-13T15:23:08+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -30,6 +30,290 @@
   
   
 
+  
+    <entry>
+      <title type="html">(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title>
+      <link href="https://crosstar1228.github.io/python_operator" rel="alternate" type="text/html" title="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" />
+      <published>2022-10-13T11:00:00+00:00</published>
+      <updated>2022-10-13T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/python_operator</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/python_operator">&lt;blockquote&gt;
+  &lt;p&gt;Keyword : operator, itemmgetter, attrgetter, methodcaller&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;operator&quot;&gt;Operator&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;python operator 모듈 안에는 다양한 함수들이 있음&lt;/li&gt;
+  &lt;li&gt;활용해서 가독성 있는 코딩이 가능함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;itemgetter&quot;&gt;itemgetter&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;index가 정해져있는 함수를 반환함
+```
+arr = [‘a’, ‘b’, ‘c’]
+func = itemgetter(2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;func(arr)&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;‘b’
+```&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;attrgetter&quot;&gt;attrgetter&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;class의 attribute이름을 특정하면 그 attribute를 반환&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-angular2html&quot;&gt;f = attrgetter('name')
+f(b)
+&amp;gt;&amp;gt; b.name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러개의 attribute나 중첩된 attribute 형태도 가능함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;methodcaller&quot;&gt;methodcaller&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;class의 method 특정해서 그 결과값을 반환&lt;/li&gt;
+  &lt;li&gt;*args, **kwargs 등을 입력해서 해당 method input을 바로 입력하는 것도 가능!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-angular2html&quot;&gt; f = methodcaller('name', 'foo', bar=1)
+f(b) 
+&amp;gt;&amp;gt;&amp;gt; b.name('foo', bar=1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;functoolspartial&quot;&gt;functools.partial&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;하나 이상의 인수가 채워진 또 하나의 함수를 만드는 데 사용&lt;/li&gt;
+  &lt;li&gt;불필요한 반복작업 줄임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 첫 인자에 따라 더하기도 하고, 곱하기도 하는 함수
+def add_mul(choice, *args):
+    if choice == &quot;add&quot;:
+        result = 0
+        for i in args:
+            result = result + i
+    elif choice == &quot;mul&quot;:
+        result = 1
+        for i in args:
+            result = result * i
+    return result
+
+
+# 더하는 함수를 만드는 일반적인 풀이 
+def add(*args):
+    return add_mul('add', *args)
+    
+# partial 사용할 경우 간결해진다! 
+add = partial(add_mul, 'add')
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;회고&quot;&gt;회고&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;코드 가독성을 높이는 데 좋을 듯 하다.&lt;/li&gt;
+  &lt;li&gt;다른 여러 사칙.논리 연산 등에도 유용해 보인다(공식문서 참고).&lt;/li&gt;
+  &lt;li&gt;partial은 활용도가 높아 보인다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://docs.python.org/3/library/operator.html&lt;/li&gt;
+  &lt;li&gt;https://wikidocs.net/109304&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="python" />
+      
+
+      
+        <summary type="html">Keyword : operator, itemmgetter, attrgetter, methodcaller</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">python and database 1 - ORM and ODBC</title>
+      <link href="https://crosstar1228.github.io/db1" rel="alternate" type="text/html" title="python and database 1 - ORM and ODBC" />
+      <published>2022-10-10T11:00:00+00:00</published>
+      <updated>2022-10-10T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/db1</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/db1">&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Transfer learning, Zero-shot learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/db_image.png&quot; alt=&quot;img.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;orm-vs-odbc&quot;&gt;ORM VS ODBC&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;ORM(Object Relational Mapping) : Python class를 이용하여 dB와 상호작용 가능&lt;/li&gt;
+  &lt;li&gt;ODBC(Open Database Connectivity)
+    &lt;ul&gt;
+      &lt;li&gt;개발자가 원시 또는 기본 SQL 쿼리를 작성하여 DB와 직접 상호작용 가능&lt;/li&gt;
+      &lt;li&gt;DB system(oracle, Mysql, …)에 관계없이 접근 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;별도의-서버가-필요할까&quot;&gt;별도의 서버가 필요할까?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;메모리 이슈가 있는 것 같긴 한데 같은 서버에서 운용하는 것 자체가 쿤 문제는 아닌 것 같음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pyodbc&quot;&gt;&lt;a href=&quot;https://mkleehammer.github.io/pyodbc/&quot;&gt;pyodbc&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;ODBC db를 간단하게 접근할 수 있는 open source python module&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-pyodbc-설치&quot;&gt;1. pyodbc 설치&lt;/h2&gt;
+
+&lt;h2 id=&quot;orm-vs-odbc-1&quot;&gt;ORM VS ODBC&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ORM(Object Relational Mapping) : Python class를 이용하여 dB와 상호작용 가능&lt;/li&gt;
+  &lt;li&gt;ODBC(Open Database Connectivity)
+    &lt;ul&gt;
+      &lt;li&gt;개발자가 원시 또는 기본 SQL 쿼리를 작성하여 DB와 직접 상호작용 가능&lt;/li&gt;
+      &lt;li&gt;DB system(oracle, Mysql, …)에 관계없이 접근 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;odbc-실습&quot;&gt;ODBC 실습&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://learn.microsoft.com/ko-kr/sql/connect/python/pyodbc/python-sql-driver-pyodbc?view=sql-server-ver16&quot;&gt;Microsoft 공식 문서&lt;/a&gt;를 참고하였습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;2-설치-과정&quot;&gt;2. 설치 과정&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Microsoft ODBC 드라이버 설치&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pyodbc 설치&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pyodbc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://mindsdb.com/blog/self-service-machine-learning-with-intelligent-databases&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="backend" />
+      
+
+      
+        <summary type="html">Keyword : Transfer learning, Zero-shot learning</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">What is zero-shot learning?</title>
+      <link href="https://crosstar1228.github.io/zero_shot_learning" rel="alternate" type="text/html" title="What is zero-shot learning?" />
+      <published>2022-09-30T11:00:00+00:00</published>
+      <updated>2022-09-30T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/zero_shot_learning</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/zero_shot_learning">&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Transfer learning, Zero-shot learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img.png&quot; alt=&quot;img.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;transfer-learning이란&quot;&gt;Transfer learning이란&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝 모델이 특정 도메인에서 얻은 지식 및 정보를 다른 도메인(분야)에서 문제를 해결하는데 사용하는 방식&lt;/li&gt;
+  &lt;li&gt;A라는 문제의 해답이 a면, 다른 도메인의 B라는 문제를 해결할 때 공통점을 분석해서 b라는 답을 풀어낼 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;zero-shot-learning이란&quot;&gt;Zero-shot learning이란&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Transfer-learning의 한 종류라고 할 수 있음&lt;/li&gt;
+  &lt;li&gt;Training 과정에서 관측된 여러 데이터 class 외에, 새로은 class에 속하는 데이터를 스스로 학습하는 모델&lt;/li&gt;
+  &lt;li&gt;한번도 본적 없기에 zero-shot이 됨&lt;/li&gt;
+  &lt;li&gt;예를 들어, 말 데이터를 학습한 모델이 얼룩말 데이터에 대해 ‘얼룩말’이라고 답을 맞힐수 있는 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;원리&quot;&gt;원리&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/zsl.png&quot; alt=&quot;img.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;이미지로부터 semantic feature, visual feature를 모두 추출하여 mapping function에 대응됨&lt;/li&gt;
+  &lt;li&gt;이 mapping function은 관측된 class와 멀어진 정도를 측정하여, error값이 최소가 되는 값을 unseen class로 측정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://en.wikipedia.org/wiki/Zero-shot_learning&lt;/li&gt;
+  &lt;li&gt;https://medium.com/analytics-vidhya/zero-shot-action-recognition-in-videos-a-survey-793cdfafbf1b&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ML" />
+      
+
+      
+        <summary type="html">Keyword : Transfer learning, Zero-shot learning</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Symbolic Music Representation - 1D, 2D Future Directions</title>
@@ -1102,354 +1386,6 @@ ex) 이메일, CRM software, 구글 독스&lt;/p&gt;
 
       
         <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">모델 서빙과 MLOps</title>
-      <link href="https://crosstar1228.github.io/MLOps-week2" rel="alternate" type="text/html" title="모델 서빙과 MLOps" />
-      <published>2021-10-17T16:40:00+00:00</published>
-      <updated>2021-10-17T16:40:00+00:00</updated>
-      <id>https://crosstar1228.github.io/MLOps-week2</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/MLOps-week2">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;모델-서빙이란&quot;&gt;모델 서빙이란?&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;머신러닝 모델의 예측값을 실제로 사용자에게 전달하는 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;mlops의-필요성&quot;&gt;MLOps의 필요성&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;모델의 성능은 test data의 추이에 따라 끊임없이 변함&lt;/li&gt;
-  &lt;li&gt;새롭게 개발한 모델이 더 성능이 안좋을 수도 있음(애매하거나)&lt;/li&gt;
-  &lt;li&gt;그럼 이전 모델을 다시 써야야할지, 새 모델을 써볼지 모델의 &lt;strong&gt;형상관리&lt;/strong&gt;가 되어야 함&lt;/li&gt;
-  &lt;li&gt;그래서 버전 업데이트로 인해 사용자 경험이 끊기지 않아야 함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;형상-관리&quot;&gt;형상 관리?&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;모델의 변경이력과 성능에 대한 정보를 관리하는 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;wandb의-필요성&quot;&gt;wandb의 필요성&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;하이퍼 파라미터 몇일 때 최고성능이었나?&lt;/li&gt;
-  &lt;li&gt;열심히 돌렸는데 성과가 안나오네.. 인사이트라도 공유해야지&lt;/li&gt;
-  &lt;li&gt;어떤 하이퍼파라미터가 제일 중요해?&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="MLOps" />
-      
-
-      
-        <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">모델 서빙과 MLOps</title>
-      <link href="https://crosstar1228.github.io/MLOps-week3" rel="alternate" type="text/html" title="모델 서빙과 MLOps" />
-      <published>2021-10-17T16:40:00+00:00</published>
-      <updated>2021-10-17T16:40:00+00:00</updated>
-      <id>https://crosstar1228.github.io/MLOps-week3</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/MLOps-week3">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#iaas-paas-saas&quot;&gt;IaaS, PaaS, SaaS&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#iaas&quot;&gt;IaaS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#paas&quot;&gt;PaaS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#saas&quot;&gt;SaaS&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#public-cloud-private-cloud-hybrid-cloud&quot;&gt;Public Cloud, Private Cloud, Hybrid Cloud&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#public-cloud&quot;&gt;public cloud&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#private-cloud&quot;&gt;private cloud&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#hybrid-cloud&quot;&gt;Hybrid Cloud&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#das-san-nas-storage&quot;&gt;DAS, SAN, NAS (Storage)&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#das&quot;&gt;DAS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#san&quot;&gt;SAN&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#nas&quot;&gt;NAS&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;모델-서빙이란&quot;&gt;모델 서빙이란?&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;머신러닝 모델의 예측값을 실제로 사용자에게 전달하는 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;mlops의-필요성&quot;&gt;MLOps의 필요성&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;모델의 성능은 test data의 추이에 따라 끊임없이 변함&lt;/li&gt;
-  &lt;li&gt;새롭게 개발한 모델이 더 성능이 안좋을 수도 있음(애매하거나)&lt;/li&gt;
-  &lt;li&gt;그럼 이전 모델을 다시 써야야할지, 새 모델을 써볼지 모델의 &lt;strong&gt;형상관리&lt;/strong&gt;가 되어야 함&lt;/li&gt;
-  &lt;li&gt;그래서 버전 업데이트로 인해 사용자 경험이 끊기지 않아야 함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;형상-관리&quot;&gt;형상 관리?&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;모델의 변경이력과 성능에 대한 정보를 관리하는 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/daria-blog/%EB%AA%A8%EB%8D%B8-%EC%84%9C%EB%B9%99%EC%9D%B4%EB%9E%80-21f970e6cfa5&quot;&gt;모델 서빙이란?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="MLOps" />
-      
-
-      
-        <summary type="html">Table of Contents IaaS, PaaS, SaaS IaaS PaaS SaaS Public Cloud, Private Cloud, Hybrid Cloud public cloud private cloud Hybrid Cloud DAS, SAN, NAS (Storage) DAS SAN NAS</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">내용 핵심요약! CS231n Lecture 3. Loss function and Optimization</title>
-      <link href="https://crosstar1228.github.io/cs231n-lec3" rel="alternate" type="text/html" title="내용 핵심요약! CS231n Lecture 3.  Loss function and Optimization" />
-      <published>2021-10-14T11:00:00+00:00</published>
-      <updated>2021-10-14T11:00:00+00:00</updated>
-      <id>https://crosstar1228.github.io/cs231n-lec3</id>
-      <content type="html" xml:base="https://crosstar1228.github.io/cs231n-lec3">&lt;h1 id=&quot;goal&quot;&gt;GOAL&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;parameter를 Loss function을 통해 update하는 &lt;em&gt;optimization&lt;/em&gt; 과정을 이해합니다.&lt;/li&gt;
-  &lt;li&gt;Gradient descent 과정을 개괄적으로 이해합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#loss-function&quot;&gt;Loss function&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#regularization&quot;&gt;Regularization&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#Softmax-function&quot;&gt;Softmax function&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#optimization&quot;&gt;Optimization&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;loss-function&quot;&gt;Loss function&lt;/h2&gt;
-&lt;p&gt;지난 시간에 우리는 Parameter를 update, 즉 최적의 가중치를 찾아내는 방법에 대한 필요성을 느꼈습니다.
-한 마디로 이번 강의에서 설명할 최적화(Optimization)에 대한 이야기입니다. 그리고 그를 위한 핵심 개념인 손실 함수(Loss function)에 대하여 우선적으로 알아보겠습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-loss-function&quot;&gt;What is loss function?&lt;/h3&gt;
-&lt;p&gt;Loss function(손실 함수, 이하 한글 용어 생략)은 다른 말로 Cost function이라고 합니다.
-Loss 또는 cost를 계산하는 함수다! 이렇게 예상이 되네요.
-그리고 그러한 손실(또는 비용)이 줄어드는 것이 더 바람직한 방향이라는 감까지 오셨다면
-Loss function에 대한 직관은 이미 반 정도 익히신 것으로 생각되네요. 조금더 자세히 들어다 볼까요?
-&lt;img src=&quot;../../assets/built/images/lec3_img.png&quot; alt=&quot;img.png&quot; /&gt;
-우리는 위와 같은 이미지 분류 문제에서 진짜 class(label 또는 정답)에 해당하는 score가 가장 높은 점수가 나오도록 모델을 만들고 싶어요.
-그래야만 새로운 이미지도 올바른 정답으로 판단할 확률이 높을 테니까요. 우리는 이것은 정확도(accuracy) 등의 지표로 판단하게 됩니다.
-하지만 그림을 보면 고양이의 정답을 가진 사진은 deer(사슴)에 해당하는 가장 높은 점수를 갖고 있고, 개구리는 truck(트럭)에 해당하는 점수를 가장 높게 갖고 있네요.&lt;/p&gt;
-
-&lt;p&gt;수치로 표현된 이러한 점수(score)들이 얼마나 바람직한지, &lt;strong&gt;정량적으로&lt;/strong&gt; 어긋난 정도를 판단할 필요성을 느낍니다.
-그 벗어난 정도를 알아야 알맞게 가중치를 갱신할 수 있기 때문입니다.
-정량적인 수치로 표현해야 하니, 특정한 입력값마다 변하는 하나의 함수가 정의되는 것이고,
-그것이 Loss function으로 표현되는 것입니다.
-&lt;img src=&quot;../../assets/built/images/lec3_img_3.png&quot; alt=&quot;img_3.png&quot; /&gt;
-&lt;img src=&quot;../../assets/built/images/lec3_img_1.png&quot; alt=&quot;img_1.png&quot; /&gt;
-$f(x_i, W)$ : input과 parameter에 의한 예측된 score를 의미합니다.&lt;br /&gt;
-$y_i$ : label, 즉 정답에 해당하는 score를 의미합니다. 분류 문제에서는 정답의 class가 1, 나머지는 0으로 기록되어 있습니다.&lt;/p&gt;
-
-&lt;p&gt;두 값의 차이가 N개의 data별로 각각 존재할 것이고, 그것을 평균낸 값을 우리는 $L(W)$로 정의하는 것입니다. 
-$W$, 즉 parameter가 독립변수로 존재하는 함수이니, 이 값에 따라 Loss function의 결괏값도 달라지지라는 것을 직관적으로 이해할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;이러한 Loss function의 예시인 Multiclass SVM Loss 를 살펴보며 이해도를 높여 보겠습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;multiclass-svm-loss&quot;&gt;Multiclass SVM Loss&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_2.png&quot; alt=&quot;img_2.png&quot; /&gt;
- 이전에 편의상 score라고 표현한 예측값이 여기서 정식으로 정의됩니다.
-그리고 $L_i$는 다음과 같이 정의돼요!&lt;/p&gt;
-
-&lt;p&gt;$L_i = \underset{j\not=y_i} \sum$
-\(\begin{cases}0 \qquad\qquad\qquad if\quad s_{y_i}\geq s_j + 1\\s_j - s_{y_i} + 1\quad \: if\quad otherwise
-\end{cases}\)&lt;/p&gt;
-
-&lt;p&gt;다시 쓰자면,&lt;/p&gt;
-
-&lt;p&gt;$L_i = \underset{j\not=y_i} \sum max(0, s_j - s_{y_i} + 1 )$&lt;/p&gt;
-
-&lt;p&gt;$s_j$ : j번째 class score&lt;br /&gt;
-$s_{y_i}$ : 정답(label)에 해당하는 score&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;어떤 수식을 이해하는데 최우선인 직관부터 가져가 봅시다.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;0과 &lt;strong&gt;특정한 값&lt;/strong&gt;중에서 최대를 골라요. 그 특정한 값이라는 것은&lt;/li&gt;
-  &lt;li&gt;(j번째 class score) - (정답에 해당하는 class score) 를 구하고 그것에 1을 더한 값입니다.&lt;/li&gt;
-  &lt;li&gt;1은 safety margin이라고 해서, &lt;strong&gt;오답의 score가 정답의 score보다 1 이상 차이나는 정도&lt;/strong&gt;에 한해 Loss로 반영하겠다는 의미입니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;아래 예시를 통해 이해해 봅시다!
-&lt;img src=&quot;../../assets/built/images/lec3_img_5.png&quot; alt=&quot;img_5.png&quot; /&gt;
-정답 라벨(고양이) 을 제외한 모든 class score를 label에 해당하는 score와의 연산을 통해 2.9 라는 Loss 를 도출해 낸 결과네요.
-이러한 연산을 data의 개수만큼 실행 후 평균을 내면 최종적으로 우리가 원하는 Loss값을 알 수 있게 돼요!
-&lt;img src=&quot;../../assets/built/images/lec3_img_6.png&quot; alt=&quot;img_6.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이로서 Loss가 0이 되도록 parameter가 얼마나 안좋은지 그 정도를 알고, 더 좋게 만들 수 있게 되었습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;hinge-loss-관련-질문&quot;&gt;Hinge loss 관련 질문&lt;/h3&gt;
-&lt;p&gt;아래의 질문에 대한 답변을 확인해면서 수식을 이해해 보시기 바랍니다!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q1. What happens to the loss if car scores change a bit?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ NO CHANGE&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q2.Min/Max of loss&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ min = 0, Max = infinity&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q3. At initialization, W is small so all s~0. What is the loss?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ n-1 because (n-1) * 1&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q4. What if the sum was over all classes including $s_{y_i}$?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;→ Loss increases by 1&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q5. What if we used mean instead of sum ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ Doesn’t Change. We don’t care the true values of the score&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q6. What if we used $max()^2$?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;→ Squared hinge loss. does not used normally&lt;/p&gt;
-
-&lt;p&gt;SVM Loss 아래와 같이 경첩과 같은 모양을 하고 있다고 해서 hinge loss 라고 불리기도 합니다!
-&lt;img src=&quot;../../assets/built/images/lec3_img_4.png&quot; alt=&quot;img_4.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;regularization&quot;&gt;Regularization&lt;/h3&gt;
-&lt;p&gt;Regularization은 ‘정규화’라고 해석되기도 하나, 개인적으로 한글 용어로 사용을 추천드리지 않습니다.
-Normalization도 똑같이 ‘정규화’ 라고 해석된 책들이 많기 때문이고, 두 용어는 완전히 다른 의미를 갖고 있기 때문에 혼동을 야기할 가능성이 다분해요.
-그래서 이 용어는 영문 단어 그자체로 의미를 받아들이기로 하고 들어가 봅시다.
-&lt;img src=&quot;../../assets/built/images/lec3_img_7.png&quot; alt=&quot;img_7.png&quot; /&gt;
-강의에서 설명하는 내용을 간단히 요약하자면, Overfitting을 막기 위해서, 즉 ‘모델의 융통성을 기르기 위해서’ 추가로 Loss function에 더해주는 작업을 의미합니다.
-이 요소를 더해주지 않으면, Loss를 최대한 줄이도록 parameter를 설정하게 되었더라도 결국 새로운 test data에는 낮은 예측 정확도를 보이게 될 것입니다.
-다시 말해, Loss function을 단순히 줄이는 것만이 능사는 아니라는 것이지요.&lt;/p&gt;
-
-&lt;p&gt;여기서 $\lambda$는 우리가 설정해주어야 할 hyperparameter이며, $R(W)$ 우리가 더해지는 값에 적용할 페널티에요.
-본 강의에서는 L2 Regularization을 소개하면서 weight 원소들의 제곱값을 $R(W)$ 로 정의해서 Loss function에 페널티를 주었어요.
-페널티를 주었다는 얘기는, $R(W)$ 의 크기가 클수록 모델의 복잡도를 낮추는 방향으로 update하도록 하는 역할을 수행하는 거에요.&lt;br /&gt;
-&lt;a href=&quot;https://www.notion.so/Lecture-3-Loss-functions-and-Optimization-3c46c15413324bc7856387118e6cfff1#f4708d3b84444fb7be5d93b71805083b&quot;&gt;L1, L2 Regularization&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Regularization에는 L1, L2 regularization 말고도 &lt;strong&gt;Dropout, Batch Normaization&lt;/strong&gt; 등 매우 자주 쓰이며 중요하게 다루어지는 방법들이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;오늘 내용이 조금 어렵다면 괜찮습니다. 다음에 또 다시 보면서 Regularization에 대한 직관을 얻고,
-오늘은 &lt;strong&gt;Overfitting을 막기 위한 과정&lt;/strong&gt;는 사실만 우선적으로 기억하고 넘어갑시다!&lt;/p&gt;
-
-&lt;h3 id=&quot;softmax-function&quot;&gt;Softmax function&lt;/h3&gt;
-&lt;p&gt;score를 기반으로, log를 포함한 특정한 연산을 진행하고, multiclass에 대한 확률값을 return 받는 또다른 Loss function입니다.
-이는 차후 익혀야 할 cross-entropy와도 연관되어 있는 매우 중요한 개념이니 잘 익혀둡시다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../assets/built/images/lec3_img_8.png&quot; alt=&quot;img_8.png&quot; /&gt;
-위 슬라이드에 굉장히 많은 내용이 함축되어 있으니 주의깊게 보시기 바랍니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;optimization&quot;&gt;Optimization&lt;/h2&gt;
-&lt;h3 id=&quot;stochastic-gradient-descent&quot;&gt;Stochastic Gradient Descent&lt;/h3&gt;
-
-&lt;h2 id=&quot;질문&quot;&gt;질문&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;softmax function에서 log를 쓰는 이유는 무엇일까요?&lt;/li&gt;
-  &lt;li&gt;multiclass SVM Loss 는 왜 SVM Loss라는 이름이 붙었을까요?&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>건너별(crosstar)</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ML" />
-      
-
-      
-        <summary type="html">GOAL parameter를 Loss function을 통해 update하는 optimization 과정을 이해합니다. Gradient descent 과정을 개괄적으로 이해합니다.</summary>
       
 
       

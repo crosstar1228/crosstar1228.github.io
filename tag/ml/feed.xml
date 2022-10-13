@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/ml/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-09-30T01:18:03+00:00</updated>
+  <updated>2022-10-13T15:23:08+00:00</updated>
   <id>https://crosstar1228.github.io/tag/ml/feed.xml</id>
 
   
@@ -30,6 +30,71 @@
   
   
 
+  
+    <entry>
+      <title type="html">What is zero-shot learning?</title>
+      <link href="https://crosstar1228.github.io/zero_shot_learning" rel="alternate" type="text/html" title="What is zero-shot learning?" />
+      <published>2022-09-30T11:00:00+00:00</published>
+      <updated>2022-09-30T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/zero_shot_learning</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/zero_shot_learning">&lt;blockquote&gt;
+  &lt;p&gt;Keyword : Transfer learning, Zero-shot learning&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/img.png&quot; alt=&quot;img.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;transfer-learning이란&quot;&gt;Transfer learning이란&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;머신러닝 모델이 특정 도메인에서 얻은 지식 및 정보를 다른 도메인(분야)에서 문제를 해결하는데 사용하는 방식&lt;/li&gt;
+  &lt;li&gt;A라는 문제의 해답이 a면, 다른 도메인의 B라는 문제를 해결할 때 공통점을 분석해서 b라는 답을 풀어낼 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;zero-shot-learning이란&quot;&gt;Zero-shot learning이란&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Transfer-learning의 한 종류라고 할 수 있음&lt;/li&gt;
+  &lt;li&gt;Training 과정에서 관측된 여러 데이터 class 외에, 새로은 class에 속하는 데이터를 스스로 학습하는 모델&lt;/li&gt;
+  &lt;li&gt;한번도 본적 없기에 zero-shot이 됨&lt;/li&gt;
+  &lt;li&gt;예를 들어, 말 데이터를 학습한 모델이 얼룩말 데이터에 대해 ‘얼룩말’이라고 답을 맞힐수 있는 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;원리&quot;&gt;원리&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/built/images/zsl.png&quot; alt=&quot;img.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;이미지로부터 semantic feature, visual feature를 모두 추출하여 mapping function에 대응됨&lt;/li&gt;
+  &lt;li&gt;이 mapping function은 관측된 class와 멀어진 정도를 측정하여, error값이 최소가 되는 값을 unseen class로 측정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://en.wikipedia.org/wiki/Zero-shot_learning&lt;/li&gt;
+  &lt;li&gt;https://medium.com/analytics-vidhya/zero-shot-action-recognition-in-videos-a-survey-793cdfafbf1b&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ML" />
+      
+
+      
+        <summary type="html">Keyword : Transfer learning, Zero-shot learning</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Paper Review - Identifying and attacking the saddle point problem in high-dimensional non-convex optimization</title>
