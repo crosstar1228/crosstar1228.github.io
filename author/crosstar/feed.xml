@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/author/crosstar/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-10-24T13:54:13+00:00</updated>
+  <updated>2022-10-24T14:03:00+00:00</updated>
   <id>https://crosstar1228.github.io/author/crosstar/feed.xml</id>
 
   
@@ -891,7 +891,7 @@ $C$ : encoder-decoder cross attention&lt;/p&gt;
       <id>https://crosstar1228.github.io/NLP-AudioLM</id>
       <content type="html" xml:base="https://crosstar1228.github.io/NLP-AudioLM">&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;Google Research 에서 개발한 논문&lt;/p&gt;
+  &lt;p&gt;Google Research 에서 개발한 모델. Semantic 과 acuostic, 두 갈래의 tokenization으로 나누어 성능 향샹을 이룸&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
@@ -961,10 +961,10 @@ $C$ : encoder-decoder cross attention&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;3-fine-acoustic-token&quot;&gt;3. fine acoustic token&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/329274e9-1577-4224-b561-e2b18b4b269b/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;최종 audio에 detail을 추가함&lt;/li&gt;
   &lt;li&gt;최종 acoustic token을 Soundstream decoder를 통해 reconstruct&lt;/li&gt;
-  &lt;li&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/329274e9-1577-4224-b561-e2b18b4b269b/image.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;결론적으로&quot;&gt;결론적으로&lt;/h3&gt;
@@ -997,7 +997,7 @@ $C$ : encoder-decoder cross attention&lt;/p&gt;
       
 
       
-        <summary type="html">논문 간단 소개 Google Research 에서 개발한 논문</summary>
+        <summary type="html">논문 간단 소개 Google Research 에서 개발한 모델. Semantic 과 acuostic, 두 갈래의 tokenization으로 나누어 성능 향샹을 이룸</summary>
       
 
       

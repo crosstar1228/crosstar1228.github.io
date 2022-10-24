@@ -81,7 +81,7 @@
         
           <description>&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;Google Research 에서 개발한 논문&lt;/p&gt;
+  &lt;p&gt;Google Research 에서 개발한 모델. Semantic 과 acuostic, 두 갈래의 tokenization으로 나누어 성능 향샹을 이룸&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
