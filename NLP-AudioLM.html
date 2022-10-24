@@ -61,7 +61,7 @@
     <meta property="og:title" content="(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation" />
     <meta property="og:description" content="논문 간단 소개 Google Research 에서 개발한 모델. Semantic 과 acuostic, 두 갈래의 tokenization으로 나누어 성능 향샹을 이룸 Transcript(대본)을 통한 audio generation process가 주를 이루어왔음 speech synthesis에서 텍스트 대본 피아노에서 midi Representation 하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음 speech voice recover : speaker characteristic 이 필요함 AuodioLM의 허들 대규모" />
     <meta property="og:url" content="https://crosstar1228.github.io/NLP-AudioLM" />
-    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/image_captioning.jpg" />
+    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/googleai.png" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
     <meta property="article:author" content="https://www.facebook.com/wptjd212" />
     <meta property="article:published_time" content="2022-08-27T11:00:00+00:00" />
@@ -71,7 +71,7 @@
     <meta name="twitter:title" content="(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation" />
     <meta name="twitter:description" content="논문 간단 소개 Google Research 에서 개발한 모델. Semantic 과 acuostic, 두 갈래의 tokenization으로 나누어 성능 향샹을 이룸 Transcript(대본)을 통한 audio generation process가 주를 이루어왔음 speech synthesis에서 텍스트 대본 피아노에서 midi Representation 하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음 speech voice recover : speaker characteristic 이 필요함 AuodioLM의 허들 대규모" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
-    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/image_captioning.jpg" />
+    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/googleai.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="건너별의 Romantic AI" />
     <meta name="twitter:label2" content="Filed under" />
@@ -93,7 +93,7 @@
     "url": "https://crosstar1228.github.io/NLP-AudioLM",
     "image": {
         "@type": "ImageObject",
-        "url": "https://crosstar1228.github.io/assets/built/images/image_captioning.jpg",
+        "url": "https://crosstar1228.github.io/assets/built/images/googleai.png",
         "width": 2000,
         "height": 666
     },
@@ -236,7 +236,7 @@ into the {body} of the default.hbs template -->
             </header>
             <!-- 초반에 이미지가 뜨느냐 마느냐!
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/image_captioning.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/googleai.png)">
             </figure>
             
             -->
@@ -277,14 +277,14 @@ into the {body} of the default.hbs template -->
 <p><img src="https://velog.velcdn.com/images/crosstar1228/post/71e3f8d5-0325-4df0-a867-096b632377c1/image.png" alt="" /></p>
 
 <ol>
-  <li>semantic token (from W2v-BERT)
+  <li>semantic token (from <a href="https://deepai.org/publication/w2v-bert-combining-contrastive-learning-and-masked-language-modeling-for-self-supervised-speech-pre-training">W2v-BERT</a>)
     <ul>
       <li>local dependency(speech의 음소, 음악의 melody)</li>
       <li>global long-term structure(speech의 맥락, 음악의 harmony나 rhythm)</li>
       <li>긴 sequence를 허락하기 위하여 audio signal을 downsampling함</li>
     </ul>
   </li>
-  <li>acoustic token (from SoundStream)</li>
+  <li>acoustic token (from <a href="https://ai.googleblog.com/2021/08/soundstream-end-to-end-neural-audio.html">SoundStream neural codec</a>)</li>
 </ol>
 
 <h2 id="audio-only-language-model">Audio-Only language model</h2>

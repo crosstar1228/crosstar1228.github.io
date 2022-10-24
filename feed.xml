@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-10-24T14:03:00+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title><link href="https://crosstar1228.github.io/python_operator" rel="alternate" type="text/html" title="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" /><published>2022-10-13T11:00:00+00:00</published><updated>2022-10-13T11:00:00+00:00</updated><id>https://crosstar1228.github.io/python_operator</id><content type="html" xml:base="https://crosstar1228.github.io/python_operator">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://crosstar1228.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" /><updated>2022-10-24T14:08:38+00:00</updated><id>https://crosstar1228.github.io/feed.xml</id><title type="html">건너별의 Romantic AI</title><subtitle>IT/인공지능 서랍장</subtitle><entry><title type="html">(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title><link href="https://crosstar1228.github.io/python_operator" rel="alternate" type="text/html" title="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" /><published>2022-10-13T11:00:00+00:00</published><updated>2022-10-13T11:00:00+00:00</updated><id>https://crosstar1228.github.io/python_operator</id><content type="html" xml:base="https://crosstar1228.github.io/python_operator">&lt;blockquote&gt;
   &lt;p&gt;Keyword : operator, itemmgetter, attrgetter, methodcaller&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -681,14 +681,14 @@ $C$ : encoder-decoder cross attention&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/71e3f8d5-0325-4df0-a867-096b632377c1/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;semantic token (from W2v-BERT)
+  &lt;li&gt;semantic token (from &lt;a href=&quot;https://deepai.org/publication/w2v-bert-combining-contrastive-learning-and-masked-language-modeling-for-self-supervised-speech-pre-training&quot;&gt;W2v-BERT&lt;/a&gt;)
     &lt;ul&gt;
       &lt;li&gt;local dependency(speech의 음소, 음악의 melody)&lt;/li&gt;
       &lt;li&gt;global long-term structure(speech의 맥락, 음악의 harmony나 rhythm)&lt;/li&gt;
       &lt;li&gt;긴 sequence를 허락하기 위하여 audio signal을 downsampling함&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;acoustic token (from SoundStream)&lt;/li&gt;
+  &lt;li&gt;acoustic token (from &lt;a href=&quot;https://ai.googleblog.com/2021/08/soundstream-end-to-end-neural-audio.html&quot;&gt;SoundStream neural codec&lt;/a&gt;)&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;audio-only-language-model&quot;&gt;Audio-Only language model&lt;/h2&gt;
