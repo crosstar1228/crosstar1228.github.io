@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/nlp/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-10-13T15:23:08+00:00</updated>
+  <updated>2022-10-24T13:54:13+00:00</updated>
   <id>https://crosstar1228.github.io/tag/nlp/feed.xml</id>
 
   
@@ -127,6 +127,127 @@
 
       
         <summary type="html">Music representation은 크게 Symbol domain 과 audio domain으로 나뉩니다. 그 중 midi 파일의 표현 방식이자, discrete한 representation을 가지는 Symbolic music generation에 대해 알아봅시다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation</title>
+      <link href="https://crosstar1228.github.io/NLP-AudioLM" rel="alternate" type="text/html" title="(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation" />
+      <published>2022-08-27T11:00:00+00:00</published>
+      <updated>2022-08-27T11:00:00+00:00</updated>
+      <id>https://crosstar1228.github.io/NLP-AudioLM</id>
+      <content type="html" xml:base="https://crosstar1228.github.io/NLP-AudioLM">&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Google Research 에서 개발한 논문&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transcript(대본)을 통한 audio generation process가 주를 이루어왔음
+    &lt;ul&gt;
+      &lt;li&gt;speech synthesis에서 텍스트 대본&lt;/li&gt;
+      &lt;li&gt;피아노에서 midi Representation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음
+    &lt;ul&gt;
+      &lt;li&gt;speech voice recover : speaker characteristic 이 필요함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;auodiolm의-허들&quot;&gt;AuodioLM의 허들&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;대규모 말뭉치를 학습한 language model들은 최근 좋은 성능을 보임&lt;/li&gt;
+  &lt;li&gt;AudioLM은 그러한 진보에 박차를 가하여(그 구조를 따와서) &lt;strong&gt;annotated data 없이 audio를 생성할 수 있음&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;하지만 language model로부터 audio language model로 가려면 허들이 존재함
+    &lt;ol&gt;
+      &lt;li&gt;audio 생성을 위해서는 language 생성보다 더 밀도있는 데이터가 필요함&lt;/li&gt;
+      &lt;li&gt;text와 audio는 one-to-many 관계에 있어서, 같은 문장도 speaker, 감정, 스타일에 따라 달라짐&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;이러한-허들을-극복하기-위하여&quot;&gt;이러한 허들을 극복하기 위하여&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/71e3f8d5-0325-4df0-a867-096b632377c1/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;semantic token (from W2v-BERT)
+    &lt;ul&gt;
+      &lt;li&gt;local dependency(speech의 음소, 음악의 melody)&lt;/li&gt;
+      &lt;li&gt;global long-term structure(speech의 맥락, 음악의 harmony나 rhythm)&lt;/li&gt;
+      &lt;li&gt;긴 sequence를 허락하기 위하여 audio signal을 downsampling함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;acoustic token (from SoundStream)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;audio-only-language-model&quot;&gt;Audio-Only language model&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;AudioLM은 audio data만을 학습(text나 symbolic representation을 학습하지 않음)&lt;/li&gt;
+  &lt;li&gt;Hierachical한 모델(high level-&amp;gt; low level)
+    &lt;ul&gt;
+      &lt;li&gt;semantic token -&amp;gt; coarse acoustic token -&amp;gt; fine acoustic token으로 chainin하는 구조&lt;/li&gt;
+      &lt;li&gt;chain 사이사이에 transformer 모델이 활용됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-semantic-token&quot;&gt;1. Semantic token&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/8814e6d5-706b-4fd9-8683-85bba144938e/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;language model과 같이 next token을 예측하는 구조&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-coarse-acoustic-token&quot;&gt;2. coarse acoustic token&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/a915f356-ab6e-46ba-8c9d-b3114e45318f/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Genrerated token 과 poast coarse acoustic token을 concat함&lt;/li&gt;
+  &lt;li&gt;이러한 형태로 acoustic token이 예측됨&lt;/li&gt;
+  &lt;li&gt;이 단계에서 speaker의 특성(음색 등)이 모델링됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-fine-acoustic-token&quot;&gt;3. fine acoustic token&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;최종 audio에 detail을 추가함&lt;/li&gt;
+  &lt;li&gt;최종 acoustic token을 Soundstream decoder를 통해 reconstruct&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;https://velog.velcdn.com/images/crosstar1228/post/329274e9-1577-4224-b561-e2b18b4b269b/image.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;결론적으로&quot;&gt;결론적으로&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;piano continumation ,speech continuation, unconditional generation 등의 task에서 좋은 성능을 냄&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://google-research.github.io/seanet/audiolm/examples/&quot;&gt;이 페이지&lt;/a&gt;에서 디테일한 확인이 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://ai.googleblog.com/2022/10/audiolm-language-modeling-approach-to.html&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>건너별(crosstar)</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="nlp" />
+      
+
+      
+        <summary type="html">논문 간단 소개 Google Research 에서 개발한 논문</summary>
       
 
       

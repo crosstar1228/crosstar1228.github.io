@@ -11,7 +11,7 @@
 
 
 
-    <title>(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title>
+    <title>(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -52,30 +52,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="IT/인공지능 서랍장" />
     <link rel="shortcut icon" href="https://crosstar1228.github.io/assets/built/images/favicon1.gif" type="image/png" />
-    <link rel="canonical" href="https://crosstar1228.github.io/python_operator" />
+    <link rel="canonical" href="https://crosstar1228.github.io/NLP-AudioLM" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="건너별의 Romantic AI" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" />
-    <meta property="og:description" content="Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 ``` arr = [‘a’, ‘b’, ‘c’] func = itemgetter(2) func(arr) ‘b’ ``` attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의" />
-    <meta property="og:url" content="https://crosstar1228.github.io/python_operator" />
-    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/algorithm_background.jpg" />
+    <meta property="og:title" content="(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation" />
+    <meta property="og:description" content="논문 간단 소개 Google Research 에서 개발한 논문 Transcript(대본)을 통한 audio generation process가 주를 이루어왔음 speech synthesis에서 텍스트 대본 피아노에서 midi Representation 하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음 speech voice recover : speaker characteristic 이 필요함 AuodioLM의 허들 대규모 말뭉치를 학습한 language model들은 최근 좋은 성능을 보임 AudioLM은 그러한" />
+    <meta property="og:url" content="https://crosstar1228.github.io/NLP-AudioLM" />
+    <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/image_captioning.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
     <meta property="article:author" content="https://www.facebook.com/wptjd212" />
-    <meta property="article:published_time" content="2022-10-13T11:00:00+00:00" />
-    <meta property="article:modified_time" content="2022-10-13T11:00:00+00:00" />
-    <meta property="article:tag" content="Python" />
+    <meta property="article:published_time" content="2022-08-27T11:00:00+00:00" />
+    <meta property="article:modified_time" content="2022-08-27T11:00:00+00:00" />
+    <meta property="article:tag" content="Nlp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" />
-    <meta name="twitter:description" content="Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 ``` arr = [‘a’, ‘b’, ‘c’] func = itemgetter(2) func(arr) ‘b’ ``` attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의" />
+    <meta name="twitter:title" content="(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation" />
+    <meta name="twitter:description" content="논문 간단 소개 Google Research 에서 개발한 논문 Transcript(대본)을 통한 audio generation process가 주를 이루어왔음 speech synthesis에서 텍스트 대본 피아노에서 midi Representation 하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음 speech voice recover : speaker characteristic 이 필요함 AuodioLM의 허들 대규모 말뭉치를 학습한 language model들은 최근 좋은 성능을 보임 AudioLM은 그러한" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
-    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/algorithm_background.jpg" />
+    <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/image_captioning.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="건너별의 Romantic AI" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:data2" content="Nlp" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -90,18 +90,18 @@
         "name": "건너별의 Romantic AI",
         "logo": "https://crosstar1228.github.io/"
     },
-    "url": "https://crosstar1228.github.io/python_operator",
+    "url": "https://crosstar1228.github.io/NLP-AudioLM",
     "image": {
         "@type": "ImageObject",
-        "url": "https://crosstar1228.github.io/assets/built/images/algorithm_background.jpg",
+        "url": "https://crosstar1228.github.io/assets/built/images/image_captioning.jpg",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://crosstar1228.github.io/python_operator"
+        "@id": "https://crosstar1228.github.io/NLP-AudioLM"
     },
-    "description": "Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 ``` arr = [‘a’, ‘b’, ‘c’] func = itemgetter(2) func(arr) ‘b’ ``` attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의"
+    "description": "논문 간단 소개 Google Research 에서 개발한 논문 Transcript(대본)을 통한 audio generation process가 주를 이루어왔음 speech synthesis에서 텍스트 대본 피아노에서 midi Representation 하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음 speech voice recover : speaker characteristic 이 필요함 AuodioLM의 허들 대규모 말뭉치를 학습한 language model들은 최근 좋은 성능을 보임 AudioLM은 그러한"
 }
     </script>
 
@@ -114,7 +114,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation" href="/feed.xml" />
 
     <!-- mathjax use_math settings -->
     
@@ -218,121 +218,119 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-python post tag-ML ">
+        <article class="post-full  tag-nlp post tag-ML ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="13 October 2022">13 October 2022</time>
+                    <time class="post-full-meta-date" datetime="27 August 2022">27 August 2022</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/python/'>PYTHON</a>
+                               <a href='/tag/nlp/'>NLP</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</h1>
+                <h1 class="post-full-title">(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation</h1>
             </header>
             <!-- 초반에 이미지가 뜨느냐 마느냐!
             
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/algorithm_background.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/image_captioning.jpg)">
             </figure>
             
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <blockquote>
-  <p>Keyword : operator, itemmgetter, attrgetter, methodcaller</p>
-</blockquote>
-
-<h3 id="operator">Operator</h3>
-<ul>
-  <li>python operator 모듈 안에는 다양한 함수들이 있음</li>
-  <li>활용해서 가독성 있는 코딩이 가능함</li>
-</ul>
-
-<h3 id="itemgetter">itemgetter</h3>
-<ul>
-  <li>index가 정해져있는 함수를 반환함
-```
-arr = [‘a’, ‘b’, ‘c’]
-func = itemgetter(2)</li>
-</ul>
-
-<p>func(arr)</p>
+                    <h2 id="논문-간단-소개">논문 간단 소개</h2>
 <blockquote>
-  <blockquote>
-    <blockquote>
-      <p>‘b’
-```</p>
-    </blockquote>
-  </blockquote>
+  <p>Google Research 에서 개발한 논문</p>
 </blockquote>
 
-<h3 id="attrgetter">attrgetter</h3>
 <ul>
-  <li>class의 attribute이름을 특정하면 그 attribute를 반환</li>
+  <li>Transcript(대본)을 통한 audio generation process가 주를 이루어왔음
+    <ul>
+      <li>speech synthesis에서 텍스트 대본</li>
+      <li>피아노에서 midi Representation</li>
+    </ul>
+  </li>
+  <li>하지만 transcript가 없는 상황에서는 생성에 어려움을 겪음
+    <ul>
+      <li>speech voice recover : speaker characteristic 이 필요함</li>
+    </ul>
+  </li>
 </ul>
 
-<pre><code class="language-angular2html">f = attrgetter('name')
-f(b)
-&gt;&gt; b.name
-</code></pre>
+<h3 id="auodiolm의-허들">AuodioLM의 허들</h3>
 <ul>
-  <li>여러개의 attribute나 중첩된 attribute 형태도 가능함</li>
+  <li>대규모 말뭉치를 학습한 language model들은 최근 좋은 성능을 보임</li>
+  <li>AudioLM은 그러한 진보에 박차를 가하여(그 구조를 따와서) <strong>annotated data 없이 audio를 생성할 수 있음</strong></li>
+  <li>하지만 language model로부터 audio language model로 가려면 허들이 존재함
+    <ol>
+      <li>audio 생성을 위해서는 language 생성보다 더 밀도있는 데이터가 필요함</li>
+      <li>text와 audio는 one-to-many 관계에 있어서, 같은 문장도 speaker, 감정, 스타일에 따라 달라짐</li>
+    </ol>
+  </li>
 </ul>
 
-<h3 id="methodcaller">methodcaller</h3>
+<h3 id="이러한-허들을-극복하기-위하여">이러한 허들을 극복하기 위하여</h3>
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/71e3f8d5-0325-4df0-a867-096b632377c1/image.png" alt="" /></p>
+
+<ol>
+  <li>semantic token (from W2v-BERT)
+    <ul>
+      <li>local dependency(speech의 음소, 음악의 melody)</li>
+      <li>global long-term structure(speech의 맥락, 음악의 harmony나 rhythm)</li>
+      <li>긴 sequence를 허락하기 위하여 audio signal을 downsampling함</li>
+    </ul>
+  </li>
+  <li>acoustic token (from SoundStream)</li>
+</ol>
+
+<h2 id="audio-only-language-model">Audio-Only language model</h2>
 <ul>
-  <li>class의 method 특정해서 그 결과값을 반환</li>
-  <li>*args, **kwargs 등을 입력해서 해당 method input을 바로 입력하는 것도 가능!</li>
+  <li>AudioLM은 audio data만을 학습(text나 symbolic representation을 학습하지 않음)</li>
+  <li>Hierachical한 모델(high level-&gt; low level)
+    <ul>
+      <li>semantic token -&gt; coarse acoustic token -&gt; fine acoustic token으로 chainin하는 구조</li>
+      <li>chain 사이사이에 transformer 모델이 활용됨</li>
+    </ul>
+  </li>
 </ul>
 
-<pre><code class="language-angular2html"> f = methodcaller('name', 'foo', bar=1)
-f(b) 
-&gt;&gt;&gt; b.name('foo', bar=1)
-</code></pre>
+<h3 id="1-semantic-token">1. Semantic token</h3>
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/8814e6d5-706b-4fd9-8683-85bba144938e/image.png" alt="" /></p>
 
-<h2 id="functoolspartial">functools.partial</h2>
 <ul>
-  <li>하나 이상의 인수가 채워진 또 하나의 함수를 만드는 데 사용</li>
-  <li>불필요한 반복작업 줄임</li>
+  <li>language model과 같이 next token을 예측하는 구조</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 첫 인자에 따라 더하기도 하고, 곱하기도 하는 함수
-def add_mul(choice, *args):
-    if choice == "add":
-        result = 0
-        for i in args:
-            result = result + i
-    elif choice == "mul":
-        result = 1
-        for i in args:
-            result = result * i
-    return result
-
-
-# 더하는 함수를 만드는 일반적인 풀이 
-def add(*args):
-    return add_mul('add', *args)
-    
-# partial 사용할 경우 간결해진다! 
-add = partial(add_mul, 'add')
-
-</code></pre></div></div>
-<h3 id="회고">회고</h3>
+<h3 id="2-coarse-acoustic-token">2. coarse acoustic token</h3>
+<p><img src="https://velog.velcdn.com/images/crosstar1228/post/a915f356-ab6e-46ba-8c9d-b3114e45318f/image.png" alt="" /></p>
 <ul>
-  <li>코드 가독성을 높이는 데 좋을 듯 하다.</li>
-  <li>다른 여러 사칙.논리 연산 등에도 유용해 보인다(공식문서 참고).</li>
-  <li>partial은 활용도가 높아 보인다.</li>
+  <li>Genrerated token 과 poast coarse acoustic token을 concat함</li>
+  <li>이러한 형태로 acoustic token이 예측됨</li>
+  <li>이 단계에서 speaker의 특성(음색 등)이 모델링됨</li>
+</ul>
+
+<h3 id="3-fine-acoustic-token">3. fine acoustic token</h3>
+<ul>
+  <li>최종 audio에 detail을 추가함</li>
+  <li>최종 acoustic token을 Soundstream decoder를 통해 reconstruct</li>
+  <li><img src="https://velog.velcdn.com/images/crosstar1228/post/329274e9-1577-4224-b561-e2b18b4b269b/image.png" alt="" /></li>
+</ul>
+
+<h3 id="결론적으로">결론적으로</h3>
+<ul>
+  <li>piano continumation ,speech continuation, unconditional generation 등의 task에서 좋은 성능을 냄</li>
+  <li><a href="https://google-research.github.io/seanet/audiolm/examples/">이 페이지</a>에서 디테일한 확인이 가능</li>
 </ul>
 
 <h2 id="reference">Reference</h2>
 <ul>
-  <li>https://docs.python.org/3/library/operator.html</li>
-  <li>https://wikidocs.net/109304</li>
+  <li>https://ai.googleblog.com/2022/10/audiolm-language-modeling-approach-to.html</li>
 </ul>
+
 
                 </div>
             </section>
@@ -398,9 +396,9 @@ add = partial(add_mul, 'add')
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            var this_page_url = 'https://crosstar1228.github.io/python_operator';
-                            var this_page_identifier = '/python_operator';
-                            var this_page_title = '(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial';
+                            var this_page_url = 'https://crosstar1228.github.io/NLP-AudioLM';
+                            var this_page_identifier = '/NLP-AudioLM';
+                            var this_page_title = '(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -443,7 +441,7 @@ add = partial(add_mul, 'add')
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; 건너별의 Romantic AI &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/nlp/">Nlp</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -453,6 +451,50 @@ add = partial(add_mul, 'add')
                                 
                                 
                                   
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/NLP-music_generation_input_output">Symbolic Music Representation - 1D, 2D Future Directions</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/NLP-meshed_memory_transformer">\[Paper Review\] Meshed-memory transformer for image captioning</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/NLP-music_generation_paper_review_1">A Comprehensive Survey on Deep Music Generation - Multi-level Representations, Algorithms, Evaluations, and Future Directions</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -485,39 +527,17 @@ add = partial(add_mul, 'add')
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
+                                    
+                                        
+                                        
+                                    
                                   
                                 
                                   
                                     
                                         
                                         
-                                            <li><a href="/errors-1">error - fatal authentication failed for</a></li>
-                                        
                                     
-                                  
-                                
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/errors-2">error (2) - git authentication error</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                
                                   
                                 
                                   
@@ -527,9 +547,9 @@ add = partial(add_mul, 'add')
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/python/">
+                            <a href="/tag/nlp/">
                                 
-                                    See all 2 posts  →
+                                    See all 6 posts  →
                                 
                             </a>
                         </footer>
@@ -539,34 +559,32 @@ add = partial(add_mul, 'add')
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
-
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
                 
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/db1">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/db_image.png)"></div>
+            <a class="post-card-image-link" href="/NLP-music_generation_input_output">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/music_note.jpg)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/db1">
+            <a class="post-card-content-link" href="/NLP-music_generation_input_output">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Backend</span>
+                                <span class="post-card-tags">Nlp</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">python and database 1 - ORM and ODBC</h2>
+                    <h2 class="post-card-title">Symbolic Music Representation - 1D, 2D Future Directions</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
                         <p>
-  Keyword : Transfer learning, Zero-shot learning
+  Music representation은 크게 Symbol domain 과 audio domain으로 나뉩니다. 그 중 midi 파일의 표현 방식이자, discrete한 representation을 가지는
+Symbolic music generation에 대해 알아봅시다.
 
 
 </p>
@@ -596,6 +614,65 @@ add = partial(add_mul, 'add')
 
             
 
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/NLP-meshed_memory_transformer">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/image_captioning.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/NLP-meshed_memory_transformer">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Nlp</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">\[Paper Review\] Meshed-memory transformer for image captioning</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>논문 간단 소개
+
+  image captioning task에서 transformer 모델을 활용한 모델 중 가장
+    Abstract
+  
+
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/logo.jpg" alt="건너별(crosstar)" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/crosstar/">건너별(crosstar)</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
         </div>
     </div>
 </aside>
@@ -611,18 +688,18 @@ add = partial(add_mul, 'add')
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</div>
+    <div class="floating-header-title">(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%28python%EC%A4%91%EA%B8%89%29+%EA%B9%94%EB%81%94%ED%95%98%EA%B2%8C+%ED%95%A8%EC%88%98+%EB%A6%AC%EB%AA%A8%EB%8D%B8%EB%A7%81%ED%95%B4%EB%B3%B4%EC%9E%90%21+itemgetter%2C+attrgetter%2C+methodcaller%2C+partial&amp;url=https://crosstar1228.github.io/python_operator"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%28Paper+Review%29+AudioLM+%3B+a+language+Modeling+Approach+to+Audio+Generation&amp;url=https://crosstar1228.github.io/NLP-AudioLM"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://crosstar1228.github.io/python_operator"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://crosstar1228.github.io/NLP-AudioLM"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

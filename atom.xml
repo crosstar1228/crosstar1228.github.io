@@ -77,6 +77,24 @@
     
       
       <item>
+        <title>(Paper Review) AudioLM ; a language Modeling Approach to Audio Generation</title>
+        
+          <description>&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Google Research 에서 개발한 논문&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Sat, 27 Aug 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/NLP-AudioLM</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/NLP-AudioLM</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>\[Paper Review\] Meshed-memory transformer for image captioning</title>
         
           <description>&lt;h2 id=&quot;논문-간단-소개&quot;&gt;논문 간단 소개&lt;/h2&gt;
