@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://crosstar1228.github.io/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://crosstar1228.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-10-24T14:08:38+00:00</updated>
+  <updated>2022-10-29T11:51:18+00:00</updated>
   <id>https://crosstar1228.github.io/tag/python/feed.xml</id>
 
   
@@ -49,21 +49,15 @@
 
 &lt;h3 id=&quot;itemgetter&quot;&gt;itemgetter&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;index가 정해져있는 함수를 반환함
-```
-arr = [‘a’, ‘b’, ‘c’]
-func = itemgetter(2)&lt;/li&gt;
+  &lt;li&gt;index가 정해져있는 함수를 반환함&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;func(arr)&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;‘b’
-```&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&quot;language-angular2html&quot;&gt;arr = ['a', 'b', 'c']
+func = itemgetter(2)
+
+func(arr) 
+&amp;gt;&amp;gt;&amp;gt; 'b'
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&quot;attrgetter&quot;&gt;attrgetter&lt;/h3&gt;
 &lt;ul&gt;

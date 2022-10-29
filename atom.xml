@@ -8,6 +8,23 @@
     
       
       <item>
+        <title>Nature지에 논문 내기 위한 가이드라인</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Nature지에 논문을 내기 위한 guideline을 알아봅시다. 제출전/ 제출후/ 승인후 이렇게 크게 3가지 단계로 나뉩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Fri, 28 Oct 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/nature_paper_writing_guideline</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/nature_paper_writing_guideline</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial</title>
         
           <description>&lt;blockquote&gt;
@@ -135,6 +152,23 @@
         <link>
         https://crosstar1228.github.io/NLP-music_generation_paper_review_1</link>
         <guid isPermaLink="true">https://crosstar1228.github.io/NLP-music_generation_paper_review_1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Self-Supervised learning 에 대한 고찰</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;Self- supervised learning에 대한 개념을 정립하고 싶어 이 포스팅을 하게되었다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Thu, 11 Aug 2022 11:00:00 +0000</pubDate>
+        <link>
+        https://crosstar1228.github.io/Self_Supervised_Learning</link>
+        <guid isPermaLink="true">https://crosstar1228.github.io/Self_Supervised_Learning</guid>
       </item>
       
     

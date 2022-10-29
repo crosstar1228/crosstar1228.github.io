@@ -59,7 +59,7 @@
     <meta property="og:site_name" content="건너별의 Romantic AI" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" />
-    <meta property="og:description" content="Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 ``` arr = [‘a’, ‘b’, ‘c’] func = itemgetter(2) func(arr) ‘b’ ``` attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의" />
+    <meta property="og:description" content="Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 arr = ['a', 'b', 'c'] func = itemgetter(2) func(arr) &gt;&gt;&gt; 'b' attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의 attribute나" />
     <meta property="og:url" content="https://crosstar1228.github.io/python_operator" />
     <meta property="og:image" content="https://crosstar1228.github.io/assets/built/images/algorithm_background.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/wptjd212" />
@@ -69,7 +69,7 @@
     <meta property="article:tag" content="Python" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="(python중급) 깔끔하게 함수 리모델링해보자! itemgetter, attrgetter, methodcaller, partial" />
-    <meta name="twitter:description" content="Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 ``` arr = [‘a’, ‘b’, ‘c’] func = itemgetter(2) func(arr) ‘b’ ``` attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의" />
+    <meta name="twitter:description" content="Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 arr = ['a', 'b', 'c'] func = itemgetter(2) func(arr) &gt;&gt;&gt; 'b' attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의 attribute나" />
     <meta name="twitter:url" content="https://crosstar1228.github.io/" />
     <meta name="twitter:image" content="https://crosstar1228.github.io/assets/built/images/algorithm_background.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -101,7 +101,7 @@
         "@type": "WebPage",
         "@id": "https://crosstar1228.github.io/python_operator"
     },
-    "description": "Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 ``` arr = [‘a’, ‘b’, ‘c’] func = itemgetter(2) func(arr) ‘b’ ``` attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의"
+    "description": "Keyword : operator, itemmgetter, attrgetter, methodcaller Operator python operator 모듈 안에는 다양한 함수들이 있음 활용해서 가독성 있는 코딩이 가능함 itemgetter index가 정해져있는 함수를 반환함 arr = ['a', 'b', 'c'] func = itemgetter(2) func(arr) &gt;&gt;&gt; 'b' attrgetter class의 attribute이름을 특정하면 그 attribute를 반환 f = attrgetter('name') f(b) &gt;&gt; b.name 여러개의 attribute나"
 }
     </script>
 
@@ -254,21 +254,15 @@ into the {body} of the default.hbs template -->
 
 <h3 id="itemgetter">itemgetter</h3>
 <ul>
-  <li>index가 정해져있는 함수를 반환함
-```
-arr = [‘a’, ‘b’, ‘c’]
-func = itemgetter(2)</li>
+  <li>index가 정해져있는 함수를 반환함</li>
 </ul>
 
-<p>func(arr)</p>
-<blockquote>
-  <blockquote>
-    <blockquote>
-      <p>‘b’
-```</p>
-    </blockquote>
-  </blockquote>
-</blockquote>
+<pre><code class="language-angular2html">arr = ['a', 'b', 'c']
+func = itemgetter(2)
+
+func(arr) 
+&gt;&gt;&gt; 'b'
+</code></pre>
 
 <h3 id="attrgetter">attrgetter</h3>
 <ul>
@@ -453,7 +447,11 @@ add = partial(add_mul, 'add')
                                 
                                 
                                   
+                                
+                                  
                                     
+                                  
+                                
                                   
                                 
                                   
@@ -538,6 +536,59 @@ add = partial(add_mul, 'add')
             
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/nature_paper_writing_guideline">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/img.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/nature_paper_writing_guideline">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Ml</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Nature지에 논문 내기 위한 가이드라인</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>
+  Nature지에 논문을 내기 위한 guideline을 알아봅시다. 제출전/ 제출후/ 승인후 이렇게 크게 3가지 단계로 나뉩니다.
+
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/logo.jpg" alt="건너별(crosstar)" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/crosstar/">건너별(crosstar)</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
